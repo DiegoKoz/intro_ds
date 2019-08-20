@@ -1,0 +1,100 @@
+---
+title: Introducción a R
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica independiente
+---
+
+
+> Reiniciar R (`Session --> Restart R`)
+
+
+
+### objetos y vectores
+
+- Crear un OBJETO llamado _objeto_ definido como el resultado de la suma: 5 + 6
+
+```{r}
+objeto <- 5+6
+```
+
+- Crear un VECTOR _VEC0_ que contenga los números 1, 3, 4.
+
+```{r}
+
+```
+
+
+- Crear 3 vectores ( _VEC1_, _VEC2_, _VEC3_) que sean transformaciones del anterior
+```{r}
+
+```
+
+- Crear 3 vectores con la misma cantidad de elementos que VEC0, pero con variables string (texto) ( _VEC4_, _VEC5_, 
+_VEC6_).
+
+```{r}
+
+```
+
+- Crear un dataframe _DFRAME_ como combinación de todos los __vectores__ creados previamente
+
+
+### Dataset [cruceros](https://data.buenosaires.gob.ar/dataset/cruceros)
+
+El archivo `TUR_CRU_AX04.xls` contiene información de las recaladas de cruceros en buenos aires. Se encuentra en la carpeta fuentes.
+
+El objetivo es leer el archivo:
+
+1. sin mover su ubicación
+2. sin cambiar su formato (pueden usar la librería `xlsx`)
+3. Indicando que queremos leer la primer hoja
+4. sin modificar el archivo (¿hay algún parámetro de la función que nos permita esquivar las primeras filas?)
+5. Noten que al final del archivo hay notas aclaratorias. ¿hay algún parámetro de la función que nos permita especificar hasta qué fila leer el archivo?
+
+```{r}
+```
+
+
+### operaciones sobre objetos
+
+
+hacer un summary sobre la cantidad de recaladas para saber el mínimo, el primer cuartil. la mediana, la media, tercer cuartil y el máximo valor.
+
+```{r}
+```
+
+
+Crear un vector booleano que indique si aumento la recalada respecto al año anterior:
+
+hint: Podemos utilizar `<` o `>` junto con `[]`
+
+```{r}
+cruceros$Recaladas[1:20]<cruceros$Recaladas[2:21]
+
+```
+
+Agregar el vector como una nueva columna al dataframe, que se llame "aumento_recalada"
+```{r}
+
+```
+
+
+
+### archivos y ambientes de trabajo
+
+
+1. Crear un script `.R` con el código de la práctica independiente.
+2. Crear un proyecto para la clase 1.
+3. Guardar en un Rdata los elementos del enviroment (googlear cómo se guarda).
+4. Reinciar R y abrir el Rdata.
+5. Guardar el dataset de cruceros en un .RDS.
+6. Levantar el .RDS con otro nombre.
+
+
+
+
+

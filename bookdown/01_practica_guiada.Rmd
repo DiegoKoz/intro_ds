@@ -1,0 +1,92 @@
+
+## Práctica Guiada
+
+### Instalación de paquetes complementarios al R Base          
+
+Hasta aquí hemos visto múltiples funciones que están contenidas dentro del lenguaje básico de R. Ahora bien, al tratarse de un software libre, los usuarios de R con más experiencia contribuyen sistemáticamente a expandir este lenguaje mediante la creación y actualización de __paquetes__ complementarios. Lógicamente, los mismos no están incluidos en la instalación inicial del programa, pero podemos descargarlos e instalarlos al mismo tiempo con el siguiente comando:   
+``` 
+install.packages("nombre_del_paquete") 
+```
+Resulta recomendable __ejecutar este comando desde la consola__ ya que solo necesitaremos correrlo una vez en nuestra computadora. Al ejecutar el mismo, se descargarán de la pagina de [CRAN](www.cran.r-project.org) los archivos correspondientes al paquete hacia el directorio en donde hayamos instalado el programa. Típicamente los archivos se encontrarán en __`C:\Program Files\R\R-3.5.0\library\`__, siempre con la versión del programa correspondiente.              
+Una vez instalado el paquete, cada vez que abramos una nueva sesión de R y querramos utilizar el mismo debemos **cargarlo al ambiente de trabajo** mediante la siguiente función:
+``` 
+library(nombre_del_paquete)
+```
+Nótese que al cargar/activar el paquete no son necesarias las comillas.
+
+### Lectura y escritura de archivos
+
+#### .csv  y  .txt
+
+Hay __muchas__ funciones para leer archivos de tipo _.txt_ y _.csv_. La mayoría sólo cambia los parámetros que vienen por default. 
+
+Es importante tener en cuenta que una base de datos que proviene de archivos _.txt_, o _.csv_ puede presentar diferencias en cuanto a los siguientes parametros:
+
+- encabezado
+- delimitador (```,```, tab, ```;```)
+- separador decimal 
+
+
+``` 
+dataframe <- read.delim(file, header = TRUE, sep = "\t", quote = "\"", dec = ".", fill = TRUE, comment.char = "", ...) 
+```
+
+Ejemplo. Levantar la base de [sueldos de funcionarios](https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios)
+
+En el parametro `file` tengo que especificar el nombre completo del archivo, incluyendo el directorio donde se encuentra. Lo más sencillo es abrir comillas, apretar `Tab` y se despliega el menú de las cosas que tenemos en el directorio de trabajo. Si queremos movernos hacia arriba, agregamos `../`
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+sueldos_funcionarios <- read.table(file = '../fuentes/sueldo_funcionarios_2019.csv',sep=",", header = TRUE)
+sueldos_funcionarios[1:10,]
+```
+Como puede observarse aquí, las bases individuales de la EPH cuentan con más de 58.000 registros y 177 variables.
+Al trabajar con bases de microdatos, resulta conveniente contar con algunos comandos para tener una mirada rápida de la base, antes de comenzar a realizar los procesamientos que deseemos.     
+
+Veamos algunos de ellos:
+
+```{r}
+
+#View(individual_t117)
+names(sueldos_funcionarios)
+summary(sueldos_funcionarios)
+head(sueldos_funcionarios)[,1:5]
+
+```
+
+
+#### Excel 
+
+
+Para leer y escribir archivos excel debemos utilizar los comandos que vienen con la librería openxlsx
+
+```{r,warning=FALSE}
+
+# install.packages("openxlsx") # por única vez
+library(openxlsx) #activamos la librería
+
+#creamos una tabla cualquiera de prueba
+x <- 1:10
+y <- 11:20
+tabla_de_R <- data.frame(x,y)
+
+# escribimos el archivo
+write.xlsx( x = tabla_de_R, file = "../resultados/archivo.xlsx",row.names = FALSE)
+#Donde lo guardó? Hay un directorio por default en caso de que no hayamos definido alguno.
+
+#getwd()
+
+#Si queremos exportar multiples dataframes a un Excel, debemos armar previamente una lista de ellos. Cada dataframe, se guardará en una pestaña de excel, cuyo nombre correspondera al que definamos para cada Dataframe a la hora de crear la lista.
+Lista_a_exportar <- list("sueldos funcionarios" = sueldos_funcionarios,
+                         "Tabla Numeros" = tabla_de_R)
+
+write.xlsx( x = Lista_a_exportar, file = "../resultados/archivo_2_hojas.xlsx",row.names = FALSE)
+
+#leemos el archivo especificando la ruta (o el directorio por default) y el nombre de la hoja que contiene los datos
+Indices_Salario <- read.xlsx(xlsxFile = "../resultados/archivo_2_hojas.xlsx",sheet = "sueldos funcionarios")
+#alternativamente podemos especificar el número de orden de la hoja que deseamos levantar
+Indices_Salario <- read.xlsx(xlsxFile = "../resultados/archivo_2_hojas.xlsx",sheet = 1)
+Indices_Salario[1:10,]
+```
+
+
