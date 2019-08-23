@@ -1,0 +1,30 @@
+---
+title: Probabilidad y Estadística
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica independiente
+---
+
+
+
+# Ejercicios para practicar
+* Calcular el promedio del ingreso por ocupación principal (Variable **P21**)  para  **asalariados** con y sin **descuento jubilatorio** (Variable **PP07H**). Luego realizar un gráfico de barras donde se comparen ambos valores (para el 1er trimestre de 2017).                   
+  Pistas: Se deben filtrar previamente los ingresos mayores a 0 (**P21>0**).Chequear que ponderador corresponde utilizar           
+               
+- Graficar la distribución del ingreso por ocupación principal para Asalariados, Cuentapropistas y Patrones, con el tipo de gráfico Kernel                 
+   Pista: Usar la función **facet_wrap** para separar a cada una de las categorías ocupacionales)                
+   Sugerencia: incorporar la línea ``` scale_x_continuous(limits = c(0,50000)) ``` entre las capas del gráfico. ¿Qué cambió?
+
+
+
+# Ejercicios de tarea
+
+- Hacer un gráfico boxplot de la distribución de edades de los asalariados con descuento jubilatorio, y de los asalariados sin descuento jubilatorio.
+
+- Uniendo las bases de los distintos trimestres, calcular el procentaje de asalariados sin descuento jubilatorio como $\frac{Asal. s/ desc jubil}{Asal. c/ desc jubil+ Asal.s/ desc jubil}$. Luego realizar un gráfico de linea con la evolución de este indicador
+
+
+

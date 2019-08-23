@@ -41,7 +41,7 @@ A) $P(A\cup B) = P(A) + P(B)\ si\ A \cap B = \emptyset$
 > ejemplo, tiramos un dado y sale tres
 
 - Espacio muestral: 1,2,3,4,5,6
-- Restulado: 3
+- Resultado: 3
 - Evento: impar (el conjunto 1,3,5)
 
 
@@ -69,7 +69,7 @@ Cómo el conjunto de resultados posibles es acotado, podemos definirlo en una ta
 
 ¿Qué pasa cuando el conjunto de resultados posibles es tan grande que no se puede enumerar la probabilidad de cada caso?
 
-Si, por definición o por practicidad, no se puede ennumerar cada caso, lo que tenemos es una __distribución continua__
+Si, por definición o por practicidad, no se puede enumerar cada caso, lo que tenemos es una __distribución continua__
 
 > Por ejemplo, la altura de la población
 
@@ -86,7 +86,7 @@ ggplot(data = data.frame(x = c(114, 234)), aes(x)) +
 
 - En este caso, no podemos definir en una tabla la probabilidad de cada uno de los posibles valores. _de hecho, la probabilidad puntual es 0_. 
 
-- Sin embargo, sí pódemos definir una _función de probabilidad_, la _densidad_.
+- Sin embargo, sí podemos definir una _función de probabilidad_, la _densidad_.
 
 - Según qué función utilicemos, cambiara la forma de la curva.
 
@@ -130,7 +130,7 @@ ggplot(data = data.frame(x = c(0, 10)), aes(x)) +
 ggplot(data = data.frame(x = c(-10,10)), aes(x)) +
   stat_function(fun = dnorm, n = 1000, args = list(mean = 0, sd = 1)) + 
   labs(x='',y="", title = "Distribución Normal",
-       subtitle = 'media = 0, desvío estandar = 1') +
+       subtitle = 'media = 0, desvío estándar = 1') +
   scale_y_continuous(breaks = NULL)+
   scale_x_continuous(breaks = seq(-10,10,2))+
   theme_minimal()+
@@ -139,7 +139,7 @@ ggplot(data = data.frame(x = c(-10,10)), aes(x)) +
 ggplot(data = data.frame(x = c(-10,10)), aes(x)) +
   stat_function(fun = dnorm, n = 1000, args = list(mean = 0, sd = 3)) + 
   labs(x='',y="", title = "Distribución Normal",
-       subtitle = 'media = 0, desvío estandar = 3') +
+       subtitle = 'media = 0, desvío estándar = 3') +
   scale_y_continuous(breaks = NULL)+
   scale_x_continuous(breaks = seq(-10,10,2))+
   theme_minimal()+
@@ -148,7 +148,7 @@ ggplot(data = data.frame(x = c(-10,10)), aes(x)) +
 ggplot(data = data.frame(x = c(-10,10)), aes(x)) +
   stat_function(fun = dnorm, n = 1000, args = list(mean = 5, sd = 1)) + 
   labs(x='',y="", title = "Distribución Normal",
-       subtitle = 'media = 5, desvío estandar = 1') +  
+       subtitle = 'media = 5, desvío estándar = 1') +  
   scale_y_continuous(breaks = NULL)+
   scale_x_continuous(breaks = seq(-10,10,2))+
   theme_minimal()+
@@ -218,17 +218,17 @@ Como no puedo conocer $\mu$, lo estimo mediante $\bar{X}$
 
 - El estimador $\bar{X}$ nos devuelve un número. Esto es una inferencia de cuál creemos que es la media. Pero no es seguro de que esa sea realmente la media. Esto es lo que denominamos estimación puntual
 
-- También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parametro poblacional realmente este dentro de este intervalo. Esto se conoce como __intervalos de confianza__
+- También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parámetro poblacional realmente este dentro de este intervalo. Esto se conoce como __intervalos de confianza__
 
 - Por su parte, también podemos calcular la probabilidad de que el parámetro poblacional sea mayor, menor o igual a un cierto valor. Esto es lo que se conoce como __test de hipótesis__.
 
-- En el fondo, los intervalos de confianza y los tests de hipótesis se contruyen de igual manera. Son funciones que se construyen a partir de los datos, que se comparan con distribuciones conocidas, _teóricas_. 
+- En el fondo, los intervalos de confianza y los tests de hipótesis se construyen de igual manera. Son funciones que se construyen a partir de los datos, que se comparan con distribuciones conocidas, _teóricas_. 
 
 ##### Definición de los tests
 
 - Los tests se construyen con dos hipótesis: La hipótesis nula $H_0$, y la hipótesis alternativa, $H_1$. Lo que buscamos es ver si _hay evidencia suficiente para rechazar la hipótesis nula_.
 
-Por ejemplo, si querémos comprobar si la media poblacional, $\mu$ de una distribución es mayor a $X_i$, haremos un test con las siguientes hipótesis:
+Por ejemplo, si queremos comprobar si la media poblacional, $\mu$ de una distribución es mayor a $X_i$, haremos un test con las siguientes hipótesis:
 
 - $H_0: \mu = X_i$
 - $H_1: \mu > X_i$
@@ -237,7 +237,7 @@ Si la evidencia es lo suficientemente fuerte, podremos rechazar la hipótesis $H
 
 ##### Significatividad en los tests
 
-- Muchas veces decimos que algo es __"estadísticamente significativo"__. Detras de esto se encuentra un test de hipótesis que indica que hay una suficiente _significativdad estadística_. 
+- Muchas veces decimos que algo es __"estadística mente significativo"__. Detrás de esto se encuentra un test de hipótesis que indica que hay una suficiente _significativdad estadística_. 
 
 - La _significatividad estadística_,representada con $\alpha$, es la probabilidad de rechazar $H_0$ cuando en realidad es cierta. Por eso, cuanto más bajo el valor de $\alpha$, más seguros estamos de no equivocarnos. Por lo general testeamos con valores de alpha de 1%, 5% y 10%, dependiendo del área de estudio
 
@@ -259,7 +259,7 @@ __Cada Test tiene sus propios supuestos__. Por eso a veces luego de hacer un tes
 
 - Lo primero, la fuerza de la evidencia, es lo que más nos importa, y no hay mucho por hacer. 
 
-- El tamaño de la muestra es un problema, porque si la muesta es muy chica, entonces podemos no llegar a conclusiones significativas aunque sí ocurra aquello que queríamos probar. 
+- El tamaño de la muestra es un problema, porque si la muestra es muy chica, entonces podemos no llegar a conclusiones significativas aunque sí ocurra aquello que queríamos probar. 
 
 - Sin embargo, el verdadero problema en _La era del big data_ es que tenemos muestras demasiado grandes, por lo que cualquier test, por más mínima que sea la diferencia, puede dar significativo.
 
@@ -560,4 +560,14 @@ ggplot(data = distribuciones, aes(distribucion, valor, fill=distribucion)) +
         text = element_text(size = 18))
 ```
 
+
+
+
+### Bibliografía de consulta
+
+Quién quiera profundizar en estos temas, puede ver los siguientes materiales:
+
+- https://seeing-theory.brown.edu/
+- https://lagunita.stanford.edu/courses/course-v1:OLI+ProbStat+Open_Jan2017/about
+- Jay L. Devore, “Probabilidad y Estadística para Ingeniería y Ciencias”, International Thomson Editores. https://inferencialitm.files.wordpress.com/2018/04/probabilidad-y-estadistica-para-ingenieria-y-ciencias-devore-7th.pdf
 

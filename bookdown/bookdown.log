@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2019/dev/Debian) (preloaded format=xelatex 2019.4.20)  23 AUG 2019 12:33
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2019/dev/Debian) (preloaded format=xelatex 2019.4.20)  23 AUG 2019 14:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1416,49 +1416,63 @@ File: bookdown_files/figure-latex/unnamed-chunk-43-2.pdf Graphic file (type pdf
 )
 <use bookdown_files/figure-latex/unnamed-chunk-43-2.pdf>
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1776--1776
+Underfull \hbox (badness 10000) in paragraph at lines 1766--1768
+[][]$[][][][][] [] [] [] [][][][][][][][] [] [][][][][][][][] [] [][][] [] [][]
+[][][][][] [] [][][][][][][][][][] [] [][][] [] [][][][][][][][] [] [][][][] []
+
+ []
+
+
+Overfull \hbox (23.73pt too wide) in paragraph at lines 1768--1769
+[][][] [] [][][][] [] [][] [] [][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][] []
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1791--1791
 []\TU/lmtt/m/n/10 ##  [1] -1.20706575  0.27742924  1.08444118 -2.34569770  0.42
 912469[] 
  []
 
-
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1776--1776
+[43]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1791--1791
 []\TU/lmtt/m/n/10 ##  [6]  0.50605589 -0.57473996 -0.54663186 -0.56445200 -0.89
 003783[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 1776--1776
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1791--1791
 []\TU/lmtt/m/n/10 ## [11] -0.47719270 -0.99838644 -0.77625389  0.06445882  0.95
 949406[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 1782--1782
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1797--1797
 []\TU/lmtt/m/n/10 ##  [1] -0.363717710 -1.603466805 -0.388596796 -0.588007490  
 0.007839245[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 1782--1782
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1797--1797
 []\TU/lmtt/m/n/10 ##  [6] 14.690527710 -1.863488555  0.022667470 -2.084247299 -
 0.249237745[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 1782--1782
+Overfull \hbox (33.0pt too wide) in paragraph at lines 1797--1797
 []\TU/lmtt/m/n/10 ## [11] -1.311594174 -3.569055208 -2.490838240 -3.848779244 -
 4.271087169[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 1788--1788
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1803--1803
 []\TU/lmtt/m/n/10 ##  [1] 0.5317744 1.4263809 4.2797098 0.2184660 0.6923773 0.0
 455256 3.1902100[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 1788--1788
+Overfull \hbox (59.25pt too wide) in paragraph at lines 1803--1803
 []\TU/lmtt/m/n/10 ##  [8] 0.2949942 0.5403827 0.1543732 0.8639196 0.1417290 1.1
 386091 0.2966193[] 
  []
@@ -1473,11 +1487,11 @@ File: bookdown_files/figure-latex/unnamed-chunk-46-3.pdf Graphic file (type pdf
 )
 <use bookdown_files/figure-latex/unnamed-chunk-46-3.pdf>
 
-Overfull \hbox (51.12085pt too wide) in paragraph at lines 1790--1792
+Overfull \hbox (51.12085pt too wide) in paragraph at lines 1805--1807
 \TU/lmr/m/n/10 mando plot []
  []
 
-[43] [44] [45]
+[44] [45]
 File: bookdown_files/figure-latex/unnamed-chunk-52-1.pdf Graphic file (type pdf
 )
 <use bookdown_files/figure-latex/unnamed-chunk-52-1.pdf>
@@ -1488,23 +1502,23 @@ File: bookdown_files/figure-latex/unnamed-chunk-52-3.pdf Graphic file (type pdf
 )
 <use bookdown_files/figure-latex/unnamed-chunk-52-3.pdf>
 No file bookdown.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1891.
-[46]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1891.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1906.
+[46] [47]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1906.
 (./bookdown.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1891.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1891.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1906.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1906.
 
 Package rerunfilecheck Info: File `bookdown.out' has not changed.
 (rerunfilecheck)             Checksum: 91D91F98B6D7AF89CEF30E0EC6637347.
  ) 
 Here is how much of TeX's memory you used:
- 24128 strings out of 494835
- 453273 string characters out of 6175179
- 578328 words of memory out of 5000000
- 27774 multiletter control sequences out of 15000+600000
+ 24129 strings out of 494835
+ 453299 string characters out of 6175179
+ 578387 words of memory out of 5000000
+ 27775 multiletter control sequences out of 15000+600000
  553124 words of font info for 70 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  45i,8n,54p,805b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bookdown.pdf (46 pages).
+Output written on bookdown.pdf (47 pages).

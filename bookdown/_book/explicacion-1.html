@@ -153,6 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.2" data-path="explicacion-1.html"><a href="explicacion-1.html#estadistica"><i class="fa fa-check"></i><b>3.1.2</b> Estadística</a></li>
 <li class="chapter" data-level="3.1.3" data-path="explicacion-1.html"><a href="explicacion-1.html#algunos-estimadores-importantes"><i class="fa fa-check"></i><b>3.1.3</b> Algunos estimadores importantes</a></li>
 <li class="chapter" data-level="3.1.4" data-path="explicacion-1.html"><a href="explicacion-1.html#graficos-estadisticos"><i class="fa fa-check"></i><b>3.1.4</b> Gráficos estadísticos</a></li>
+<li class="chapter" data-level="3.1.5" data-path="explicacion-1.html"><a href="explicacion-1.html#bibliografia-de-consulta"><i class="fa fa-check"></i><b>3.1.5</b> Bibliografía de consulta</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html"><i class="fa fa-check"></i><b>3.2</b> Práctica Guiada</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#generacion-de-datos-aleatorios"><i class="fa fa-check"></i><b>3.2.1</b> Generación de datos aleatorios</a></li>
@@ -207,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <ul>
 <li>Espacio muestral: 1,2,3,4,5,6</li>
-<li>Restulado: 3</li>
+<li>Resultado: 3</li>
 <li>Evento: impar (el conjunto 1,3,5)</li>
 </ul>
 </div>
@@ -235,14 +236,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="distribuciones-continuas" class="section level5">
 <h5><span class="header-section-number">3.1.1.2.2</span> Distribuciones continuas</h5>
 <p>¿Qué pasa cuando el conjunto de resultados posibles es tan grande que no se puede enumerar la probabilidad de cada caso?</p>
-<p>Si, por definición o por practicidad, no se puede ennumerar cada caso, lo que tenemos es una <strong>distribución continua</strong></p>
+<p>Si, por definición o por practicidad, no se puede enumerar cada caso, lo que tenemos es una <strong>distribución continua</strong></p>
 <blockquote>
 <p>Por ejemplo, la altura de la población</p>
 </blockquote>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-33-1.png" width="1440" /></p>
 <ul>
 <li><p>En este caso, no podemos definir en una tabla la probabilidad de cada uno de los posibles valores. <em>de hecho, la probabilidad puntual es 0</em>.</p></li>
-<li><p>Sin embargo, sí pódemos definir una <em>función de probabilidad</em>, la <em>densidad</em>.</p></li>
+<li><p>Sin embargo, sí podemos definir una <em>función de probabilidad</em>, la <em>densidad</em>.</p></li>
 <li><p>Según qué función utilicemos, cambiara la forma de la curva.</p></li>
 </ul>
 <p>Por ejemplo:</p>
@@ -312,16 +313,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">3.1.2.2</span> Estimación puntual, Intervalos de confianza y Tests de hipótesis</h4>
 <ul>
 <li><p>El estimador <span class="math inline">\(\bar{X}\)</span> nos devuelve un número. Esto es una inferencia de cuál creemos que es la media. Pero no es seguro de que esa sea realmente la media. Esto es lo que denominamos estimación puntual</p></li>
-<li><p>También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parametro poblacional realmente este dentro de este intervalo. Esto se conoce como <strong>intervalos de confianza</strong></p></li>
+<li><p>También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parámetro poblacional realmente este dentro de este intervalo. Esto se conoce como <strong>intervalos de confianza</strong></p></li>
 <li><p>Por su parte, también podemos calcular la probabilidad de que el parámetro poblacional sea mayor, menor o igual a un cierto valor. Esto es lo que se conoce como <strong>test de hipótesis</strong>.</p></li>
-<li><p>En el fondo, los intervalos de confianza y los tests de hipótesis se contruyen de igual manera. Son funciones que se construyen a partir de los datos, que se comparan con distribuciones conocidas, <em>teóricas</em>.</p></li>
+<li><p>En el fondo, los intervalos de confianza y los tests de hipótesis se construyen de igual manera. Son funciones que se construyen a partir de los datos, que se comparan con distribuciones conocidas, <em>teóricas</em>.</p></li>
 </ul>
 <div id="definicion-de-los-tests" class="section level5">
 <h5><span class="header-section-number">3.1.2.2.1</span> Definición de los tests</h5>
 <ul>
 <li>Los tests se construyen con dos hipótesis: La hipótesis nula <span class="math inline">\(H_0\)</span>, y la hipótesis alternativa, <span class="math inline">\(H_1\)</span>. Lo que buscamos es ver si <em>hay evidencia suficiente para rechazar la hipótesis nula</em>.</li>
 </ul>
-<p>Por ejemplo, si querémos comprobar si la media poblacional, <span class="math inline">\(\mu\)</span> de una distribución es mayor a <span class="math inline">\(X_i\)</span>, haremos un test con las siguientes hipótesis:</p>
+<p>Por ejemplo, si queremos comprobar si la media poblacional, <span class="math inline">\(\mu\)</span> de una distribución es mayor a <span class="math inline">\(X_i\)</span>, haremos un test con las siguientes hipótesis:</p>
 <ul>
 <li><span class="math inline">\(H_0: \mu = X_i\)</span></li>
 <li><span class="math inline">\(H_1: \mu &gt; X_i\)</span></li>
@@ -331,7 +332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="significatividad-en-los-tests" class="section level5">
 <h5><span class="header-section-number">3.1.2.2.2</span> Significatividad en los tests</h5>
 <ul>
-<li><p>Muchas veces decimos que algo es <strong>“estadísticamente significativo”</strong>. Detras de esto se encuentra un test de hipótesis que indica que hay una suficiente <em>significativdad estadística</em>.</p></li>
+<li><p>Muchas veces decimos que algo es <strong>“estadística mente significativo”</strong>. Detrás de esto se encuentra un test de hipótesis que indica que hay una suficiente <em>significativdad estadística</em>.</p></li>
 <li><p>La <em>significatividad estadística</em>,representada con <span class="math inline">\(\alpha\)</span>, es la probabilidad de rechazar <span class="math inline">\(H_0\)</span> cuando en realidad es cierta. Por eso, cuanto más bajo el valor de <span class="math inline">\(\alpha\)</span>, más seguros estamos de no equivocarnos. Por lo general testeamos con valores de alpha de 1%, 5% y 10%, dependiendo del área de estudio</p></li>
 <li><p>El <strong>p-valor</strong> es _la mínima significatividad para la que rechazo el test. Es decir, cuanto más bajo es el p-valor, más seguros estamos de rechazar <span class="math inline">\(H_0\)</span></p></li>
 <li><p>El resultado de un test esta determinado por</p>
@@ -348,7 +349,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <strong>Cada Test tiene sus propios supuestos</strong>. Por eso a veces luego de hacer un test, hay que hacer otros tests para validar que los supuestos se cumplen.</li>
 </ul></li>
 <li><p>Lo primero, la fuerza de la evidencia, es lo que más nos importa, y no hay mucho por hacer.</p></li>
-<li><p>El tamaño de la muestra es un problema, porque si la muesta es muy chica, entonces podemos no llegar a conclusiones significativas aunque sí ocurra aquello que queríamos probar.</p></li>
+<li><p>El tamaño de la muestra es un problema, porque si la muestra es muy chica, entonces podemos no llegar a conclusiones significativas aunque sí ocurra aquello que queríamos probar.</p></li>
 <li><p>Sin embargo, el verdadero problema en <em>La era del big data</em> es que tenemos muestras demasiado grandes, por lo que cualquier test, por más mínima que sea la diferencia, puede dar significativo.</p></li>
 </ul>
 <blockquote>
@@ -442,8 +443,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">3.1.4.4</span> Violin plots</h4>
 <p>Combinando la idea de Kernels y boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados</p>
 <p><img src="bookdown_files/figure-html/unnamed-chunk-43-1.png" width="1440" /><img src="bookdown_files/figure-html/unnamed-chunk-43-2.png" width="1440" /></p>
-
 </div>
+</div>
+<div id="bibliografia-de-consulta" class="section level3">
+<h3><span class="header-section-number">3.1.5</span> Bibliografía de consulta</h3>
+<p>Quién quiera profundizar en estos temas, puede ver los siguientes materiales:</p>
+<ul>
+<li><a href="https://seeing-theory.brown.edu/" class="uri">https://seeing-theory.brown.edu/</a></li>
+<li><a href="https://lagunita.stanford.edu/courses/course-v1:OLI+ProbStat+Open_Jan2017/about" class="uri">https://lagunita.stanford.edu/courses/course-v1:OLI+ProbStat+Open_Jan2017/about</a></li>
+<li>Jay L. Devore, “Probabilidad y Estadística para Ingeniería y Ciencias”, International Thomson Editores. <a href="https://inferencialitm.files.wordpress.com/2018/04/probabilidad-y-estadistica-para-ingenieria-y-ciencias-devore-7th.pdf" class="uri">https://inferencialitm.files.wordpress.com/2018/04/probabilidad-y-estadistica-para-ingenieria-y-ciencias-devore-7th.pdf</a></li>
+</ul>
+
 </div>
 </div>
             </section>

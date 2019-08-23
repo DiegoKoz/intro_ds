@@ -11,102 +11,105 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ## Temario
 
-- __clase 1__: Introducción al entorno R:
+### __clase 1__: Introducción al entorno R:
 	
-+ Temas de clase:
-  + Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
-  + Presentación de la plataforma RStudio para trabajar en “R”
-  + Caracteres especiales en “R”
-  + Operadores lógicos y aritméticos
-  + Definición de Objetos: Valores, Vectores y DataFrames
-  + Tipos de variable (numérica, de caracteres, lógicas)
-  + Lectura y Escritura de Archivos
++ Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
++ Presentación de la plataforma RStudio para trabajar en “R”
++ Caracteres especiales en “R”
++ Operadores lógicos y aritméticos
++ Definición de Objetos: Valores, Vectores y DataFrames
++ Tipos de variable (numérica, de caracteres, lógicas)
++ Lectura y Escritura de Archivos
+
+### __clase 2__: Tidyverse:
+
++ Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
++ Seleccionar variables, ordenar y agrupar la base de datos para realizar cálculos
++ Creación de nuevas variables
++ Aplicar filtros sobre la base de datos
++ Construir medidas de resumen de la información
++ Tratamiento de variables numéricas (edad, ingresos, horas de trabajo, cantidad de hijos / componentes del hogar, entre otras).
+
+### __clase 3__: Estadística descriptiva
+
++ Introducción a probabilidad
++ Introducción a distribuciones
++ El problema de la inversión
++ Estadística
++ Población y muestra
++ Estimadores puntuales, tests de hipótesis
++ Boxplots, histogramas y kernels
+
+### __clase 4__: Visualización de la información
+
++ Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
++ Gráficos elaborados en R (función “ggplot”): 
++ Gráficos de línea, barras, Boxplots y distribuciones de densidad
++ Parámetros de los gráficos: Leyendas, ejes, títulos, notas, colores
++ Gráficos con múltiples cruces de variables.
+
+### __clase 5__: Documentación en R
+
++ Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
++ Opciones para mostrar u ocultar código en los reportes
++ Definición de tamaño, títulos y formato con el cual se despliegan los gráficos y tablas en el informe
++ Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
++ Código embebido en el texto para automatización de reportes
+
+### __clase 6__: Análisis de encuestas
+
++ Introducción al diseño de encuestas
++ Presentación de la Encuesta Permanente de Hogares
++ Generación de estadísticos de resumen en muestras estratificadas
++ Utilización de los ponderadores
 
 
-- __clase 2__: Tidyverse:
+### __clase 7__: Programación funcional
 
-+ Temas de clase:
-  + Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
-  + Seleccionar variables, ordenar y agrupar la base de datos para realizar cálculos
-  + Creación de nuevas variables
-  + Aplicar filtros sobre la base de datos
-  + Construir medidas de resumen de la información
-  + Tratamiento de variables numéricas (edad, ingresos, horas de trabajo, cantidad de hijos / componentes del hogar, entre otras).
-
-- __clase 3__: Estadística descriptiva
-
-+ Temas de clase:
-	+ Introducción a probabilidad
-	+ Introducción a distribuciones
-	+ El problema de la inversión
-	+ Estadística
-	+ Población y muestra
-	+ Estimadores puntuales, tests de hipótesis
-	+ Boxplots, histogramas y kernels
-
-- __clase 4__: Visualización de la información
-
-+ Temas de clase:
-  + Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
-  + Gráficos elaborados en R (función “ggplot”): 
-    + Gráficos de línea, barras, Boxplots y distribuciones de densidad
-    + Parámetros de los gráficos: Leyendas, ejes, títulos, notas, colores
-    + Gráficos con múltiples cruces de variables.
-
-- __clase 5__: Documentación en R
-
-+ Temas de clase:
-  + Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
-    + Opciones para mostrar u ocultar código en los reportes
-    + Definición de tamaño, títulos y formato con el cual se despliegan los gráficos y tablas en el informe
-    + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
-    + Código embebido en el texto para automatización de reportes
-
-- __clase 6__: Análisis de encuestas
-
-+ Temas de clase
-	+ Introducción al diseño de encuestas
-	+ Presentación de la Encuesta Permanente de Hogares
-	+ Generación de estadísticos de resumen en muestras estratificadas
-	+ Utilización de los ponderadores
++ Estructuras de código condicionales
++ Loops
++ Creación de funciones a medida del usuario
++ Librería purrr para programación funcional
 
 
-- __clase 7__: Programación funcional
+### __clase 8__: Mapas
 
-+ Temas de clase: 
-	+ Estructuras de código condicionales
-	+ Loops
-	+ Creación de funciones a medida del usuario
-	+ Librería purrr para programación funcional
++ Utilización de información geográfica en R
++ Elaboración de mapas
++ gestión de shapefiles
 
 
-- __clase 8__: Mapas
+### __clase 9__: Shiny
 
-+ Temas de clase:
-	+ Utilización de información geográfica en R
-	+ Elaboración de mapas
-	+ gestión de shapefiles
-
-
-- __clase 9__: Shiny
-
-+ Temas de clase:
-	+ Shiny como reportes dinámicos
-	+ Su utilidad para el análisis exploratorio
-	+ Lógica de servidor- interfaz de usuario
-	+ Extensiones del mundo shiny
-	+ Publicación de resultados
++ Shiny como reportes dinámicos
++ Su utilidad para el análisis exploratorio
++ Lógica de servidor- interfaz de usuario
++ Extensiones del mundo shiny
++ Publicación de resultados
 
 
-- __clase 10__: Correlación y Modelo Lineal
+### __clase 10__: Correlación y Modelo Lineal
 
-+ Temas de clase:
-	+ Análisis de correlación.
-	+ Presentación conceptual del modelo lineal
-	+ El modelo lineal desde una perspectiva computacional
-	+ Supuestos del modelo lineal
-	+ Modelo lineal en R
-	+ Modelo lineal en el tidyverse
++ Análisis de correlación.
++ Presentación conceptual del modelo lineal
++ El modelo lineal desde una perspectiva computacional
++ Supuestos del modelo lineal
++ Modelo lineal en R
++ Modelo lineal en el tidyverse
+
+### __clase 11__: Text Mining
+
+  + Introducción al análisis de textos
+  + Limpieza
+  + Preprocesamiento
+  + BoW
+  + Stopwords
+  + TF-IDF
+  + Wordcloud
+  + Escrapeo de Twitter
+
+
+
 
 
 ## Bibliografía
