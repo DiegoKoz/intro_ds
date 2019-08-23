@@ -9,7 +9,7 @@ subtitle: Explicación
 ---
 
 
-![https://cran.r-project.org/](img/Rlogo.png)
+![https://cran.r-project.org/](img/Rlogo.svg){width=1000}
 
 ### ¿Que es R?
 
@@ -22,10 +22,10 @@ subtitle: Explicación
 
 [^1]: Más allá de los comandos elementales, comandos más sofisticados tienen muchas versiones, y algunas quedan en desuso en el tiempo.
 
-![fuente: https://gist.github.com/daroczig/3cf06d6db4be2bbe3368](img/number-of-submitted-packages-to-CRAN.png)
+![fuente: https://gist.github.com/daroczig/3cf06d6db4be2bbe3368](img/number-of-submitted-packages-to-CRAN.png){width=1000}
 
 
-![https://www.rstudio.com/](img/RStudiologo.png)
+![https://www.rstudio.com/](img/RStudiologo.svg){width=1000}
 
 El _entorno_ más cómodo para utilizar el _lenguaje_ __R__ es el _programa_ __R studio__
 
@@ -35,23 +35,7 @@ El _entorno_ más cómodo para utilizar el _lenguaje_ __R__ es el _programa_ __R
 [página oficial](https://www.rstudio.com/) 
 
 
-![Pantalla Rstudio](img/Pantalla Rstudio.png)
-
-
-### Diferencias con STATA y SPSS
-
-- Gratuito
-- Funciona principalmente por líneas de código (Aunque ya hay paquetes que permiten ejecutar comandos desde el menú y los botones sin tener que esribir código)
-- Trabaja las bases de microdatos de forma virtual y no fisica, lo que permite disponer de varias al mismo tiempo sin mayor dificultad (no requiere abrir cada base, trabajarla por separado y luego cerrarla), ni exije guardar fisicamente los cambios.
-- Más potente
-    - Totalmente automatizable
-    - Aportes de usuarias y usuarios
-    - Extensible a otros lenguajes y usos (presentación como esta, diseño de aplicaciones)
-- Más veloz:
-
-
-![fuente: https://github.com/matthieugomez/benchmark-stata-r/blob/master/output/1e7.png](img/stataR.png)
-
+![Pantalla Rstudio](img/Pantalla Rstudio.png){width=1000}
 
 
 ### Lógica sintáctica.
@@ -388,7 +372,7 @@ Rstudio tiene una herramienta muy útil de trabajo que son los **proyectos**. Es
 
 Un proyecto no es un sólo script, sino toda una carpeta de trabajo. 
 
-![logo Rpoject](img/Rproject.png)
+![logo Rpoject](img/Rproject.png){width=1000}
 
 Para crearlo, vamos al logo de nuevo projecto (Arriba a la izquierda de la panatalla), y elegimos la carpeta de trabajo. 
 

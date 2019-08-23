@@ -1,0 +1,126 @@
+---
+title: Probabilidad y Estadística
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica Guiada
+---
+
+```{r}
+library(tidyverse)
+```
+
+
+### Generación de datos aleatorios
+
+Para generar datos aleatorios, usamos las funciones
+
+-`rnorm` para generar datos que surgen de una distribución normal
+-`rt` para generar datos que surgen de una distribución T-student
+-`rchisq` para generar datos que surgen de una distribución Chi cuadrado
+
+> pero antes, tenemos que fijar la _semilla_ para que los datos sean reproducibles
+
+```{r}
+set.seed(1234)
+rnorm(n = 15,mean = 0, sd = 1 )
+rt(n = 15,df=1 )
+rchisq(n = 15,df=1)
+```
+
+
+Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando plot
+```{r}
+
+plot(rnorm(n = 15,mean = 0, sd = 1 ))
+plot(rt(n = 15,df=1 ))
+plot(rchisq(n = 15,df=1))
+```
+
+Noten que el eje X es el índice de los valores, es decir que no agrega información.
+
+
+### Tests
+
+
+Utilicemos ahora datos reales. 
+
+los datos salen de [https://data.buenosaires.gob.ar/dataset/femicidios](https://data.buenosaires.gob.ar/dataset/femicidios)
+
+> Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.
+
+
+```{r}
+femicidios <- read_csv(file = '../fuentes/vict_fem_annio__g_edad_limpio.csv')
+femicidios
+```
+
+fijense que las estadísitcas no estan desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron '-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
+
+Vamos a reorganizar la información para corregir todas estas cosas
+
+
+
+```{r}
+femicidios <- femicidios %>% 
+  filter(anio!=2017, grupo_edad !='Ignorado') %>%  #Sacamos al 2017 y los casos donde se ignora la edad
+  mutate(cantidad_femicidios = case_when(cantidad_femicidios=='-' ~ 0, # reemplazamos el - por 0
+                                         TRUE ~as.numeric(cantidad_femicidios)), # y convertimos la variable en numerica
+         grupo_edad = case_when(grupo_edad %in% c('0 - 15','16 - 20','21 - 40') ~ '0-40', # agrupamos para tener sólo dos grupos
+                                grupo_edad %in% c('41 - 60','61 y más') ~ '41 y más')) %>% 
+  group_by(grupo_edad) %>% 
+  summarise(cantidad_femicidios= sum(cantidad_femicidios)) # sumamos los años y grupos para tener datos agregados
+femicidios
+```
+
+
+Con esta tabla de contingencia podemos hacer un test de hipótesis.
+
+¿Cuál usamos? Nos fijamos en el machete, o googleamos, y vemos que como queremos comparar la cantidad de casos por grupos categóricos, tenemos que usar el test Chi. 
+
+- $H_0$ No hay asociación entre las variables
+- $H_1$ Hay asociación entre las variables
+
+La idea es que tenemos dos variables: El rango etario y la cantidad de femicidios
+
+```{r}
+chisq.test(femicidios$cantidad_femicidios)
+```
+
+noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
+
+
+### Descripción estadística de los datos
+
+Volveremos a ver los datos de [sueldos de funcionarios](https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios)
+
+
+```{r}
+sueldos <- read_csv('../fuentes/sueldo_funcionarios_2019.csv')
+```
+
+Con el comando `summary` podemos ver algunos de los principales estadísticos de resumen
+
+```{r}
+summary(sueldos$asignacion_por_cargo_i)
+```
+
+
+### Gráficos estadísticos
+
+No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad. Como los presentados en las notas de clase
+
+A modo de ejemplo, dejamos los comandos de R base para realizar gráficos
+
+```{r}
+boxplot(sueldos$asignacion_por_cargo_i)
+hist(sueldos$asignacion_por_cargo_i)
+plot(density(sueldos$asignacion_por_cargo_i))
+```
+
+
+
+
+

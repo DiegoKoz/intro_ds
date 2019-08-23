@@ -124,9 +124,16 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-08-20}
+    \date{2019-08-23}
 
 \usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
 
 \begin{document}
 \maketitle
@@ -177,7 +184,7 @@ install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt
 
 \begin{figure}
 \centering
-\includegraphics{img/Rlogo.png}
+\includegraphics[width=10.41667in,height=\textheight]{img/Rlogo.png}
 \caption{\url{https://cran.r-project.org/}}
 \end{figure}
 
@@ -202,13 +209,13 @@ install.packages(c("tidyverse","openxlsx",'ggplot2','ggthemes', 'ggrepel','ggalt
 
 \begin{figure}
 \centering
-\includegraphics{img/number-of-submitted-packages-to-CRAN.png}
+\includegraphics[width=10.41667in,height=\textheight]{img/number-of-submitted-packages-to-CRAN.png}
 \caption{fuente: \url{https://gist.github.com/daroczig/3cf06d6db4be2bbe3368}}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics{img/RStudiologo.png}
+\includegraphics[width=10.41667in,height=\textheight]{img/RStudio-Logo-Flat.png}
 \caption{\url{https://www.rstudio.com/}}
 \end{figure}
 
@@ -224,41 +231,8 @@ El \emph{entorno} más cómodo para utilizar el \emph{lenguaje} \textbf{R} es el
 
 \begin{figure}
 \centering
-\includegraphics{img/Pantalla Rstudio.png}
+\includegraphics[width=10.41667in,height=\textheight]{img/Pantalla Rstudio.png}
 \caption{Pantalla Rstudio}
-\end{figure}
-
-\hypertarget{diferencias-con-stata-y-spss}{%
-\subsection{Diferencias con STATA y SPSS}\label{diferencias-con-stata-y-spss}}
-
-\begin{itemize}
-\tightlist
-\item
-  Gratuito
-\item
-  Funciona principalmente por líneas de código (Aunque ya hay paquetes que permiten ejecutar comandos desde el menú y los botones sin tener que esribir código)
-\item
-  Trabaja las bases de microdatos de forma virtual y no fisica, lo que permite disponer de varias al mismo tiempo sin mayor dificultad (no requiere abrir cada base, trabajarla por separado y luego cerrarla), ni exije guardar fisicamente los cambios.
-\item
-  Más potente
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Totalmente automatizable
-  \item
-    Aportes de usuarias y usuarios
-  \item
-    Extensible a otros lenguajes y usos (presentación como esta, diseño de aplicaciones)
-  \end{itemize}
-\item
-  Más veloz:
-\end{itemize}
-
-\begin{figure}
-\centering
-\includegraphics{img/stataR.png}
-\caption{fuente: \url{https://github.com/matthieugomez/benchmark-stata-r/blob/master/output/1e7.png}}
 \end{figure}
 
 \hypertarget{logica-sintactica.}{%
@@ -1073,7 +1047,7 @@ Un proyecto no es un sólo script, sino toda una carpeta de trabajo.
 
 \begin{figure}
 \centering
-\includegraphics{img/Rproject.png}
+\includegraphics[width=10.41667in,height=\textheight]{img/Rproject.png}
 \caption{logo Rpoject}
 \end{figure}
 
@@ -1341,6 +1315,575 @@ Para leer y escribir archivos excel debemos utilizar los comandos que vienen con
 ## 9             0                   224516.6              
 ## 10            0                   224516.6
 \end{verbatim}
+
+\hypertarget{probabilidad-y-estadistica}{%
+\chapter{Probabilidad y Estadística}\label{probabilidad-y-estadistica}}
+
+\hypertarget{explicacion-1}{%
+\section{Explicación}\label{explicacion-1}}
+
+\hypertarget{probabilidad}{%
+\subsection{Probabilidad}\label{probabilidad}}
+
+Previo a estudiar las herramientas de la estadística descriptiva, es necesario hacer un breve resumen de algunos conceptos fundamentales de probabilidad
+
+\hypertarget{marco-conceptual}{%
+\subsubsection{Marco conceptual}\label{marco-conceptual}}
+
+\includegraphics[width=10.41667in,height=\textheight]{img/marco_proba.png}
+
+\begin{itemize}
+\tightlist
+\item
+  El análisis de las probabilidades parte de un \textbf{proceso generador de datos} entendido como cualquier fenómeno que produce algún tipo de información de forma sistemática.
+\item
+  Cada iteración de este proceso produce información, que podemos interpretar como un \textbf{resultado}.
+\item
+  Existe un conjunto de posibles resultados, que definimos como \textbf{espacio muestral}.
+\item
+  Un \textbf{evento} es el conjunto de resultados ocurridos.
+\item
+  En este marco, la \textbf{probabilidad} es un atributo de los eventos. Es la forma de medir los eventos tal que, siguiendo la definición moderna de probabilidad:
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\Alph{enumi})}
+\tightlist
+\item
+  \(P(A) \geq 0 \forall \ A \subseteq \Omega\)
+\item
+  \(P(\Omega)=1\)
+\item
+  \(P(A\cup B) = P(A) + P(B)\ si\ A \cap B = \emptyset\)
+\end{enumerate}
+
+\begin{quote}
+ejemplo, tiramos un dado y sale tres
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Espacio muestral: 1,2,3,4,5,6
+\item
+  Restulado: 3
+\item
+  Evento: impar (el conjunto 1,3,5)
+\end{itemize}
+
+\hypertarget{distribucion-de-probabilidad}{%
+\subsubsection{Distribución de probabilidad}\label{distribucion-de-probabilidad}}
+
+\begin{itemize}
+\item
+  La distribución de probabilidad hace referencia a los posibles valores teóricos de cada uno de los resultados pertenecientes al espacio muestral.
+\item
+  Existen dos tipos de distribuciones, dependiendo si el espacio muestral es o no numerable.
+\end{itemize}
+
+\hypertarget{distribuciones-discretas}{%
+\paragraph{Distribuciones discretas}\label{distribuciones-discretas}}
+
+Sigamos con el ejemplo de dado.
+
+Podríamos definir la distribución de probabilidad, si no esta cargado, cómo:
+
+\begin{verbatim}
+## # A tibble: 6 x 2
+##   valor probabilidad
+##   <int> <chr>       
+## 1     1 1/6         
+## 2     2 1/6         
+## 3     3 1/6         
+## 4     4 1/6         
+## 5     5 1/6         
+## 6     6 1/6
+\end{verbatim}
+
+Cómo el conjunto de resultados posibles es acotado, podemos definirlo en una tabla, esta es una distribución \emph{discreta}
+
+\hypertarget{distribuciones-continuas}{%
+\paragraph{Distribuciones continuas}\label{distribuciones-continuas}}
+
+¿Qué pasa cuando el conjunto de resultados posibles es tan grande que no se puede enumerar la probabilidad de cada caso?
+
+Si, por definición o por practicidad, no se puede ennumerar cada caso, lo que tenemos es una \textbf{distribución continua}
+
+\begin{quote}
+Por ejemplo, la altura de la población
+\end{quote}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-33-1.pdf}
+
+\begin{itemize}
+\item
+  En este caso, no podemos definir en una tabla la probabilidad de cada uno de los posibles valores. \emph{de hecho, la probabilidad puntual es 0}.
+\item
+  Sin embargo, sí pódemos definir una \emph{función de probabilidad}, la \emph{densidad}.
+\item
+  Según qué función utilicemos, cambiara la forma de la curva.
+\end{itemize}
+
+Por ejemplo:
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-34-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-34-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-34-3.pdf}
+
+\begin{quote}
+Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámetros}.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Por ejemplo, la distribución normal se caracteriza por su \emph{esperanza} y su \emph{varianza} (o desvío estándar)
+\end{itemize}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-35-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-35-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-35-3.pdf}
+
+\hypertarget{estadistica}{%
+\subsection{Estadística}\label{estadistica}}
+
+\hypertarget{el-problema-de-la-inversion}{%
+\subsubsection{El problema de la inversión}\label{el-problema-de-la-inversion}}
+
+El problema de la probabilidad se podría pensar de la siguiente forma:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Vamos a partir de un \textbf{proceso generador de datos}
+\item
+  para calcular su \textbf{distribución de probabilidad}, los \textbf{parámetros} que caracterizan a ésta, y a partir de allí,
+\item
+  calcular la probabilidad de que, al tomar una \textbf{muestra}, tenga ciertos eventos.
+\end{enumerate}
+
+\includegraphics[width=10.41667in,height=\textheight]{img/problema_inversion_1.png}
+
+El problema de la estadística es exactamente el contrario:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Partimos de una \textbf{muestra} para
+\item
+  inferir cuál es la \textbf{distribución de probabilidad}, y los \textbf{parámetros} que la caracterizan
+\item
+  para finalmente poder sacar conclusiones sobre el \textbf{proceso generador de datos}
+\end{enumerate}
+
+\includegraphics[width=10.41667in,height=\textheight]{img/problema_inversion_2.png}
+
+\hypertarget{poblacion-y-muestra}{%
+\paragraph{Población y muestra}\label{poblacion-y-muestra}}
+
+En este punto podemos hacer la distinción entre \textbf{población} y \textbf{muestra}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Población}: El universo en estudio. Puede ser:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    finita: Los votantes en una elección.
+  \item
+    infinita: El lanzamiento de una moneda.
+  \end{itemize}
+\item
+  \textbf{Muestra}: subconjunto de n observaciones de una población.
+\end{itemize}
+
+Solemos utilizar las mayúsculas (N) para la población y las minúsculas (n) para las muestras
+
+\hypertarget{parametros-y-estimadores}{%
+\paragraph{Parámetros y Estimadores}\label{parametros-y-estimadores}}
+
+\begin{itemize}
+\tightlist
+\item
+  Como dijimos, los \textbf{parámetros} describen a la función de probabilidad. Por lo tanto hacen referencia a los atributos de la \textbf{población}. Podemos suponer que son \emph{constantes}
+\item
+  Un \textbf{estimador} es un estadístico (esto es, una función de la muestra) usado para estimar un parámetro desconocido de la población.
+\end{itemize}
+
+\hypertarget{ejemplo.-la-media}{%
+\paragraph{Ejemplo. La media}\label{ejemplo.-la-media}}
+
+Esperanza o Media Poblacional:
+
+\[
+\mu = E(x)= \sum_{i=1}^N x_ip(x_i)
+\]
+
+Media muestral:
+
+\[
+\bar{X}= \sum_{i=1}^n \frac{Xi}{n}
+\]
+
+Como no puedo conocer \(\mu\), lo estimo mediante \(\bar{X}\)
+
+\hypertarget{estimacion-puntual-intervalos-de-confianza-y-tests-de-hipotesis}{%
+\subsubsection{Estimación puntual, Intervalos de confianza y Tests de hipótesis}\label{estimacion-puntual-intervalos-de-confianza-y-tests-de-hipotesis}}
+
+\begin{itemize}
+\item
+  El estimador \(\bar{X}\) nos devuelve un número. Esto es una inferencia de cuál creemos que es la media. Pero no es seguro de que esa sea realmente la media. Esto es lo que denominamos estimación puntual
+\item
+  También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parametro poblacional realmente este dentro de este intervalo. Esto se conoce como \textbf{intervalos de confianza}
+\item
+  Por su parte, también podemos calcular la probabilidad de que el parámetro poblacional sea mayor, menor o igual a un cierto valor. Esto es lo que se conoce como \textbf{test de hipótesis}.
+\item
+  En el fondo, los intervalos de confianza y los tests de hipótesis se contruyen de igual manera. Son funciones que se construyen a partir de los datos, que se comparan con distribuciones conocidas, \emph{teóricas}.
+\end{itemize}
+
+\hypertarget{definicion-de-los-tests}{%
+\paragraph{Definición de los tests}\label{definicion-de-los-tests}}
+
+\begin{itemize}
+\tightlist
+\item
+  Los tests se construyen con dos hipótesis: La hipótesis nula \(H_0\), y la hipótesis alternativa, \(H_1\). Lo que buscamos es ver si \emph{hay evidencia suficiente para rechazar la hipótesis nula}.
+\end{itemize}
+
+Por ejemplo, si querémos comprobar si la media poblacional, \(\mu\) de una distribución es mayor a \(X_i\), haremos un test con las siguientes hipótesis:
+
+\begin{itemize}
+\tightlist
+\item
+  \(H_0: \mu = X_i\)
+\item
+  \(H_1: \mu > X_i\)
+\end{itemize}
+
+Si la evidencia es lo suficientemente fuerte, podremos rechazar la hipótesis \(H_0\), \emph{pero no afirmar la hipótesis \(H_1\)}
+
+\hypertarget{significatividad-en-los-tests}{%
+\paragraph{Significatividad en los tests}\label{significatividad-en-los-tests}}
+
+\begin{itemize}
+\item
+  Muchas veces decimos que algo es \textbf{``estadísticamente significativo''}. Detras de esto se encuentra un test de hipótesis que indica que hay una suficiente \emph{significativdad estadística}.
+\item
+  La \emph{significatividad estadística},representada con \(\alpha\), es la probabilidad de rechazar \(H_0\) cuando en realidad es cierta. Por eso, cuanto más bajo el valor de \(\alpha\), más seguros estamos de no equivocarnos. Por lo general testeamos con valores de alpha de 1\%, 5\% y 10\%, dependiendo del área de estudio
+\item
+  El \textbf{p-valor} es \_la mínima significatividad para la que rechazo el test. Es decir, cuanto más bajo es el p-valor, más seguros estamos de rechazar \(H_0\)
+\item
+  El resultado de un test esta determinado por
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    \textbf{La fuerza evidencia empírica}: Si nuestra duda es si la media poblacional es mayor a, digamos, 10. Y la media muestral es 11, no es es lo mismo que si es 100, 1000 o 10000.
+  \item
+    \textbf{El tamaño de la muestra}: En las fórmulas que definen los test siempre juega el tamaño de la muestra: cuanto más grande es, más seguros estamos de que el resultado no es producto del mero azar.
+  \item
+    \textbf{La veracidad de los supuestos}: Otra cosa importante es que los test asumen ciertas cosas:
+  \end{enumerate}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Normalidad en los datos.
+  \item
+    Que conocemos algún otro parámetro de la distribución, como la varianza.
+  \item
+    Que los datos son independientes entre sí,
+  \item
+    Etc.\\
+    \textbf{Cada Test tiene sus propios supuestos}. Por eso a veces luego de hacer un test, hay que hacer otros tests para validar que los supuestos se cumplen.
+  \end{itemize}
+\item
+  Lo primero, la fuerza de la evidencia, es lo que más nos importa, y no hay mucho por hacer.
+\item
+  El tamaño de la muestra es un problema, porque si la muesta es muy chica, entonces podemos no llegar a conclusiones significativas aunque sí ocurra aquello que queríamos probar.
+\item
+  Sin embargo, el verdadero problema en \emph{La era del big data} es que tenemos muestras demasiado grandes, por lo que cualquier test, por más mínima que sea la diferencia, puede dar significativo.
+\end{itemize}
+
+\begin{quote}
+Por ejemplo, podemos decir que la altura promedio en Argentina es 1,74. Pero si hacemos un test, utilizando como muestra 40 millones de personas, vamos a rechazar que ese es el valor, porque en realidad es 1,74010010. En términos de lo que nos puede interesar, 1,74 sería válido, pero estadísticamente rechazaríamos.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Finalmente, según la información que tengamos de la población y cual es el problema que queremos resolver, vamos a tener que utilizar distintos tipos de tests. La cantidad de tests posibles es ENORME, y escapa al contenido de este curso, así como sus fórmulas. A modo de ejemplo, les dejamos el siguiente machete:
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=10.41667in,height=\textheight]{img/tests.jpeg}
+\caption{fuente: \url{http://abacus.bates.edu/~ganderso/biology/resources/statistics.html}}
+\end{figure}
+
+\hypertarget{algunos-estimadores-importantes}{%
+\subsection{Algunos estimadores importantes}\label{algunos-estimadores-importantes}}
+
+\hypertarget{medidas-de-centralidad}{%
+\subsubsection{Medidas de centralidad}\label{medidas-de-centralidad}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Media}
+\end{itemize}
+
+\[
+\bar{X}= \sum_{i=1}^n \frac{Xi}{n}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Mediana}:
+\end{itemize}
+
+Es el valor que parte la distribución a la mitad
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Moda}
+\end{itemize}
+
+La moda es el valor más frecuente de la distribución
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+\hypertarget{cuantiles}{%
+\subsubsection{Cuantiles}\label{cuantiles}}
+
+Así como dijimos que la mediana es el valor que deja al 50\% de los datos de un lado y al 50\% del otro, podemos generalizar este concepto a cualquier X\%. Esto son los cuantiles. El cuantil x, es el valor tal que queda un x\% de la distribución a izquierda, y 1-x a derecha.
+
+Algunos de los más utilizados son el del 25\%, también conocido como \(Q_1\) (el \emph{cuartil} 1), el \(Q_2\) (la mediana) y el \(Q_3\) (el \emph{cuartil} 3), que deja el 75\% de los datos a su derecha. Veamos como se ven en la distribución de arriba
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-37-1.pdf}
+
+\hypertarget{desvio-estandar}{%
+\subsubsection{desvío estándar}\label{desvio-estandar}}
+
+\begin{itemize}
+\tightlist
+\item
+  El \emph{desvío estándar} es una medida de dispersión de los datos, que indica cuánto se suelen alejar de la media.
+\end{itemize}
+
+\hypertarget{graficos-estadisticos}{%
+\subsection{Gráficos estadísticos}\label{graficos-estadisticos}}
+
+Cerramos la explicación con algunos gráficos que resultan útiles para entender las propiedades estadísticas de los datos.
+
+\hypertarget{boxplot}{%
+\subsubsection{Boxplot}\label{boxplot}}
+
+El Boxplot es muy útil para describir una distribución y para detectar outliers. Reúne los principales valores que caracterizan a una distribución:
+
+\begin{itemize}
+\tightlist
+\item
+  \(Q_1\)
+\item
+  \(Q_2\) (la mediana)
+\item
+  \(Q_3\)
+\item
+  el \emph{rango intercuarítlico} \(Q_3 - Q_1\), que define el centro de la distribución
+\item
+  Outliers, definidos como aquellos puntos que se encuentran a más de 1,5 veces el rango intercuartílico del centro de la distribución.
+\end{itemize}
+
+veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-38-1.pdf}
+
+Algunas cosas que resaltan:
+
+\begin{itemize}
+\tightlist
+\item
+  la distribución \(\chi^2\) no toma valores en los negativos.
+\item
+  La normal esta más concentrada en el centro de la distribución
+\end{itemize}
+
+Podemos generar 100 números aleatorios en lugar de 15:
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-39-1.pdf}
+
+Cuando generamos 100 valores en lugar de 15, tenemos más chances de agarrar un punto alejado en la distribución. De esta forma podemos apreciar las diferencias entre la distribución normal y la T-student.
+
+También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-40-1.pdf}
+
+\hypertarget{histograma}{%
+\subsubsection{Histograma}\label{histograma}}
+
+Otra forma de analizar una distribución es mediante los histogramas:
+
+\begin{itemize}
+\tightlist
+\item
+  En un histograma agrupamos las observaciones en rangos fijos de la variable y contamos la cantidad de ocurrencias.
+\item
+  Cuanto más alta es una barra, es porque más observaciones se encuentran en dicho rango
+\end{itemize}
+
+Veamos el mismo ejemplo que arriba, pero con histogramas
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-41-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-41-2.pdf}
+
+\hypertarget{kernel}{%
+\subsubsection{Kernel}\label{kernel}}
+
+Los Kernels son simplemente un suavizados sobre los histogramas
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-42-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-42-2.pdf}
+
+\hypertarget{violin-plots}{%
+\subsubsection{Violin plots}\label{violin-plots}}
+
+Combinando la idea de Kernels y boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-43-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-43-2.pdf}
+
+\hypertarget{practica-guiada-1}{%
+\section{Práctica Guiada}\label{practica-guiada-1}}
+
+\hypertarget{generacion-de-datos-aleatorios}{%
+\subsection{Generación de datos aleatorios}\label{generacion-de-datos-aleatorios}}
+
+Para generar datos aleatorios, usamos las funciones
+
+-\texttt{rnorm} para generar datos que surgen de una distribución normal
+-\texttt{rt} para generar datos que surgen de una distribución T-student
+-\texttt{rchisq} para generar datos que surgen de una distribución Chi cuadrado
+
+\begin{quote}
+pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproducibles
+\end{quote}
+
+\begin{verbatim}
+##  [1] -1.20706575  0.27742924  1.08444118 -2.34569770  0.42912469
+##  [6]  0.50605589 -0.57473996 -0.54663186 -0.56445200 -0.89003783
+## [11] -0.47719270 -0.99838644 -0.77625389  0.06445882  0.95949406
+\end{verbatim}
+
+\begin{verbatim}
+##  [1] -0.363717710 -1.603466805 -0.388596796 -0.588007490  0.007839245
+##  [6] 14.690527710 -1.863488555  0.022667470 -2.084247299 -0.249237745
+## [11] -1.311594174 -3.569055208 -2.490838240 -3.848779244 -4.271087169
+\end{verbatim}
+
+\begin{verbatim}
+##  [1] 0.5317744 1.4263809 4.2797098 0.2184660 0.6923773 0.0455256 3.1902100
+##  [8] 0.2949942 0.5403827 0.1543732 0.8639196 0.1417290 1.1386091 0.2966193
+## [15] 0.5110879
+\end{verbatim}
+
+Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando plot
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-46-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-46-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-46-3.pdf}
+
+Noten que el eje X es el índice de los valores, es decir que no agrega información.
+
+\hypertarget{tests}{%
+\subsection{Tests}\label{tests}}
+
+Utilicemos ahora datos reales.
+
+los datos salen de \url{https://data.buenosaires.gob.ar/dataset/femicidios}
+
+\begin{quote}
+Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.
+\end{quote}
+
+\begin{verbatim}
+## # A tibble: 19 x 3
+##     anio cantidad_femicidios grupo_edad
+##    <dbl> <chr>               <chr>     
+##  1  2015 1                   0 - 15    
+##  2  2015 2                   16 - 20   
+##  3  2015 5                   21 - 40   
+##  4  2015 3                   41 - 60   
+##  5  2015 -                   61 y más  
+##  6  2015 1                   Ignorado  
+##  7  2016 2                   0 - 15    
+##  8  2016 3                   16 - 20   
+##  9  2016 4                   21 - 40   
+## 10  2016 1                   41 - 60   
+## 11  2016 2                   61 y más  
+## 12  2016 2                   Ignorado  
+## 13  2017 …                   0 - 15    
+## 14  2017 …                   16 - 20   
+## 15  2017 …                   21 - 40   
+## 16  2017 …                   41 - 60   
+## 17  2017 …                   61 y más  
+## 18  2017 …                   Ignorado  
+## 19  2017 9                   TOTAL
+\end{verbatim}
+
+fijense que las estadísitcas no estan desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron `-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
+
+Vamos a reorganizar la información para corregir todas estas cosas
+
+\begin{verbatim}
+## # A tibble: 2 x 2
+##   grupo_edad cantidad_femicidios
+##   <chr>                    <dbl>
+## 1 0-40                        17
+## 2 41 y más                     6
+\end{verbatim}
+
+Con esta tabla de contingencia podemos hacer un test de hipótesis.
+
+¿Cuál usamos? Nos fijamos en el machete, o googleamos, y vemos que como queremos comparar la cantidad de casos por grupos categóricos, tenemos que usar el test Chi.
+
+\begin{itemize}
+\tightlist
+\item
+  \(H_0\) No hay asociación entre las variables
+\item
+  \(H_1\) Hay asociación entre las variables
+\end{itemize}
+
+La idea es que tenemos dos variables: El rango etario y la cantidad de femicidios
+
+\begin{verbatim}
+## 
+##  Chi-squared test for given probabilities
+## 
+## data:  femicidios$cantidad_femicidios
+## X-squared = 5.2609, df = 1, p-value = 0.02181
+\end{verbatim}
+
+noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
+
+\hypertarget{descripcion-estadistica-de-los-datos}{%
+\subsection{Descripción estadística de los datos}\label{descripcion-estadistica-de-los-datos}}
+
+Volveremos a ver los datos de \href{https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios}{sueldos de funcionarios}
+
+Con el comando \texttt{summary} podemos ver algunos de los principales estadísticos de resumen
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  197746  210061  226866  225401  231168  249662
+\end{verbatim}
+
+\hypertarget{graficos-estadisticos-1}{%
+\subsection{Gráficos estadísticos}\label{graficos-estadisticos-1}}
+
+No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad. Como los presentados en las notas de clase
+
+A modo de ejemplo, dejamos los comandos de R base para realizar gráficos
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-52-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-52-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-52-3.pdf}
 
 \bibliography{book.bib,packages.bib}
 

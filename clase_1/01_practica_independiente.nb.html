@@ -2901,8 +2901,9 @@ div.tocify {
 </ul>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub2JqZXRvIDwtIDUrNlxuYGBgIn0= -->
-<pre class="r"><code>objeto &lt;- 5+6</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxub2JqZXRvIDwtIDUrNlxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r objeto &lt;- 5+6</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -2930,6 +2931,10 @@ div.tocify {
 <ul>
 <li>Crear un dataframe <em>DFRAME</em> como combinación de todos los <strong>vectores</strong> creados previamente</li>
 </ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="dataset-cruceros" class="section level3">
 <h3>Dataset <a href="https://data.buenosaires.gob.ar/dataset/cruceros">cruceros</a></h3>
@@ -2952,23 +2957,46 @@ div.tocify {
 <p>hacer un summary sobre la cantidad de recaladas para saber el mínimo, el primer cuartil. la mediana, la media, tercer cuartil y el máximo valor.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6MjF9LCJyZGYiOiJINHNJQUFBQUFBQUFBMTJUYlcvVFFBekhyMG16cm9WdFBQVkxJSzArcDQ5NTF4ZUlJWUVRcW9Zb1FrSWNhUVlWV1ZLbEdmQ1NqN2FQd2ljWjgrVjh5RTJsZjMwL3grZXpuY3ZxeFRvZXJBZEtxVUNGVWFDQ2tKYmRnUDQ2cXF2NjF2NVdLbnphQktqd2hPeXdlZGl3YXFKSkVlbUkxQ01kayt4R20vUUI2U0hKN2pzbG5aRWVrUjZUbnBCczNtY3U1OEdoUjNuMk04djNIRDFrYncrVFpBRkpJakFCclQzR1dtdlFLQkJCeHdKajBHT0JZOUFUZ1JQUVU0RlQwRE9CTTlCemdYUFFDNEVMMEluQUJGQlVoUnBRVklVSUtLckNHRkJVaFdOQVVSVk9BRVZWT0FVVVZlRU1VRlNGYzBCZjFUSGhBakI1M3Bwc2xPWm03d2Y3Zjl4WEpxM0xpbFozL0tLR3k1ZC9sUDB0MzdKOXQzVDJEZk1GMjFkc1h5dG5WeHozZ1hsOTYreG5ac1A4NWErektmT0duNmZzLzhSNVAzSytTK2IzdHdkNTIrMFY1anJ6N1FYczdGOW0xN3V5TWh2akhhc3NOVG54dnJXOVg1Vy9SajZGdmJTQk85VmYwUEJmYTNLRGphbk42S3FpTFc1NkIrbDY1YTdlbGdVbEMreE5qMXFiTzFYTGNYWlQyTU0zNStuM20rTEgrVnk1cjZqRG5aN3dlaWpXZ1R1eTZ3dUwvQ3ZOaW0vYkl2Tmp5YzNYTEdjNHBTYWJIa2U3YWx2VXZoUHk3a2QxV1JzZk4wakwzSHZjemJpN0J4amxwWG92QkFBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Temporada"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["Recaladas"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"1998/99","2":"45"},{"1":"1999/00","2":"61"},{"1":"2000/01","2":"65"},{"1":"2001/02","2":"57"},{"1":"2002/03","2":"47"},{"1":"2003/04","2":"49"},{"1":"2004/05","2":"54"},{"1":"2005/06","2":"73"},{"1":"2006/07","2":"92"},{"1":"2007/08","2":"99"},{"1":"2008/09","2":"120"},{"1":"2009/10","2":"142"},{"1":"2010/11","2":"135"},{"1":"2011/12","2":"158"},{"1":"2012/13","2":"160"},{"1":"2013/14","2":"159"},{"1":"2014/15","2":"110"},{"1":"2015/16","2":"101"},{"1":"2016/17","2":"82"},{"1":"2017/18","2":"87"},{"1":"2018/19*","2":"99"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[21]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Crear un vector booleano que indique si aumento la recalada respecto al año anterior:</p>
 <p>hint: Podemos utilizar <code>&lt;</code> o <code>&gt;</code> junto con <code>[]</code></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3J1Y2Vyb3MkUmVjYWxhZGFzWzE6MjBdPGNydWNlcm9zJFJlY2FsYWRhc1syOjIxXVxuXG5gYGAifQ== -->
-<pre class="r"><code>cruceros$Recaladas[1:20]&lt;cruceros$Recaladas[2:21]
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3J1Y2Vyb3MkUmVjYWxhZGFzXG5cbmBgYCJ9 -->
+<pre class="r"><code>cruceros$Recaladas
 </code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAgVFJVRSAgVFJVRSBGQUxTRSBGQUxTRSAgVFJVRSAgVFJVRSAgVFJVRSAgVFJVRSAgVFJVRSAgVFJVRSAgVFJVRSBGQUxTRSAgVFJVRSAgVFJVRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRVxuWzE5XSAgVFJVRSAgVFJVRVxuIn0= -->
-<pre><code> [1]  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE
-[19]  TRUE  TRUE</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAgNDUgIDYxICA2NSAgNTcgIDQ3ICA0OSAgNTQgIDczICA5MiAgOTkgMTIwIDE0MiAxMzUgMTU4IDE2MCAxNTkgMTEwIDEwMSAgODIgIDg3ICA5OVxuIn0= -->
+<pre><code> [1]  45  61  65  57  47  49  54  73  92  99 120 142 135 158 160 159 110 101  82  87  99</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY3J1Y2Vyb3MkUmVjYWxhZGFzWzI6MjFdID4gY3J1Y2Vyb3MkUmVjYWxhZGFzWzE6MjBdXG5cbmBgYCJ9 -->
+<pre class="r"><code>cruceros$Recaladas[2:21] &gt; cruceros$Recaladas[1:20]
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAgVFJVRSAgVFJVRSBGQUxTRSBGQUxTRSAgVFJVRSAgVFJVRSAgVFJVRSAgVFJVRSAgVFJVRSAgVFJVRSAgVFJVRSBGQUxTRSAgVFJVRSAgVFJVRSBGQUxTRSBGQUxTRSBGQUxTRVxuWzE4XSBGQUxTRSAgVFJVRSAgVFJVRVxuIn0= -->
+<pre><code> [1]  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE
+[18] FALSE  TRUE  TRUE</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Agregar el vector como una nueva columna al dataframe, que se llame “aumento_recalada”</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>con la nueva variable, filtrar los datos para que nos quede un nuevo dataset sólo de los años con aumento de la recalada</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
@@ -2987,7 +3015,7 @@ div.tocify {
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiBJbnRyb2R1Y2Npw7NuIGEgUgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwpkYXRlOiAiIgpzdWJ0aXRsZTogUHLDoWN0aWNhIGluZGVwZW5kaWVudGUKLS0tCgoKPiBSZWluaWNpYXIgUiAoYFNlc3Npb24gLS0+IFJlc3RhcnQgUmApCgoKCiMjIyBvYmpldG9zIHkgdmVjdG9yZXMKCi0gQ3JlYXIgdW4gT0JKRVRPIGxsYW1hZG8gX29iamV0b18gZGVmaW5pZG8gY29tbyBlbCByZXN1bHRhZG8gZGUgbGEgc3VtYTogNSArIDYKCmBgYHtyfQpvYmpldG8gPC0gNSs2CmBgYAoKLSBDcmVhciB1biBWRUNUT1IgX1ZFQzBfIHF1ZSBjb250ZW5nYSBsb3MgbsO6bWVyb3MgMSwgMywgNC4KCmBgYHtyfQoKYGBgCgoKLSBDcmVhciAzIHZlY3RvcmVzICggX1ZFQzFfLCBfVkVDMl8sIF9WRUMzXykgcXVlIHNlYW4gdHJhbnNmb3JtYWNpb25lcyBkZWwgYW50ZXJpb3IKYGBge3J9CgpgYGAKCi0gQ3JlYXIgMyB2ZWN0b3JlcyBjb24gbGEgbWlzbWEgY2FudGlkYWQgZGUgZWxlbWVudG9zIHF1ZSBWRUMwLCBwZXJvIGNvbiB2YXJpYWJsZXMgc3RyaW5nICh0ZXh0bykgKCBfVkVDNF8sIF9WRUM1XywgCl9WRUM2XykuCgpgYGB7cn0KCmBgYAoKLSBDcmVhciB1biBkYXRhZnJhbWUgX0RGUkFNRV8gY29tbyBjb21iaW5hY2nDs24gZGUgdG9kb3MgbG9zIF9fdmVjdG9yZXNfXyBjcmVhZG9zIHByZXZpYW1lbnRlCgoKIyMjIERhdGFzZXQgW2NydWNlcm9zXShodHRwczovL2RhdGEuYnVlbm9zYWlyZXMuZ29iLmFyL2RhdGFzZXQvY3J1Y2Vyb3MpCgpFbCBhcmNoaXZvIGBUVVJfQ1JVX0FYMDQueGxzYCBjb250aWVuZSBpbmZvcm1hY2nDs24gZGUgbGFzIHJlY2FsYWRhcyBkZSBjcnVjZXJvcyBlbiBidWVub3MgYWlyZXMuIFNlIGVuY3VlbnRyYSBlbiBsYSBjYXJwZXRhIGZ1ZW50ZXMuCgpFbCBvYmpldGl2byBlcyBsZWVyIGVsIGFyY2hpdm86CgoxLiBzaW4gbW92ZXIgc3UgdWJpY2FjacOzbgoyLiBzaW4gY2FtYmlhciBzdSBmb3JtYXRvIChwdWVkZW4gdXNhciBsYSBsaWJyZXLDrWEgYHhsc3hgKQozLiBJbmRpY2FuZG8gcXVlIHF1ZXJlbW9zIGxlZXIgbGEgcHJpbWVyIGhvamEKNC4gc2luIG1vZGlmaWNhciBlbCBhcmNoaXZvICjCv2hheSBhbGfDum4gcGFyw6FtZXRybyBkZSBsYSBmdW5jacOzbiBxdWUgbm9zIHBlcm1pdGEgZXNxdWl2YXIgbGFzIHByaW1lcmFzIGZpbGFzPykKNS4gTm90ZW4gcXVlIGFsIGZpbmFsIGRlbCBhcmNoaXZvIGhheSBub3RhcyBhY2xhcmF0b3JpYXMuIMK/aGF5IGFsZ8O6biBwYXLDoW1ldHJvIGRlIGxhIGZ1bmNpw7NuIHF1ZSBub3MgcGVybWl0YSBlc3BlY2lmaWNhciBoYXN0YSBxdcOpIGZpbGEgbGVlciBlbCBhcmNoaXZvPwoKYGBge3J9CmBgYAoKCiMjIyBvcGVyYWNpb25lcyBzb2JyZSBvYmpldG9zCgoKaGFjZXIgdW4gc3VtbWFyeSBzb2JyZSBsYSBjYW50aWRhZCBkZSByZWNhbGFkYXMgcGFyYSBzYWJlciBlbCBtw61uaW1vLCBlbCBwcmltZXIgY3VhcnRpbC4gbGEgbWVkaWFuYSwgbGEgbWVkaWEsIHRlcmNlciBjdWFydGlsIHkgZWwgbcOheGltbyB2YWxvci4KCmBgYHtyfQpgYGAKCgpDcmVhciB1biB2ZWN0b3IgYm9vbGVhbm8gcXVlIGluZGlxdWUgc2kgYXVtZW50byBsYSByZWNhbGFkYSByZXNwZWN0byBhbCBhw7FvIGFudGVyaW9yOgoKaGludDogUG9kZW1vcyB1dGlsaXphciBgPGAgbyBgPmAganVudG8gY29uIGBbXWAKCmBgYHtyfQpjcnVjZXJvcyRSZWNhbGFkYXNbMToyMF08Y3J1Y2Vyb3MkUmVjYWxhZGFzWzI6MjFdCgpgYGAKCkFncmVnYXIgZWwgdmVjdG9yIGNvbW8gdW5hIG51ZXZhIGNvbHVtbmEgYWwgZGF0YWZyYW1lLCBxdWUgc2UgbGxhbWUgImF1bWVudG9fcmVjYWxhZGEiCmBgYHtyfQoKYGBgCgoKCiMjIyBhcmNoaXZvcyB5IGFtYmllbnRlcyBkZSB0cmFiYWpvCgoKMS4gQ3JlYXIgdW4gc2NyaXB0IGAuUmAgY29uIGVsIGPDs2RpZ28gZGUgbGEgcHLDoWN0aWNhIGluZGVwZW5kaWVudGUuCjIuIENyZWFyIHVuIHByb3llY3RvIHBhcmEgbGEgY2xhc2UgMS4KMy4gR3VhcmRhciBlbiB1biBSZGF0YSBsb3MgZWxlbWVudG9zIGRlbCBlbnZpcm9tZW50IChnb29nbGVhciBjw7NtbyBzZSBndWFyZGEpLgo0LiBSZWluY2lhciBSIHkgYWJyaXIgZWwgUmRhdGEuCjUuIEd1YXJkYXIgZWwgZGF0YXNldCBkZSBjcnVjZXJvcyBlbiB1biAuUkRTLgo2LiBMZXZhbnRhciBlbCAuUkRTIGNvbiBvdHJvIG5vbWJyZS4KCgoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiBJbnRyb2R1Y2Npw7NuIGEgUgpvdXRwdXQ6CiAgaHRtbF9ub3RlYm9vazoKICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6IHllcwpkYXRlOiAiIgpzdWJ0aXRsZTogUHLDoWN0aWNhIGluZGVwZW5kaWVudGUKLS0tCgoKPiBSZWluaWNpYXIgUiAoYFNlc3Npb24gLS0+IFJlc3RhcnQgUmApCgoKCiMjIyBvYmpldG9zIHkgdmVjdG9yZXMKCi0gQ3JlYXIgdW4gT0JKRVRPIGxsYW1hZG8gX29iamV0b18gZGVmaW5pZG8gY29tbyBlbCByZXN1bHRhZG8gZGUgbGEgc3VtYTogNSArIDYKCmBgYHtyfQpvYmpldG8gPC0gNSs2CmBgYAoKLSBDcmVhciB1biBWRUNUT1IgX1ZFQzBfIHF1ZSBjb250ZW5nYSBsb3MgbsO6bWVyb3MgMSwgMywgNC4KCmBgYHtyfQoKYGBgCgoKLSBDcmVhciAzIHZlY3RvcmVzICggX1ZFQzFfLCBfVkVDMl8sIF9WRUMzXykgcXVlIHNlYW4gdHJhbnNmb3JtYWNpb25lcyBkZWwgYW50ZXJpb3IKYGBge3J9CgpgYGAKCi0gQ3JlYXIgMyB2ZWN0b3JlcyBjb24gbGEgbWlzbWEgY2FudGlkYWQgZGUgZWxlbWVudG9zIHF1ZSBWRUMwLCBwZXJvIGNvbiB2YXJpYWJsZXMgc3RyaW5nICh0ZXh0bykgKCBfVkVDNF8sIF9WRUM1XywgCl9WRUM2XykuCgpgYGB7cn0KCmBgYAoKLSBDcmVhciB1biBkYXRhZnJhbWUgX0RGUkFNRV8gY29tbyBjb21iaW5hY2nDs24gZGUgdG9kb3MgbG9zIF9fdmVjdG9yZXNfXyBjcmVhZG9zIHByZXZpYW1lbnRlCgpgYGB7cn0KCmBgYAoKCiMjIyBEYXRhc2V0IFtjcnVjZXJvc10oaHR0cHM6Ly9kYXRhLmJ1ZW5vc2FpcmVzLmdvYi5hci9kYXRhc2V0L2NydWNlcm9zKQoKRWwgYXJjaGl2byBgVFVSX0NSVV9BWDA0Lnhsc2AgY29udGllbmUgaW5mb3JtYWNpw7NuIGRlIGxhcyByZWNhbGFkYXMgZGUgY3J1Y2Vyb3MgZW4gYnVlbm9zIGFpcmVzLiBTZSBlbmN1ZW50cmEgZW4gbGEgY2FycGV0YSBmdWVudGVzLgoKRWwgb2JqZXRpdm8gZXMgbGVlciBlbCBhcmNoaXZvOgoKMS4gc2luIG1vdmVyIHN1IHViaWNhY2nDs24KMi4gc2luIGNhbWJpYXIgc3UgZm9ybWF0byAocHVlZGVuIHVzYXIgbGEgbGlicmVyw61hIGB4bHN4YCkKMy4gSW5kaWNhbmRvIHF1ZSBxdWVyZW1vcyBsZWVyIGxhIHByaW1lciBob2phCjQuIHNpbiBtb2RpZmljYXIgZWwgYXJjaGl2byAowr9oYXkgYWxnw7puIHBhcsOhbWV0cm8gZGUgbGEgZnVuY2nDs24gcXVlIG5vcyBwZXJtaXRhIGVzcXVpdmFyIGxhcyBwcmltZXJhcyBmaWxhcz8pCjUuIE5vdGVuIHF1ZSBhbCBmaW5hbCBkZWwgYXJjaGl2byBoYXkgbm90YXMgYWNsYXJhdG9yaWFzLiDCv2hheSBhbGfDum4gcGFyw6FtZXRybyBkZSBsYSBmdW5jacOzbiBxdWUgbm9zIHBlcm1pdGEgZXNwZWNpZmljYXIgaGFzdGEgcXXDqSBmaWxhIGxlZXIgZWwgYXJjaGl2bz8KCmBgYHtyfQoKYGBgCgoKIyMjIG9wZXJhY2lvbmVzIHNvYnJlIG9iamV0b3MKCgpoYWNlciB1biBzdW1tYXJ5IHNvYnJlIGxhIGNhbnRpZGFkIGRlIHJlY2FsYWRhcyBwYXJhIHNhYmVyIGVsIG3DrW5pbW8sIGVsIHByaW1lciBjdWFydGlsLiBsYSBtZWRpYW5hLCBsYSBtZWRpYSwgdGVyY2VyIGN1YXJ0aWwgeSBlbCBtw6F4aW1vIHZhbG9yLgoKYGBge3J9CmNydWNlcm9zIDwtIHJlYWQueGxzeCgnLi4vZnVlbnRlcy9UVVJfQ1JVX0FYMDQueGxzJywgc3RhcnRSb3cgPSAzLGVuZFJvdyA9IDI0LCBzaGVldEluZGV4ID0gMSkKYGBgCgoKQ3JlYXIgdW4gdmVjdG9yIGJvb2xlYW5vIHF1ZSBpbmRpcXVlIHNpIGF1bWVudG8gbGEgcmVjYWxhZGEgcmVzcGVjdG8gYWwgYcOxbyBhbnRlcmlvcjoKCmhpbnQ6IFBvZGVtb3MgdXRpbGl6YXIgYDxgIG8gYD5gIGp1bnRvIGNvbiBgW11gCgoKYGBge3J9CmNydWNlcm9zJFJlY2FsYWRhcwpgYGAKCgpgYGB7cn0KY3J1Y2Vyb3MkUmVjYWxhZGFzWzI6MjFdID4gY3J1Y2Vyb3MkUmVjYWxhZGFzWzE6MjBdCgpgYGAKCkFncmVnYXIgZWwgdmVjdG9yIGNvbW8gdW5hIG51ZXZhIGNvbHVtbmEgYWwgZGF0YWZyYW1lLCBxdWUgc2UgbGxhbWUgImF1bWVudG9fcmVjYWxhZGEiCmBgYHtyfQoKYGBgCgoKY29uIGxhIG51ZXZhIHZhcmlhYmxlLCBmaWx0cmFyIGxvcyBkYXRvcyBwYXJhIHF1ZSBub3MgcXVlZGUgdW4gbnVldm8gZGF0YXNldCBzw7NsbyBkZSBsb3MgYcOxb3MgY29uIGF1bWVudG8gZGUgbGEgcmVjYWxhZGEKCmBgYHtyfQoKYGBgCgoKIyMjIGFyY2hpdm9zIHkgYW1iaWVudGVzIGRlIHRyYWJham8KCgoxLiBDcmVhciB1biBzY3JpcHQgYC5SYCBjb24gZWwgY8OzZGlnbyBkZSBsYSBwcsOhY3RpY2EgaW5kZXBlbmRpZW50ZS4KMi4gQ3JlYXIgdW4gcHJveWVjdG8gcGFyYSBsYSBjbGFzZSAxLgozLiBHdWFyZGFyIGVuIHVuIFJkYXRhIGxvcyBlbGVtZW50b3MgZGVsIGVudmlyb21lbnQgKGdvb2dsZWFyIGPDs21vIHNlIGd1YXJkYSkuCjQuIFJlaW5jaWFyIFIgeSBhYnJpciBlbCBSZGF0YS4KNS4gR3VhcmRhciBlbCBkYXRhc2V0IGRlIGNydWNlcm9zIGVuIHVuIC5SRFMuCjYuIExldmFudGFyIGVsIC5SRFMgY29uIG90cm8gbm9tYnJlLgoKCgoKCg==</div>
 
 
 </div>
@@ -3036,7 +3064,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeSourceEmbed("Clase_1_practica_independiente.Rmd");
+  window.initializeSourceEmbed("01_practica_independiente.Rmd");
   window.initializeCodeFolding("show" === "show");
 });
 </script>
