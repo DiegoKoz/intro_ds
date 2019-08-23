@@ -8,23 +8,70 @@ date: ""
 subtitle: Práctica independiente
 ---
 
+## [Trabajo doméstico no remunerado](https://data.buenosaires.gob.ar/dataset/trabajo-domestico-no-remunerado)
 
 
-# Ejercicios para practicar
-* Calcular el promedio del ingreso por ocupación principal (Variable **P21**)  para  **asalariados** con y sin **descuento jubilatorio** (Variable **PP07H**). Luego realizar un gráfico de barras donde se comparen ambos valores (para el 1er trimestre de 2017).                   
-  Pistas: Se deben filtrar previamente los ingresos mayores a 0 (**P21>0**).Chequear que ponderador corresponde utilizar           
-               
-- Graficar la distribución del ingreso por ocupación principal para Asalariados, Cuentapropistas y Patrones, con el tipo de gráfico Kernel                 
-   Pista: Usar la función **facet_wrap** para separar a cada una de las categorías ocupacionales)                
-   Sugerencia: incorporar la línea ``` scale_x_continuous(limits = c(0,50000)) ``` entre las capas del gráfico. ¿Qué cambió?
+En la carpeta `fuentes` se encuentran dos archivos:
+
+- _prom_t_simul_dom_16_sexo__annio__n_instruc_limpio.csv_ Con las horas de trabajo no remunerado según nivel de instrucción.
+- _prom_t_simul_dom_16_sexo__annio__quin_ingr_fliar_limpio.csv_ Con las horas de trabajo no remunerado según el quintil de ingreso.
+
+Elegir el que les resulte más interesante y reproducir el ejercicio de la explicación con treemaps. Repensar cual es la mejor manera de armar los grupos y subgrupos
+
+```{r}
+
+```
 
 
+## [Uso del tiempo](https://data.buenosaires.gob.ar/dataset/uso-del-tiempo) 
 
-# Ejercicios de tarea
+Siguiendo con la temática de uso del tiempo. Tenémos los siguientes datasets:
 
-- Hacer un gráfico boxplot de la distribución de edades de los asalariados con descuento jubilatorio, y de los asalariados sin descuento jubilatorio.
+- _tas_part_lad_sexo__annio__g_g_activ_limpio.csv_: Participación en diversas actividades año 2005
+- _tas_part_lad_16_sexo__annio__g_g_activ_limpio.csv_:Participación en diversas actividades año 2016
+- _prom_t_simul_part_16_sexo__annio__g_g_activ_limpio.csv_: Horas diarias dedicadas a cada grupo de actividad
 
-- Uniendo las bases de los distintos trimestres, calcular el procentaje de asalariados sin descuento jubilatorio como $\frac{Asal. s/ desc jubil}{Asal. c/ desc jubil+ Asal.s/ desc jubil}$. Luego realizar un gráfico de linea con la evolución de este indicador
+A partir de estos datos, se busca:
 
+1. Analizar la evolución del uso del tiempo entre 2005 y 2016
+1. Ver las diferencias que presentan Muejeres y Hombres
+
+Para ello, deberán elegir qué gráficos son más apropiados, y realizar las transformaciónes necesarias en la información.
+
+```{r}
+df16 <- read_csv('../fuentes/tas_part_lad_16_sexo__annio__g_g_activ_limpio.csv')
+df05 <- read_csv('../fuentes/tas_part_lad_sexo__annio__g_g_activ_limpio.csv')
+
+
+df <- bind_rows(df05,df16)
+```
+
+
+## [Gap Minder](https://www.gapminder.org/)
+
+Gapminder es un proyecto que junta datos sobre distribución del ingreso de muchos países del mundo. la librería homónima nos permite acceder facilmente a los datos
+
+```{r}
+library(gapminder)
+
+```
+
+```{r}
+glimpse(gapminder)
+```
+
+> Con esta info a mi se me ocurre este gráfico. Propongan otra forma de visualizar esta información.
+
+```{r}
+library(ggridges)
+library(viridis)
+
+ggplot(gapminder, aes(x = lifeExp, y = factor(year), fill = ..x..)) +
+  geom_density_ridges_gradient()+
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_fill_viridis(name = "Esperanza de vida", option = "C")+
+  theme_ridges()+
+  theme(legend.position = 'bottom')
+```
 
 
