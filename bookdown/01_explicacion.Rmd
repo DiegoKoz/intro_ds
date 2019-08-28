@@ -1,4 +1,15 @@
 # Introducción a R
+
+En esta primera clase revisaremos los fundamentos de R base y el entorno de R studio. El objetivo es poder comenzar a utilizar el programa, abrir archivos y empezar a experimentar con confianza.
+
++ Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
++ Presentación de la plataforma RStudio para trabajar en “R”
++ Caracteres especiales en “R”
++ Operadores lógicos y aritméticos
++ Definición de Objetos: Valores, Vectores y DataFrames
++ Tipos de variable (numérica, de caracteres, lógicas)
++ Lectura y Escritura de Archivos
+
 ## Explicación
 
 ![https://cran.r-project.org/](img/Rlogo.png){width=1000}

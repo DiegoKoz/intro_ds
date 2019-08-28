@@ -123,5 +123,5 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 #### Librerias a instalar
 
 ```
-install.packages(c("tidyverse","openxlsx","xlsx",'ggplot2','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown'))
+install.packages(c("tidyverse","openxlsx","xlsx",'ggplot2','GGally','ggridges','treemapify','esquisse', 'cowplot','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown'))
 ```

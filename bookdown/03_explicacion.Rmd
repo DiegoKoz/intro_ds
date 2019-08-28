@@ -1,7 +1,18 @@
 # Probabilidad y Estadística
+
+Esta clase es un repaso de los rudimentos de probabilidad y estadística. El objetivo es obtener las herramientas básicas para la interpretación de resultados estadísticos. 
+
++ Introducción a probabilidad
++ Introducción a distribuciones
++ El problema de la inversión
++ Estadística
++ Población y muestra
++ Estimadores puntuales, tests de hipótesis
++ Boxplots, histogramas y kernels
+
 ## Explicación
 
-```{r setup, include = FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE,echo=FALSE, fig.width = 15)
 library(tidyverse)
 library(kableExtra)
