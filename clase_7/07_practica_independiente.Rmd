@@ -8,15 +8,61 @@ date: ""
 subtitle: Práctica independiente
 ---
 
+### definición de funciones
+
+Crear una **función** llamada _HolaMundo_ que imprima el texto "Hola mundo"
+
+```{r}
+
+hm <- function(){ print('Hola Mundo')}
+hm()
+```
+
+Crear una **función** que devuelva la sumatoria de los números enteros comprendidos entre 1 y un parámetro _x_ a definir.
+```{r}
+
+sumatoria_enteros <- function(x){
+  Vector <- 1:x
+  return(sum(Vector))
+}
+
+Sumatoria_enteros(10)
+
+```
 
 
-- Crear una **función** llamada _HolaMundo_ que imprima el texto "Hola mundo"
+### Ejercicios sobre purrr
+
+```{r}
+library(purrr)
+```
+
+__Ej 1__ Para cada columna de mtcars, calcular la media. Devolver una lista
 
 ```{r}
 
 ```
 
-- Crear una **función** que devuelva la sumatoria de los números enteros comprendidos entre 1 y un parámetro _x_ a definir.
+__Ej 2__ Hacer lo mismo que en 1, pero devolver un vector nombrado
+
+```{r}
+
+```
+
+__Ej 3__ Calcular la media, pero podando el 5% de los valores más altos y bajos
+
+```{r}
+
+```
+
+__Ej 4__ Dividir el dataset de por la variable cyl como una lista y calcular el numero de filas por elemento de la lista
+
+```{r}
+
+```
+
+__Ej 5__ Para cada elemento de la lista de _4_, calcular la media de cada columna. Devolver los resultados como un dataframe con un registro por cada elemento de la lista (osea, 3)
+
 ```{r}
 
 ```

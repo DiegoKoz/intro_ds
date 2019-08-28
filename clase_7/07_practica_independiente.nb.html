@@ -2891,23 +2891,72 @@ div.tocify {
 
 
 <!-- rnb-text-begin -->
-<ul>
-<li>Crear una <strong>función</strong> llamada <em>HolaMundo</em> que imprima el texto “Hola mundo”</li>
-</ul>
+<div id="definicion-de-funciones" class="section level3">
+<h3>definición de funciones</h3>
+<p>Crear una <strong>función</strong> llamada <em>HolaMundo</em> que imprima el texto “Hola mundo”</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5obSA8LSBmdW5jdGlvbigpeyBwcmludCgnSG9sYSBNdW5kbycpfVxuaG0oKVxuYGBgIn0= -->
+<pre class="r"><code>
+hm &lt;- function(){ print('Hola Mundo')}
+hm()</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<ul>
-<li>Crear una <strong>función</strong> que devuelva la sumatoria de los números enteros comprendidos entre 1 y un parámetro <em>x</em> a definir.</li>
-</ul>
+<p>Crear una <strong>función</strong> que devuelva la sumatoria de los números enteros comprendidos entre 1 y un parámetro <em>x</em> a definir.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5zdW1hdG9yaWFfZW50ZXJvcyA8LSBmdW5jdGlvbih4KXtcbiAgVmVjdG9yIDwtIDE6eFxuICByZXR1cm4oc3VtKFZlY3RvcikpXG59XG5cblN1bWF0b3JpYV9lbnRlcm9zKDEwKVxuXG5gYGAifQ== -->
+<pre class="r"><code>
+sumatoria_enteros &lt;- function(x){
+  Vector &lt;- 1:x
+  return(sum(Vector))
+}
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiBQcm9ncmFtYWNpb24gRnVuY2lvbmFsCm91dHB1dDoKICBodG1sX25vdGVib29rOgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCmRhdGU6ICIiCnN1YnRpdGxlOiBQcsOhY3RpY2EgaW5kZXBlbmRpZW50ZQotLS0KCgoKLSBDcmVhciB1bmEgKipmdW5jacOzbioqIGxsYW1hZGEgX0hvbGFNdW5kb18gcXVlIGltcHJpbWEgZWwgdGV4dG8gIkhvbGEgbXVuZG8iCgpgYGB7cn0KCmBgYAoKLSBDcmVhciB1bmEgKipmdW5jacOzbioqIHF1ZSBkZXZ1ZWx2YSBsYSBzdW1hdG9yaWEgZGUgbG9zIG7Dum1lcm9zIGVudGVyb3MgY29tcHJlbmRpZG9zIGVudHJlIDEgeSB1biBwYXLDoW1ldHJvIF94XyBhIGRlZmluaXIuCmBgYHtyfQoKYGBgCgo=</div>
+Sumatoria_enteros(10)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="ejercicios-sobre-purrr" class="section level3">
+<h3>Ejercicios sobre purrr</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShwdXJycilcbmBgYCJ9 -->
+<pre class="r"><code>library(purrr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Ej 1</strong> Para cada columna de mtcars, calcular la media. Devolver una lista</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Ej 2</strong> Hacer lo mismo que en 1, pero devolver un vector nombrado</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Ej 3</strong> Calcular la media, pero podando el 5% de los valores más altos y bajos</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Ej 4</strong> Dividir el dataset de por la variable cyl como una lista y calcular el numero de filas por elemento de la lista</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Ej 5</strong> Para cada elemento de la lista de <em>4</em>, calcular la media de cada columna. Devolver los resultados como un dataframe con un registro por cada elemento de la lista (osea, 3)</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
+
+<div id="rmd-source-code">LS0tCnRpdGxlOiBQcm9ncmFtYWNpb24gRnVuY2lvbmFsCm91dHB1dDoKICBodG1sX25vdGVib29rOgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCmRhdGU6ICIiCnN1YnRpdGxlOiBQcsOhY3RpY2EgaW5kZXBlbmRpZW50ZQotLS0KCiMjIyBkZWZpbmljacOzbiBkZSBmdW5jaW9uZXMKCkNyZWFyIHVuYSAqKmZ1bmNpw7NuKiogbGxhbWFkYSBfSG9sYU11bmRvXyBxdWUgaW1wcmltYSBlbCB0ZXh0byAiSG9sYSBtdW5kbyIKCmBgYHtyfQoKaG0gPC0gZnVuY3Rpb24oKXsgcHJpbnQoJ0hvbGEgTXVuZG8nKX0KaG0oKQpgYGAKCkNyZWFyIHVuYSAqKmZ1bmNpw7NuKiogcXVlIGRldnVlbHZhIGxhIHN1bWF0b3JpYSBkZSBsb3MgbsO6bWVyb3MgZW50ZXJvcyBjb21wcmVuZGlkb3MgZW50cmUgMSB5IHVuIHBhcsOhbWV0cm8gX3hfIGEgZGVmaW5pci4KYGBge3J9CgpzdW1hdG9yaWFfZW50ZXJvcyA8LSBmdW5jdGlvbih4KXsKICBWZWN0b3IgPC0gMTp4CiAgcmV0dXJuKHN1bShWZWN0b3IpKQp9CgpTdW1hdG9yaWFfZW50ZXJvcygxMCkKCmBgYAoKCiMjIyBFamVyY2ljaW9zIHNvYnJlIHB1cnJyCgpgYGB7cn0KbGlicmFyeShwdXJycikKYGBgCgpfX0VqIDFfXyBQYXJhIGNhZGEgY29sdW1uYSBkZSBtdGNhcnMsIGNhbGN1bGFyIGxhIG1lZGlhLiBEZXZvbHZlciB1bmEgbGlzdGEKCmBgYHtyfQoKYGBgCgpfX0VqIDJfXyBIYWNlciBsbyBtaXNtbyBxdWUgZW4gMSwgcGVybyBkZXZvbHZlciB1biB2ZWN0b3Igbm9tYnJhZG8KCmBgYHtyfQoKYGBgCgpfX0VqIDNfXyBDYWxjdWxhciBsYSBtZWRpYSwgcGVybyBwb2RhbmRvIGVsIDUlIGRlIGxvcyB2YWxvcmVzIG3DoXMgYWx0b3MgeSBiYWpvcwoKYGBge3J9CgpgYGAKCl9fRWogNF9fIERpdmlkaXIgZWwgZGF0YXNldCBkZSBwb3IgbGEgdmFyaWFibGUgY3lsIGNvbW8gdW5hIGxpc3RhIHkgY2FsY3VsYXIgZWwgbnVtZXJvIGRlIGZpbGFzIHBvciBlbGVtZW50byBkZSBsYSBsaXN0YQoKYGBge3J9CgpgYGAKCl9fRWogNV9fIFBhcmEgY2FkYSBlbGVtZW50byBkZSBsYSBsaXN0YSBkZSBfNF8sIGNhbGN1bGFyIGxhIG1lZGlhIGRlIGNhZGEgY29sdW1uYS4gRGV2b2x2ZXIgbG9zIHJlc3VsdGFkb3MgY29tbyB1biBkYXRhZnJhbWUgY29uIHVuIHJlZ2lzdHJvIHBvciBjYWRhIGVsZW1lbnRvIGRlIGxhIGxpc3RhIChvc2VhLCAzKQoKYGBge3J9CgpgYGAKCg==</div>
 
 
 </div>
