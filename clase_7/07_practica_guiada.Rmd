@@ -167,7 +167,11 @@ bases_df %>%
 
 ### Ejemplo 3: Gráficos en serie
 
-Veamos un tercer ejemplo con otra base de datos que ya conocemos: Gapminder
+Veamos un tercer ejemplo con otra base de datos que ya conocemos: Gapminder, que muestra algunos datos sobre la población de los países por año.
+
+El objetivo de este ejercicio es hacer un gráfico por país de forma automática. 
+
+- Primero veamos los datos
 
 
 ```{r}
@@ -190,7 +194,7 @@ la base tiene la siguiente info:
 - gdpPercap
 
 
-vamos a hacer un gráfico sencillo para Argentina
+- Vamos a hacer un gráfico sencillo para Argentina
 
 ```{r}
 
@@ -204,28 +208,66 @@ ggplot(data_argentina, aes(year, lifeExp, size= pop, color=gdpPercap))+
 ```
 
 
+- Ahora que tenemos una idea de lo que queremos gráficar lo podemos poner adentro de una función que grafique.
+
 ```{r}
 
-fs::dir_create('../resultados/graficos_paises')
 
-
-graficar_y_guardar <- function(data){
+# definimos la función
+graficar_pais <- function(data, pais){
   
-  pais <- unique(data$country)
-  
-  archivo <- glue('../resultados/graficos_paises/{pais}.png')
   ggplot(data, aes(year, lifeExp, size= pop, color=gdpPercap))+
     geom_point()+
     geom_line(alpha=0.6)+
-    labs(title = pais) +
-    ggsave(archivo)
-  
+    labs(title = pais)
 }
 
 ```
 
+
+probamos la función para un caso
+
 ```{r}
-graficar_y_guardar(data_argentina)
+graficar_pais(data_argentina, 'Argentina')
 
 ```
+
+
+- Nos armamos un dataset nesteado
+
+```{r}
+
+gapminder_nest <- gapminder_unfiltered %>% 
+  group_by(country) %>% 
+  nest()
+
+gapminder_nest
+
+```
+
+- Ahora podemos crear una nueva columna que contenga los gráficos
+
+```{r}
+gapminder_nest <- gapminder_nest %>% 
+  mutate(grafico= map2(.x = data, .y = country,.f =  graficar_pais))
+
+gapminder_nest
+```
+
+Veamos un ejemplo
+
+
+```{r}
+gapminder_nest$grafico[2]
+```
+
+
+Ahora podemos guardar todos los gráficos en un archivo PDF
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+pdf('../resultados/graficos_gapminder.pdf')
+gapminder_nest$grafico
+dev.off()
+```
+
 
