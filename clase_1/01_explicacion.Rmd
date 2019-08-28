@@ -11,14 +11,14 @@ subtitle: Explicación
 
 ![https://cran.r-project.org/](img/Rlogo.svg){width=1000}
 
-### ¿Que es R?
+### ¿Qué es R?
 
 - Lenguaje para el procesamiento y análisis estadístico de datos
 - Software Libre
 - Sintaxis Básica: R base 
 - Sintaxis incremental[^1]: El lenguaje se va ampliando por aportes de Universidades, investigadores/as, usuarios/as y empresas privadas, organizados en librerías (o paquetes)
-- Comunidad web muy grande para realizar preguntas y despejar dudas.
-- Graficos con calidad de publicación
+- Comunidad web muy grande para realizar preguntas y despejar dudas. Por ejemplo, en el caso de Buenos Aires contamos con [https://www.meetup.com/es-ES/rladies-buenos-aires/](R-Ladies Buenos Aires) y [https://www.meetup.com/es-ES/renbaires/](RenBaires).
+- Gráficos con calidad de publicación
 
 [^1]: Más allá de los comandos elementales, comandos más sofisticados tienen muchas versiones, y algunas quedan en desuso en el tiempo.
 
@@ -27,7 +27,7 @@ subtitle: Explicación
 
 ![https://www.rstudio.com/](img/RStudiologo.svg){width=1000}
 
-El _entorno_ más cómodo para utilizar el _lenguaje_ __R__ es el _programa_ __R studio__
+Uno de los _entornos_ más cómodos para utilizar el _lenguaje_ __R__ es el _programa_ __R studio__.
 
 - Rstudio es una empresa que produce productos asociados al lenguaje R, como el programa sobre el que corremos los comandos, y extensiones del lenguaje (librerías).
  
@@ -41,23 +41,23 @@ El _entorno_ más cómodo para utilizar el _lenguaje_ __R__ es el _programa_ __R
 ### Lógica sintáctica.
 
 #### Definición de objetos
-Los __Objetos/Elementos__ constituyen la categoría escencial del R. De hecho, todo en R es un objeto, y se almacena con un nombre específico que **no debe poseer espacios**. Un número, un vector, una función, la progresión de letras del abecedario, una base de datos, un gráfico, constituyen para R objetos de distinto tipo. Los objetos que vamos creando a medida que trabajamos pueden visualizarse en la panel derecho superior de la pantalla. 
+Los __Objetos/Elementos__ constituyen la categoría esencial del R. De hecho, todo en R es un objeto, y se almacena con un nombre específico que **no debe poseer espacios**. Un número, un vector, una función, la progresión de letras del abecedario, una base de datos, un gráfico, constituyen para R objetos de distinto tipo. Los objetos que vamos creando a medida que trabajamos pueden visualizarse en el panel derecho superior de la pantalla (el _Environment_). 
 
-El operador __```<-```__ sirve para definir un objeto.  __A la izquierda__ del __```<-```__ debe ubicarse el nombre que tomará el elemento a crear. __Del lado derecho__ debe ir la definición del mismo
+El operador __```<-```__ (__Alt + Guión__) sirve para definir un objeto.  __A la izquierda__ del __```<-```__ debe ubicarse el nombre que tomará el elemento a crear. __Del lado derecho__ debe ir la definición del mismo.
 
 
 ```{r}
 A <- 1
 ```
 
-Al definir un elemento, el mismo queda guardado en el ambiente del programa, y podrá ser utilizado posteriormente para observar su contenido o para realizar una operación con el mismo
+Por ejemplo, podemos crear el elemento __A__, cuyo valor será 1. Para esto, debemos _correr_ el código presionando __Ctrl + Enter__, con el cursor ubicado en cualquier parte de la línea. Al definir un elemento, el mismo queda guardado en el ambiente del programa, y podrá ser utilizado posteriormente para observar su contenido o para realizar una operación con el mismo.
 
 ```{r}
 A 
 A+6
 ```
 
-Al correr una linea con el nombre del objeto, la consola del programa nos muestra su contenido. Entre Corchetes Observamos el número de orden del elemento en cuestión
+Al correr una linea con el nombre del objeto, la consola del programa nos muestra su contenido. Entre corchetes observamos el número de orden del elemento en cuestión. Si corremos una operación, la consola nos muestra el resultado de la misma.
 
 El operador __```=```__ es __equivalente__ a __```<-```__, pero en la práctica no se utiliza para la definición de objetos.   
 
@@ -68,12 +68,14 @@ B
 
 __```<-```__ es un operador __Unidireccional__, es decir que:     
 ```A <- B``` implica que __A__ va tomar como valor el contenido del objeto __B__, y no al revés.
+
 ```{r}
 A <- B
-A   #Ahora A toma el valor de B, y B continua conservando el mismo valor
+A      # Ahora A toma el valor de B, y B continúa conservando el mismo valor
 B
 ```
 
+También podemos utilizar el __#__ para realizar comentarios entre el código, en lo que resta de la línea en cuestión.
 
 ### R base
 
@@ -81,19 +83,19 @@ Con _R base_ nos referimos a los comandos básicos que vienen incorporados en el
 
 #### Operadores lógicos: 
 
-- $>$
-- $>=$
-- $<$
-- $<=$
-- $==$
-- $!=$
+- $>$ (mayor a-)
+- $>=$ (mayor o igual a-)
+- $<$ (menor a-)
+- $<=$ (menor o igual a-)
+- $==$ (igual a-)
+- $!=$ (distinto a-)
 
 ```{r}
-#Redefinimos los valores A y B
-A <-  10
-B  <-  20
-#Realizamos comparaciones lógicas
+# Redefinimos los valores A y B
+A <- 10
+B <- 20
 
+# Realizamos comparaciones lógicas
 A >  B
 A >= B
 A <  B
