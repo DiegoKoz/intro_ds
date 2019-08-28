@@ -1,0 +1,23 @@
+---
+title: Programacion Funcional
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica independiente
+---
+
+
+
+- Crear una **función** llamada _HolaMundo_ que imprima el texto "Hola mundo"
+
+```{r}
+
+```
+
+- Crear una **función** que devuelva la sumatoria de los números enteros comprendidos entre 1 y un parámetro _x_ a definir.
+```{r}
+
+```
+
