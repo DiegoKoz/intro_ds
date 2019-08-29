@@ -1,0 +1,268 @@
+## Práctica Guiada
+
+
+```{r}
+library(fs)
+library(tidyverse)
+library(openxlsx)
+library(glue)
+
+```
+
+### Ejemplo 1: Iterando en la EPH
+
+Lo primero que necesitamos es definir un vector o lista sobre el que iterar. 
+
+Por ejemplo, podemos armar un vector con los path a las bases individuales, con el comando `fs::dir_ls`
+
+```{r}
+
+bases_individuales_path <- dir_ls(path = '../fuentes/', regexp= 'individual')
+bases_individuales_path
+```
+
+Luego, como en la función que usamos para leer las bases definimos muchos parametros, nos podemos armar una función _wrapper_ que sólo necesite un parámetro, y que simplifique la escritura del map
+
+```{r message=FALSE, warning=FALSE}
+
+leer_base_eph <- function(path) {
+  read.table(path,sep=";", dec=",", header = TRUE, fill = TRUE) %>% 
+    select(ANO4,TRIMESTRE,REGION,P21,CH04, CH06)
+}
+
+bases_df <- tibble(bases_individuales_path) %>%
+  mutate(base = map(bases_individuales_path, leer_base_eph))
+
+```
+
+```{r}
+bases_df
+```
+
+El resultado es un DF donde la columna __base__ tiene en cada fila, otro DF con la base de la EPH de ese período. Esto es lo que llamamos un _nested DF_ o dataframe nesteado pa les pibes.
+
+Si queremos juntar todo, podemos usar `unnest()`
+
+```{r message=FALSE, warning=FALSE}
+bases_df <- bases_df %>% unnest()
+bases_df
+```
+
+> ¿Qué pasa si los DF que tenemos nesteados no tienen la misma cantidad de columnas?
+
+
+Esto mismo lo podemos usar para fragmentar el datastet por alguna variable, con el `group_by()`
+
+
+```{r}
+bases_df %>% 
+  group_by(REGION) %>% 
+  nest()
+
+```
+
+Así, para cada región tenemos un DF.
+
+> ¿ De qué sirve todo esto?
+
+No todo en la vida es un Dataframe. Hay estucturas de datos que no se pueden normalizar a filas y columnas. En esos casos recurríamos tradicionalmente a los loops. Con MAP podemos tener los elementos agrupados en un sólo objeto y aún conservar sus formas diferentes.
+
+### Ejemplo 2. Regresión lineal
+
+Si bien no nos vamos a meter en el detalle del modelo lineal hoy, es útil usarlo como ejemplo de lo que podemos hacer con MAP.
+
+Planteamos el modelo 
+$$
+P21 = \beta_0 + \beta_1*CH04 + \beta_2*CH06
+$$
+Osea, un modleo que explica el ingreso según sexo y edad
+
+
+```{r}
+
+lmfit <- lm(P21~factor(CH04)+CH06,data = bases_df)
+
+summary(lmfit)
+```
+(al final de la clase podemos charlar sobre los resultados, si hay interés :-) )
+
+De forma Tidy, la librería `broom` nos da los resultados en un DF.
+
+```{r}
+broom::tidy(lmfit)
+```
+ 
+ Si lo queremos hacer por region
+ 
+ 
+#### Loopeando
+
+```{r}
+
+resultados <- tibble()
+
+for (region in unique(bases_df$REGION)) {
+  
+  data <- bases_df %>% 
+    filter(REGION==region)
+  
+  lmfit <- lm(P21~factor(CH04)+CH06,data = data)
+  
+  lmtidy <- broom::tidy(lmfit)
+  lmtidy$region <- region
+  resultados <- bind_rows(resultados,lmtidy)
+
+}
+
+resultados
+```
+
+#### Usando MAP
+
+Primero me armo una funcion que me simplifica el codigo
+```{r}
+fun<-function(porcion,grupo) {  broom::tidy(lm(P21~factor(CH04)+CH06,data = porcion))}
+```
+
+```{r}
+bases_df_lm <- bases_df %>% 
+  group_by(REGION) %>%
+  nest() %>% 
+  mutate(lm = map(data,fun))
+bases_df_lm
+bases_df_lm %>% 
+  unnest(lm)
+```
+
+O incluso más facil, utilizando `group_modify` (que es un atajo que solo acepta DF)
+
+
+
+```{r}
+bases_df %>% 
+  group_by(REGION) %>% 
+  group_modify(fun)
+```
+
+
+Pero MAP sirve para operar con cualquier objeto de R.
+
+Por ejemplo podemos guardar el __objeto__ `S3:lm` que es la regresion lineal entrenada. Ese objeto no es ni un vector, ni una lista, ni un DF. No es una estructura de datos, sino que es algo distinto, con _propiedades_ como `predict()` para predecir, el `summary()` que vimos, etc.
+
+```{r}
+fun<-function(porcion,grupo) {  lm(P21~factor(CH04)+CH06,data = porcion)}
+
+bases_df %>% 
+  group_by(REGION) %>%
+  nest() %>%  
+  mutate(lm = map(data,fun))
+```
+
+### Ejemplo 3: Gráficos en serie
+
+Veamos un tercer ejemplo con otra base de datos que ya conocemos: Gapminder, que muestra algunos datos sobre la población de los países por año.
+
+El objetivo de este ejercicio es hacer un gráfico por país de forma automática. 
+
+- Primero veamos los datos
+
+
+```{r}
+
+library(gapminder)
+
+
+gapminder_unfiltered %>% 
+  sample_n(10)
+
+```
+
+la base tiene la siguiente info:
+
+- country: Nombre del país
+- continent: Nombre del continente
+- year: año
+- lifeExp: Esperanza de vida al nacer
+- pop: Población
+- gdpPercap
+
+
+- Vamos a hacer un gráfico sencillo para Argentina
+
+```{r}
+
+data_argentina <- gapminder_unfiltered %>% 
+  filter(country=='Argentina')
+
+ggplot(data_argentina, aes(year, lifeExp, size= pop, color=gdpPercap))+
+  geom_point()+
+  geom_line(alpha=0.6)+
+  labs(title = unique(data_argentina$country))
+```
+
+
+- Ahora que tenemos una idea de lo que queremos gráficar lo podemos poner adentro de una función que grafique.
+
+```{r}
+
+
+# definimos la función
+graficar_pais <- function(data, pais){
+  
+  ggplot(data, aes(year, lifeExp, size= pop, color=gdpPercap))+
+    geom_point()+
+    geom_line(alpha=0.6)+
+    labs(title = pais)
+}
+
+```
+
+
+probamos la función para un caso
+
+```{r}
+graficar_pais(data_argentina, 'Argentina')
+
+```
+
+
+- Nos armamos un dataset nesteado
+
+```{r}
+
+gapminder_nest <- gapminder_unfiltered %>% 
+  group_by(country) %>% 
+  nest()
+
+gapminder_nest %>% 
+  sample_n(10)
+
+```
+
+- Ahora podemos crear una nueva columna que contenga los gráficos
+
+```{r}
+gapminder_nest <- gapminder_nest %>% 
+  mutate(grafico= map2(.x = data, .y = country,.f =  graficar_pais))
+
+gapminder_nest %>% 
+  sample_n(10)
+```
+
+Veamos un ejemplo
+
+
+```{r}
+gapminder_nest$grafico[2]
+```
+
+
+Ahora podemos guardar todos los gráficos en un archivo PDF
+
+```{r eval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+pdf('../resultados/graficos_gapminder.pdf')
+gapminder_nest$grafico
+dev.off()
+```
+
+

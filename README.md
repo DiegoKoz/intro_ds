@@ -99,14 +99,14 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 11__: Text Mining
 
-  + Introducción al análisis de textos
-  + Limpieza
-  + Preprocesamiento
-  + BoW
-  + Stopwords
-  + TF-IDF
-  + Wordcloud
-  + Escrapeo de Twitter
++ Introducción al análisis de textos
++ Limpieza
++ Preprocesamiento
++ BoW
++ Stopwords
++ TF-IDF
++ Wordcloud
++ Escrapeo de Twitter
 
 
 
@@ -123,5 +123,5 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 #### Librerias a instalar
 
 ```
-install.packages(c("tidyverse","openxlsx","xlsx",'ggplot2','GGally','ggridges','treemapify','esquisse', 'cowplot','ggthemes', 'ggrepel','ggalt','kableExtra','GGally','ggridges','fs','purrr','rmarkdown'))
+install.packages(c("tidyverse","openxlsx","xlsx",'ggplot2','GGally','ggridges','treemapify','esquisse','cowplot','ggthemes', 'ggrepel','ggalt','kableExtra','fs','purrr','rmarkdown'))
 ```

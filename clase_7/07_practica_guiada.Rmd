@@ -241,7 +241,8 @@ gapminder_nest <- gapminder_unfiltered %>%
   group_by(country) %>% 
   nest()
 
-gapminder_nest
+gapminder_nest %>% 
+  sample_n(10)
 
 ```
 
@@ -251,20 +252,21 @@ gapminder_nest
 gapminder_nest <- gapminder_nest %>% 
   mutate(grafico= map2(.x = data, .y = country,.f =  graficar_pais))
 
-gapminder_nest
+gapminder_nest %>% 
+  sample_n(10)
 ```
 
 Veamos un ejemplo
 
 
-```{r}
+```{r }
 gapminder_nest$grafico[2]
 ```
 
 
 Ahora podemos guardar todos los gráficos en un archivo PDF
 
-```{r message=FALSE, warning=FALSE, include=FALSE}
+```{reval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
 pdf('../resultados/graficos_gapminder.pdf')
 gapminder_nest$grafico
 dev.off()

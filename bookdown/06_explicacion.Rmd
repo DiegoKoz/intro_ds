@@ -1,0 +1,9 @@
+# Diseño y análisis de encuestas
+
++ Introducción al diseño de encuestas
++ Presentación de la Encuesta Permanente de Hogares
++ Generación de estadísticos de resumen en muestras estratificadas
++ Utilización de los ponderadores
+
+
+## Explicación

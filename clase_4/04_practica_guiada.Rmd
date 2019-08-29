@@ -166,7 +166,8 @@ kernel_data_3 <-kernel_data_2 %>%
   gather(., key = Tipo_ingreso, Ingreso, c((ncol(.)-1):ncol(.))) %>%
   filter( Ingreso !=0)# Para este gráfico, quiero eliminar los ingresos = 0
 
-kernel_data_3
+kernel_data_3 %>% 
+  sample_n(10)
 ```
 
 

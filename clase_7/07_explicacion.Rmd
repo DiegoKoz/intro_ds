@@ -163,7 +163,6 @@ La salida de los `map()` es una __lista__, no un vector, por lo que si lo metemo
 ```{r}
 ABC_123 %>% 
   mutate(resultado= map2(Letras,Num,funcion_prueba))
-
 ```
 
 al ponerlo dentro del dataframe desarma la lista y guarda cada elemento por separado.
@@ -207,7 +206,6 @@ Ahora cada fila tiene un vector de 20 elementos guardado en la columna resultado
 no es necesario que definamos la función de antemano. Podemos usar _funciones implícitas_
 
 ```{r}
-
 map_dbl(c(1:10), function(x) x^2)
 map2_dbl(c(1:10),c(11:20), function(x,y) x*y)
 
@@ -225,7 +223,7 @@ map2_dbl(c(1:10),c(11:20),~.x*.y)
 ```
 
 
-## Walk
+### Walk
 
 Las funciones `Walk` Tienen la misma forma que los `map`, pero se usan cuando lo que queremos iterar no genera una salida, sino que nos interesan los efectos secundarios que generan.
 
