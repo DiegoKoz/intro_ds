@@ -1,0 +1,198 @@
+---
+title: "Ejercicios modelo lineal. II"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+---
+
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(openintro,warn.conflicts = FALSE)
+
+colores <- bdims$sex
+colores <- ifelse(colores == 1,"blue", "red")
+```
+
+
+# 2. Ejercicios Regresión Lineal Simple (primera parte)
+   
+### Ejercicio 2.1 Medidas del cuerpo, Parte II. 
+Datos publicados en Heinz, Peterson, Johnson, y Kerk {2003}, base de datos bdims del paquete openintro.
+
+a) Realizar un diagrama de dispersión que muestre la relación entre el peso medido en kilogramos (wgt)y la circunferencia de la cadera medida en centímetros (hip.gi), ponga el peso en el eje vertical. Describa la relación entre la circunferencia de la cadera y el peso.
+
+```{r}
+plot(bdims$hip.gi,bdims$wgt, col = colores)
+```
+Es una relación lineal, positiva y fuerte
+
+
+b) ¿Cómo cambiaría la relación si el peso se midiera en libras mientras que las unidades para la circunferencia de la cadera permanecieran en centímetros?
+__no cambia.__
+
+c) Ajuste un modelo lineal para explicar el peso por la circunferencia de cadera, con las variables en las unidades originales. Escriba el modelo. Luego, escriba el modelo ajustado. Interprete la pendiente estimada en términos del problema. Su respuesta debería contener una frase que comience así: "Si una persona aumenta un cm. de contorno de cadera, en promedio su peso aumentará ... kilogramos".
+
+```{r}
+lm.ajustado <- lm(wgt~hip.gi,data = bdims)
+summary(lm.ajustado)
+
+```
+
+$$
+E(wgt/hip.gi)= \beta_0 + \beta_1 .hip.gi +\epsilon
+$$
+$$
+E(wgt/hip.gi)= -78.21 + 1.52 .hip.gi
+$$
+
+"Si una persona aumenta un cm. de contorno de cadera, en promedio su peso aumentará 1.52417 kilogramos".
+
+d) Superponga la recta ajustada al scatterplot. Observe el gráfco. ¿Diría que la recta describe bien la relación entre ambas variables?
+
+```{r}
+plot(bdims$hip.gi,bdims$wgt)
+abline(lm.ajustado, col = "red")
+
+```
+
+Describe bien
+
+e) Elegimos una persona adulta físicamente activa entre los estudiantes de primer año de la facultad. Su contorno de cadera mide 100 cm. Prediga su peso en kilogramos.
+
+
+```{r}
+alumno <- data.frame(hip.gi =  100, wgt=NA)
+predict(lm.ajustado,newdata = alumno)
+
+```
+
+f) Esa persona elegida al azar pesa 81kg. Calcule el residuo.
+
+```{r}
+(predict(lm.ajustado,newdata = alumno) -81)^2
+
+```
+
+
+g) Estime el peso esperado para la población de adultos cuyo contorno de cadera mide 100 cm. __El del punto E__
+
+### Ejercicio 2.2 Medidas del cuerpo, Parte III. Base de datos bdims del paquete openintro.
+
+a) Realizar un diagrama de dispersión que muestre la relación entre el peso medido en kilogramos {wgt)y la altura hgt).
+
+```{r}
+plot(bdims$hgt, bdims$wgt)
+```
+
+
+b) Ajuste un modelo lineal para explicar el peso por la altura. Escriba el modelo . Luego, escriba el modelo ajustado. interprete la pendiente estimada en términos del problema. Interprete la pendiente. ¿Es razonable el signo obtenido para la pendiente estimada? Superponer al scatterplot anterior la recta estimada.
+
+```{r}
+lm.ajustado <- lm(wgt~hgt,data = bdims)
+summary(lm.ajustado)
+
+```
+$$
+E(wgt/hip.gi)= \beta_0 + \beta_1 .hgt +\epsilon
+$$
+$$
+E(wgt/hip.gi)= -105.01 + 1.02  . hgt
+$$
+
+Es razonable. Si una persona aumenta un cm. de altura, en promedio su peso aumentará 1.02 kilogramos".
+
+
+```{r}
+plot(bdims$hgt, bdims$wgt)
+abline(lm.ajustado, col = "red")
+```
+
+
+c) La persona elegida en el ejercicio anterior, medía 187 cm. de alto, y pesaba 81 kg. Prediga su peso con el modelo que tiene a la altura como covariable. Calcule el residuo de dicha observación.
+
+```{r}
+alumno$hgt <- 187
+predict(lm.ajustado,newdata = alumno)
+(predict(lm.ajustado,newdata = alumno) -81)^2
+
+
+```
+
+
+### Ejercicio 2.3 Mamíferos, Parte III. Base de datos mammals del paquete openintro.
+Ajuste un modelo lineal para explicar a log10 (BrainWt) en función del log10 (BodyWt) : Como antes, escriba el modelo teórico y el ajustado.
+
+```{r}
+library(openintro, warn.conflicts = FALSE)
+lm_fitted <- lm(log10(mammals$BrainWt) ~ log10(mammals$BodyWt))
+summary(lm_fitted)
+```
+
+modelo teórico:
+
+$$
+\log_{10}BrainWt = \beta_0 + \beta_1*\log_{10}BrainWt + \epsilon
+$$
+Modelo ajustado
+
+$$
+\widehat{\log_{10}BrainWt} = 0.92713 + 0.75169*\log_{10}BrainWt
+$$
+
+
+b) Repita el scatterplot de las variables transformadas y superpóngale la recta ajustada.
+
+
+```{r}
+plot(log10(mammals$BrainWt) ~ log10(mammals$BodyWt))
+abline(lm_fitted) 
+```
+
+c)La observación 45 corresponde a un chancho. Prediga el peso del cerebro del chancho con el modelo ajustado, sabiendo que pesa 192 kilos.
+
+```{r}
+10^(predict(lm_fitted)[45])
+
+plot(log10(mammals$BrainWt) ~ log10(mammals$BodyWt))
+abline(lm_fitted) 
+points(x= log10(mammals$BodyWt)[45],y= log10(mammals$BrainWt)[45], col= "violet",  pch = 19)
+```
+
+
+d) La observación 34 corresponde a un ser humano. Prediga el peso del cerebro de un ser humano con el modelo ajustado, sabiendo que pesa 62 kilos.
+
+```{r}
+
+10^(predict(lm_fitted)[34])
+
+plot(log10(mammals$BrainWt) ~ log10(mammals$BodyWt))
+abline(lm_fitted) 
+points(x= log10(mammals$BodyWt)[45],y= log10(mammals$BrainWt)[45], col= "violet",  pch = 19)
+points(x= log10(mammals$BodyWt)[34],y= log10(mammals$BrainWt)[34], col= "red",  pch = 19)
+```
+  
+Otras opciones para graficar
+
+```{r}
+
+#devtools::install_github('hadley/ggplot2')
+library(ggplot2)
+library(ggrepel)
+
+ggplot(mammals, aes(log10(BodyWt), log10(BrainWt), label = Species))+
+  geom_text_repel()+
+  geom_smooth(method = "lm", alpha = 0.5)
+```
+
+```{r}
+library(plotly)
+
+graf <- ggplot(mammals, aes(log10(BodyWt), log10(BrainWt), label =Species ))+
+  geom_point()+
+  geom_smooth(method = "lm", alpha = 0.5)
+
+ggplotly(graf, tooltip = c("label"))
+```
+
+  

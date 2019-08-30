@@ -7,3 +7,194 @@ output:
 date: ""
 subtitle: Práctica Guiada
 ---
+
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+### Datos de Properati
+
+Para este ejercicio utilizaremos los datos provistos por Properati: https://www.properati.com.ar/data/
+
+
+Primero acondicionamos la base original, para quedarnos con una base más fácil de trabajar, y que contiene unicamente los datos interesantes. (no es necesario correrlo)
+
+```{r eval=FALSE, include=TRUE}
+ar_properties <- read_csv("~/Downloads/ar_properties.csv")
+ar_properties %>% 
+  filter(operation_type=='Venta',
+         property_type %in% c('Casa','PH','Departamento'),
+         currency=='USD',
+         l1=='Argentina',
+         l2=='Capital Federal',
+         !is.na(rooms),
+         !is.na(surface_total),
+         !is.na(surface_covered),
+         !is.na(bathrooms),
+         !is.na(l3))  %>% 
+  select(-c(lat,lon, title,description, ad_type,start_date, end_date,operation_type,currency, l1, l2,l4,l5,l6,price_period,bedrooms))   %>% 
+  saveRDS('../fuentes/datos_properati.RDS')
+```
+
+
+
+```{r}
+df <- read_rds('../fuentes/datos_properati.RDS')
+
+glimpse(df)
+```
+
+```{r}
+summary(df$price)
+
+df[df$price<10000,]
+
+df <- df %>% 
+  filter(price>10000)
+```
+Tenemos un par de outliers que no tienen mucho sentido. Es posible que el precio este mal cargado.
+
+
+```{r}
+df[df$price>5000000,]
+```
+
+Los precios más alto tienen algunas cosas sorprendentes, pero sería arriesgado descartarlos por errores.
+
+
+```{r}
+lm_fit <- lm(price~ l3+ rooms + bathrooms + surface_total + property_type,data = df)
+```
+
+```{r}
+summary(lm_fit)
+```
+
+> ¿ Qué pasó con las variables no numéricas?
+> ¿Son significativos los estimadores? ¿cuales?
+> ¿Cómo se leen los valores de los estimadores?
+
+
+Dado que muchos de los barrios no explican significativamente los cambios en los precios, no esta bueno conservarlos todos. A su vez, no sabemos respecto a qué barrio se compara.
+
+Una solución puede ser agrupar los barrios en tres categorías respecto a su efecto en el precio: 
+
+- Alto
+- Medio
+- Bajo
+
+En particular, podemos notar de esta primera regresión que algunos barrios tienen un efecto significativo en subir el valor de la propiedad, como Belgrano o Recoleta. 
+
+Para construir la nueva variable, podemos ver el precio promedio del metro cuadrado por barrio
+
+```{r}
+
+df_barrios <- df %>% 
+  group_by(l3) %>% 
+  summarise(precio_m2 = mean(price/surface_total)) 
+  
+ggplot(df_barrios,aes(precio_m2)) +
+  geom_histogram()
+
+
+summary(df_barrios$precio_m2)
+```
+
+Con este gráfico vemos que que hay muchos barrios con un precio promedio cercano a 2500 dólares el $m^2$.
+
+Podemos dividr los tres grupos al rededor de los quartiles 1 y 3. 
+
+- <2000 bajo
+- 2000-2500 medio
+- >2500 alto
+
+```{r}
+df_barrios <- df_barrios %>% 
+  mutate(barrio= case_when(precio_m2<2000 ~ 'bajo',
+                           precio_m2>2000 & precio_m2<2500 ~ 'medio',
+                           precio_m2>2500 ~ 'alto'))
+
+df_barrios %>% 
+  sample_n(10)
+```
+
+Con esta nueva variable podemos modificar la tabla original.
+
+```{r}
+df <- df %>% 
+  left_join(df_barrios, by='l3')
+```
+
+
+y volvemos a calcular el modelo
+
+
+
+```{r}
+lm_fit <- lm(price~ barrio+ rooms + bathrooms + surface_total + property_type,data = df)
+
+summary(lm_fit)
+```
+
+Si queremos que compare contra 'barrio medio' podemos convertir la variable en factor y explicitar los niveles
+
+```{r}
+df <- df %>% 
+  mutate(barrio = factor(barrio, levels = c('medio', 'alto','bajo')))
+
+lm_fit <- lm(price~ barrio+ rooms + bathrooms + surface_total + property_type,data = df)
+
+summary(lm_fit)
+```
+
+
+#### Feature engineering.
+
+Lo que hicimos arriba con los barrios se conoce como feature engineerin: Generamos una nueva variable a partir de las anteriores para mejorar nuestro modelo. 
+
+> ¿Qué otras modificaciones podemos hacer?
+
+- Hay una que ya hicimos: En lugar de pensar en el precio total, podemos pensar en el precio por $m^2$. De esta manera ya no tendría sentido agregar la variable surface_total
+
+```{r}
+
+
+lm_fit <- lm(precio_m2 ~ barrio  + rooms + bathrooms + property_type,data = df)
+
+summary(lm_fit)
+```
+
+
+> que pasó con rooms?
+
+Al normalizar el precio por los metros, rooms pasa de tomar valores positivos a negativos. Eso significa que rooms estaba correlacionado con el tamaño, y por lo tanto cuantos más cuartos, mayor el valor. Al normalizar podemos ver que, dado un metraje, más cuartos reducen el precio: Preferimos ambientes más grandes tal vez?
+
+__predecir__
+
+Para predecir un nuevo caso, podemos construir un dataframe con las variables. Por ejemplo
+```{r}
+caso_nuevo <- tibble(barrio='alto',
+       rooms=3,
+       bathrooms=2,
+       property_type='Departamento',
+       surface_total=78) 
+
+predict(lm_fit,newdata = caso_nuevo)
+```
+
+Pero debemos recordar que este es el valor por metro cuadrado. Para obtener lo que realmente nos interesa, tenemos que hacer el camino inverso del feature engenieering:
+
+```{r}
+predict(lm_fit,caso_nuevo)*caso_nuevo$surface_total
+```
+
+
+
+#### Para seguir practicando
+
+Un problema de lo que vimos en esta práctica es que las salidas de `summary(lm_fit)` es una impresión en la consola. Es muy difícil seguir trabajando con esos resultados. Para resolver esto hay un par de librerías que incorporan el modelado lineal al flujo del tidyverse:
+
+  + [Broom](https://cran.r-project.org/web/packages/broom/vignettes/broom.html)
+  + [Modelr](https://modelr.tidyverse.org/)
+
