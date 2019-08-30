@@ -1,0 +1,437 @@
+# Modelo Lineal
+
+## Explicación
+
+En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.
+
+```{r setup }
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+library(tidyverse)
+library(modelr)
+library(GGally)
+library(plot3D)
+```
+
+### Covarianza y Correlación.
+
+La covarianza mide cómo varían de forma conjunta dos variables, en promedio. Se define como:
+
+$$
+\text{cov}(x,y)=\frac{1}{n}\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+$$
+
+Esto es: La covarianza entre dos variables, $x$ e $y$ es el promedio (noten que hay una sumatoria y un dividido n) de las diferencias de los puntos a sus medias en $x$ e $y$.
+
+tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:
+
+
+```{r echo=FALSE}
+ggplot(sim1, aes(x,y) )+
+  geom_point()+
+  geom_vline(xintercept = mean(sim1$x))+
+  geom_hline(yintercept = mean(sim1$y))+
+  theme_minimal()+
+  annotate(geom = 'text',x = 3,y = 7.5, label='- -',size=20, color='darkgreen')+
+  annotate(geom = 'text',x = 2.5,y = 25, label='- +',size=22, color='red') +
+  annotate(geom = 'text',x = 8,y = 7.5, label='+ -',size=22, color='red') +
+  annotate(geom = 'text',x = 8,y = 25, label='+ +',size=20, color='darkgreen')+
+  annotate(geom = 'text',x = 1.5,y = 5, label='1°',size=16, color='darkgreen')+
+  annotate(geom = 'text',x = 1.5,y = 21, label='2°',size=16, color='red') +
+  annotate(geom = 'text',x = 6.5,y = 5, label='3°',size=16, color='red') +
+  annotate(geom = 'text',x = 6.5,y = 21, label='4°',size=16, color='darkgreen')
+```
+
+
+Aquí marcamos $\bar x$ y $\bar y$ y dividimos el gráfico en cuatro cuadrantes. 
+
+
+1. En el primer cuadrante los puntos son más chicos a sus medias en $x$ y en $y$, $(x-\hat x)$ es negativo y $(y-\hat y)$ también. Por lo tanto, su producto es positivo.
+1. En el segundo cuadrante la diferencia es negativa en x, pero positiva en y. Por lo tanto el producto es negativo. 
+1. En el tercer cuadrante la diferencia es negativa en y, pero positiva en x. Por lo tanto el producto es negativo. 
+1. Finalmente, en el cuarto cuadrante las diferencias son positivas tanto en x como en y, y por lo tanto también el producto. 
+
+
+- Si la covarianza es __positiva__ y grande, entonces valores chicos en una de las variables suceden en conjunto con valores chicos en la otra,y viceversa. 
+- Al contrario, si la covarianza es __negativa__ y grande, entonces valores altos de una variable suceden en conjunto con valores pequeños de la otra y viceversa. 
+
+
+La correlación se define como sigue:
+
+$$\rho_{x,y}=\frac{cov(x,y)}{\sigma_x \sigma_y}$$
+
+Es decir, normalizamos la covarianza por el desvío en $x$ y en $y$. de esta forma, la correlación se define entre -1 y 1. 
+
+#### ggpairs
+
+Para ver una implementación práctica de estos conceptos, vamos a utilizar la librería [_GGally_](https://ggobi.github.io/ggally/) para graficar la correlación por pares de variables. 
+
+- Con `ggpairs()`, podemos graficar todas las variables, y buscar las correlaciones. Coloreamos por:
+
+-$am$: Tipo de transmisión: automático (am=0) o manual (am=1)
+
+
+```{r message=FALSE, warning=FALSE, fig.width=10, fig.height=10}
+mtcars %>% 
+  select(-carb,-vs) %>% 
+  mutate(cyl = factor(cyl),
+         am = factor(am)) %>% 
+ggpairs(., 
+        title = "Matriz de correlaciones",
+        mapping = aes(colour= am))
+```
+
+Veamos la correlación entre:
+
+- $mpg$: Miles/(US) gallon. Eficiencia de combustible
+- $hp$: Gross horsepower: Potencia del motor
+
+
+
+```{r}
+cor(mtcars$mpg, mtcars$hp)
+```
+
+nos da negativa y alta. 
+
+- Si quisiéramos testear la significatividad de este estimador, podemos realizar un test:
+
+$H_0$ : ρ =0        
+$H_1$ : ρ $\neq$ 0      
+
+```{r}
+cor.test(mtcars$mpg,mtcars$hp)
+```
+
+Con este p-value rechazamos $H_0$
+
+
+### Modelo Lineal
+
+
+sigamos utilizando los datos de _sim1_
+
+```{r}
+ggplot(sim1, aes(x, y)) + 
+  geom_point()
+```
+
+Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal `y = a_0 + a_1 * x` podría servir. 
+
+#### Modelos al azar
+
+Para empezar, generemos aleatoriamente varios modelos lineales para ver qué pinta tienen. Para eso, podemos usar `geom_abline ()` que toma una pendiente e intercepto como parámetros. 
+
+```{r}
+models <- tibble(
+  a1 = runif(250, -20, 40),
+  a2 = runif(250, -5, 5)
+)
+
+ggplot(sim1, aes(x, y)) + 
+  geom_abline(aes(intercept = a1, slope = a2), data = models, alpha = 1/4) +
+  geom_point() 
+```
+
+
+A simple vista podemos apreciar que algunos modelos son mejores que otros. Pero necesitamos una forma de cuantificar cuales son los _mejores_ modelos. 
+
+#### distancias
+
+Una forma de definir _mejor_ es pensar en aquel modelo que minimiza la distancia vertical con cada punto:
+
+Para eso, eligamos un modelo cualquiera:
+
+$$ y= 7 + 1.5*x$$
+
+(para que se vean mejor las distancias, corremos un poquito cada punto sobre el eje x)
+
+```{r}
+dist1 <- sim1 %>% 
+  mutate(
+    dodge = rep(c(-1, 0, 1) / 20, 10),
+    x1 = x + dodge,
+    pred = 7 + x1 * 1.5
+  )
+
+ggplot(dist1, aes(x1, y)) + 
+  geom_abline(intercept = 7, slope = 1.5, colour = "grey40") +
+  geom_point(colour = "grey40") +
+  geom_linerange(aes(ymin = y, ymax = pred), colour = "#3366FF") 
+```
+
+
+La distancia de cada punto a la recta es la diferencia entre lo que predice nuestro modelo y el valor real
+
+
+Para computar la distancia, primero necesitamos una función que represente a nuestro modelo: 
+
+Para eso, vamos a crear una función que reciba un vector con los parámetros del modelo, y el set de datos, y genere la predicción:
+  
+```{r}
+model1 <- function(a, data) {
+  a[1] + data$x * a[2]
+}
+
+model1(c(7, 1.5), sim1)
+```
+
+Ahora, necesitamos una forma de calcular los residuos y agruparlos. Esto lo vamos a hacer con el error cuadrático medio
+
+ 
+$$ECM = \sqrt\frac{\sum_i^n{(\hat{y_i} - y_i)^2}}{n}$$
+
+```{r}
+measure_distance <- function(mod, data) {
+  diff <- data$y - model1(mod, data)
+  sqrt(mean(diff ^ 2))
+}
+
+measure_distance(c(7, 1.5), sim1)
+```
+
+
+#### Evaluando los modelos aleatorios
+
+Ahora podemos calcular el __ECM__ para todos los modelos del dataframe _models_. Para eso utilizamos el paquete __purrr__, para ejecutar varias veces la misma función sobre varios elementos. 
+
+Tenemos que pasar los valores de a1 y a2 (dos parámetros --> map2), pero como nuestra función toma sólo uno (el vector a), nos armamos una función de ayuda para _wrapear_ a1 y a2
+
+
+```{r}
+sim1_dist <- function(a1, a2) {
+  measure_distance(c(a1, a2), sim1)
+}
+
+models <- models %>% 
+  mutate(dist = purrr::map2_dbl(a1, a2, sim1_dist))
+models
+```
+
+A continuación, superpongamos los 10 mejores modelos a los datos. Coloreamos los modelos por `-dist`: esta es una manera fácil de asegurarse de que los mejores modelos (es decir, los que tienen la menor distancia) obtengan los colores más brillantes.
+
+
+```{r}
+ggplot(sim1, aes(x, y)) + 
+  geom_point(size = 2, colour = "grey30") + 
+  geom_abline(
+    aes(intercept = a1, slope = a2, colour = -dist), 
+    data = filter(models, rank(dist) <= 10)
+  )
+```
+
+
+También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de `a1` vs` a2`, nuevamente coloreado por `-dist`. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.
+
+```{r}
+ggplot(models, aes(a1, a2)) +
+  geom_point(data = filter(models, rank(dist) <= 10), size = 4, colour = "red") +
+  geom_point(aes(colour = -dist))
+```
+
+#### Grid search
+
+En lugar de probar muchos modelos aleatorios, podríamos ser más sistemáticos y generar una cuadrícula de puntos uniformemente espaciada (esto se denomina grid search). Elegimos los parámetros de la grilla aproximadamente mirando dónde estaban los mejores modelos en el gráfico anterior.
+
+
+```{r}
+grid <- expand.grid(
+  a1 = seq(-5, 20, length = 25),
+  a2 = seq(1, 3, length = 25)
+  ) %>% 
+  mutate(dist = purrr::map2_dbl(a1, a2, sim1_dist))
+
+grid %>% 
+  ggplot(aes(a1, a2)) +
+  geom_point(data = filter(grid, rank(dist) <= 10), size = 4, colour = "red") +
+  geom_point(aes(colour = -dist)) 
+```
+
+Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:
+
+```{r}
+ggplot(sim1, aes(x, y)) + 
+  geom_point(size = 2, colour = "grey30") + 
+  geom_abline(
+    aes(intercept = a1, slope = a2, colour = -dist), 
+    data = filter(grid, rank(dist) <= 10)
+  )
+```
+
+
+#### óptimo por métodos numéricos 
+
+Podríamos imaginar este proceso iterativamente haciendo la cuadrícula más fina y más fina hasta que nos centramos en el mejor modelo. Pero hay una forma mejor de abordar ese problema: una herramienta de minimización numérica llamada búsqueda de __Newton-Raphson__.
+
+La intuición de Newton-Raphson es bastante simple: Se elige un punto de partida y se busca la pendiente más inclinada. Luego, desciende por esa pendiente un poco, y se repite una y otra vez, hasta que no se puede seguir bajando. 
+
+
+En R, podemos hacer eso con `optim ()`:
+
+- necesitamos pasarle un vector de puntos iniciales. Elegimos 4 y 2, porque los mejores modelos andan cerca de esos valores
+- le pasamos nuestra función de distancia, y los parámetros que nuestra función necesita (data)
+
+
+```{r}
+best <- optim(c(4,2), measure_distance, data = sim1)
+best
+```
+
+```{r}
+ggplot(sim1, aes(x, y)) + 
+  geom_point(size = 2, colour = "grey30") + 
+  geom_abline(intercept = best$par[1], slope = best$par[2])
+```
+
+
+#### Óptimo para el modelo lineal
+
+Este procedimiento es válido para muchas familias de modelos. Pero para el caso del modelo lineal, conocemos otras formas de resolverlo
+
+
+Si nuestro modelo es
+
+$$
+y = a_1 + a_2x + \epsilon
+$$
+
+La solución del óptima que surge de minimizar el Error Cuadrático Medio es:
+
+$$
+\hat{a_1} = \bar{y} - \hat{a_2}\bar{x} 
+$$
+
+$$
+\hat{a_2} = \frac{\sum_i^n (y_i -\bar{y})(x_i -\bar{x})}{\sum_i^n (x_i- \bar{x})}
+$$
+
+R tiene una función específica para el modelo lineal `lm()`. Cómo esta función sirve tanto para regresiones lineales simples como múltiples, debemos especificar el modelo en las _formulas_: `y ~ x`
+
+
+```{r}
+sim1_mod <- lm(y ~ x, data = sim1)
+
+```
+
+
+#### Interpretando la salida de la regresión
+
+```{r}
+summary(sim1_mod)
+```
+
+Analicemos los elementos de la salida:
+
+- __Residuals__: La distribución de los residuos. Hablaremos más adelante.
+- __Coefficients__: Los coeficientes del modelo. El intercepto y la variable explicativa
+  + _Estimate_: Es el valor estimado para cada parámetro
+  + _Pr(>|t|)_: Es el _p-valor_ asociado al test que mide que el parámetro sea mayor que 0. Si el p-valor es cercano a 0, entonces el parámetro es significativamente mayor a 0.
+- ___Multiple R-squared___: El $R^2$ indica que proporción del movimiento en $y$ es explicado por $x$. 
+- __F-statistic__: Es el resultado de un test _de significatividad global_ del modelo. Con un p-valor bajo, rechazamos la hipótesis nula, que indica que el modelo no explicaría bien al fenómeno. 
+
+
+__interpretación de los parámetros__: El valor estimado del parámetro se puede leer como "cuanto varía $y$ cuando $x$ varía en una unidad". Es decir, es la pendiente de la recta
+
+
+
+#### Análisis de los residuos
+
+Los residuos del modelo indican cuanto le erra el modelo en cada una de las observaciones. Es la distancia que intentamos minimizar de forma agregada.
+
+
+Podemos agregar los residuos al dataframe con `add_residuals ()` de la librería `modelr`.
+
+
+```{r}
+sim1 <- sim1 %>% 
+  add_residuals(sim1_mod)
+
+sim1 %>% 
+  sample_n(10)
+```
+
+
+- Si cuando miramos los residuos notamos que __tienen una estructura__, eso significa que nuestro modelo no esta bien especificado. En otros términos, nos olvidamos de un elemento importante para explicar el fenómeno. 
+- Lo que debemos buscar es que los residuos estén homogéneamente distribuidos en torno al 0.
+
+Hay muchas maneras de analizar los residuos. Una es con las estadísticas de resumen que muestra el `summary`. Otra forma es graficándolos. 
+
+
+```{r}
+ggplot(sim1, aes(x, resid)) + 
+  geom_ref_line(h = 0, size = 2,colour = "firebrick") +
+  geom_point() 
+```
+
+
+### Regresión lineal múltiple
+
+Si bien escapa a los alcances de esta clase ver en detalle el modelo lineal múltiple, podemos ver alguna intuición.
+
+
+- Notemos que el modelo ya no es una linea en un plano, sino que ahora el modelo es un plano, en un espacio de 3 dimensiones:
+
+> Para cada par de puntos en $x_1$ y $x_2$ vamos a definir un valor para $y$
+
+
+```{r echo=FALSE, fig.width=10, fig.height=10}
+
+# x, y, z variables
+x <- mtcars$wt
+y <- mtcars$disp
+z <- mtcars$mpg
+# Compute the linear regression (z = ax + by + d)
+fit <- lm(z ~ x + y)
+# predict values on regular xy grid
+grid.lines = 26
+x.pred <- seq(min(x), max(x), length.out = grid.lines)
+y.pred <- seq(min(y), max(y), length.out = grid.lines)
+xy <- expand.grid( x = x.pred, y = y.pred)
+z.pred <- matrix(predict(fit, newdata = xy), 
+                 nrow = grid.lines, ncol = grid.lines)
+# fitted points for droplines to surface
+fitpoints <- predict(fit)
+# scatter plot with regression plane
+scatter3D(x, y, z, pch = 20, cex = 2, 
+          theta = 5, phi = 10, ticktype = "detailed",
+    xlab = "wt", ylab = "disp", zlab = "mpg",  
+    col =viridis::viridis(10),
+    colvar = NULL,
+    surf = list(x = x.pred, y = y.pred, z = z.pred, facets = NA, fit = fitpoints),
+    alpha = 0.75,
+    bty = "g",
+    mai = c(1, 0.1, 0.1, 0.1),
+    mar = c(10, 4, 4, 2) + 0.1)
+
+
+scatter3D(x, y, z, pch = 20, cex = 2, 
+          theta = 50, phi = 20, 
+          ticktype = "detailed",
+    xlab = "wt", ylab = "disp", zlab = "mpg",  
+    col =viridis::viridis(10),
+    colvar = NULL,
+    surf = list(x = x.pred, y = y.pred, z = z.pred, facets = NA, fit = fitpoints),
+    alpha = 0.75,
+    bty = "g",
+    mai = c(1, 0.1, 0.1, 0.1),
+    mar = c(10, 4, 4, 2) + 0.1)
+```
+
+
+
+- El criterio para elegir el mejor modelo va a seguir siendo _minimizar las distancias verticales_. Esto quiere decir, respecto de la variable que queremos predecir.
+
+- __interpretación de los parámetros__: El valor estimado del parámetro se puede leer como "cuanto varía $y$ cuando $x$ varía en una unidad, __cuando todo lo demás permanece constante__". Noten que ahora para interpretar los resultados tenemos que hacer la abstracción de dejar todas las demás variables constantes
+
+- __Adjusted R-squared__: Es similar a $R^2$, pero ajusta por la cantidad de variables del modelo (nosotros estamos utilizando un modelo de una sola variable), sirve para comparar entre modelos de distinta cantidad de variables.
+
+
+### Para profundizar
+
+
+Estas notas de clase estan fuertemente inspiradas en los siguientes libros/notas:
+
+- [R para Cienca de Datos](https://es.r4ds.hadley.nz/)
+- [Apuntes regresión lineal](http://mate.dm.uba.ar/~meszre/apunte_regresion_lineal_szretter.pdf)
+
+
+Un punto pendiente de estas clases que es muy importante son los __supuestos__ que tiene detrás el modelo lineal.

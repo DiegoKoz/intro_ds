@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>8.1 Explicación | Notas de clase del curso de introducción a Data Science</title>
+  <meta name="description" content="desarrollado para el Min. de Transporte (Argentina)">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="8.1 Explicación | Notas de clase del curso de introducción a Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8.1 Explicación | Notas de clase del curso de introducción a Data Science" />
+  
+  <meta name="twitter:description" content="desarrollado para el Min. de Transporte (Argentina)" />
+  
+
+<meta name="author" content="Diego Kozlowski y Natsumi Shokida">
+
+
+<meta name="date" content="2019-08-30">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="modelo-lineal.html">
+<link rel="next" href="practica-guiada-6.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introducción a Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1.1" data-path="presentacion.html"><a href="presentacion.html"><i class="fa fa-check"></i><b>1.1</b> Presentación</a></li>
+<li class="chapter" data-level="1.2" data-path="objetivos-del-curso.html"><a href="objetivos-del-curso.html"><i class="fa fa-check"></i><b>1.2</b> Objetivos del curso</a></li>
+<li class="chapter" data-level="1.3" data-path="temario.html"><a href="temario.html"><i class="fa fa-check"></i><b>1.3</b> Temario</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="temario.html"><a href="temario.html#clase-1-introduccion-al-entorno-r"><i class="fa fa-check"></i><b>1.3.1</b> <strong>clase 1</strong>: Introducción al entorno R:</a></li>
+<li class="chapter" data-level="1.3.2" data-path="temario.html"><a href="temario.html#clase-2-tidyverse"><i class="fa fa-check"></i><b>1.3.2</b> <strong>clase 2</strong>: Tidyverse:</a></li>
+<li class="chapter" data-level="1.3.3" data-path="temario.html"><a href="temario.html#clase-3-estadistica-descriptiva"><i class="fa fa-check"></i><b>1.3.3</b> <strong>clase 3</strong>: Estadística descriptiva</a></li>
+<li class="chapter" data-level="1.3.4" data-path="temario.html"><a href="temario.html#clase-4-visualizacion-de-la-informacion"><i class="fa fa-check"></i><b>1.3.4</b> <strong>clase 4</strong>: Visualización de la información</a></li>
+<li class="chapter" data-level="1.3.5" data-path="temario.html"><a href="temario.html#clase-5-documentacion-en-r"><i class="fa fa-check"></i><b>1.3.5</b> <strong>clase 5</strong>: Documentación en R</a></li>
+<li class="chapter" data-level="1.3.6" data-path="temario.html"><a href="temario.html#clase-6-analisis-de-encuestas"><i class="fa fa-check"></i><b>1.3.6</b> <strong>clase 6</strong>: Análisis de encuestas</a></li>
+<li class="chapter" data-level="1.3.7" data-path="temario.html"><a href="temario.html#clase-7-programacion-funcional"><i class="fa fa-check"></i><b>1.3.7</b> <strong>clase 7</strong>: Programación funcional</a></li>
+<li class="chapter" data-level="1.3.8" data-path="temario.html"><a href="temario.html#clase-8-mapas"><i class="fa fa-check"></i><b>1.3.8</b> <strong>clase 8</strong>: Mapas</a></li>
+<li class="chapter" data-level="1.3.9" data-path="temario.html"><a href="temario.html#clase-9-shiny"><i class="fa fa-check"></i><b>1.3.9</b> <strong>clase 9</strong>: Shiny</a></li>
+<li class="chapter" data-level="1.3.10" data-path="temario.html"><a href="temario.html#clase-10-correlacion-y-modelo-lineal"><i class="fa fa-check"></i><b>1.3.10</b> <strong>clase 10</strong>: Correlación y Modelo Lineal</a></li>
+<li class="chapter" data-level="1.3.11" data-path="temario.html"><a href="temario.html#clase-11-text-mining"><i class="fa fa-check"></i><b>1.3.11</b> <strong>clase 11</strong>: Text Mining</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="bibliografia-de-consulta.html"><a href="bibliografia-de-consulta.html"><i class="fa fa-check"></i><b>1.4</b> Bibliografía de consulta</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="bibliografia-de-consulta.html"><a href="bibliografia-de-consulta.html#librerias-a-instalar"><i class="fa fa-check"></i><b>1.4.1</b> Librerias a instalar</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduccion-a-r.html"><a href="introduccion-a-r.html"><i class="fa fa-check"></i><b>2</b> Introducción a R</a><ul>
+<li class="chapter" data-level="2.1" data-path="explicacion.html"><a href="explicacion.html"><i class="fa fa-check"></i><b>2.1</b> Explicación</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="explicacion.html"><a href="explicacion.html#que-es-r"><i class="fa fa-check"></i><b>2.1.1</b> ¿Qué es R?</a></li>
+<li class="chapter" data-level="2.1.2" data-path="explicacion.html"><a href="explicacion.html#logica-sintactica."><i class="fa fa-check"></i><b>2.1.2</b> Lógica sintáctica.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="explicacion.html"><a href="explicacion.html#r-base"><i class="fa fa-check"></i><b>2.1.3</b> R base</a></li>
+<li class="chapter" data-level="2.1.4" data-path="explicacion.html"><a href="explicacion.html#objetos"><i class="fa fa-check"></i><b>2.1.4</b> Objetos:</a></li>
+<li class="chapter" data-level="2.1.5" data-path="explicacion.html"><a href="explicacion.html#data-frames"><i class="fa fa-check"></i><b>2.1.5</b> Data Frames</a></li>
+<li class="chapter" data-level="2.1.6" data-path="explicacion.html"><a href="explicacion.html#listas"><i class="fa fa-check"></i><b>2.1.6</b> Listas</a></li>
+<li class="chapter" data-level="2.1.7" data-path="explicacion.html"><a href="explicacion.html#ambientes-de-trabajo"><i class="fa fa-check"></i><b>2.1.7</b> Ambientes de trabajo</a></li>
+<li class="chapter" data-level="2.1.8" data-path="explicacion.html"><a href="explicacion.html#tipos-de-archivos-de-r"><i class="fa fa-check"></i><b>2.1.8</b> Tipos de archivos de R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="practica-guiada.html"><a href="practica-guiada.html"><i class="fa fa-check"></i><b>2.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="practica-guiada.html"><a href="practica-guiada.html#instalacion-de-paquetes-complementarios-al-r-base"><i class="fa fa-check"></i><b>2.2.1</b> Instalación de paquetes complementarios al R Base</a></li>
+<li class="chapter" data-level="2.2.2" data-path="practica-guiada.html"><a href="practica-guiada.html#lectura-y-escritura-de-archivos"><i class="fa fa-check"></i><b>2.2.2</b> Lectura y escritura de archivos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="probabilidad-y-estadistica.html"><a href="probabilidad-y-estadistica.html"><i class="fa fa-check"></i><b>3</b> Probabilidad y Estadística</a><ul>
+<li class="chapter" data-level="3.1" data-path="explicacion-1.html"><a href="explicacion-1.html"><i class="fa fa-check"></i><b>3.1</b> Explicación</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="explicacion-1.html"><a href="explicacion-1.html#probabilidad"><i class="fa fa-check"></i><b>3.1.1</b> Probabilidad</a></li>
+<li class="chapter" data-level="3.1.2" data-path="explicacion-1.html"><a href="explicacion-1.html#estadistica"><i class="fa fa-check"></i><b>3.1.2</b> Estadística</a></li>
+<li class="chapter" data-level="3.1.3" data-path="explicacion-1.html"><a href="explicacion-1.html#algunos-estimadores-importantes"><i class="fa fa-check"></i><b>3.1.3</b> Algunos estimadores importantes</a></li>
+<li class="chapter" data-level="3.1.4" data-path="explicacion-1.html"><a href="explicacion-1.html#graficos-estadisticos"><i class="fa fa-check"></i><b>3.1.4</b> Gráficos estadísticos</a></li>
+<li class="chapter" data-level="3.1.5" data-path="explicacion-1.html"><a href="explicacion-1.html#bibliografia-de-consulta-1"><i class="fa fa-check"></i><b>3.1.5</b> Bibliografía de consulta</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html"><i class="fa fa-check"></i><b>3.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#generacion-de-datos-aleatorios"><i class="fa fa-check"></i><b>3.2.1</b> Generación de datos aleatorios</a></li>
+<li class="chapter" data-level="3.2.2" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#tests"><i class="fa fa-check"></i><b>3.2.2</b> Tests</a></li>
+<li class="chapter" data-level="3.2.3" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#descripcion-estadistica-de-los-datos"><i class="fa fa-check"></i><b>3.2.3</b> Descripción estadística de los datos</a></li>
+<li class="chapter" data-level="3.2.4" data-path="practica-guiada-1.html"><a href="practica-guiada-1.html#graficos-estadisticos-1"><i class="fa fa-check"></i><b>3.2.4</b> Gráficos estadísticos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizacion-de-la-informacion.html"><a href="visualizacion-de-la-informacion.html"><i class="fa fa-check"></i><b>4</b> Visualización de la información</a><ul>
+<li class="chapter" data-level="4.1" data-path="explicacion-2.html"><a href="explicacion-2.html"><i class="fa fa-check"></i><b>4.1</b> Explicación</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="explicacion-2.html"><a href="explicacion-2.html#graficos-basicos-en-r"><i class="fa fa-check"></i><b>4.1.1</b> Gráficos Básicos en R</a></li>
+<li class="chapter" data-level="4.1.2" data-path="explicacion-2.html"><a href="explicacion-2.html#ggplot2"><i class="fa fa-check"></i><b>4.1.2</b> <span>Ggplot2</span></a></li>
+<li class="chapter" data-level="4.1.3" data-path="explicacion-2.html"><a href="explicacion-2.html#dimensiones-del-grafico"><i class="fa fa-check"></i><b>4.1.3</b> Dimensiones del gráfico</a></li>
+<li class="chapter" data-level="4.1.4" data-path="explicacion-2.html"><a href="explicacion-2.html#treemaps"><i class="fa fa-check"></i><b>4.1.4</b> Treemaps</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html"><i class="fa fa-check"></i><b>4.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html#graficos-ingresos---eph"><i class="fa fa-check"></i><b>4.2.1</b> Graficos Ingresos - EPH</a></li>
+<li class="chapter" data-level="4.2.2" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html#histogramas"><i class="fa fa-check"></i><b>4.2.2</b> <span>Histogramas</span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html#kernels"><i class="fa fa-check"></i><b>4.2.3</b> <span>Kernels</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="documentacion.html"><a href="documentacion.html"><i class="fa fa-check"></i><b>5</b> Documentación</a><ul>
+<li class="chapter" data-level="5.1" data-path="explicacion-3.html"><a href="explicacion-3.html"><i class="fa fa-check"></i><b>5.1</b> Explicación</a></li>
+<li class="chapter" data-level="5.2" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html"><i class="fa fa-check"></i><b>5.2</b> Práctica Guiada</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="diseno-y-analisis-de-encuestas.html"><a href="diseno-y-analisis-de-encuestas.html"><i class="fa fa-check"></i><b>6</b> Diseño y análisis de encuestas</a><ul>
+<li class="chapter" data-level="6.1" data-path="explicacion-4.html"><a href="explicacion-4.html"><i class="fa fa-check"></i><b>6.1</b> Explicación</a></li>
+<li class="chapter" data-level="6.2" data-path="practica-guiada-4.html"><a href="practica-guiada-4.html"><i class="fa fa-check"></i><b>6.2</b> Práctica Guiada</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programacion-funcional.html"><a href="programacion-funcional.html"><i class="fa fa-check"></i><b>7</b> Programacion Funcional</a><ul>
+<li class="chapter" data-level="7.1" data-path="explicacion-5.html"><a href="explicacion-5.html"><i class="fa fa-check"></i><b>7.1</b> Explicación</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="explicacion-5.html"><a href="explicacion-5.html#loops"><i class="fa fa-check"></i><b>7.1.1</b> Loops</a></li>
+<li class="chapter" data-level="7.1.2" data-path="explicacion-5.html"><a href="explicacion-5.html#estructuras-condicionales"><i class="fa fa-check"></i><b>7.1.2</b> Estructuras Condicionales</a></li>
+<li class="chapter" data-level="7.1.3" data-path="explicacion-5.html"><a href="explicacion-5.html#funciones-1"><i class="fa fa-check"></i><b>7.1.3</b> Funciones</a></li>
+<li class="chapter" data-level="7.1.4" data-path="explicacion-5.html"><a href="explicacion-5.html#purrr"><i class="fa fa-check"></i><b>7.1.4</b> PURRR</a></li>
+<li class="chapter" data-level="7.1.5" data-path="explicacion-5.html"><a href="explicacion-5.html#funciones-implicitas"><i class="fa fa-check"></i><b>7.1.5</b> Funciones implícitas</a></li>
+<li class="chapter" data-level="7.1.6" data-path="explicacion-5.html"><a href="explicacion-5.html#funciones-lambda"><i class="fa fa-check"></i><b>7.1.6</b> Funciones lambda</a></li>
+<li class="chapter" data-level="7.1.7" data-path="explicacion-5.html"><a href="explicacion-5.html#walk"><i class="fa fa-check"></i><b>7.1.7</b> Walk</a></li>
+<li class="chapter" data-level="7.1.8" data-path="explicacion-5.html"><a href="explicacion-5.html#cuando-usar-estas-herramientas"><i class="fa fa-check"></i><b>7.1.8</b> Cuando usar estas herramientas?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html"><i class="fa fa-check"></i><b>7.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html#ejemplo-1-iterando-en-la-eph"><i class="fa fa-check"></i><b>7.2.1</b> Ejemplo 1: Iterando en la EPH</a></li>
+<li class="chapter" data-level="7.2.2" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html#ejemplo-2.-regresion-lineal"><i class="fa fa-check"></i><b>7.2.2</b> Ejemplo 2. Regresión lineal</a></li>
+<li class="chapter" data-level="7.2.3" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html#ejemplo-3-graficos-en-serie"><i class="fa fa-check"></i><b>7.2.3</b> Ejemplo 3: Gráficos en serie</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modelo-lineal.html"><a href="modelo-lineal.html"><i class="fa fa-check"></i><b>8</b> Modelo Lineal</a><ul>
+<li class="chapter" data-level="8.1" data-path="explicacion-6.html"><a href="explicacion-6.html"><i class="fa fa-check"></i><b>8.1</b> Explicación</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="explicacion-6.html"><a href="explicacion-6.html#covarianza-y-correlacion."><i class="fa fa-check"></i><b>8.1.1</b> Covarianza y Correlación.</a></li>
+<li class="chapter" data-level="8.1.2" data-path="explicacion-6.html"><a href="explicacion-6.html#modelo-lineal-1"><i class="fa fa-check"></i><b>8.1.2</b> Modelo Lineal</a></li>
+<li class="chapter" data-level="8.1.3" data-path="explicacion-6.html"><a href="explicacion-6.html#regresion-lineal-multiple"><i class="fa fa-check"></i><b>8.1.3</b> Regresión lineal múltiple</a></li>
+<li class="chapter" data-level="8.1.4" data-path="explicacion-6.html"><a href="explicacion-6.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/DiegoKoz/intro_ds" target="blank">Repositorio en github</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Notas de clase del curso de introducción a Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="explicacion-6" class="section level2">
+<h2><span class="header-section-number">8.1</span> Explicación</h2>
+<p>En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">warning =</span> <span class="ot">FALSE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>)
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(modelr)
+<span class="kw">library</span>(GGally)
+<span class="kw">library</span>(plot3D)</code></pre>
+<div id="covarianza-y-correlacion." class="section level3">
+<h3><span class="header-section-number">8.1.1</span> Covarianza y Correlación.</h3>
+<p>La covarianza mide cómo varían de forma conjunta dos variables, en promedio. Se define como:</p>
+<p><span class="math display">\[
+\text{cov}(x,y)=\frac{1}{n}\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+\]</span></p>
+<p>Esto es: La covarianza entre dos variables, <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> es el promedio (noten que hay una sumatoria y un dividido n) de las diferencias de los puntos a sus medias en <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>.</p>
+<p>tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:</p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-124-1.png" width="960" /></p>
+<p>Aquí marcamos <span class="math inline">\(\bar x\)</span> y <span class="math inline">\(\bar y\)</span> y dividimos el gráfico en cuatro cuadrantes.</p>
+<ol style="list-style-type: decimal">
+<li>En el primer cuadrante los puntos son más chicos a sus medias en <span class="math inline">\(x\)</span> y en <span class="math inline">\(y\)</span>, <span class="math inline">\((x-\hat x)\)</span> es negativo y <span class="math inline">\((y-\hat y)\)</span> también. Por lo tanto, su producto es positivo.</li>
+<li>En el segundo cuadrante la diferencia es negativa en x, pero positiva en y. Por lo tanto el producto es negativo.</li>
+<li>En el tercer cuadrante la diferencia es negativa en y, pero positiva en x. Por lo tanto el producto es negativo.</li>
+<li>Finalmente, en el cuarto cuadrante las diferencias son positivas tanto en x como en y, y por lo tanto también el producto.</li>
+</ol>
+<ul>
+<li>Si la covarianza es <strong>positiva</strong> y grande, entonces valores chicos en una de las variables suceden en conjunto con valores chicos en la otra,y viceversa.</li>
+<li>Al contrario, si la covarianza es <strong>negativa</strong> y grande, entonces valores altos de una variable suceden en conjunto con valores pequeños de la otra y viceversa.</li>
+</ul>
+<p>La correlación se define como sigue:</p>
+<p><span class="math display">\[\rho_{x,y}=\frac{cov(x,y)}{\sigma_x \sigma_y}\]</span></p>
+<p>Es decir, normalizamos la covarianza por el desvío en <span class="math inline">\(x\)</span> y en <span class="math inline">\(y\)</span>. de esta forma, la correlación se define entre -1 y 1.</p>
+<div id="ggpairs" class="section level4">
+<h4><span class="header-section-number">8.1.1.1</span> ggpairs</h4>
+<p>Para ver una implementación práctica de estos conceptos, vamos a utilizar la librería <a href="https://ggobi.github.io/ggally/"><em>GGally</em></a> para graficar la correlación por pares de variables.</p>
+<ul>
+<li>Con <code>ggpairs()</code>, podemos graficar todas las variables, y buscar las correlaciones. Coloreamos por:</li>
+</ul>
+<p>-<span class="math inline">\(am\)</span>: Tipo de transmisión: automático (am=0) o manual (am=1)</p>
+<pre class="sourceCode r"><code class="sourceCode r">mtcars <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>carb,<span class="op">-</span>vs) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">cyl =</span> <span class="kw">factor</span>(cyl),
+         <span class="dt">am =</span> <span class="kw">factor</span>(am)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="kw">ggpairs</span>(., 
+        <span class="dt">title =</span> <span class="st">&quot;Matriz de correlaciones&quot;</span>,
+        <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">colour=</span> am))</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-125-1.png" width="960" /></p>
+<p>Veamos la correlación entre:</p>
+<ul>
+<li><span class="math inline">\(mpg\)</span>: Miles/(US) gallon. Eficiencia de combustible</li>
+<li><span class="math inline">\(hp\)</span>: Gross horsepower: Potencia del motor</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(mtcars<span class="op">$</span>mpg, mtcars<span class="op">$</span>hp)</code></pre>
+<pre><code>## [1] -0.7761684</code></pre>
+<p>nos da negativa y alta.</p>
+<ul>
+<li>Si quisiéramos testear la significatividad de este estimador, podemos realizar un test:</li>
+</ul>
+<p><span class="math inline">\(H_0\)</span> : ρ =0<br />
+<span class="math inline">\(H_1\)</span> : ρ <span class="math inline">\(\neq\)</span> 0</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(mtcars<span class="op">$</span>mpg,mtcars<span class="op">$</span>hp)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  mtcars$mpg and mtcars$hp
+## t = -6.7424, df = 30, p-value = 1.788e-07
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.8852686 -0.5860994
+## sample estimates:
+##        cor 
+## -0.7761684</code></pre>
+<p>Con este p-value rechazamos <span class="math inline">\(H_0\)</span></p>
+</div>
+</div>
+<div id="modelo-lineal-1" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> Modelo Lineal</h3>
+<p>sigamos utilizando los datos de <em>sim1</em></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sim1, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-128-1.png" width="960" /></p>
+<p>Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal <code>y = a_0 + a_1 * x</code> podría servir.</p>
+<div id="modelos-al-azar" class="section level4">
+<h4><span class="header-section-number">8.1.2.1</span> Modelos al azar</h4>
+<p>Para empezar, generemos aleatoriamente varios modelos lineales para ver qué pinta tienen. Para eso, podemos usar <code>geom_abline ()</code> que toma una pendiente e intercepto como parámetros.</p>
+<pre class="sourceCode r"><code class="sourceCode r">models &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+  <span class="dt">a1 =</span> <span class="kw">runif</span>(<span class="dv">250</span>, <span class="dv">-20</span>, <span class="dv">40</span>),
+  <span class="dt">a2 =</span> <span class="kw">runif</span>(<span class="dv">250</span>, <span class="dv">-5</span>, <span class="dv">5</span>)
+)
+
+<span class="kw">ggplot</span>(sim1, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="kw">aes</span>(<span class="dt">intercept =</span> a1, <span class="dt">slope =</span> a2), <span class="dt">data =</span> models, <span class="dt">alpha =</span> <span class="dv">1</span><span class="op">/</span><span class="dv">4</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() </code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-129-1.png" width="960" /></p>
+<p>A simple vista podemos apreciar que algunos modelos son mejores que otros. Pero necesitamos una forma de cuantificar cuales son los <em>mejores</em> modelos.</p>
+</div>
+<div id="distancias" class="section level4">
+<h4><span class="header-section-number">8.1.2.2</span> distancias</h4>
+<p>Una forma de definir <em>mejor</em> es pensar en aquel modelo que minimiza la distancia vertical con cada punto:</p>
+<p>Para eso, eligamos un modelo cualquiera:</p>
+<p><span class="math display">\[ y= 7 + 1.5*x\]</span></p>
+<p>(para que se vean mejor las distancias, corremos un poquito cada punto sobre el eje x)</p>
+<pre class="sourceCode r"><code class="sourceCode r">dist1 &lt;-<span class="st"> </span>sim1 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(
+    <span class="dt">dodge =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>) <span class="op">/</span><span class="st"> </span><span class="dv">20</span>, <span class="dv">10</span>),
+    <span class="dt">x1 =</span> x <span class="op">+</span><span class="st"> </span>dodge,
+    <span class="dt">pred =</span> <span class="dv">7</span> <span class="op">+</span><span class="st"> </span>x1 <span class="op">*</span><span class="st"> </span><span class="fl">1.5</span>
+  )
+
+<span class="kw">ggplot</span>(dist1, <span class="kw">aes</span>(x1, y)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">7</span>, <span class="dt">slope =</span> <span class="fl">1.5</span>, <span class="dt">colour =</span> <span class="st">&quot;grey40&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="st">&quot;grey40&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_linerange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> y, <span class="dt">ymax =</span> pred), <span class="dt">colour =</span> <span class="st">&quot;#3366FF&quot;</span>) </code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-130-1.png" width="960" /></p>
+<p>La distancia de cada punto a la recta es la diferencia entre lo que predice nuestro modelo y el valor real</p>
+<p>Para computar la distancia, primero necesitamos una función que represente a nuestro modelo:</p>
+<p>Para eso, vamos a crear una función que reciba un vector con los parámetros del modelo, y el set de datos, y genere la predicción:</p>
+<pre class="sourceCode r"><code class="sourceCode r">model1 &lt;-<span class="st"> </span><span class="cf">function</span>(a, data) {
+  a[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>data<span class="op">$</span>x <span class="op">*</span><span class="st"> </span>a[<span class="dv">2</span>]
+}
+
+<span class="kw">model1</span>(<span class="kw">c</span>(<span class="dv">7</span>, <span class="fl">1.5</span>), sim1)</code></pre>
+<pre><code>##  [1]  8.5  8.5  8.5 10.0 10.0 10.0 11.5 11.5 11.5 13.0 13.0 13.0 14.5 14.5
+## [15] 14.5 16.0 16.0 16.0 17.5 17.5 17.5 19.0 19.0 19.0 20.5 20.5 20.5 22.0
+## [29] 22.0 22.0</code></pre>
+<p>Ahora, necesitamos una forma de calcular los residuos y agruparlos. Esto lo vamos a hacer con el error cuadrático medio</p>
+<p><span class="math display">\[ECM = \sqrt\frac{\sum_i^n{(\hat{y_i} - y_i)^2}}{n}\]</span></p>
+<pre class="sourceCode r"><code class="sourceCode r">measure_distance &lt;-<span class="st"> </span><span class="cf">function</span>(mod, data) {
+  diff &lt;-<span class="st"> </span>data<span class="op">$</span>y <span class="op">-</span><span class="st"> </span><span class="kw">model1</span>(mod, data)
+  <span class="kw">sqrt</span>(<span class="kw">mean</span>(diff <span class="op">^</span><span class="st"> </span><span class="dv">2</span>))
+}
+
+<span class="kw">measure_distance</span>(<span class="kw">c</span>(<span class="dv">7</span>, <span class="fl">1.5</span>), sim1)</code></pre>
+<pre><code>## [1] 2.665212</code></pre>
+</div>
+<div id="evaluando-los-modelos-aleatorios" class="section level4">
+<h4><span class="header-section-number">8.1.2.3</span> Evaluando los modelos aleatorios</h4>
+<p>Ahora podemos calcular el <strong>ECM</strong> para todos los modelos del dataframe <em>models</em>. Para eso utilizamos el paquete <strong>purrr</strong>, para ejecutar varias veces la misma función sobre varios elementos.</p>
+<p>Tenemos que pasar los valores de a1 y a2 (dos parámetros –&gt; map2), pero como nuestra función toma sólo uno (el vector a), nos armamos una función de ayuda para <em>wrapear</em> a1 y a2</p>
+<pre class="sourceCode r"><code class="sourceCode r">sim1_dist &lt;-<span class="st"> </span><span class="cf">function</span>(a1, a2) {
+  <span class="kw">measure_distance</span>(<span class="kw">c</span>(a1, a2), sim1)
+}
+
+models &lt;-<span class="st"> </span>models <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">dist =</span> purrr<span class="op">::</span><span class="kw">map2_dbl</span>(a1, a2, sim1_dist))
+models</code></pre>
+<pre><code>## # A tibble: 250 x 3
+##        a1     a2  dist
+##     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 -14.0   4.46   8.75
+##  2   5.28 -1.89  23.6 
+##  3  19.5   0.991 10.1 
+##  4  -2.28  3.90   6.80
+##  5  -7.64  1.07  17.6 
+##  6 -19.9  -0.594 39.4 
+##  7 -13.5   0.601 26.2 
+##  8  -7.11  4.39   7.23
+##  9 -13.1   3.35  11.1 
+## 10  21.2  -2.13  13.6 
+## # … with 240 more rows</code></pre>
+<p>A continuación, superpongamos los 10 mejores modelos a los datos. Coloreamos los modelos por <code>-dist</code>: esta es una manera fácil de asegurarse de que los mejores modelos (es decir, los que tienen la menor distancia) obtengan los colores más brillantes.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sim1, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_abline</span>(
+    <span class="kw">aes</span>(<span class="dt">intercept =</span> a1, <span class="dt">slope =</span> a2, <span class="dt">colour =</span> <span class="op">-</span>dist), 
+    <span class="dt">data =</span> <span class="kw">filter</span>(models, <span class="kw">rank</span>(dist) <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span>)
+  )</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-134-1.png" width="960" /></p>
+<p>También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de <code>a1</code> vs<code>a2</code>, nuevamente coloreado por <code>-dist</code>. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(models, <span class="kw">aes</span>(a1, a2)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> <span class="kw">filter</span>(models, <span class="kw">rank</span>(dist) <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span>), <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> <span class="op">-</span>dist))</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-135-1.png" width="960" /></p>
+</div>
+<div id="grid-search" class="section level4">
+<h4><span class="header-section-number">8.1.2.4</span> Grid search</h4>
+<p>En lugar de probar muchos modelos aleatorios, podríamos ser más sistemáticos y generar una cuadrícula de puntos uniformemente espaciada (esto se denomina grid search). Elegimos los parámetros de la grilla aproximadamente mirando dónde estaban los mejores modelos en el gráfico anterior.</p>
+<pre class="sourceCode r"><code class="sourceCode r">grid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(
+  <span class="dt">a1 =</span> <span class="kw">seq</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">20</span>, <span class="dt">length =</span> <span class="dv">25</span>),
+  <span class="dt">a2 =</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dt">length =</span> <span class="dv">25</span>)
+  ) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">dist =</span> purrr<span class="op">::</span><span class="kw">map2_dbl</span>(a1, a2, sim1_dist))
+
+grid <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(a1, a2)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> <span class="kw">filter</span>(grid, <span class="kw">rank</span>(dist) <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span>), <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> <span class="op">-</span>dist)) </code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-136-1.png" width="960" /></p>
+<p>Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sim1, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_abline</span>(
+    <span class="kw">aes</span>(<span class="dt">intercept =</span> a1, <span class="dt">slope =</span> a2, <span class="dt">colour =</span> <span class="op">-</span>dist), 
+    <span class="dt">data =</span> <span class="kw">filter</span>(grid, <span class="kw">rank</span>(dist) <span class="op">&lt;=</span><span class="st"> </span><span class="dv">10</span>)
+  )</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-137-1.png" width="960" /></p>
+</div>
+<div id="optimo-por-metodos-numericos" class="section level4">
+<h4><span class="header-section-number">8.1.2.5</span> óptimo por métodos numéricos</h4>
+<p>Podríamos imaginar este proceso iterativamente haciendo la cuadrícula más fina y más fina hasta que nos centramos en el mejor modelo. Pero hay una forma mejor de abordar ese problema: una herramienta de minimización numérica llamada búsqueda de <strong>Newton-Raphson</strong>.</p>
+<p>La intuición de Newton-Raphson es bastante simple: Se elige un punto de partida y se busca la pendiente más inclinada. Luego, desciende por esa pendiente un poco, y se repite una y otra vez, hasta que no se puede seguir bajando.</p>
+<p>En R, podemos hacer eso con <code>optim ()</code>:</p>
+<ul>
+<li>necesitamos pasarle un vector de puntos iniciales. Elegimos 4 y 2, porque los mejores modelos andan cerca de esos valores</li>
+<li>le pasamos nuestra función de distancia, y los parámetros que nuestra función necesita (data)</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r">best &lt;-<span class="st"> </span><span class="kw">optim</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">2</span>), measure_distance, <span class="dt">data =</span> sim1)
+best</code></pre>
+<pre><code>## $par
+## [1] 4.221029 2.051528
+## 
+## $value
+## [1] 2.128181
+## 
+## $counts
+## function gradient 
+##       49       NA 
+## 
+## $convergence
+## [1] 0
+## 
+## $message
+## NULL</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sim1, <span class="kw">aes</span>(x, y)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> best<span class="op">$</span>par[<span class="dv">1</span>], <span class="dt">slope =</span> best<span class="op">$</span>par[<span class="dv">2</span>])</code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-139-1.png" width="960" /></p>
+</div>
+<div id="optimo-para-el-modelo-lineal" class="section level4">
+<h4><span class="header-section-number">8.1.2.6</span> Óptimo para el modelo lineal</h4>
+<p>Este procedimiento es válido para muchas familias de modelos. Pero para el caso del modelo lineal, conocemos otras formas de resolverlo</p>
+<p>Si nuestro modelo es</p>
+<p><span class="math display">\[
+y = a_1 + a_2x + \epsilon
+\]</span></p>
+<p>La solución del óptima que surge de minimizar el Error Cuadrático Medio es:</p>
+<p><span class="math display">\[
+\hat{a_1} = \bar{y} - \hat{a_2}\bar{x} 
+\]</span></p>
+<p><span class="math display">\[
+\hat{a_2} = \frac{\sum_i^n (y_i -\bar{y})(x_i -\bar{x})}{\sum_i^n (x_i- \bar{x})}
+\]</span></p>
+<p>R tiene una función específica para el modelo lineal <code>lm()</code>. Cómo esta función sirve tanto para regresiones lineales simples como múltiples, debemos especificar el modelo en las <em>formulas</em>: <code>y ~ x</code></p>
+<pre class="sourceCode r"><code class="sourceCode r">sim1_mod &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data =</span> sim1)</code></pre>
+</div>
+<div id="interpretando-la-salida-de-la-regresion" class="section level4">
+<h4><span class="header-section-number">8.1.2.7</span> Interpretando la salida de la regresión</h4>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(sim1_mod)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y ~ x, data = sim1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1469 -1.5197  0.1331  1.4670  4.6516 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   4.2208     0.8688   4.858 4.09e-05 ***
+## x             2.0515     0.1400  14.651 1.17e-14 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.203 on 28 degrees of freedom
+## Multiple R-squared:  0.8846, Adjusted R-squared:  0.8805 
+## F-statistic: 214.7 on 1 and 28 DF,  p-value: 1.173e-14</code></pre>
+<p>Analicemos los elementos de la salida:</p>
+<ul>
+<li><strong>Residuals</strong>: La distribución de los residuos. Hablaremos más adelante.</li>
+<li><strong>Coefficients</strong>: Los coeficientes del modelo. El intercepto y la variable explicativa
+<ul>
+<li><em>Estimate</em>: Es el valor estimado para cada parámetro</li>
+<li><em>Pr(&gt;|t|)</em>: Es el <em>p-valor</em> asociado al test que mide que el parámetro sea mayor que 0. Si el p-valor es cercano a 0, entonces el parámetro es significativamente mayor a 0.</li>
+</ul></li>
+<li><strong><em>Multiple R-squared</em></strong>: El <span class="math inline">\(R^2\)</span> indica que proporción del movimiento en <span class="math inline">\(y\)</span> es explicado por <span class="math inline">\(x\)</span>.</li>
+<li><strong>F-statistic</strong>: Es el resultado de un test <em>de significatividad global</em> del modelo. Con un p-valor bajo, rechazamos la hipótesis nula, que indica que el modelo no explicaría bien al fenómeno.</li>
+</ul>
+<p><strong>interpretación de los parámetros</strong>: El valor estimado del parámetro se puede leer como “cuanto varía <span class="math inline">\(y\)</span> cuando <span class="math inline">\(x\)</span> varía en una unidad”. Es decir, es la pendiente de la recta</p>
+</div>
+<div id="analisis-de-los-residuos" class="section level4">
+<h4><span class="header-section-number">8.1.2.8</span> Análisis de los residuos</h4>
+<p>Los residuos del modelo indican cuanto le erra el modelo en cada una de las observaciones. Es la distancia que intentamos minimizar de forma agregada.</p>
+<p>Podemos agregar los residuos al dataframe con <code>add_residuals ()</code> de la librería <code>modelr</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">sim1 &lt;-<span class="st"> </span>sim1 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">add_residuals</span>(sim1_mod)
+
+sim1 <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">10</span>)</code></pre>
+<pre><code>## # A tibble: 10 x 3
+##        x     y  resid
+##    &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1     1  2.13 -4.15 
+##  2     5 16.0   1.55 
+##  3     6 16.0  -0.574
+##  4     7 20.1   1.50 
+##  5     3  7.36 -3.02 
+##  6     4 14.3   1.83 
+##  7     5 19.1   4.65 
+##  8     5 11.7  -2.74 
+##  9     7 19.9   1.35 
+## 10     2  8.99  0.665</code></pre>
+<ul>
+<li>Si cuando miramos los residuos notamos que <strong>tienen una estructura</strong>, eso significa que nuestro modelo no esta bien especificado. En otros términos, nos olvidamos de un elemento importante para explicar el fenómeno.</li>
+<li>Lo que debemos buscar es que los residuos estén homogéneamente distribuidos en torno al 0.</li>
+</ul>
+<p>Hay muchas maneras de analizar los residuos. Una es con las estadísticas de resumen que muestra el <code>summary</code>. Otra forma es graficándolos.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sim1, <span class="kw">aes</span>(x, resid)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_ref_line</span>(<span class="dt">h =</span> <span class="dv">0</span>, <span class="dt">size =</span> <span class="dv">2</span>,<span class="dt">colour =</span> <span class="st">&quot;firebrick&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() </code></pre>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-143-1.png" width="960" /></p>
+</div>
+</div>
+<div id="regresion-lineal-multiple" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Regresión lineal múltiple</h3>
+<p>Si bien escapa a los alcances de esta clase ver en detalle el modelo lineal múltiple, podemos ver alguna intuición.</p>
+<ul>
+<li>Notemos que el modelo ya no es una linea en un plano, sino que ahora el modelo es un plano, en un espacio de 3 dimensiones:</li>
+</ul>
+<blockquote>
+<p>Para cada par de puntos en <span class="math inline">\(x_1\)</span> y <span class="math inline">\(x_2\)</span> vamos a definir un valor para <span class="math inline">\(y\)</span></p>
+</blockquote>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-144-1.png" width="960" /><img src="bookdown_files/figure-html/unnamed-chunk-144-2.png" width="960" /></p>
+<ul>
+<li><p>El criterio para elegir el mejor modelo va a seguir siendo <em>minimizar las distancias verticales</em>. Esto quiere decir, respecto de la variable que queremos predecir.</p></li>
+<li><p><strong>interpretación de los parámetros</strong>: El valor estimado del parámetro se puede leer como “cuanto varía <span class="math inline">\(y\)</span> cuando <span class="math inline">\(x\)</span> varía en una unidad, <strong>cuando todo lo demás permanece constante</strong>”. Noten que ahora para interpretar los resultados tenemos que hacer la abstracción de dejar todas las demás variables constantes</p></li>
+<li><p><strong>Adjusted R-squared</strong>: Es similar a <span class="math inline">\(R^2\)</span>, pero ajusta por la cantidad de variables del modelo (nosotros estamos utilizando un modelo de una sola variable), sirve para comparar entre modelos de distinta cantidad de variables.</p></li>
+</ul>
+</div>
+<div id="para-profundizar" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> Para profundizar</h3>
+<p>Estas notas de clase estan fuertemente inspiradas en los siguientes libros/notas:</p>
+<ul>
+<li><a href="https://es.r4ds.hadley.nz/">R para Cienca de Datos</a></li>
+<li><a href="http://mate.dm.uba.ar/~meszre/apunte_regresion_lineal_szretter.pdf">Apuntes regresión lineal</a></li>
+</ul>
+<p>Un punto pendiente de estas clases que es muy importante son los <strong>supuestos</strong> que tiene detrás el modelo lineal.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modelo-lineal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="practica-guiada-6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -10,7 +10,13 @@ link-citations: yes
 description: "desarrollado para el Min. de Transporte (Argentina)"
 ---
 
+
+
 # Introducción
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, fig.width = 10, fig.height = 10)
+```
 
 ![](img/venn_ds.png){width=1000}
 

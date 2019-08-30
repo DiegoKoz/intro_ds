@@ -13,7 +13,7 @@ Esta clase es un repaso de los rudimentos de probabilidad y estadística. El obj
 ## Explicación
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=FALSE, fig.width = 15)
+knitr::opts_chunk$set(echo=FALSE)
 library(tidyverse)
 library(kableExtra)
 library(cowplot)

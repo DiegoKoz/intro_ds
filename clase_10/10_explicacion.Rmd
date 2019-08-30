@@ -10,12 +10,12 @@ subtitle: Explicación
 
 En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.
 
-```{r setup }
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```{r}
 library(tidyverse)
 library(modelr)
 library(GGally)
 library(plot3D)
+
 ```
 
 ### Covarianza y Correlación.
@@ -31,7 +31,7 @@ Esto es: La covarianza entre dos variables, $x$ e $y$ es el promedio (noten que 
 tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:
 
 
-```{r}
+```{r echo=FALSE}
 ggplot(sim1, aes(x,y) )+
   geom_point()+
   geom_vline(xintercept = mean(sim1$x))+

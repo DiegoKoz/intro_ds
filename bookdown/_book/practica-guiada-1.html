@@ -25,7 +25,7 @@
 <meta name="author" content="Diego Kozlowski y Natsumi Shokida">
 
 
-<meta name="date" content="2019-08-29">
+<meta name="date" content="2019-08-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -194,11 +194,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.3" data-path="practica-guiada-2.html"><a href="practica-guiada-2.html#kernels"><i class="fa fa-check"></i><b>4.2.3</b> <span>Kernels</span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="visualizacion-de-la-informacion-1.html"><a href="visualizacion-de-la-informacion-1.html"><i class="fa fa-check"></i><b>5</b> Visualización de la información</a><ul>
+<li class="chapter" data-level="5" data-path="documentacion.html"><a href="documentacion.html"><i class="fa fa-check"></i><b>5</b> Documentación</a><ul>
 <li class="chapter" data-level="5.1" data-path="explicacion-3.html"><a href="explicacion-3.html"><i class="fa fa-check"></i><b>5.1</b> Explicación</a></li>
 <li class="chapter" data-level="5.2" data-path="practica-guiada-3.html"><a href="practica-guiada-3.html"><i class="fa fa-check"></i><b>5.2</b> Práctica Guiada</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="visualizacion-de-la-informacion-2.html"><a href="visualizacion-de-la-informacion-2.html"><i class="fa fa-check"></i><b>6</b> Visualización de la información</a><ul>
+<li class="chapter" data-level="6" data-path="diseno-y-analisis-de-encuestas.html"><a href="diseno-y-analisis-de-encuestas.html"><i class="fa fa-check"></i><b>6</b> Diseño y análisis de encuestas</a><ul>
 <li class="chapter" data-level="6.1" data-path="explicacion-4.html"><a href="explicacion-4.html"><i class="fa fa-check"></i><b>6.1</b> Explicación</a></li>
 <li class="chapter" data-level="6.2" data-path="practica-guiada-4.html"><a href="practica-guiada-4.html"><i class="fa fa-check"></i><b>6.2</b> Práctica Guiada</a></li>
 </ul></li>
@@ -217,6 +217,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.1" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html#ejemplo-1-iterando-en-la-eph"><i class="fa fa-check"></i><b>7.2.1</b> Ejemplo 1: Iterando en la EPH</a></li>
 <li class="chapter" data-level="7.2.2" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html#ejemplo-2.-regresion-lineal"><i class="fa fa-check"></i><b>7.2.2</b> Ejemplo 2. Regresión lineal</a></li>
 <li class="chapter" data-level="7.2.3" data-path="practica-guiada-5.html"><a href="practica-guiada-5.html#ejemplo-3-graficos-en-serie"><i class="fa fa-check"></i><b>7.2.3</b> Ejemplo 3: Gráficos en serie</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modelo-lineal.html"><a href="modelo-lineal.html"><i class="fa fa-check"></i><b>8</b> Modelo Lineal</a><ul>
+<li class="chapter" data-level="8.1" data-path="explicacion-6.html"><a href="explicacion-6.html"><i class="fa fa-check"></i><b>8.1</b> Explicación</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="explicacion-6.html"><a href="explicacion-6.html#covarianza-y-correlacion."><i class="fa fa-check"></i><b>8.1.1</b> Covarianza y Correlación.</a></li>
+<li class="chapter" data-level="8.1.2" data-path="explicacion-6.html"><a href="explicacion-6.html#modelo-lineal-1"><i class="fa fa-check"></i><b>8.1.2</b> Modelo Lineal</a></li>
+<li class="chapter" data-level="8.1.3" data-path="explicacion-6.html"><a href="explicacion-6.html#regresion-lineal-multiple"><i class="fa fa-check"></i><b>8.1.3</b> Regresión lineal múltiple</a></li>
+<li class="chapter" data-level="8.1.4" data-path="explicacion-6.html"><a href="explicacion-6.html#para-profundizar"><i class="fa fa-check"></i><b>8.1.4</b> Para profundizar</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html"><i class="fa fa-check"></i><b>8.2</b> Práctica Guiada</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="practica-guiada-6.html"><a href="practica-guiada-6.html#datos-de-properati"><i class="fa fa-check"></i><b>8.2.1</b> Datos de Properati</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -245,19 +256,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 <div id="generacion-de-datos-aleatorios" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Generación de datos aleatorios</h3>
-<p>Para generar datos aleatorios, usamos las funciones</p>
-<p>-<code>rnorm</code> para generar datos que surgen de una distribución normal
--<code>rt</code> para generar datos que surgen de una distribución T-student
--<code>rchisq</code> para generar datos que surgen de una distribución Chi cuadrado</p>
+<p>Para generar datos aleatorios, usamos las funciones:</p>
+<ul>
+<li><code>rnorm</code> para generar datos que surgen de una distribución normal</li>
+<li><code>rt</code> para generar datos que surgen de una distribución T-student</li>
+<li><code>rchisq</code> para generar datos que surgen de una distribución Chi cuadrado</li>
+</ul>
 <blockquote>
-<p>pero antes, tenemos que fijar la <em>semilla</em> para que los datos sean reproducibles</p>
+<p>Pero antes, tenemos que fijar la <em>semilla</em> para que los datos sean reproducibles</p>
 </blockquote>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">1234</span>)
-<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span> )</code></pre>
+<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">15</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span> )</code></pre>
 <pre><code>##  [1] -1.20706575  0.27742924  1.08444118 -2.34569770  0.42912469
 ##  [6]  0.50605589 -0.57473996 -0.54663186 -0.56445200 -0.89003783
 ## [11] -0.47719270 -0.99838644 -0.77625389  0.06445882  0.95949406</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rt</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span> )</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rt</span>(<span class="dt">n =</span> <span class="dv">15</span>, <span class="dt">df=</span><span class="dv">1</span> )</code></pre>
 <pre><code>##  [1] -0.363717710 -1.603466805 -0.388596796 -0.588007490  0.007839245
 ##  [6] 14.690527710 -1.863488555  0.022667470 -2.084247299 -0.249237745
 ## [11] -1.311594174 -3.569055208 -2.490838240 -3.848779244 -4.271087169</code></pre>
@@ -265,19 +278,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>##  [1] 0.5317744 1.4263809 4.2797098 0.2184660 0.6923773 0.0455256 3.1902100
 ##  [8] 0.2949942 0.5403827 0.1543732 0.8639196 0.1417290 1.1386091 0.2966193
 ## [15] 0.5110879</code></pre>
-<p>Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando plot</p>
+<p>Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando <code>plot</code></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span> ))</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-48-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-49-1.png" width="960" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">rt</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span> ))</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-48-2.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-49-2.png" width="960" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">rchisq</span>(<span class="dt">n =</span> <span class="dv">15</span>,<span class="dt">df=</span><span class="dv">1</span>))</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-48-3.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-49-3.png" width="960" /></p>
 <p>Noten que el eje X es el índice de los valores, es decir que no agrega información.</p>
 </div>
 <div id="tests" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Tests</h3>
 <p>Utilicemos ahora datos reales.</p>
-<p>los datos salen de <a href="https://data.buenosaires.gob.ar/dataset/femicidios">https://data.buenosaires.gob.ar/dataset/femicidios</a></p>
+<p>Los datos salen de <a href="https://data.buenosaires.gob.ar/dataset/femicidios">https://data.buenosaires.gob.ar/dataset/femicidios</a></p>
 <blockquote>
 <p>Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.</p>
 </blockquote>
@@ -305,7 +318,7 @@ femicidios</code></pre>
 ## 17  2017 …                   61 y más  
 ## 18  2017 …                   Ignorado  
 ## 19  2017 9                   TOTAL</code></pre>
-<p>fijense que las estadísitcas no estan desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron ‘-’ en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.</p>
+<p>Fijense que las estadísitcas no están desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron ‘-’ en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.</p>
 <p>Vamos a reorganizar la información para corregir todas estas cosas</p>
 <pre class="sourceCode r"><code class="sourceCode r">femicidios &lt;-<span class="st"> </span>femicidios <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(anio<span class="op">!=</span><span class="dv">2017</span>, grupo_edad <span class="op">!=</span><span class="st">&#39;Ignorado&#39;</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co">#Sacamos al 2017 y los casos donde se ignora la edad</span>
@@ -334,7 +347,7 @@ femicidios</code></pre>
 ## 
 ## data:  femicidios$cantidad_femicidios
 ## X-squared = 5.2609, df = 1, p-value = 0.02181</code></pre>
-<p>noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.</p>
+<p>Noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.</p>
 </div>
 <div id="descripcion-estadistica-de-los-datos" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Descripción estadística de los datos</h3>
@@ -347,14 +360,14 @@ femicidios</code></pre>
 </div>
 <div id="graficos-estadisticos-1" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Gráficos estadísticos</h3>
-<p>No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad. Como los presentados en las notas de clase</p>
-<p>A modo de ejemplo, dejamos los comandos de R base para realizar gráficos</p>
+<p>No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad, como los presentados en las notas de clase.</p>
+<p>A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i)</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-54-1.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-55-1.png" width="960" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i)</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-54-2.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-55-2.png" width="960" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">density</span>(sueldos<span class="op">$</span>asignacion_por_cargo_i))</code></pre>
-<p><img src="bookdown_files/figure-html/unnamed-chunk-54-3.png" width="1440" /></p>
+<p><img src="bookdown_files/figure-html/unnamed-chunk-55-3.png" width="960" /></p>
 
 </div>
 </div>

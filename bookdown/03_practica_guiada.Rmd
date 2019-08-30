@@ -1,7 +1,7 @@
 ## Práctica Guiada
 
 ```{r include = FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE,echo=TRUE, fig.width = 15)
+knitr::opts_chunk$set(echo=TRUE)
 
 ```
 

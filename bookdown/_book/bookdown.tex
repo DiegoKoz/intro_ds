@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-08-29}
+    \date{2019-08-30}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -425,7 +425,7 @@ En esta primera clase revisaremos los fundamentos de R base y el entorno de RStu
 \item
   Sintaxis incremental\footnote{Más allá de los comandos elementales, comandos más sofisticados tienen muchas versiones, y algunas quedan en desuso en el tiempo.}: El lenguaje se va ampliando por aportes de Universidades, investigadores/as, usuarios/as y empresas privadas, organizados en librerías (o paquetes)
 \item
-  Comunidad web muy grande para realizar preguntas y despejar dudas. Por ejemplo, en el caso de Buenos Aires contamos con \href{R-Ladies\%20Buenos\%20Aires}{https://www.meetup.com/es-ES/rladies-buenos-aires/} y \href{RenBaires}{https://www.meetup.com/es-ES/renbaires/}.
+  Comunidad web muy grande para realizar preguntas y despejar dudas. Por ejemplo, en el caso de Buenos Aires contamos con \href{https://www.meetup.com/es-ES/rladies-buenos-aires/}{R-Ladies Buenos Aires} y \href{https://www.meetup.com/es-ES/renbaires/}{RenBaires}.
 \item
   Gráficos con calidad de publicación
 \end{itemize}
@@ -534,8 +534,6 @@ El operador \textbf{\texttt{=}} es \textbf{equivalente} a \textbf{\texttt{\textl
 \begin{verbatim}
 ## [1] 2
 \end{verbatim}
-
-También podemos utilizar el \textbf{\#} para realizar comentarios entre el código, en lo que resta de la línea en cuestión.
 
 \hypertarget{r-base}{%
 \subsection{R base}\label{r-base}}
@@ -701,7 +699,7 @@ A lo largo del curso iremos viendo numerosas funciones, según lo requieran los 
 \begin{itemize}
 \tightlist
 \item
-  paste() : concatena una serie de caracteres, indicando por última instancia como separar a cada uno de ellos\\
+  paste() : concatena una serie de caracteres, pudiendo indicarse cómo separar a cada uno de ellos\\
 \item
   paste0(): concatena una serie de caracteres sin separar
 \item
@@ -712,7 +710,7 @@ A lo largo del curso iremos viendo numerosas funciones, según lo requieran los 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{paste}\NormalTok{(}\StringTok{"Pega"}\NormalTok{,}\StringTok{"estas"}\NormalTok{,}\DecValTok{4}\NormalTok{,}\StringTok{"palabras"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{" "}\NormalTok{)}
+\KeywordTok{paste}\NormalTok{(}\StringTok{"Pega"}\NormalTok{, }\StringTok{"estas"}\NormalTok{, }\DecValTok{4}\NormalTok{, }\StringTok{"palabras"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{" "}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -723,7 +721,7 @@ A lo largo del curso iremos viendo numerosas funciones, según lo requieran los 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{#Puedo concatenar caracteres almacenados en objetos}
-\KeywordTok{paste}\NormalTok{(A,B,C,}\DataTypeTok{sep =} \StringTok{"**"}\NormalTok{)}
+\KeywordTok{paste}\NormalTok{(A, B, C, }\DataTypeTok{sep =} \StringTok{"**"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -734,7 +732,7 @@ A lo largo del curso iremos viendo numerosas funciones, según lo requieran los 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Paste0 pega los caracteres sin separador}
-\KeywordTok{paste0}\NormalTok{(A,B,C)}
+\KeywordTok{paste0}\NormalTok{(A, B, C)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -764,7 +762,7 @@ A lo largo del curso iremos viendo numerosas funciones, según lo requieran los 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{mean}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,}\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{na.rm =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -809,7 +807,7 @@ A lo largo del curso iremos viendo numerosas funciones, según lo requieran los 
 \hypertarget{objetos}{%
 \subsection{Objetos:}\label{objetos}}
 
-Existen un gran cantidad de objetos distintos en R, en lo que resepcta al curso trabajaremos principalmente con 3 de ellos:
+Existe una gran cantidad de objetos distintos en R, en lo que resepcta al curso trabajaremos principalmente con 3 de ellos:
 
 \begin{itemize}
 \tightlist
@@ -877,7 +875,7 @@ Los valores y vectores pueden ser a su vez de distintas \emph{clases}:
 ## [1] "factor"
 \end{verbatim}
 
-La diferencia entre un \emph{character} y un \emph{factor} es que el último tiene solo algunos valores permitidos (levels), con un orden interno predefinido (el cual ,por ejemplo, se respetará a la hora de realizar un gráfico)
+La diferencia entre un \emph{character} y un \emph{factor} es que el último tiene solo algunos valores permitidos (levels), con un orden interno predefinido (el cual, por ejemplo, se respetará a la hora de realizar un gráfico)
 
 \hypertarget{vectores}{%
 \subsubsection{Vectores}\label{vectores}}
@@ -895,7 +893,7 @@ Para crear un \textbf{vector} utilizamos el comando \texttt{c()}, de combinar.
 ## [1] 1 3 4
 \end{verbatim}
 
-sumarle 2 a cada elemento del \textbf{vector} anterior
+Podemos sumarle 2 a cada elemento del \textbf{vector} anterior
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -908,11 +906,11 @@ sumarle 2 a cada elemento del \textbf{vector} anterior
 ## [1] 3 5 6
 \end{verbatim}
 
-sumarle 1 al primer elemento, 2 al segundo, y 3 al tercer elemento del \textbf{vector} anterior
+O sumarle 1 al primer elemento, 2 al segundo, y 3 al tercer elemento del \textbf{vector} anterior
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{D <-}\StringTok{ }\NormalTok{C }\OperatorTok{+}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{3} \CommentTok{#esto es equivalente a hacer 3+1, 5+2, 6+9 }
+\NormalTok{D <-}\StringTok{ }\NormalTok{C }\OperatorTok{+}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{3} \CommentTok{# esto es equivalente a hacer 3+1, 5+2, 6+9 }
 \NormalTok{D}
 \end{Highlighting}
 \end{Shaded}
@@ -923,11 +921,11 @@ sumarle 1 al primer elemento, 2 al segundo, y 3 al tercer elemento del \textbf{v
 
 \texttt{1:3} significa que queremos todos los números enteros desde 1 hasta 3.
 
-crear un \textbf{vector} que contenga las palabras: ``Carlos'',``Federico'',``Pedro''
+Podemos crear un \textbf{vector} que contenga las palabras: ``Carlos'', ``Federico'', ``Pedro''
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{E <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Carlos"}\NormalTok{,}\StringTok{"Federico"}\NormalTok{,}\StringTok{"Pedro"}\NormalTok{)}
+\NormalTok{E <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Carlos"}\NormalTok{, }\StringTok{"Federico"}\NormalTok{, }\StringTok{"Pedro"}\NormalTok{)}
 \NormalTok{E}
 \end{Highlighting}
 \end{Shaded}
@@ -936,11 +934,11 @@ crear un \textbf{vector} que contenga las palabras: ``Carlos'',``Federico'',``Pe
 ## [1] "Carlos"   "Federico" "Pedro"
 \end{verbatim}
 
-para acceder a algún elemento del vector, podemos buscarlo por su número de orden, entre \texttt{{[}\ {]}}
+Para acceder a algún elemento del vector, podemos buscarlo por su número de orden, entre \texttt{{[}\ {]}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ E[}\DecValTok{2}\NormalTok{]}
+\NormalTok{E[}\DecValTok{2}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -948,11 +946,11 @@ para acceder a algún elemento del vector, podemos buscarlo por su número de or
 ## [1] "Federico"
 \end{verbatim}
 
-Si nos interesa almacenar dicho valor, al buscarlo lo asignamos a un nuevo objeto, dandole el nombre que deseemos
+Si nos interesa almacenar dicho valor, al buscarlo lo asignamos a un nuevo objeto, dándole el nombre que deseemos
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{elemento2 <-}\StringTok{  }\NormalTok{E[}\DecValTok{2}\NormalTok{]}
+\NormalTok{elemento2 <-}\StringTok{ }\NormalTok{E[}\DecValTok{2}\NormalTok{]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -966,7 +964,7 @@ Si nos interesa almacenar dicho valor, al buscarlo lo asignamos a un nuevo objet
 ## [1] "Federico"
 \end{verbatim}
 
-para \textbf{borrar} un objeto del ambiente de trabajo, utilizamos el comando \emph{\texttt{rm()}}
+Para \textbf{borrar} un objeto del ambiente de trabajo, utilizamos el comando \emph{\texttt{rm()}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -999,7 +997,7 @@ Un Data Frame es una tabla de datos, donde cada columna representa una variable,
 
 Este objeto suele ser central en el proceso de trabajo, y suele ser la forma en que se cargan datos externos para trabajar en el ambiente de R, y en que se exportan los resultados de nuestros trabajo.
 
-También Se puede crear como la combinación de N vectores de igual tamaño. Por ejemplo, tomamos algunos valores del \href{http://www.indec.gob.ar/bajarCuadroEstadistico.asp?idc=4020B33440609462654542BD0BC320F1523DA0DC52C396201DB4DD5861FFEDC9AD1436681AC84179}{Indice de salarios}
+También se puede crear como la combinación de N vectores de igual tamaño. Por ejemplo, tomamos algunos valores del \href{http://www.indec.gob.ar/bajarCuadroEstadistico.asp?idc=4020B33440609462654542BD0BC320F1523DA0DC52C396201DB4DD5861FFEDC9AD1436681AC84179}{Indice de salarios}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1011,12 +1009,10 @@ También Se puede crear como la combinación de N vectores de igual tamaño. Por
              \StringTok{"Nov-16"}\NormalTok{, }\StringTok{"Nov-16"}\NormalTok{, }\StringTok{"Nov-16"}\NormalTok{,}
              \StringTok{"Dic-16"}\NormalTok{, }\StringTok{"Dic-16"}\NormalTok{, }\StringTok{"Dic-16"}\NormalTok{)}
 
-
 \NormalTok{GRUPO  <-}\StringTok{  }\KeywordTok{c}\NormalTok{(}\StringTok{"Privado_Registrado"}\NormalTok{,}\StringTok{"Público","}\NormalTok{Privado_No_Registrado}\StringTok{",}
 \StringTok{             "}\NormalTok{Privado_Registrado}\StringTok{","}\NormalTok{Público",}\StringTok{"Privado_No_Registrado"}\NormalTok{,}
              \StringTok{"Privado_Registrado"}\NormalTok{,}\StringTok{"Público","}\NormalTok{Privado_No_Registrado}\StringTok{")}
 \StringTok{             }
-
 \StringTok{Datos <- data.frame(INDICE, FECHA, GRUPO)}
 \StringTok{Datos}
 \end{Highlighting}
@@ -1086,7 +1082,7 @@ Otra opción es especificar la columna, mediante el operador \textbf{\texttt{\$}
 
 Nótese que el último comando tiene un número incorrecto de dimensiones, porque estamos refiriendonos 2 veces a la columna FECHA.
 
-Acorde a lo visto anteriormente, el acceso a los \textbf{dataframes} mediante \texttt{{[}\ {]}}, puede utilizarse para realizar filtros sobre la base, especificando una condición para las filas. Por ejemplo, puedo utilizar los \texttt{{[}\ {]}} para conservar del \textbf{dataframe} \texttt{Datos} unicamente los registros con fecha de Diciembre 2016:
+Acorde a lo visto anteriormente, el acceso a los \textbf{dataframes} mediante \texttt{{[}\ {]}} puede utilizarse para realizar filtros sobre la base, especificando una condición para las filas. Por ejemplo, puedo utilizar los \texttt{{[}\ {]}} para conservar del \textbf{dataframe} \texttt{Datos} unicamente los registros con fecha de Diciembre 2016:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1101,7 +1097,8 @@ Acorde a lo visto anteriormente, el acceso a los \textbf{dataframes} mediante \t
 ## 9  103.2 Dic-16 Privado_No_Registrado
 \end{verbatim}
 
-La lógica del paso anterior sería: Accedo al dataframe \texttt{Datos}, pidiendo únicamente conservar las filas (por eso la condición se ubica a la \emph{izquierda} de la \texttt{,}) que cumplan el requisito de pertenecer a la categoría \textbf{``Dic-16''} de la variable \textbf{FECHA}.\\
+La lógica del paso anterior sería: Accedo al dataframe \texttt{Datos}, pidiendo únicamente conservar las filas (por eso la condición se ubica a la \emph{izquierda} de la \texttt{,}) que cumplan el requisito de pertenecer a la categoría \textbf{``Dic-16''} de la variable \textbf{FECHA}.
+
 Aún más, podría aplicar el filtro y al mismo tiempo identificar una variable de interés para luego realizar un cálculo sobre aquella. Por ejemplo, podría calcular la media de los indices en el mes de Diciembre.
 
 \begin{Shaded}
@@ -1137,12 +1134,12 @@ Aún más, podría aplicar el filtro y al mismo tiempo identificar una variable 
 ## [1] 102.8333
 \end{verbatim}
 
-La lógica de esta sintaxis sería: ``Me quedó con la variable \textbf{INDICE}, cuando la variable FECHA sea igual a \textbf{"Dic-16"}, luego calculo la media de dichos valores''
+La lógica de esta sintaxis sería: ``Me quedo con la variable \textbf{INDICE}, cuando la variable FECHA sea igual a \textbf{"Dic-16"}, luego calculo la media de dichos valores''.
 
 \hypertarget{listas}{%
 \subsection{Listas}\label{listas}}
 
-Contienen una concatenación de objetos de cualquier tipo. Así como un vector contiene valores, un dataframe contiene vectores, una lista puede contener dataframes, pero también vectores, o valores, y \emph{todo ello a la vez}
+Contienen una concatenación de objetos de cualquier tipo. Así como un vector contiene valores, un dataframe contiene vectores, una lista puede contener dataframes, pero también vectores, o valores, y \emph{todo ello a la vez}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1193,7 +1190,7 @@ Contienen una concatenación de objetos de cualquier tipo. Así como un vector c
 ## [7] "Privado_Registrado"    "Público"               "Privado_No_Registrado"
 \end{verbatim}
 
-Para acceder un elemento de una lista, podemos utilizar el operador \textbf{\texttt{\$}}, que se puede usar a su vez de forma iterativa
+Para acceder un elemento de una lista, podemos utilizar el operador \textbf{\texttt{\$}}, que se puede usar a su vez de forma iterativa.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1214,7 +1211,7 @@ Hay algunas cosas que tenemos que tener en cuenta respecto del orden del ambient
 \begin{itemize}
 \tightlist
 \item
-  Working Directory: El directorio de trabajo, pueden ver el suyo con \texttt{getwd()}, es \emph{hacia donde apunta el código}, por ejemplo, si quieren leer un archivo, la ruta del archivo tiene que estar explicitada como el recorrido desde el Working Directory.
+  Working Directory: Es el directorio de trabajo. Pueden ver el suyo con \texttt{getwd()}, es \emph{hacia donde apunta el código}, por ejemplo, si quieren leer un archivo, la ruta del archivo tiene que estar explicitada como el recorrido desde el Working Directory.
 \item
   Environment: Esto engloba tanto la información que tenemos cargada en \emph{Data} y \emph{Values}, como las librerías que tenemos cargadas mientras trabajamos.
 \end{itemize}
@@ -1276,7 +1273,7 @@ Un proyecto no es un sólo script, sino toda una carpeta de trabajo.
 \caption{logo Rpoject}
 \end{figure}
 
-Para crearlo, vamos al logo de nuevo projecto (Arriba a la izquierda de la panatalla), y elegimos la carpeta de trabajo.
+Para crearlo, vamos al logo de nuevo projecto (Arriba a la derecha de la panatalla), y elegimos la carpeta de trabajo.
 
 \hypertarget{tipos-de-archivos-de-r}{%
 \subsection{Tipos de archivos de R}\label{tipos-de-archivos-de-r}}
@@ -1286,7 +1283,7 @@ Para crearlo, vamos al logo de nuevo projecto (Arriba a la izquierda de la panat
 \item
   \textbf{Script}: Es un archivo de texto plano, donde podemos poner el código que utilizamos para preservarlo
 \item
-  \textbf{Rnotebook}: También sirve para guardar el código, pero a diferencia de los scripts, se puede compilar, e intercalar código con resultados (este archivo es un rnotebook)
+  \textbf{Rnotebook}: También sirve para guardar el código, pero a diferencia de los scripts, se puede compilar, e intercalar código con resultados
 \item
   \textbf{Rproject}: Es un archivo que define la metadata del proyecto
 \item
@@ -1305,7 +1302,7 @@ Hasta aquí hemos visto múltiples funciones que están contenidas dentro del le
 install.packages("nombre_del_paquete") 
 \end{verbatim}
 
-Resulta recomendable \textbf{ejecutar este comando desde la consola} ya que solo necesitaremos correrlo una vez en nuestra computadora. Al ejecutar el mismo, se descargarán de la pagina de \href{www.cran.r-project.org}{CRAN} los archivos correspondientes al paquete hacia el directorio en donde hayamos instalado el programa. Típicamente los archivos se encontrarán en \textbf{\texttt{C:\textbackslash{}Program\ Files\textbackslash{}R\textbackslash{}R-3.5.0\textbackslash{}library\textbackslash{}}}, siempre con la versión del programa correspondiente.\\
+Resulta recomendable \textbf{ejecutar este comando desde la consola} ya que sólo necesitaremos correrlo una vez en nuestra computadora. Al ejecutar el mismo, se descargarán de la pagina de \href{www.cran.r-project.org}{CRAN} los archivos correspondientes al paquete hacia el directorio en donde hayamos instalado el programa. Típicamente los archivos se encontrarán en \textbf{\texttt{C:\textbackslash{}Program\ Files\textbackslash{}R\textbackslash{}R-3.5.0\textbackslash{}library\textbackslash{}}}, siempre con la versión del programa correspondiente.\\
 Una vez instalado el paquete, cada vez que abramos una nueva sesión de R y querramos utilizar el mismo debemos \textbf{cargarlo al ambiente de trabajo} mediante la siguiente función:
 
 \begin{verbatim}
@@ -1322,7 +1319,7 @@ Nótese que al cargar/activar el paquete no son necesarias las comillas.
 
 Hay \textbf{muchas} funciones para leer archivos de tipo \emph{.txt} y \emph{.csv}. La mayoría sólo cambia los parámetros que vienen por default.
 
-Es importante tener en cuenta que una base de datos que proviene de archivos \emph{.txt}, o \emph{.csv} puede presentar diferencias en cuanto a los siguientes parametros:
+Es importante tener en cuenta que una base de datos que proviene de archivos \emph{.txt}, o \emph{.csv} puede presentar diferencias en cuanto a los siguientes parámetros:
 
 \begin{itemize}
 \tightlist
@@ -1385,14 +1382,14 @@ En el parametro \texttt{file} tengo que especificar el nombre completo del archi
 ## 10            0                   224516.6
 \end{verbatim}
 
-Como puede observarse aquí, las bases individuales de la EPH cuentan con más de 58.000 registros y 177 variables.
+Como puede observarse aquí, la base cuenta con 94 registros y 10 variables.\\
 Al trabajar con bases de microdatos, resulta conveniente contar con algunos comandos para tener una mirada rápida de la base, antes de comenzar a realizar los procesamientos que deseemos.
 
 Veamos algunos de ellos:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#View(individual_t117)}
+\CommentTok{#view(sueldos_funcionarios)}
 \KeywordTok{names}\NormalTok{(sueldos_funcionarios)}
 \end{Highlighting}
 \end{Shaded}
@@ -1473,34 +1470,35 @@ Veamos algunos de ellos:
 \hypertarget{excel}{%
 \subsubsection{Excel}\label{excel}}
 
-Para leer y escribir archivos excel debemos utilizar los comandos que vienen con la librería openxlsx
+Para leer y escribir archivos excel podemos utilizar los comandos que vienen con la librería \emph{openxlsx}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# install.packages("openxlsx") # por única vez}
 \KeywordTok{library}\NormalTok{(openxlsx) }\CommentTok{#activamos la librería}
 
-\CommentTok{#creamos una tabla cualquiera de prueba}
+\CommentTok{# creamos una tabla cualquiera de prueba}
 \NormalTok{x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{10}
 \NormalTok{y <-}\StringTok{ }\DecValTok{11}\OperatorTok{:}\DecValTok{20}
 \NormalTok{tabla_de_R <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(x,y)}
 
 \CommentTok{# escribimos el archivo}
-\KeywordTok{write.xlsx}\NormalTok{( }\DataTypeTok{x =}\NormalTok{ tabla_de_R, }\DataTypeTok{file =} \StringTok{"../resultados/archivo.xlsx"}\NormalTok{,}\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{)}
-\CommentTok{#Donde lo guardó? Hay un directorio por default en caso de que no hayamos definido alguno.}
+\KeywordTok{write.xlsx}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ tabla_de_R, }\DataTypeTok{file =} \StringTok{"../resultados/archivo.xlsx"}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{)}
+\CommentTok{# Donde lo guardó? Hay un directorio por default en caso de que no hayamos definido alguno.}
 
-\CommentTok{#getwd()}
+\CommentTok{# getwd()}
 
-\CommentTok{#Si queremos exportar multiples dataframes a un Excel, debemos armar previamente una lista de ellos. Cada dataframe, se guardará en una pestaña de excel, cuyo nombre correspondera al que definamos para cada Dataframe a la hora de crear la lista.}
+\CommentTok{# Si queremos exportar multiples dataframes a un Excel, debemos armar previamente una lista de ellos. Cada dataframe se guardará en una pestaña de excel, cuyo nombre corresponderá al que definamos para cada Dataframe a la hora de crear la lista.}
 \NormalTok{Lista_a_exportar <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\StringTok{"sueldos funcionarios"}\NormalTok{ =}\StringTok{ }\NormalTok{sueldos_funcionarios,}
                          \StringTok{"Tabla Numeros"}\NormalTok{ =}\StringTok{ }\NormalTok{tabla_de_R)}
 
-\KeywordTok{write.xlsx}\NormalTok{( }\DataTypeTok{x =}\NormalTok{ Lista_a_exportar, }\DataTypeTok{file =} \StringTok{"../resultados/archivo_2_hojas.xlsx"}\NormalTok{,}\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{write.xlsx}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Lista_a_exportar, }\DataTypeTok{file =} \StringTok{"../resultados/archivo_2_hojas.xlsx"}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{)}
 
-\CommentTok{#leemos el archivo especificando la ruta (o el directorio por default) y el nombre de la hoja que contiene los datos}
-\NormalTok{Indices_Salario <-}\StringTok{ }\KeywordTok{read.xlsx}\NormalTok{(}\DataTypeTok{xlsxFile =} \StringTok{"../resultados/archivo_2_hojas.xlsx"}\NormalTok{,}\DataTypeTok{sheet =} \StringTok{"sueldos funcionarios"}\NormalTok{)}
-\CommentTok{#alternativamente podemos especificar el número de orden de la hoja que deseamos levantar}
-\NormalTok{Indices_Salario <-}\StringTok{ }\KeywordTok{read.xlsx}\NormalTok{(}\DataTypeTok{xlsxFile =} \StringTok{"../resultados/archivo_2_hojas.xlsx"}\NormalTok{,}\DataTypeTok{sheet =} \DecValTok{1}\NormalTok{)}
+\CommentTok{# leemos el archivo especificando la ruta (o el directorio por default) y el nombre de la hoja que contiene los datos}
+\NormalTok{Indices_Salario <-}\StringTok{ }\KeywordTok{read.xlsx}\NormalTok{(}\DataTypeTok{xlsxFile =} \StringTok{"../resultados/archivo_2_hojas.xlsx"}\NormalTok{, }\DataTypeTok{sheet =} \StringTok{"sueldos funcionarios"}\NormalTok{)}
+
+\CommentTok{# alternativamente podemos especificar el número de orden de la hoja que deseamos levantar}
+\NormalTok{Indices_Salario <-}\StringTok{ }\KeywordTok{read.xlsx}\NormalTok{(}\DataTypeTok{xlsxFile =} \StringTok{"../resultados/archivo_2_hojas.xlsx"}\NormalTok{, }\DataTypeTok{sheet =} \DecValTok{1}\NormalTok{)}
 \NormalTok{Indices_Salario[}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{,]}
 \end{Highlighting}
 \end{Shaded}
@@ -1631,7 +1629,7 @@ ejemplo, tiramos un dado y sale tres
 
 Sigamos con el ejemplo de dado.
 
-Podríamos definir la distribución de probabilidad, si no esta cargado, cómo:
+Podríamos definir la distribución de probabilidad, si el dado no está cargado, como:
 
 \begin{verbatim}
 ## # A tibble: 6 x 2
@@ -1645,7 +1643,7 @@ Podríamos definir la distribución de probabilidad, si no esta cargado, cómo:
 ## 6     6 1/6
 \end{verbatim}
 
-Cómo el conjunto de resultados posibles es acotado, podemos definirlo en una tabla, esta es una distribución \emph{discreta}
+Como el conjunto de resultados posibles es acotado, podemos definirlo en una tabla, esta es una distribución \emph{discreta}.
 
 \hypertarget{distribuciones-continuas}{%
 \paragraph{Distribuciones continuas}\label{distribuciones-continuas}}
@@ -1658,7 +1656,7 @@ Si, por definición o por practicidad, no se puede enumerar cada caso, lo que te
 Por ejemplo, la altura de la población
 \end{quote}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-34-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-35-1.pdf}
 
 \begin{itemize}
 \item
@@ -1666,12 +1664,12 @@ Por ejemplo, la altura de la población
 \item
   Sin embargo, sí podemos definir una \emph{función de probabilidad}, la \emph{densidad}.
 \item
-  Según qué función utilicemos, cambiara la forma de la curva.
+  Según qué función utilicemos, cambiará la forma de la curva.
 \end{itemize}
 
 Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-35-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-35-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-35-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-36-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-36-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-36-3.pdf}
 
 \begin{quote}
 Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámetros}.
@@ -1683,7 +1681,7 @@ Una distribución de probabilidad se \textbf{caracteriza} por sus \emph{parámet
   Por ejemplo, la distribución normal se caracteriza por su \emph{esperanza} y su \emph{varianza} (o desvío estándar)
 \end{itemize}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-36-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-36-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-36-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-37-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-37-2.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-37-3.pdf}
 
 \hypertarget{estadistica}{%
 \subsection{Estadística}\label{estadistica}}
@@ -1699,9 +1697,9 @@ El problema de la probabilidad se podría pensar de la siguiente forma:
 \item
   Vamos a partir de un \textbf{proceso generador de datos}
 \item
-  para calcular su \textbf{distribución de probabilidad}, los \textbf{parámetros} que caracterizan a ésta, y a partir de allí,
+  Para calcular su \textbf{distribución de probabilidad}, los \textbf{parámetros} que caracterizan a ésta, y a partir de allí,
 \item
-  calcular la probabilidad de que, al tomar una \textbf{muestra}, tenga ciertos eventos.
+  Calcular la probabilidad de que, al tomar una \textbf{muestra}, tenga ciertos eventos.
 \end{enumerate}
 
 \includegraphics[width=10.41667in,height=\textheight]{img/problema_inversion_1.png}
@@ -1714,9 +1712,9 @@ El problema de la estadística es exactamente el contrario:
 \item
   Partimos de una \textbf{muestra} para
 \item
-  inferir cuál es la \textbf{distribución de probabilidad}, y los \textbf{parámetros} que la caracterizan
+  Inferir cuál es la \textbf{distribución de probabilidad}, y los \textbf{parámetros} que la caracterizan
 \item
-  para finalmente poder sacar conclusiones sobre el \textbf{proceso generador de datos}
+  Para finalmente poder sacar conclusiones sobre el \textbf{proceso generador de datos}
 \end{enumerate}
 
 \includegraphics[width=10.41667in,height=\textheight]{img/problema_inversion_2.png}
@@ -1750,7 +1748,7 @@ Solemos utilizar las mayúsculas (N) para la población y las minúsculas (n) pa
 \begin{itemize}
 \tightlist
 \item
-  Como dijimos, los \textbf{parámetros} describen a la función de probabilidad. Por lo tanto hacen referencia a los atributos de la \textbf{población}. Podemos suponer que son \emph{constantes}
+  Como dijimos, los \textbf{parámetros} describen a la función de probabilidad. Por lo tanto hacen referencia a los atributos de la \textbf{población}. Podemos suponer que son \emph{constantes}.
 \item
   Un \textbf{estimador} es un estadístico (esto es, una función de la muestra) usado para estimar un parámetro desconocido de la población.
 \end{itemize}
@@ -1777,9 +1775,9 @@ Como no puedo conocer \(\mu\), lo estimo mediante \(\bar{X}\)
 
 \begin{itemize}
 \item
-  El estimador \(\bar{X}\) nos devuelve un número. Esto es una inferencia de cuál creemos que es la media. Pero no es seguro de que esa sea realmente la media. Esto es lo que denominamos estimación puntual
+  El estimador \(\bar{X}\) nos devuelve un número. Esto es una inferencia de cuál creemos que es la media. Pero no es seguro que esa sea realmente la media. Esto es lo que denominamos estimación puntual.
 \item
-  También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parámetro poblacional realmente este dentro de este intervalo. Esto se conoce como \textbf{intervalos de confianza}
+  También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parámetro poblacional realmente esté dentro de este intervalo. Esto se conoce como \textbf{intervalos de confianza}.
 \item
   Por su parte, también podemos calcular la probabilidad de que el parámetro poblacional sea mayor, menor o igual a un cierto valor. Esto es lo que se conoce como \textbf{test de hipótesis}.
 \item
@@ -1812,19 +1810,19 @@ Si la evidencia es lo suficientemente fuerte, podremos rechazar la hipótesis \(
 
 \begin{itemize}
 \item
-  Muchas veces decimos que algo es \textbf{``estadística mente significativo''}. Detrás de esto se encuentra un test de hipótesis que indica que hay una suficiente \emph{significativdad estadística}.
+  Muchas veces decimos que algo es \textbf{``estadísticamente significativo''}. Detrás de esto se encuentra un test de hipótesis que indica que hay una suficiente \emph{significativdad estadística}.
 \item
-  La \emph{significatividad estadística},representada con \(\alpha\), es la probabilidad de rechazar \(H_0\) cuando en realidad es cierta. Por eso, cuanto más bajo el valor de \(\alpha\), más seguros estamos de no equivocarnos. Por lo general testeamos con valores de alpha de 1\%, 5\% y 10\%, dependiendo del área de estudio
+  La \emph{significatividad estadística}, representada con \(\alpha\), es la probabilidad de rechazar \(H_0\) cuando en realidad es cierta. Por eso, cuanto más bajo el valor de \(\alpha\), más seguros estamos de no equivocarnos. Por lo general testeamos con valores de alpha de 1\%, 5\% y 10\%, dependiendo del área de estudio.
 \item
-  El \textbf{p-valor} es \_la mínima significatividad para la que rechazo el test. Es decir, cuanto más bajo es el p-valor, más seguros estamos de rechazar \(H_0\)
+  El \textbf{p-valor} es \emph{la mínima significatividad} para la que rechazo el test. Es decir, cuanto más bajo es el p-valor, más seguros estamos de rechazar \(H_0\).
 \item
-  El resultado de un test esta determinado por
+  El resultado de un test está determinado por:
 
   \begin{enumerate}
   \def\labelenumi{\arabic{enumi}.}
   \tightlist
   \item
-    \textbf{La fuerza evidencia empírica}: Si nuestra duda es si la media poblacional es mayor a, digamos, 10. Y la media muestral es 11, no es es lo mismo que si es 100, 1000 o 10000.
+    \textbf{La fuerza de la evidencia empírica}: Si nuestra duda es si la media poblacional es mayor a, digamos, 10, y la media muestral es 11, no es lo mismo que si es 100, 1000 o 10000.
   \item
     \textbf{El tamaño de la muestra}: En las fórmulas que definen los test siempre juega el tamaño de la muestra: cuanto más grande es, más seguros estamos de que el resultado no es producto del mero azar.
   \item
@@ -1841,7 +1839,7 @@ Si la evidencia es lo suficientemente fuerte, podremos rechazar la hipótesis \(
     Que los datos son independientes entre sí,
   \item
     Etc.\\
-    \textbf{Cada Test tiene sus propios supuestos}. Por eso a veces luego de hacer un test, hay que hacer otros tests para validar que los supuestos se cumplen.
+    \textbf{Cada Test tiene sus propios supuestos}. Por eso a veces, luego de hacer un test, hay que hacer otros tests para validar que los supuestos se cumplen.
   \end{itemize}
 \item
   Lo primero, la fuerza de la evidencia, es lo que más nos importa, y no hay mucho por hacer.
@@ -1852,13 +1850,13 @@ Si la evidencia es lo suficientemente fuerte, podremos rechazar la hipótesis \(
 \end{itemize}
 
 \begin{quote}
-Por ejemplo, podemos decir que la altura promedio en Argentina es 1,74. Pero si hacemos un test, utilizando como muestra 40 millones de personas, vamos a rechazar que ese es el valor, porque en realidad es 1,74010010. En términos de lo que nos puede interesar, 1,74 sería válido, pero estadísticamente rechazaríamos.
+Por ejemplo, podemos decir que la altura promedio en Argentina es 1,74. Pero si hacemos un test, utilizando como muestra 40 millones de personas, vamos a rechazar que ese es el valor, porque en realidad es 1,7401001. En términos de lo que nos puede interesar, 1,74 sería válido, pero estadísticamente rechazaríamos.
 \end{quote}
 
 \begin{itemize}
 \tightlist
 \item
-  Finalmente, según la información que tengamos de la población y cual es el problema que queremos resolver, vamos a tener que utilizar distintos tipos de tests. La cantidad de tests posibles es ENORME, y escapa al contenido de este curso, así como sus fórmulas. A modo de ejemplo, les dejamos el siguiente machete:
+  Finalmente, según la información que tengamos de la población y cuál es el problema que queremos resolver, vamos a tener que utilizar distintos tipos de tests. La cantidad de tests posibles es ENORME, y escapa al contenido de este curso, así como sus fórmulas. A modo de ejemplo, les dejamos el siguiente machete:
 \end{itemize}
 
 \begin{figure}
@@ -1899,19 +1897,19 @@ Es el valor que parte la distribución a la mitad
 
 La moda es el valor más frecuente de la distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-37-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-38-1.pdf}
 
 \hypertarget{cuantiles}{%
 \subsubsection{Cuantiles}\label{cuantiles}}
 
 Así como dijimos que la mediana es el valor que deja al 50\% de los datos de un lado y al 50\% del otro, podemos generalizar este concepto a cualquier X\%. Esto son los cuantiles. El cuantil x, es el valor tal que queda un x\% de la distribución a izquierda, y 1-x a derecha.
 
-Algunos de los más utilizados son el del 25\%, también conocido como \(Q_1\) (el \emph{cuartil} 1), el \(Q_2\) (la mediana) y el \(Q_3\) (el \emph{cuartil} 3), que deja el 75\% de los datos a su derecha. Veamos como se ven en la distribución de arriba
+Algunos de los más utilizados son el del 25\%, también conocido como \(Q_1\) (el \emph{cuartil} 1), el \(Q_2\) (la mediana) y el \(Q_3\) (el \emph{cuartil} 3), que deja el 75\% de los datos a su derecha. Veamos cómo se ven en la distribución de arriba.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-38-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-39-1.pdf}
 
 \hypertarget{desvio-estandar}{%
-\subsubsection{desvío estándar}\label{desvio-estandar}}
+\subsubsection{Desvío estándar}\label{desvio-estandar}}
 
 \begin{itemize}
 \tightlist
@@ -1943,9 +1941,9 @@ El Boxplot es muy útil para describir una distribución y para detectar outlier
   Outliers, definidos como aquellos puntos que se encuentran a más de 1,5 veces el rango intercuartílico del centro de la distribución.
 \end{itemize}
 
-veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
+Veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-39-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-40-1.pdf}
 
 Algunas cosas que resaltan:
 
@@ -1954,18 +1952,18 @@ Algunas cosas que resaltan:
 \item
   la distribución \(\chi^2\) no toma valores en los negativos.
 \item
-  La normal esta más concentrada en el centro de la distribución
+  La normal esta más concentrada en el centro de la distribución.
 \end{itemize}
 
 Podemos generar 100 números aleatorios en lugar de 15:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-40-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-41-1.pdf}
 
 Cuando generamos 100 valores en lugar de 15, tenemos más chances de agarrar un punto alejado en la distribución. De esta forma podemos apreciar las diferencias entre la distribución normal y la T-student.
 
-También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo
+También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-41-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-42-1.pdf}
 
 \hypertarget{histograma}{%
 \subsubsection{Histograma}\label{histograma}}
@@ -1977,26 +1975,26 @@ Otra forma de analizar una distribución es mediante los histogramas:
 \item
   En un histograma agrupamos las observaciones en rangos fijos de la variable y contamos la cantidad de ocurrencias.
 \item
-  Cuanto más alta es una barra, es porque más observaciones se encuentran en dicho rango
+  Cuanto más alta es una barra, es porque más observaciones se encuentran en dicho rango.
 \end{itemize}
 
-Veamos el mismo ejemplo que arriba, pero con histogramas
+Veamos el mismo ejemplo que arriba, pero con histogramas:
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-42-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-42-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-43-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-43-2.pdf}
 
 \hypertarget{kernel}{%
 \subsubsection{Kernel}\label{kernel}}
 
-Los Kernels son simplemente un suavizados sobre los histogramas
+Los Kernels son simplemente un suavizado sobre los histogramas.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-43-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-43-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-44-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-44-2.pdf}
 
 \hypertarget{violin-plots}{%
 \subsubsection{Violin plots}\label{violin-plots}}
 
-Combinando la idea de Kernels y boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados
+Combinando la idea de Kernels y Boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados.
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-44-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-44-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-45-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-45-2.pdf}
 
 \hypertarget{bibliografia-de-consulta-1}{%
 \subsection{Bibliografía de consulta}\label{bibliografia-de-consulta-1}}
@@ -2025,20 +2023,26 @@ Quién quiera profundizar en estos temas, puede ver los siguientes materiales:
 \hypertarget{generacion-de-datos-aleatorios}{%
 \subsection{Generación de datos aleatorios}\label{generacion-de-datos-aleatorios}}
 
-Para generar datos aleatorios, usamos las funciones
+Para generar datos aleatorios, usamos las funciones:
 
--\texttt{rnorm} para generar datos que surgen de una distribución normal
--\texttt{rt} para generar datos que surgen de una distribución T-student
--\texttt{rchisq} para generar datos que surgen de una distribución Chi cuadrado
+\begin{itemize}
+\tightlist
+\item
+  \texttt{rnorm} para generar datos que surgen de una distribución normal
+\item
+  \texttt{rt} para generar datos que surgen de una distribución T-student
+\item
+  \texttt{rchisq} para generar datos que surgen de una distribución Chi cuadrado
+\end{itemize}
 
 \begin{quote}
-pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproducibles
+Pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproducibles
 \end{quote}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
-\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{,}\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{ )}
+\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{ )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2050,7 +2054,7 @@ pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproduc
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{rt}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{,}\DataTypeTok{df=}\DecValTok{1}\NormalTok{ )}
+\KeywordTok{rt}\NormalTok{(}\DataTypeTok{n =} \DecValTok{15}\NormalTok{, }\DataTypeTok{df=}\DecValTok{1}\NormalTok{ )}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2072,7 +2076,7 @@ pero antes, tenemos que fijar la \emph{semilla} para que los datos sean reproduc
 ## [15] 0.5110879
 \end{verbatim}
 
-Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando plot
+Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando \texttt{plot}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2080,7 +2084,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-48-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-49-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2088,7 +2092,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-48-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-49-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2096,7 +2100,7 @@ Para poder ver rápidamente de qué se tratan los valores, podemos usar el coman
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-48-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-49-3.pdf}
 
 Noten que el eje X es el índice de los valores, es decir que no agrega información.
 
@@ -2105,7 +2109,7 @@ Noten que el eje X es el índice de los valores, es decir que no agrega informac
 
 Utilicemos ahora datos reales.
 
-los datos salen de \url{https://data.buenosaires.gob.ar/dataset/femicidios}
+Los datos salen de \url{https://data.buenosaires.gob.ar/dataset/femicidios}
 
 \begin{quote}
 Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.
@@ -2143,7 +2147,7 @@ Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidi
 ## 19  2017 9                   TOTAL
 \end{verbatim}
 
-fijense que las estadísitcas no estan desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron `-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
+Fijense que las estadísitcas no están desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron `-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
 
 Vamos a reorganizar la información para corregir todas estas cosas
 
@@ -2197,7 +2201,7 @@ La idea es que tenemos dos variables: El rango etario y la cantidad de femicidio
 ## X-squared = 5.2609, df = 1, p-value = 0.02181
 \end{verbatim}
 
-noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
+Noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
 
 \hypertarget{descripcion-estadistica-de-los-datos}{%
 \subsection{Descripción estadística de los datos}\label{descripcion-estadistica-de-los-datos}}
@@ -2226,9 +2230,9 @@ Con el comando \texttt{summary} podemos ver algunos de los principales estadíst
 \hypertarget{graficos-estadisticos-1}{%
 \subsection{Gráficos estadísticos}\label{graficos-estadisticos-1}}
 
-No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad. Como los presentados en las notas de clase
+No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad, como los presentados en las notas de clase.
 
-A modo de ejemplo, dejamos los comandos de R base para realizar gráficos
+A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2236,7 +2240,7 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-54-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-55-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2244,7 +2248,7 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-54-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-55-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2252,7 +2256,7 @@ A modo de ejemplo, dejamos los comandos de R base para realizar gráficos
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-54-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-55-3.pdf}
 
 \hypertarget{visualizacion-de-la-informacion}{%
 \chapter{Visualización de la información}\label{visualizacion-de-la-informacion}}
@@ -2307,7 +2311,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-55-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-56-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2316,7 +2320,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-56-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-57-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2324,7 +2328,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-56-2.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-57-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2332,7 +2336,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-56-3.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-57-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2340,7 +2344,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-56-4.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-57-4.pdf}
 
 \hypertarget{png}{%
 \subsubsection{png}\label{png}}
@@ -2423,7 +2427,7 @@ A continuación se muestra un gráfico de varias capas de construcción, con su 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-58-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-59-1.pdf}
 
 \hypertarget{capas-del-grafico}{%
 \subsubsection{Capas del Gráfico}\label{capas-del-grafico}}
@@ -2439,7 +2443,7 @@ En primera instancia solo defino los ejes. Y en este caso un color particular pa
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-59-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-60-1.pdf}
 Luego, defino el tipo de gráfico. El \emph{alpha} me permite definir la intensidad de los puntos
 
 \begin{Shaded}
@@ -2449,7 +2453,7 @@ Luego, defino el tipo de gráfico. El \emph{alpha} me permite definir la intensi
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-60-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-61-1.pdf}
 Las siguientes tres capas me permiten respectivamente:
 
 \begin{itemize}
@@ -2472,7 +2476,7 @@ Las siguientes tres capas me permiten respectivamente:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-61-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-62-1.pdf}
 
 \hypertarget{extensiones-de-ggplot.}{%
 \subsubsection{\texorpdfstring{Extensiones de \href{http://www.ggplot2-exts.org/gallery/}{GGplot}.}{Extensiones de GGplot.}}\label{extensiones-de-ggplot.}}
@@ -2498,7 +2502,7 @@ La librería GGplot tiene a su vez muchas otras librerías que extienden sus pot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-62-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-63-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2508,7 +2512,7 @@ La librería GGplot tiene a su vez muchas otras librerías que extienden sus pot
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-63-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-64-1.pdf}
 
 También hay extensiones que te ayudan a escribir el código, como \href{https://dreamrs.github.io/esquisse/}{esquisse}
 
@@ -2579,7 +2583,7 @@ Esta forma de pensar los gráficos nos permite repenser los distintos atributos 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-67-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-68-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2593,7 +2597,7 @@ Esta forma de pensar los gráficos nos permite repenser los distintos atributos 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-68-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-69-1.pdf}
 
 \hypertarget{practica-guiada-2}{%
 \section{Práctica Guiada}\label{practica-guiada-2}}
@@ -2667,7 +2671,7 @@ Es importante que las variables sean del tipo que conceptualmente les correspond
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-72-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-73-1.pdf}
 
 Si queremos agregar la dimensión \emph{sexo}, podemos hacer un \texttt{facet\_wrap()}
 
@@ -2680,7 +2684,7 @@ Si queremos agregar la dimensión \emph{sexo}, podemos hacer un \texttt{facet\_w
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-73-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-74-1.pdf}
 
 Por la forma en que está presentado el gráfico, el foco de atención sigue puesto en las diferencias de ingresos entre niveles educativo. Simplemente se agrega un corte por la variable de sexo.
 
@@ -2696,7 +2700,7 @@ Si lo que queremos hacer es poner el foco de atención en las diferencias por se
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-74-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-75-1.pdf}
 
 \hypertarget{histogramas}{%
 \subsection{\texorpdfstring{\href{https://ggplot2.tidyverse.org/reference/geom_histogram.html}{Histogramas}}{Histogramas}}\label{histogramas}}
@@ -2714,7 +2718,7 @@ Por ejemplo, si observamos el ingreso de la ocupación principal:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-75-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-76-1.pdf}
 
 En este gráfico, los posibles valores de p21 se dividen en 30 \textbf{bins} consecutivos y el gráfico muestra cuantas observaciones caen en cada uno de ellos
 
@@ -2736,7 +2740,7 @@ Veamos un ejemplo sencillo con los ingresos de la ocupación principal. Luego ir
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-76-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-77-1.pdf}
 \textbf{El eje y no tiene demasiada interpretabilidad en los Kernel, porque hace a la forma en que se construyen las distribuciones}.
 
 El parametro adjust, dentro de la función \texttt{geom\_density}nos permite reducir o ampliar el rango de suavizado de la distribución. Su valor por default es 1. Veamos que sucede si lo seteamos en 2
@@ -2749,7 +2753,7 @@ El parametro adjust, dentro de la función \texttt{geom\_density}nos permite red
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-77-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-78-1.pdf}
 
 Como es esperable, la distribución del ingreso tiene ``picos'' en los valores redondos, ya que la gente suele declarar un valor aproximado al ingreso efectivo que percibe. Nadie declara ingresos de 30001. Al suavizar la serie con un kernel, eliminamos ese efecto.Si seteamos el rango para el suavizado en valores menores a 1, podemos observar estos picos.
 
@@ -2761,7 +2765,7 @@ Como es esperable, la distribución del ingreso tiene ``picos'' en los valores r
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-78-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-79-1.pdf}
 
 Ahora bien, como en todo grafico de R, podemos seguir agregando dimensiones para enriquecer el análisis.
 
@@ -2787,7 +2791,7 @@ Ahora bien, como en todo grafico de R, podemos seguir agregando dimensiones para
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-79-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-80-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2846,7 +2850,7 @@ Podemos agregar aún la dimensión de ingreso laboral respecto del no laboral
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-81-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-82-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2876,7 +2880,7 @@ En este tipo de gráficos, importa mucho qué variable se utiliza para \emph{fac
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-82-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-83-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2884,8 +2888,8 @@ En este tipo de gráficos, importa mucho qué variable se utiliza para \emph{fac
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{visualizacion-de-la-informacion-1}{%
-\chapter{Visualización de la información}\label{visualizacion-de-la-informacion-1}}
+\hypertarget{documentacion}{%
+\chapter{Documentación}\label{documentacion}}
 
 \begin{itemize}
 \tightlist
@@ -2907,8 +2911,8 @@ En este tipo de gráficos, importa mucho qué variable se utiliza para \emph{fac
 \hypertarget{practica-guiada-3}{%
 \section{Práctica Guiada}\label{practica-guiada-3}}
 
-\hypertarget{visualizacion-de-la-informacion-2}{%
-\chapter{Visualización de la información}\label{visualizacion-de-la-informacion-2}}
+\hypertarget{diseno-y-analisis-de-encuestas}{%
+\chapter{Diseño y análisis de encuestas}\label{diseno-y-analisis-de-encuestas}}
 
 \begin{itemize}
 \tightlist
@@ -3901,7 +3905,7 @@ la base tiene la siguiente info:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-116-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-117-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -3930,7 +3934,7 @@ probamos la función para un caso
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-118-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-119-1.pdf}
 
 \begin{itemize}
 \tightlist
@@ -4009,7 +4013,7 @@ Veamos un ejemplo
 ## [[1]]
 \end{verbatim}
 
-\includegraphics{bookdown_files/figure-latex/unnamed-chunk-121-1.pdf}
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-122-1.pdf}
 
 Ahora podemos guardar todos los gráficos en un archivo PDF
 
@@ -4020,6 +4024,1081 @@ Ahora podemos guardar todos los gráficos en un archivo PDF
 \KeywordTok{dev.off}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{modelo-lineal}{%
+\chapter{Modelo Lineal}\label{modelo-lineal}}
+
+\hypertarget{explicacion-6}{%
+\section{Explicación}\label{explicacion-6}}
+
+En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\NormalTok{opts_chunk}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{warning =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{message =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(modelr)}
+\KeywordTok{library}\NormalTok{(GGally)}
+\KeywordTok{library}\NormalTok{(plot3D)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{covarianza-y-correlacion.}{%
+\subsection{Covarianza y Correlación.}\label{covarianza-y-correlacion.}}
+
+La covarianza mide cómo varían de forma conjunta dos variables, en promedio. Se define como:
+
+\[
+\text{cov}(x,y)=\frac{1}{n}\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+\]
+
+Esto es: La covarianza entre dos variables, \(x\) e \(y\) es el promedio (noten que hay una sumatoria y un dividido n) de las diferencias de los puntos a sus medias en \(x\) e \(y\).
+
+tratemos de entender el trabalenguas con la ayuda del siguiente gráfico:
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-124-1.pdf}
+
+Aquí marcamos \(\bar x\) y \(\bar y\) y dividimos el gráfico en cuatro cuadrantes.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  En el primer cuadrante los puntos son más chicos a sus medias en \(x\) y en \(y\), \((x-\hat x)\) es negativo y \((y-\hat y)\) también. Por lo tanto, su producto es positivo.
+\item
+  En el segundo cuadrante la diferencia es negativa en x, pero positiva en y. Por lo tanto el producto es negativo.
+\item
+  En el tercer cuadrante la diferencia es negativa en y, pero positiva en x. Por lo tanto el producto es negativo.
+\item
+  Finalmente, en el cuarto cuadrante las diferencias son positivas tanto en x como en y, y por lo tanto también el producto.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Si la covarianza es \textbf{positiva} y grande, entonces valores chicos en una de las variables suceden en conjunto con valores chicos en la otra,y viceversa.
+\item
+  Al contrario, si la covarianza es \textbf{negativa} y grande, entonces valores altos de una variable suceden en conjunto con valores pequeños de la otra y viceversa.
+\end{itemize}
+
+La correlación se define como sigue:
+
+\[\rho_{x,y}=\frac{cov(x,y)}{\sigma_x \sigma_y}\]
+
+Es decir, normalizamos la covarianza por el desvío en \(x\) y en \(y\). de esta forma, la correlación se define entre -1 y 1.
+
+\hypertarget{ggpairs}{%
+\subsubsection{ggpairs}\label{ggpairs}}
+
+Para ver una implementación práctica de estos conceptos, vamos a utilizar la librería \href{https://ggobi.github.io/ggally/}{\emph{GGally}} para graficar la correlación por pares de variables.
+
+\begin{itemize}
+\tightlist
+\item
+  Con \texttt{ggpairs()}, podemos graficar todas las variables, y buscar las correlaciones. Coloreamos por:
+\end{itemize}
+
+-\(am\): Tipo de transmisión: automático (am=0) o manual (am=1)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{carb,}\OperatorTok{-}\NormalTok{vs) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{cyl =} \KeywordTok{factor}\NormalTok{(cyl),}
+         \DataTypeTok{am =} \KeywordTok{factor}\NormalTok{(am)) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{ggpairs}\NormalTok{(., }
+        \DataTypeTok{title =} \StringTok{"Matriz de correlaciones"}\NormalTok{,}
+        \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour=}\NormalTok{ am))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-125-1.pdf}
+
+Veamos la correlación entre:
+
+\begin{itemize}
+\tightlist
+\item
+  \(mpg\): Miles/(US) gallon. Eficiencia de combustible
+\item
+  \(hp\): Gross horsepower: Potencia del motor
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cor}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg, mtcars}\OperatorTok{$}\NormalTok{hp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.7761684
+\end{verbatim}
+
+nos da negativa y alta.
+
+\begin{itemize}
+\tightlist
+\item
+  Si quisiéramos testear la significatividad de este estimador, podemos realizar un test:
+\end{itemize}
+
+\(H_0\) : ρ =0\\
+\(H_1\) : ρ \(\neq\) 0
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cor.test}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg,mtcars}\OperatorTok{$}\NormalTok{hp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's product-moment correlation
+## 
+## data:  mtcars$mpg and mtcars$hp
+## t = -6.7424, df = 30, p-value = 1.788e-07
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.8852686 -0.5860994
+## sample estimates:
+##        cor 
+## -0.7761684
+\end{verbatim}
+
+Con este p-value rechazamos \(H_0\)
+
+\hypertarget{modelo-lineal-1}{%
+\subsection{Modelo Lineal}\label{modelo-lineal-1}}
+
+sigamos utilizando los datos de \emph{sim1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-128-1.pdf}
+
+Se puede ver un patrón fuerte en los datos. Pareciera que el modelo lineal \texttt{y\ =\ a\_0\ +\ a\_1\ *\ x} podría servir.
+
+\hypertarget{modelos-al-azar}{%
+\subsubsection{Modelos al azar}\label{modelos-al-azar}}
+
+Para empezar, generemos aleatoriamente varios modelos lineales para ver qué pinta tienen. Para eso, podemos usar \texttt{geom\_abline\ ()} que toma una pendiente e intercepto como parámetros.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{models <-}\StringTok{ }\KeywordTok{tibble}\NormalTok{(}
+  \DataTypeTok{a1 =} \KeywordTok{runif}\NormalTok{(}\DecValTok{250}\NormalTok{, }\DecValTok{-20}\NormalTok{, }\DecValTok{40}\NormalTok{),}
+  \DataTypeTok{a2 =} \KeywordTok{runif}\NormalTok{(}\DecValTok{250}\NormalTok{, }\DecValTok{-5}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\NormalTok{)}
+
+\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{intercept =}\NormalTok{ a1, }\DataTypeTok{slope =}\NormalTok{ a2), }\DataTypeTok{data =}\NormalTok{ models, }\DataTypeTok{alpha =} \DecValTok{1}\OperatorTok{/}\DecValTok{4}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-129-1.pdf}
+
+A simple vista podemos apreciar que algunos modelos son mejores que otros. Pero necesitamos una forma de cuantificar cuales son los \emph{mejores} modelos.
+
+\hypertarget{distancias}{%
+\subsubsection{distancias}\label{distancias}}
+
+Una forma de definir \emph{mejor} es pensar en aquel modelo que minimiza la distancia vertical con cada punto:
+
+Para eso, eligamos un modelo cualquiera:
+
+\[ y= 7 + 1.5*x\]
+
+(para que se vean mejor las distancias, corremos un poquito cada punto sobre el eje x)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dist1 <-}\StringTok{ }\NormalTok{sim1 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}
+    \DataTypeTok{dodge =} \KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{) }\OperatorTok{/}\StringTok{ }\DecValTok{20}\NormalTok{, }\DecValTok{10}\NormalTok{),}
+    \DataTypeTok{x1 =}\NormalTok{ x }\OperatorTok{+}\StringTok{ }\NormalTok{dodge,}
+    \DataTypeTok{pred =} \DecValTok{7} \OperatorTok{+}\StringTok{ }\NormalTok{x1 }\OperatorTok{*}\StringTok{ }\FloatTok{1.5}
+\NormalTok{  )}
+
+\KeywordTok{ggplot}\NormalTok{(dist1, }\KeywordTok{aes}\NormalTok{(x1, y)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}\DataTypeTok{intercept =} \DecValTok{7}\NormalTok{, }\DataTypeTok{slope =} \FloatTok{1.5}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey40"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{colour =} \StringTok{"grey40"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_linerange}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin =}\NormalTok{ y, }\DataTypeTok{ymax =}\NormalTok{ pred), }\DataTypeTok{colour =} \StringTok{"#3366FF"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-130-1.pdf}
+
+La distancia de cada punto a la recta es la diferencia entre lo que predice nuestro modelo y el valor real
+
+Para computar la distancia, primero necesitamos una función que represente a nuestro modelo:
+
+Para eso, vamos a crear una función que reciba un vector con los parámetros del modelo, y el set de datos, y genere la predicción:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, data) \{}
+\NormalTok{  a[}\DecValTok{1}\NormalTok{] }\OperatorTok{+}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{x }\OperatorTok{*}\StringTok{ }\NormalTok{a[}\DecValTok{2}\NormalTok{]}
+\NormalTok{\}}
+
+\KeywordTok{model1}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{7}\NormalTok{, }\FloatTok{1.5}\NormalTok{), sim1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  8.5  8.5  8.5 10.0 10.0 10.0 11.5 11.5 11.5 13.0 13.0 13.0 14.5 14.5
+## [15] 14.5 16.0 16.0 16.0 17.5 17.5 17.5 19.0 19.0 19.0 20.5 20.5 20.5 22.0
+## [29] 22.0 22.0
+\end{verbatim}
+
+Ahora, necesitamos una forma de calcular los residuos y agruparlos. Esto lo vamos a hacer con el error cuadrático medio
+
+\[ECM = \sqrt\frac{\sum_i^n{(\hat{y_i} - y_i)^2}}{n}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{measure_distance <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(mod, data) \{}
+\NormalTok{  diff <-}\StringTok{ }\NormalTok{data}\OperatorTok{$}\NormalTok{y }\OperatorTok{-}\StringTok{ }\KeywordTok{model1}\NormalTok{(mod, data)}
+  \KeywordTok{sqrt}\NormalTok{(}\KeywordTok{mean}\NormalTok{(diff }\OperatorTok{^}\StringTok{ }\DecValTok{2}\NormalTok{))}
+\NormalTok{\}}
+
+\KeywordTok{measure_distance}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{7}\NormalTok{, }\FloatTok{1.5}\NormalTok{), sim1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.665212
+\end{verbatim}
+
+\hypertarget{evaluando-los-modelos-aleatorios}{%
+\subsubsection{Evaluando los modelos aleatorios}\label{evaluando-los-modelos-aleatorios}}
+
+Ahora podemos calcular el \textbf{ECM} para todos los modelos del dataframe \emph{models}. Para eso utilizamos el paquete \textbf{purrr}, para ejecutar varias veces la misma función sobre varios elementos.
+
+Tenemos que pasar los valores de a1 y a2 (dos parámetros --\textgreater{} map2), pero como nuestra función toma sólo uno (el vector a), nos armamos una función de ayuda para \emph{wrapear} a1 y a2
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sim1_dist <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a1, a2) \{}
+  \KeywordTok{measure_distance}\NormalTok{(}\KeywordTok{c}\NormalTok{(a1, a2), sim1)}
+\NormalTok{\}}
+
+\NormalTok{models <-}\StringTok{ }\NormalTok{models }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{dist =}\NormalTok{ purrr}\OperatorTok{::}\KeywordTok{map2_dbl}\NormalTok{(a1, a2, sim1_dist))}
+\NormalTok{models}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 250 x 3
+##        a1     a2  dist
+##     <dbl>  <dbl> <dbl>
+##  1 -14.0   4.46   8.75
+##  2   5.28 -1.89  23.6 
+##  3  19.5   0.991 10.1 
+##  4  -2.28  3.90   6.80
+##  5  -7.64  1.07  17.6 
+##  6 -19.9  -0.594 39.4 
+##  7 -13.5   0.601 26.2 
+##  8  -7.11  4.39   7.23
+##  9 -13.1   3.35  11.1 
+## 10  21.2  -2.13  13.6 
+## # ... with 240 more rows
+\end{verbatim}
+
+A continuación, superpongamos los 10 mejores modelos a los datos. Coloreamos los modelos por \texttt{-dist}: esta es una manera fácil de asegurarse de que los mejores modelos (es decir, los que tienen la menor distancia) obtengan los colores más brillantes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey30"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{intercept =}\NormalTok{ a1, }\DataTypeTok{slope =}\NormalTok{ a2, }\DataTypeTok{colour =} \OperatorTok{-}\NormalTok{dist), }
+    \DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(models, }\KeywordTok{rank}\NormalTok{(dist) }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-134-1.pdf}
+
+También podemos pensar en estos modelos como observaciones y visualizar con un gráfico de dispersión de \texttt{a1} vs\texttt{a2}, nuevamente coloreado por \texttt{-dist}. Ya no podemos ver directamente cómo se compara el modelo con los datos, pero podemos ver muchos modelos a la vez. Nuevamente, destacamos los 10 mejores modelos, esta vez dibujando círculos rojos debajo de ellos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(models, }\KeywordTok{aes}\NormalTok{(a1, a2)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(models, }\KeywordTok{rank}\NormalTok{(dist) }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{), }\DataTypeTok{size =} \DecValTok{4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =} \OperatorTok{-}\NormalTok{dist))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-135-1.pdf}
+
+\hypertarget{grid-search}{%
+\subsubsection{Grid search}\label{grid-search}}
+
+En lugar de probar muchos modelos aleatorios, podríamos ser más sistemáticos y generar una cuadrícula de puntos uniformemente espaciada (esto se denomina grid search). Elegimos los parámetros de la grilla aproximadamente mirando dónde estaban los mejores modelos en el gráfico anterior.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grid <-}\StringTok{ }\KeywordTok{expand.grid}\NormalTok{(}
+  \DataTypeTok{a1 =} \KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DataTypeTok{length =} \DecValTok{25}\NormalTok{),}
+  \DataTypeTok{a2 =} \KeywordTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DataTypeTok{length =} \DecValTok{25}\NormalTok{)}
+\NormalTok{  ) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{dist =}\NormalTok{ purrr}\OperatorTok{::}\KeywordTok{map2_dbl}\NormalTok{(a1, a2, sim1_dist))}
+
+\NormalTok{grid }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(a1, a2)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(grid, }\KeywordTok{rank}\NormalTok{(dist) }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{), }\DataTypeTok{size =} \DecValTok{4}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"red"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{colour =} \OperatorTok{-}\NormalTok{dist)) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-136-1.pdf}
+
+Cuando superponemos los 10 mejores modelos en los datos originales, todos se ven bastante bien:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey30"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}
+    \KeywordTok{aes}\NormalTok{(}\DataTypeTok{intercept =}\NormalTok{ a1, }\DataTypeTok{slope =}\NormalTok{ a2, }\DataTypeTok{colour =} \OperatorTok{-}\NormalTok{dist), }
+    \DataTypeTok{data =} \KeywordTok{filter}\NormalTok{(grid, }\KeywordTok{rank}\NormalTok{(dist) }\OperatorTok{<=}\StringTok{ }\DecValTok{10}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-137-1.pdf}
+
+\hypertarget{optimo-por-metodos-numericos}{%
+\subsubsection{óptimo por métodos numéricos}\label{optimo-por-metodos-numericos}}
+
+Podríamos imaginar este proceso iterativamente haciendo la cuadrícula más fina y más fina hasta que nos centramos en el mejor modelo. Pero hay una forma mejor de abordar ese problema: una herramienta de minimización numérica llamada búsqueda de \textbf{Newton-Raphson}.
+
+La intuición de Newton-Raphson es bastante simple: Se elige un punto de partida y se busca la pendiente más inclinada. Luego, desciende por esa pendiente un poco, y se repite una y otra vez, hasta que no se puede seguir bajando.
+
+En R, podemos hacer eso con \texttt{optim\ ()}:
+
+\begin{itemize}
+\tightlist
+\item
+  necesitamos pasarle un vector de puntos iniciales. Elegimos 4 y 2, porque los mejores modelos andan cerca de esos valores
+\item
+  le pasamos nuestra función de distancia, y los parámetros que nuestra función necesita (data)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{best <-}\StringTok{ }\KeywordTok{optim}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{2}\NormalTok{), measure_distance, }\DataTypeTok{data =}\NormalTok{ sim1)}
+\NormalTok{best}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $par
+## [1] 4.221029 2.051528
+## 
+## $value
+## [1] 2.128181
+## 
+## $counts
+## function gradient 
+##       49       NA 
+## 
+## $convergence
+## [1] 0
+## 
+## $message
+## NULL
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, y)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{size =} \DecValTok{2}\NormalTok{, }\DataTypeTok{colour =} \StringTok{"grey30"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_abline}\NormalTok{(}\DataTypeTok{intercept =}\NormalTok{ best}\OperatorTok{$}\NormalTok{par[}\DecValTok{1}\NormalTok{], }\DataTypeTok{slope =}\NormalTok{ best}\OperatorTok{$}\NormalTok{par[}\DecValTok{2}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-139-1.pdf}
+
+\hypertarget{optimo-para-el-modelo-lineal}{%
+\subsubsection{Óptimo para el modelo lineal}\label{optimo-para-el-modelo-lineal}}
+
+Este procedimiento es válido para muchas familias de modelos. Pero para el caso del modelo lineal, conocemos otras formas de resolverlo
+
+Si nuestro modelo es
+
+\[
+y = a_1 + a_2x + \epsilon
+\]
+
+La solución del óptima que surge de minimizar el Error Cuadrático Medio es:
+
+\[
+\hat{a_1} = \bar{y} - \hat{a_2}\bar{x} 
+\]
+
+\[
+\hat{a_2} = \frac{\sum_i^n (y_i -\bar{y})(x_i -\bar{x})}{\sum_i^n (x_i- \bar{x})}
+\]
+
+R tiene una función específica para el modelo lineal \texttt{lm()}. Cómo esta función sirve tanto para regresiones lineales simples como múltiples, debemos especificar el modelo en las \emph{formulas}: \texttt{y\ \textasciitilde{}\ x}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sim1_mod <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(y }\OperatorTok{~}\StringTok{ }\NormalTok{x, }\DataTypeTok{data =}\NormalTok{ sim1)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{interpretando-la-salida-de-la-regresion}{%
+\subsubsection{Interpretando la salida de la regresión}\label{interpretando-la-salida-de-la-regresion}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(sim1_mod)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y ~ x, data = sim1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.1469 -1.5197  0.1331  1.4670  4.6516 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)   4.2208     0.8688   4.858 4.09e-05 ***
+## x             2.0515     0.1400  14.651 1.17e-14 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.203 on 28 degrees of freedom
+## Multiple R-squared:  0.8846, Adjusted R-squared:  0.8805 
+## F-statistic: 214.7 on 1 and 28 DF,  p-value: 1.173e-14
+\end{verbatim}
+
+Analicemos los elementos de la salida:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Residuals}: La distribución de los residuos. Hablaremos más adelante.
+\item
+  \textbf{Coefficients}: Los coeficientes del modelo. El intercepto y la variable explicativa
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Estimate}: Es el valor estimado para cada parámetro
+  \item
+    \emph{Pr(\textgreater{}\textbar{}t\textbar{})}: Es el \emph{p-valor} asociado al test que mide que el parámetro sea mayor que 0. Si el p-valor es cercano a 0, entonces el parámetro es significativamente mayor a 0.
+  \end{itemize}
+\item
+  \textbf{\emph{Multiple R-squared}}: El \(R^2\) indica que proporción del movimiento en \(y\) es explicado por \(x\).
+\item
+  \textbf{F-statistic}: Es el resultado de un test \emph{de significatividad global} del modelo. Con un p-valor bajo, rechazamos la hipótesis nula, que indica que el modelo no explicaría bien al fenómeno.
+\end{itemize}
+
+\textbf{interpretación de los parámetros}: El valor estimado del parámetro se puede leer como ``cuanto varía \(y\) cuando \(x\) varía en una unidad''. Es decir, es la pendiente de la recta
+
+\hypertarget{analisis-de-los-residuos}{%
+\subsubsection{Análisis de los residuos}\label{analisis-de-los-residuos}}
+
+Los residuos del modelo indican cuanto le erra el modelo en cada una de las observaciones. Es la distancia que intentamos minimizar de forma agregada.
+
+Podemos agregar los residuos al dataframe con \texttt{add\_residuals\ ()} de la librería \texttt{modelr}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sim1 <-}\StringTok{ }\NormalTok{sim1 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{add_residuals}\NormalTok{(sim1_mod)}
+
+\NormalTok{sim1 }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{sample_n}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 3
+##        x     y  resid
+##    <int> <dbl>  <dbl>
+##  1     1  2.13 -4.15 
+##  2     5 16.0   1.55 
+##  3     6 16.0  -0.574
+##  4     7 20.1   1.50 
+##  5     3  7.36 -3.02 
+##  6     4 14.3   1.83 
+##  7     5 19.1   4.65 
+##  8     5 11.7  -2.74 
+##  9     7 19.9   1.35 
+## 10     2  8.99  0.665
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  Si cuando miramos los residuos notamos que \textbf{tienen una estructura}, eso significa que nuestro modelo no esta bien especificado. En otros términos, nos olvidamos de un elemento importante para explicar el fenómeno.
+\item
+  Lo que debemos buscar es que los residuos estén homogéneamente distribuidos en torno al 0.
+\end{itemize}
+
+Hay muchas maneras de analizar los residuos. Una es con las estadísticas de resumen que muestra el \texttt{summary}. Otra forma es graficándolos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(sim1, }\KeywordTok{aes}\NormalTok{(x, resid)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_ref_line}\NormalTok{(}\DataTypeTok{h =} \DecValTok{0}\NormalTok{, }\DataTypeTok{size =} \DecValTok{2}\NormalTok{,}\DataTypeTok{colour =} \StringTok{"firebrick"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-143-1.pdf}
+
+\hypertarget{regresion-lineal-multiple}{%
+\subsection{Regresión lineal múltiple}\label{regresion-lineal-multiple}}
+
+Si bien escapa a los alcances de esta clase ver en detalle el modelo lineal múltiple, podemos ver alguna intuición.
+
+\begin{itemize}
+\tightlist
+\item
+  Notemos que el modelo ya no es una linea en un plano, sino que ahora el modelo es un plano, en un espacio de 3 dimensiones:
+\end{itemize}
+
+\begin{quote}
+Para cada par de puntos en \(x_1\) y \(x_2\) vamos a definir un valor para \(y\)
+\end{quote}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-144-1.pdf} \includegraphics{bookdown_files/figure-latex/unnamed-chunk-144-2.pdf}
+
+\begin{itemize}
+\item
+  El criterio para elegir el mejor modelo va a seguir siendo \emph{minimizar las distancias verticales}. Esto quiere decir, respecto de la variable que queremos predecir.
+\item
+  \textbf{interpretación de los parámetros}: El valor estimado del parámetro se puede leer como ``cuanto varía \(y\) cuando \(x\) varía en una unidad, \textbf{cuando todo lo demás permanece constante}''. Noten que ahora para interpretar los resultados tenemos que hacer la abstracción de dejar todas las demás variables constantes
+\item
+  \textbf{Adjusted R-squared}: Es similar a \(R^2\), pero ajusta por la cantidad de variables del modelo (nosotros estamos utilizando un modelo de una sola variable), sirve para comparar entre modelos de distinta cantidad de variables.
+\end{itemize}
+
+\hypertarget{para-profundizar}{%
+\subsection{Para profundizar}\label{para-profundizar}}
+
+Estas notas de clase estan fuertemente inspiradas en los siguientes libros/notas:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://es.r4ds.hadley.nz/}{R para Cienca de Datos}
+\item
+  \href{http://mate.dm.uba.ar/~meszre/apunte_regresion_lineal_szretter.pdf}{Apuntes regresión lineal}
+\end{itemize}
+
+Un punto pendiente de estas clases que es muy importante son los \textbf{supuestos} que tiene detrás el modelo lineal.
+
+\hypertarget{practica-guiada-6}{%
+\section{Práctica Guiada}\label{practica-guiada-6}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{datos-de-properati}{%
+\subsection{Datos de Properati}\label{datos-de-properati}}
+
+Para este ejercicio utilizaremos los datos provistos por Properati: \url{https://www.properati.com.ar/data/}
+
+Primero acondicionamos la base original, para quedarnos con una base más fácil de trabajar, y que contiene unicamente los datos interesantes. (no es necesario correrlo)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ar_properties <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"~/Downloads/ar_properties.csv"}\NormalTok{)}
+\NormalTok{ar_properties }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(operation_type}\OperatorTok{==}\StringTok{'Venta'}\NormalTok{,}
+\NormalTok{         property_type }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'Casa'}\NormalTok{,}\StringTok{'PH'}\NormalTok{,}\StringTok{'Departamento'}\NormalTok{),}
+\NormalTok{         currency}\OperatorTok{==}\StringTok{'USD'}\NormalTok{,}
+\NormalTok{         l1}\OperatorTok{==}\StringTok{'Argentina'}\NormalTok{,}
+\NormalTok{         l2}\OperatorTok{==}\StringTok{'Capital Federal'}\NormalTok{,}
+         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(rooms),}
+         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(surface_total),}
+         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(surface_covered),}
+         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(bathrooms),}
+         \OperatorTok{!}\KeywordTok{is.na}\NormalTok{(l3))  }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\KeywordTok{c}\NormalTok{(lat,lon, title,description, ad_type,start_date, end_date,operation_type,currency, l1, l2,l4,l5,l6,price_period,bedrooms))   }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{saveRDS}\NormalTok{(}\StringTok{'../fuentes/datos_properati.RDS'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df <-}\StringTok{ }\KeywordTok{read_rds}\NormalTok{(}\StringTok{'../fuentes/datos_properati.RDS'}\NormalTok{)}
+
+\KeywordTok{glimpse}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Observations: 52,246
+## Variables: 9
+## $ id              <chr> "OgLe3YSDR0da+JUQZgmTtA==", "Z3j1BtQN1kzuJr20c...
+## $ created_on      <date> 2019-05-09, 2019-05-09, 2019-05-09, 2019-05-0...
+## $ l3              <chr> "Nuñez", "Nuñez", "Almagro", "Belgrano", "Flor...
+## $ rooms           <dbl> 3, 3, 3, 5, 5, 3, 3, 2, 5, 5, 4, 2, 3, 5, 3, 3...
+## $ bathrooms       <dbl> 1, 1, 1, 2, 2, 1, 1, 1, 2, 1, 1, 1, 2, 4, 2, 3...
+## $ surface_total   <dbl> 77, 97, 69, 230, 168, 65, 95, 50, 181, 180, 89...
+## $ surface_covered <dbl> 68, 65, 69, 200, 168, 65, 92, 38, 110, 120, 11...
+## $ price           <dbl> 180000, 265000, 230000, 380000, 255000, 119000...
+## $ property_type   <chr> "PH", "PH", "PH", "PH", "PH", "PH", "PH", "PH"...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(df}\OperatorTok{$}\NormalTok{price)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    6000  119000  170000  251944  272000 6000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df[df}\OperatorTok{$}\NormalTok{price}\OperatorTok{<}\DecValTok{10000}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 9
+##   id    created_on l3    rooms bathrooms surface_total surface_covered
+##   <chr> <date>     <chr> <dbl>     <dbl>         <dbl>           <dbl>
+## 1 uZe6~ 2019-03-28 Pale~     5         4           340             320
+## 2 +JnI~ 2019-04-01 Parq~     1         1            31              31
+## 3 MEQM~ 2019-03-15 Puer~     3         3           275             220
+## 4 o6Qf~ 2019-04-30 Reco~     3         2           340             200
+## # ... with 2 more variables: price <dbl>, property_type <chr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(price}\OperatorTok{>}\DecValTok{10000}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Tenemos un par de outliers que no tienen mucho sentido. Es posible que el precio este mal cargado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df[df}\OperatorTok{$}\NormalTok{price}\OperatorTok{>}\DecValTok{5000000}\NormalTok{,]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 11 x 9
+##    id    created_on l3    rooms bathrooms surface_total surface_covered
+##    <chr> <date>     <chr> <dbl>     <dbl>         <dbl>           <dbl>
+##  1 Z0NE~ 2019-04-13 Reco~     6         3           600             600
+##  2 gRZz~ 2019-01-25 Reco~     6         3           600             600
+##  3 sP/J~ 2019-05-18 Reco~     8         5           677             568
+##  4 VVkm~ 2019-04-05 Reco~    10         3           978             489
+##  5 h6gp~ 2019-06-15 Reco~     6         3           600             600
+##  6 HWNt~ 2019-06-19 San ~     3         1            60              56
+##  7 e2Wf~ 2019-01-28 Pale~     4         4           404             404
+##  8 OzkE~ 2019-01-28 Pale~     4         4           404             404
+##  9 6DhC~ 2019-02-01 Caba~     1         1            41              37
+## 10 Jz4a~ 2019-03-01 Caba~     1         1            41              37
+## 11 1R9Q~ 2019-01-17 Caba~     1         1            41              37
+## # ... with 2 more variables: price <dbl>, property_type <chr>
+\end{verbatim}
+
+Los precios más alto tienen algunas cosas sorprendentes, pero sería arriesgado descartarlos por errores.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm_fit <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(price}\OperatorTok{~}\StringTok{ }\NormalTok{l3}\OperatorTok{+}\StringTok{ }\NormalTok{rooms }\OperatorTok{+}\StringTok{ }\NormalTok{bathrooms }\OperatorTok{+}\StringTok{ }\NormalTok{surface_total }\OperatorTok{+}\StringTok{ }\NormalTok{property_type,}\DataTypeTok{data =}\NormalTok{ df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(lm_fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = price ~ l3 + rooms + bathrooms + surface_total + 
+##     property_type, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2152714   -72322    -4147    46114  5284489 
+## 
+## Coefficients:
+##                             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)               -1.599e+05  1.388e+04 -11.520  < 2e-16 ***
+## l3Agronomía                2.024e+04  2.605e+04   0.777 0.437102    
+## l3Almagro                 -7.962e+03  1.295e+04  -0.615 0.538764    
+## l3Balvanera               -2.616e+04  1.360e+04  -1.924 0.054387 .  
+## l3Barracas                 5.459e+02  1.591e+04   0.034 0.972629    
+## l3Barrio Norte             6.416e+04  1.331e+04   4.821 1.43e-06 ***
+## l3Belgrano                 1.212e+05  1.290e+04   9.396  < 2e-16 ***
+## l3Boca                    -4.934e+04  2.020e+04  -2.443 0.014559 *  
+## l3Boedo                   -1.421e+04  1.553e+04  -0.915 0.360345    
+## l3Caballito                6.359e+03  1.298e+04   0.490 0.624125    
+## l3Catalinas               -2.566e+04  1.059e+05  -0.242 0.808533    
+## l3Centro / Microcentro    -3.333e+04  1.969e+04  -1.693 0.090542 .  
+## l3Chacarita                2.843e+04  1.609e+04   1.768 0.077139 .  
+## l3Coghlan                  5.894e+04  1.643e+04   3.587 0.000335 ***
+## l3Colegiales               3.945e+04  1.455e+04   2.710 0.006724 ** 
+## l3Congreso                -2.853e+04  1.610e+04  -1.773 0.076275 .  
+## l3Constitución            -2.953e+04  1.767e+04  -1.671 0.094633 .  
+## l3Flores                  -2.403e+04  1.363e+04  -1.763 0.077967 .  
+## l3Floresta                -1.220e+04  1.516e+04  -0.804 0.421184    
+## l3Las Cañitas              1.193e+05  1.758e+04   6.785 1.17e-11 ***
+## l3Liniers                 -2.029e+04  1.592e+04  -1.275 0.202348    
+## l3Mataderos               -3.332e+04  1.612e+04  -2.067 0.038736 *  
+## l3Monserrat               -9.560e+03  1.570e+04  -0.609 0.542461    
+## l3Monte Castro             1.875e+04  1.793e+04   1.046 0.295781    
+## l3Nuñez                    9.191e+04  1.373e+04   6.695 2.18e-11 ***
+## l3Once                    -2.203e+04  1.598e+04  -1.379 0.168006    
+## l3Palermo                  1.276e+05  1.272e+04  10.033  < 2e-16 ***
+## l3Parque Avellaneda       -1.666e+04  2.199e+04  -0.758 0.448651    
+## l3Parque Centenario       -3.832e+04  1.523e+04  -2.515 0.011903 *  
+## l3Parque Chacabuco        -1.329e+03  1.569e+04  -0.085 0.932517    
+## l3Parque Chas              2.209e+04  2.267e+04   0.975 0.329726    
+## l3Parque Patricios        -1.126e+04  1.768e+04  -0.637 0.524163    
+## l3Paternal                -2.778e+03  1.550e+04  -0.179 0.857733    
+## l3Pompeya                 -6.158e+04  2.211e+04  -2.786 0.005340 ** 
+## l3Puerto Madero            5.295e+05  1.457e+04  36.353  < 2e-16 ***
+## l3Recoleta                 1.294e+05  1.309e+04   9.883  < 2e-16 ***
+## l3Retiro                   7.507e+04  1.571e+04   4.779 1.76e-06 ***
+## l3Saavedra                 3.674e+04  1.485e+04   2.473 0.013387 *  
+## l3San Cristobal           -1.197e+04  1.479e+04  -0.809 0.418323    
+## l3San Nicolás             -4.616e+03  1.534e+04  -0.301 0.763503    
+## l3San Telmo                1.763e+04  1.460e+04   1.208 0.227176    
+## l3Tribunales              -4.234e+04  2.555e+04  -1.657 0.097553 .  
+## l3Velez Sarsfield          1.664e+03  2.487e+04   0.067 0.946644    
+## l3Versalles                4.516e+03  1.988e+04   0.227 0.820295    
+## l3Villa Crespo             1.072e+04  1.303e+04   0.823 0.410681    
+## l3Villa del Parque         2.440e+04  1.470e+04   1.660 0.096951 .  
+## l3Villa Devoto             3.089e+04  1.440e+04   2.146 0.031896 *  
+## l3Villa General Mitre     -2.567e+04  2.024e+04  -1.268 0.204656    
+## l3Villa Lugano            -1.002e+05  1.749e+04  -5.729 1.02e-08 ***
+## l3Villa Luro               7.208e+03  1.617e+04   0.446 0.655849    
+## l3Villa Ortuzar            2.826e+04  2.042e+04   1.383 0.166525    
+## l3Villa Pueyrredón         2.686e+04  1.590e+04   1.689 0.091191 .  
+## l3Villa Real               1.343e+04  2.592e+04   0.518 0.604258    
+## l3Villa Riachuelo         -5.135e+04  4.988e+04  -1.029 0.303274    
+## l3Villa Santa Rita         6.264e+03  1.909e+04   0.328 0.742874    
+## l3Villa Soldati           -9.211e+04  3.636e+04  -2.534 0.011295 *  
+## l3Villa Urquiza            4.076e+04  1.333e+04   3.058 0.002230 ** 
+## rooms                      5.199e+04  8.989e+02  57.839  < 2e-16 ***
+## bathrooms                  1.419e+05  1.461e+03  97.128  < 2e-16 ***
+## surface_total              5.808e+00  1.141e+00   5.092 3.56e-07 ***
+## property_typeDepartamento  4.855e+03  5.267e+03   0.922 0.356609    
+## property_typePH           -4.780e+04  5.691e+03  -8.399  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 210300 on 52180 degrees of freedom
+## Multiple R-squared:  0.4872, Adjusted R-squared:  0.4866 
+## F-statistic: 812.7 on 61 and 52180 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{quote}
+¿ Qué pasó con las variables no numéricas?
+¿Son significativos los estimadores? ¿cuales?
+¿Cómo se leen los valores de los estimadores?
+\end{quote}
+
+Dado que muchos de los barrios no explican significativamente los cambios en los precios, no esta bueno conservarlos todos. A su vez, no sabemos respecto a qué barrio se compara.
+
+Una solución puede ser agrupar los barrios en tres categorías respecto a su efecto en el precio:
+
+\begin{itemize}
+\tightlist
+\item
+  Alto
+\item
+  Medio
+\item
+  Bajo
+\end{itemize}
+
+En particular, podemos notar de esta primera regresión que algunos barrios tienen un efecto significativo en subir el valor de la propiedad, como Belgrano o Recoleta.
+
+Para construir la nueva variable, podemos ver el precio promedio del metro cuadrado por barrio
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df_barrios <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(l3) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{precio_m2 =} \KeywordTok{mean}\NormalTok{(price}\OperatorTok{/}\NormalTok{surface_total)) }
+  
+\KeywordTok{ggplot}\NormalTok{(df_barrios,}\KeywordTok{aes}\NormalTok{(precio_m2)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_histogram}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown_files/figure-latex/unnamed-chunk-152-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(df_barrios}\OperatorTok{$}\NormalTok{precio_m2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   871.2  2031.8  2147.3  2346.0  2560.0  6068.5
+\end{verbatim}
+
+Con este gráfico vemos que que hay muchos barrios con un precio promedio cercano a 2500 dólares el \(m^2\).
+
+Podemos dividr los tres grupos al rededor de los quartiles 1 y 3.
+
+\begin{itemize}
+\item
+  \textless{}2000 bajo
+\item
+  2000-2500 medio
+\item
+  \begin{quote}
+  2500 alto
+  \end{quote}
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df_barrios <-}\StringTok{ }\NormalTok{df_barrios }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{barrio=} \KeywordTok{case_when}\NormalTok{(precio_m2}\OperatorTok{<}\DecValTok{2000} \OperatorTok{~}\StringTok{ 'bajo'}\NormalTok{,}
+\NormalTok{                           precio_m2}\OperatorTok{>}\DecValTok{2000} \OperatorTok{&}\StringTok{ }\NormalTok{precio_m2}\OperatorTok{<}\DecValTok{2500} \OperatorTok{~}\StringTok{ 'medio'}\NormalTok{,}
+\NormalTok{                           precio_m2}\OperatorTok{>}\DecValTok{2500} \OperatorTok{~}\StringTok{ 'alto'}\NormalTok{))}
+
+\NormalTok{df_barrios }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{sample_n}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 10 x 3
+##    l3               precio_m2 barrio
+##    <chr>                <dbl> <chr> 
+##  1 Almagro              2457. medio 
+##  2 Barrio Norte         3221. alto  
+##  3 Abasto               2635. alto  
+##  4 Villa Luro           2147. medio 
+##  5 San Nicolás          2439. medio 
+##  6 Parque Patricios     1925. bajo  
+##  7 Las Cañitas          3724. alto  
+##  8 Flores               2108. medio 
+##  9 Constitución         1758. bajo  
+## 10 Parque Chas          2305. medio
+\end{verbatim}
+
+Con esta nueva variable podemos modificar la tabla original.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(df_barrios, }\DataTypeTok{by=}\StringTok{'l3'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+y volvemos a calcular el modelo
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm_fit <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(price}\OperatorTok{~}\StringTok{ }\NormalTok{barrio}\OperatorTok{+}\StringTok{ }\NormalTok{rooms }\OperatorTok{+}\StringTok{ }\NormalTok{bathrooms }\OperatorTok{+}\StringTok{ }\NormalTok{surface_total }\OperatorTok{+}\StringTok{ }\NormalTok{property_type,}\DataTypeTok{data =}\NormalTok{ df)}
+
+\KeywordTok{summary}\NormalTok{(lm_fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = price ~ barrio + rooms + bathrooms + surface_total + 
+##     property_type, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2145645   -71277   -11187    42472  5307946 
+## 
+## Coefficients:
+##                             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)               -1.041e+05  6.349e+03 -16.396  < 2e-16 ***
+## barriobajo                -1.097e+05  4.231e+03 -25.939  < 2e-16 ***
+## barriomedio               -9.342e+04  2.150e+03 -43.445  < 2e-16 ***
+## rooms                      4.808e+04  9.293e+02  51.732  < 2e-16 ***
+## bathrooms                  1.602e+05  1.499e+03 106.867  < 2e-16 ***
+## surface_total              5.485e+00  1.198e+00   4.580 4.67e-06 ***
+## property_typeDepartamento  2.370e+04  5.352e+03   4.428 9.51e-06 ***
+## property_typePH           -3.906e+04  5.920e+03  -6.598 4.22e-11 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 220800 on 52234 degrees of freedom
+## Multiple R-squared:  0.4338, Adjusted R-squared:  0.4338 
+## F-statistic:  5718 on 7 and 52234 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+Si queremos que compare contra `barrio medio' podemos convertir la variable en factor y explicitar los niveles
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df <-}\StringTok{ }\NormalTok{df }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{barrio =} \KeywordTok{factor}\NormalTok{(barrio, }\DataTypeTok{levels =} \KeywordTok{c}\NormalTok{(}\StringTok{'medio'}\NormalTok{, }\StringTok{'alto'}\NormalTok{,}\StringTok{'bajo'}\NormalTok{)))}
+
+\NormalTok{lm_fit <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(price}\OperatorTok{~}\StringTok{ }\NormalTok{barrio}\OperatorTok{+}\StringTok{ }\NormalTok{rooms }\OperatorTok{+}\StringTok{ }\NormalTok{bathrooms }\OperatorTok{+}\StringTok{ }\NormalTok{surface_total }\OperatorTok{+}\StringTok{ }\NormalTok{property_type,}\DataTypeTok{data =}\NormalTok{ df)}
+
+\KeywordTok{summary}\NormalTok{(lm_fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = price ~ barrio + rooms + bathrooms + surface_total + 
+##     property_type, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2145645   -71277   -11187    42472  5307946 
+## 
+## Coefficients:
+##                             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)               -1.975e+05  6.215e+03 -31.783  < 2e-16 ***
+## barrioalto                 9.342e+04  2.150e+03  43.445  < 2e-16 ***
+## barriobajo                -1.632e+04  4.321e+03  -3.777 0.000159 ***
+## rooms                      4.808e+04  9.293e+02  51.732  < 2e-16 ***
+## bathrooms                  1.602e+05  1.499e+03 106.867  < 2e-16 ***
+## surface_total              5.485e+00  1.198e+00   4.580 4.67e-06 ***
+## property_typeDepartamento  2.370e+04  5.352e+03   4.428 9.51e-06 ***
+## property_typePH           -3.906e+04  5.920e+03  -6.598 4.22e-11 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 220800 on 52234 degrees of freedom
+## Multiple R-squared:  0.4338, Adjusted R-squared:  0.4338 
+## F-statistic:  5718 on 7 and 52234 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\hypertarget{feature-engineering.}{%
+\subsubsection{Feature engineering.}\label{feature-engineering.}}
+
+Lo que hicimos arriba con los barrios se conoce como feature engineerin: Generamos una nueva variable a partir de las anteriores para mejorar nuestro modelo.
+
+\begin{quote}
+¿Qué otras modificaciones podemos hacer?
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Hay una que ya hicimos: En lugar de pensar en el precio total, podemos pensar en el precio por \(m^2\). De esta manera ya no tendría sentido agregar la variable surface\_total
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{lm_fit <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(precio_m2 }\OperatorTok{~}\StringTok{ }\NormalTok{barrio  }\OperatorTok{+}\StringTok{ }\NormalTok{rooms }\OperatorTok{+}\StringTok{ }\NormalTok{bathrooms }\OperatorTok{+}\StringTok{ }\NormalTok{property_type,}\DataTypeTok{data =}\NormalTok{ df)}
+
+\KeywordTok{summary}\NormalTok{(lm_fit)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = precio_m2 ~ barrio + rooms + bathrooms + property_type, 
+##     data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -2071.97  -241.41    55.51   214.05  2993.52 
+## 
+## Coefficients:
+##                           Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)               1935.419     13.106 147.670  < 2e-16 ***
+## barrioalto                 892.491      4.535 196.790  < 2e-16 ***
+## barriobajo                -461.046      9.112 -50.595  < 2e-16 ***
+## rooms                      -22.684      1.959 -11.579  < 2e-16 ***
+## bathrooms                  133.009      3.161  42.084  < 2e-16 ***
+## property_typeDepartamento  227.481     11.285  20.158  < 2e-16 ***
+## property_typePH             99.545     12.485   7.973 1.58e-15 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 465.7 on 52235 degrees of freedom
+## Multiple R-squared:  0.552,  Adjusted R-squared:  0.5519 
+## F-statistic: 1.073e+04 on 6 and 52235 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{quote}
+que pasó con rooms?
+\end{quote}
+
+Al normalizar el precio por los metros, rooms pasa de tomar valores positivos a negativos. Eso significa que rooms estaba correlacionado con el tamaño, y por lo tanto cuantos más cuartos, mayor el valor. Al normalizar podemos ver que, dado un metraje, más cuartos reducen el precio: Preferimos ambientes más grandes tal vez?
+
+\textbf{predecir}
+
+Para predecir un nuevo caso, podemos construir un dataframe con las variables. Por ejemplo
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{caso_nuevo <-}\StringTok{ }\KeywordTok{tibble}\NormalTok{(}\DataTypeTok{barrio=}\StringTok{'alto'}\NormalTok{,}
+       \DataTypeTok{rooms=}\DecValTok{3}\NormalTok{,}
+       \DataTypeTok{bathrooms=}\DecValTok{2}\NormalTok{,}
+       \DataTypeTok{property_type=}\StringTok{'Departamento'}\NormalTok{,}
+       \DataTypeTok{surface_total=}\DecValTok{78}\NormalTok{) }
+
+\KeywordTok{predict}\NormalTok{(lm_fit,}\DataTypeTok{newdata =}\NormalTok{ caso_nuevo)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        1 
+## 3253.356
+\end{verbatim}
+
+Pero debemos recordar que este es el valor por metro cuadrado. Para obtener lo que realmente nos interesa, tenemos que hacer el camino inverso del feature engenieering:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{predict}\NormalTok{(lm_fit,caso_nuevo)}\OperatorTok{*}\NormalTok{caso_nuevo}\OperatorTok{$}\NormalTok{surface_total}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        1 
+## 253761.8
+\end{verbatim}
+
+\hypertarget{para-seguir-practicando}{%
+\subsubsection{Para seguir practicando}\label{para-seguir-practicando}}
+
+Un problema de lo que vimos en esta práctica es que las salidas de \texttt{summary(lm\_fit)} es una impresión en la consola. Es muy difícil seguir trabajando con esos resultados. Para resolver esto hay un par de librerías que incorporan el modelado lineal al flujo del tidyverse:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://cran.r-project.org/web/packages/broom/vignettes/broom.html}{Broom}
+\item
+  \href{https://modelr.tidyverse.org/}{Modelr}
+\end{itemize}
 
 \bibliography{book.bib,packages.bib}
 
