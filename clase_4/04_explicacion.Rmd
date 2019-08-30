@@ -12,7 +12,7 @@ output:
 
 ### Gráficos Básicos en R
 
-Rbase  tiene algunos comandos genéricos para realizar gráficos, que se adaptan al tipo de información que se le pide graficar, por ejemplo:
+Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan al tipo de información que se le pide graficar, por ejemplo:
 
 - plot()
 - hist()
@@ -31,7 +31,7 @@ hist(iris$Sepal.Length, col = "lightsalmon1", main = "Histograma")
 ```
 
 #### png
-La función ```png()``` nos permite grabar una imagen en el disco. Lleva como argumento principal la ruta completa a donde se desea guardar la misma, incluyendo el nombre que queremos dar al archivo. A su vez pueden especificarse otros argumetnos como el ancho y largo de la imagen, entre otros.  
+La función `png()` nos permite grabar una imagen en el disco. Lleva como argumento principal la ruta completa a donde se desea guardar la misma, incluyendo el nombre que queremos dar al archivo. A su vez pueden especificarse otros argumentos como el ancho y largo de la imagen, entre otros.  
 
 ```{r}
 ruta_archivo <- "../resultados/grafico1.PNG"
@@ -41,9 +41,9 @@ plot(iris$Sepal.Length,type = "b")
 dev.off()
 ```
 
-La función ```png()``` _abre el dispositivo de imagen_ en el directorio especificado. Luego creamos el gráfico que deseamos (o llamamos a uno previamente construido), el cual se desplegará en la ventana inferior derecha de la pantalla de Rstudio. Finalmente con ```dev.off()``` se _cierra el dispositivo_ y se graban los gráficos. 
+La función `png()` _abre el dispositivo de imagen_ en el directorio especificado. Luego creamos el gráfico que deseamos (o llamamos a uno previamente construido), el cual se desplegará en la ventana inferior derecha de la pantalla de Rstudio. Finalmente con ```dev.off()``` se _cierra el dispositivo_ y se graban los gráficos. 
            
-Los gráficos del R base son útiles para escribir de forma rápida y obtener alguna información mientras trabajamos. Muchos paquetes estadísticos permiten mostrar los resultados de forma gráfica con el comando plot (por ejemplo, las regresiones lineales ```lm()```).       
+Los gráficos del R base son útiles para escribir de forma rápida y obtener alguna información mientras trabajamos. Muchos paquetes estadísticos permiten mostrar los resultados de forma gráfica con el comando `plot` (por ejemplo, las regresiones lineales ```lm()```).       
  
 Sin embargo, existen librerías mucho mejores para crear gráficos de nivel de publicación. La más importante es __ggplot2__, que a su vez tiene extensiones mediante otras librerías.
 
@@ -51,7 +51,7 @@ Sin embargo, existen librerías mucho mejores para crear gráficos de nivel de p
 ### [Ggplot2](http://ggplot2.tidyverse.org/reference/)
 
 
-ggplot tiene su sintaxis propia. La idea central es pensar los gráficos como una sucesión de capas, que se construyen una a la vez.    
+`ggplot` tiene su sintaxis propia. La idea central es pensar los gráficos como una sucesión de capas, que se construyen una a la vez.    
 
 - El operador __```+```__ nos permite incorporar nuevas capas al gráfico.
 
@@ -59,26 +59,28 @@ ggplot tiene su sintaxis propia. La idea central es pensar los gráficos como un
 
 - Las sucesivas capas nos permiten definir:
    
-    - Uno o más tipos de gráficos (de columnas, ```geom_col()```, de línea, ```geom_line()```, de puntos,```geom_point()```, boxplot, ```geom_boxplot()```)
+    - Uno o más tipos de gráficos (de columnas, ```geom_col()```, de línea, ```geom_line()```, de puntos, ```geom_point()```, boxplot, ```geom_boxplot()```)
     - Títulos ```labs()```
     - Estilo del gráfico ```theme()```
     - Escalas de los ejes ```scale_y_continuous```,```scale_x_discrete``` 
     - División en subconjuntos ```facet_wrap()```,```facet_grid()```
 
-ggplot tiene __muchos__ comandos, y no tiene sentido saberlos de memoria, es siempre útil reutilizar gráficos viejos y tener a mano el [machete](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf).    
+`ggplot` tiene __muchos__ comandos, y no tiene sentido saberlos de memoria, es siempre útil reutilizar gráficos viejos y tener a mano el [machete](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf).    
 
 #### Gráfico de Puntos
 
 A continuación se muestra un gráfico de varias capas de construcción, con su correspondiente porción de código. En el mismo se buscará visualizar, a partir de la base de datos **iris** la relación entre el ancho y el largo de los petalos, mediante un gráfico de puntos.
 
+  ```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse) # cargamos la librería
+```
+
 ```{r, warning=FALSE}
-library(ggplot2) # cargamos la librería
 ggplot(data = iris, aes(x = Petal.Length, Petal.Width, color = Species))+
   geom_point(alpha=0.75)+
   labs(title = "Medidas de los pétalos por especie")+
   theme(legend.position = 'none')+
   facet_wrap(~Species)
-
 ```
 
 #### Capas del Gráfico
