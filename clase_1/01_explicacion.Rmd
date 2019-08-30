@@ -17,7 +17,7 @@ subtitle: Explicación
 - Software Libre
 - Sintaxis Básica: R base 
 - Sintaxis incremental[^1]: El lenguaje se va ampliando por aportes de Universidades, investigadores/as, usuarios/as y empresas privadas, organizados en librerías (o paquetes)
-- Comunidad web muy grande para realizar preguntas y despejar dudas. Por ejemplo, en el caso de Buenos Aires contamos con [https://www.meetup.com/es-ES/rladies-buenos-aires/](R-Ladies Buenos Aires) y [https://www.meetup.com/es-ES/renbaires/](RenBaires).
+- Comunidad web muy grande para realizar preguntas y despejar dudas. Por ejemplo, en el caso de Buenos Aires contamos con [R-Ladies Buenos Aires](https://www.meetup.com/es-ES/rladies-buenos-aires/) y [RenBaires](https://www.meetup.com/es-ES/renbaires/).
 - Gráficos con calidad de publicación
 
 [^1]: Más allá de los comandos elementales, comandos más sofisticados tienen muchas versiones, y algunas quedan en desuso en el tiempo.
@@ -75,7 +75,6 @@ A      # Ahora A toma el valor de B, y B continúa conservando el mismo valor
 B
 ```
 
-También podemos utilizar el __#__ para realizar comentarios entre el código, en lo que resta de la línea en cuestión.
 
 ### R base
 
@@ -132,24 +131,25 @@ Las funciones son series de procedimientos estandarizados, que toman como imput 
 
 A lo largo del curso iremos viendo numerosas funciones, según lo requieran los distintos ejercicios. Sin embargo, veamos ahora algunos ejemplos para comprender su funcionamiento:    
 
-- paste() : concatena una serie de caracteres, indicando por última instancia como separar a cada uno de ellos        
+- paste() : concatena una serie de caracteres, pudiendo indicarse cómo separar a cada uno de ellos        
 - paste0(): concatena una serie de caracteres sin separar
 - sum(): suma de todos los elementos de un vector   
 - mean() promedio aritmético de todos los elementos de un vector   
 
 ```{r}
-paste("Pega","estas",4,"palabras", sep = " ")
+paste("Pega", "estas", 4, "palabras", sep = " ")
 
 #Puedo concatenar caracteres almacenados en objetos
-paste(A,B,C,sep = "**")
+paste(A, B, C, sep = "**")
 
 # Paste0 pega los caracteres sin separador
-paste0(A,B,C)
+paste0(A, B, C)
 
 1:5
 
 sum(1:5)
-mean(1:5,na.rm = TRUE)
+
+mean(1:5, na.rm = TRUE)
 ```
 
 
@@ -165,7 +165,8 @@ mean(1:5,na.rm = TRUE)
 - Los __corchetes__ ```[]``` se utilizan para acceder a un objeto:
     - en un vector[n° orden]
     - en una tabla[fila, columna]
-    - en una lista[n° elemento]
+    - en una lista[n° elemento]   
+    
 - el signo __$__ también es un método de acceso. Particularmente, en los dataframes, nos permitira acceder a una determinada columna de una tabla
 
 - Los __paréntesis__```()``` se utilizan en las funciones para definir los parámetros.
@@ -173,7 +174,7 @@ mean(1:5,na.rm = TRUE)
 - Las __comas__ ```, ```  se utilizan para separar los parametros al interior de una función. 
 
 ### Objetos:    
-Existen un gran cantidad de objetos distintos en R, en lo que resepcta al curso trabajaremos principalmente con 3 de ellos:
+Existe una gran cantidad de objetos distintos en R, en lo que resepcta al curso trabajaremos principalmente con 3 de ellos:
 
 - Valores
 - Vectores
@@ -206,7 +207,7 @@ A <- factor("Soy un factor, con niveles fijos")
 class(A)
 ```
 
-La diferencia entre un _character_ y un _factor_ es que el último tiene solo algunos valores permitidos (levels), con un orden interno predefinido (el cual ,por ejemplo, se respetará a la hora de realizar un gráfico)  
+La diferencia entre un _character_ y un _factor_ es que el último tiene solo algunos valores permitidos (levels), con un orden interno predefinido (el cual, por ejemplo, se respetará a la hora de realizar un gráfico)  
 
 
 #### Vectores
@@ -218,44 +219,44 @@ C <- c(1, 3, 4)
 C
 ```
 
-sumarle  2 a cada elemento del __vector__ anterior
+Podemos sumarle 2 a cada elemento del __vector__ anterior
 
 ```{r}
 C <- C + 2
 C
 ```
 
-sumarle  1 al primer elemento, 2 al segundo, y 3 al tercer elemento del __vector__ anterior
+O sumarle 1 al primer elemento, 2 al segundo, y 3 al tercer elemento del __vector__ anterior
 ```{r}
-D <- C + 1:3 #esto es equivalente a hacer 3+1, 5+2, 6+9 
+D <- C + 1:3 # esto es equivalente a hacer 3+1, 5+2, 6+9 
 D
 ```
 
 ```1:3``` significa que queremos todos los números enteros desde 1 hasta 3. 
 
-crear un __vector__ que contenga las palabras: "Carlos","Federico","Pedro"
+Podemos crear un __vector__ que contenga las palabras: "Carlos", "Federico", "Pedro"
 ```{r}
-E <- c("Carlos","Federico","Pedro")
+E <- c("Carlos", "Federico", "Pedro")
 E
 ```
 
-para acceder a algún elemento del vector, podemos buscarlo por su número de orden, entre ```[ ]```
+Para acceder a algún elemento del vector, podemos buscarlo por su número de orden, entre ```[ ]```
 
 ```{r}
- E[2]
-
+E[2]
 ```
 
-Si nos interesa almacenar dicho valor, al buscarlo lo asignamos a un nuevo objeto, dandole el nombre que deseemos
+Si nos interesa almacenar dicho valor, al buscarlo lo asignamos a un nuevo objeto, dándole el nombre que deseemos
 
 ```{r}
-elemento2 <-  E[2]
+elemento2 <- E[2]
 ```
+
 ```{r}
 elemento2
 ```
 
-para __borrar__ un objeto del ambiente de trabajo, utilizamos el comando _```rm()```_
+Para __borrar__ un objeto del ambiente de trabajo, utilizamos el comando _```rm()```_
 
 ```{r error=TRUE}
 rm(elemento2)
@@ -275,7 +276,7 @@ Un Data Frame es una tabla de datos, donde cada columna representa una variable,
 
 Este objeto suele ser central en el proceso de trabajo, y suele ser la forma en que se cargan datos externos para trabajar en el ambiente de R, y en que se exportan los resultados de nuestros trabajo.  
 
-También Se puede crear como la combinación de N vectores de igual tamaño. Por ejemplo, tomamos algunos valores del [Indice de salarios](http://www.indec.gob.ar/bajarCuadroEstadistico.asp?idc=4020B33440609462654542BD0BC320F1523DA0DC52C396201DB4DD5861FFEDC9AD1436681AC84179)
+También se puede crear como la combinación de N vectores de igual tamaño. Por ejemplo, tomamos algunos valores del [Indice de salarios](http://www.indec.gob.ar/bajarCuadroEstadistico.asp?idc=4020B33440609462654542BD0BC320F1523DA0DC52C396201DB4DD5861FFEDC9AD1436681AC84179)
 
 ```{r}
 INDICE  <- c(100,   100,   100,
@@ -286,11 +287,9 @@ FECHA  <-  c("Oct-16", "Oct-16", "Oct-16",
              "Nov-16", "Nov-16", "Nov-16",
              "Dic-16", "Dic-16", "Dic-16")
 
-
 GRUPO  <-  c("Privado_Registrado","Público","Privado_No_Registrado",
              "Privado_Registrado","Público","Privado_No_Registrado",
              "Privado_Registrado","Público","Privado_No_Registrado")
-             
 
 Datos <- data.frame(INDICE, FECHA, GRUPO)
 Datos
@@ -311,38 +310,46 @@ Datos$FECHA[3]
 ```{r error=TRUE}
 Datos$FECHA[3,2]
 ```
+
 Nótese que el último comando tiene un número incorrecto de dimensiones, porque estamos refiriendonos 2 veces a la columna FECHA.    
 
-Acorde a lo visto anteriormente, el acceso a los __dataframes__ mediante  ```[ ]```, puede utilizarse para realizar filtros sobre la base, especificando una condición para las filas. Por ejemplo, puedo utilizar los  ```[ ]``` para conservar del __dataframe__ ```Datos ```  unicamente los registros con fecha de Diciembre 2016:
+Acorde a lo visto anteriormente, el acceso a los __dataframes__ mediante  ```[ ]``` puede utilizarse para realizar filtros sobre la base, especificando una condición para las filas. Por ejemplo, puedo utilizar los  ```[ ]``` para conservar del __dataframe__ ```Datos ```  unicamente los registros con fecha de Diciembre 2016:
+
 ```{r error=TRUE}
 Datos[Datos$FECHA=="Dic-16",]
 ```
-La lógica del paso anterior sería: Accedo al dataframe ```Datos```, pidiendo únicamente conservar las filas (por eso la condición se ubica a la _izquierda_ de la  ```, ```) que cumplan el requisito de pertenecer a la categoría __"Dic-16"__ de la variable __FECHA__.      
+
+La lógica del paso anterior sería: Accedo al dataframe ```Datos```, pidiendo únicamente conservar las filas (por eso la condición se ubica a la _izquierda_ de la  ```, ```) que cumplan el requisito de pertenecer a la categoría __"Dic-16"__ de la variable __FECHA__.    
+
 Aún más, podría aplicar el filtro y al mismo tiempo identificar una variable de interés para luego realizar un cálculo sobre aquella. Por ejemplo, podría calcular la media de los indices en el mes de Diciembre. 
+
 ```{r error=TRUE}
 ###Por separado
 Indices_Dic <- Datos$INDICE[Datos$FECHA=="Dic-16"]
 Indices_Dic
 ```
+
 ```{r error=TRUE}
 mean(Indices_Dic)
 ```
+
 ```{r error=TRUE}
 ### Todo junto
 mean(Datos$INDICE[Datos$FECHA=="Dic-16"])
 ```
-La lógica de esta sintaxis sería: "Me quedó con la variable __INDICE__, cuando la variable FECHA sea igual a __"Dic-16"__, luego calculo la media de dichos valores"
+
+La lógica de esta sintaxis sería: "Me quedo con la variable __INDICE__, cuando la variable FECHA sea igual a __"Dic-16"__, luego calculo la media de dichos valores".
 
 ### Listas
 
-Contienen una concatenación de objetos de cualquier tipo. Así como un vector contiene valores, un dataframe contiene vectores, una lista puede contener dataframes, pero también vectores, o valores, y _todo ello a la vez_
+Contienen una concatenación de objetos de cualquier tipo. Así como un vector contiene valores, un dataframe contiene vectores, una lista puede contener dataframes, pero también vectores, o valores, y _todo ello a la vez_.
 
 ```{r}
 superlista <- list(A,B,C,D,E,FECHA, DF = Datos, INDICE, GRUPO)
 superlista
 ```
 
-Para acceder un elemento de una lista, podemos utilizar el operador __```$```__, que se puede usar a su vez de forma iterativa 
+Para acceder un elemento de una lista, podemos utilizar el operador __```$```__, que se puede usar a su vez de forma iterativa. 
 
 ```{r}
 superlista$DF$FECHA[2]
@@ -352,7 +359,7 @@ superlista$DF$FECHA[2]
 
 Hay algunas cosas que tenemos que tener en cuenta respecto del orden del ambiente en el que trabajamos:
 
-- Working Directory: El directorio de trabajo, pueden ver el suyo con `getwd()`, es *hacia donde apunta el código*, por ejemplo, si quieren leer un archivo, la ruta del archivo tiene que estar explicitada como el recorrido desde el Working Directory.
+- Working Directory: Es el directorio de trabajo. Pueden ver el suyo con `getwd()`, es *hacia donde apunta el código*, por ejemplo, si quieren leer un archivo, la ruta del archivo tiene que estar explicitada como el recorrido desde el Working Directory.
 - Environment: Esto engloba tanto la información que tenemos cargada en *Data* y *Values*, como las librerías que tenemos cargadas mientras trabajamos. 
 
 Es importante que mantengamos bien delimitadas estas cosas entre diferentes trabajos, sino:
@@ -376,7 +383,7 @@ Un proyecto no es un sólo script, sino toda una carpeta de trabajo.
 
 ![logo Rpoject](img/Rproject.png){width=1000}
 
-Para crearlo, vamos al logo de nuevo projecto (Arriba a la izquierda de la panatalla), y elegimos la carpeta de trabajo. 
+Para crearlo, vamos al logo de nuevo projecto (Arriba a la derecha de la panatalla), y elegimos la carpeta de trabajo. 
 
 
 ### Tipos de archivos de R
