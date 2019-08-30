@@ -8,12 +8,9 @@ date: ""
 subtitle: Práctica independiente
 ---
 
-
 > Reiniciar R (`Session --> Restart R`)
 
-
-
-### objetos y vectores
+### Objetos y vectores
 
 - Crear un OBJETO llamado _objeto_ definido como el resultado de la suma: 5 + 6
 
@@ -27,8 +24,8 @@ objeto <- 5+6
 
 ```
 
-
 - Crear 3 vectores ( _VEC1_, _VEC2_, _VEC3_) que sean transformaciones del anterior
+
 ```{r}
 
 ```
@@ -46,10 +43,9 @@ _VEC6_).
 
 ```
 
-
 ### Dataset [cruceros](https://data.buenosaires.gob.ar/dataset/cruceros)
 
-El archivo `TUR_CRU_AX04.xls` contiene información de las recaladas de cruceros en buenos aires. Se encuentra en la carpeta fuentes.
+El archivo `TUR_CRU_AX04.xls` contiene información de las recaladas de cruceros en Buenos Aires. Se encuentra en la carpeta `fuentes`.
 
 El objetivo es leer el archivo:
 
@@ -63,47 +59,35 @@ El objetivo es leer el archivo:
 
 ```
 
+### Operaciones sobre objetos
 
-### operaciones sobre objetos
-
-
-hacer un summary sobre la cantidad de recaladas para saber el mínimo, el primer cuartil. la mediana, la media, tercer cuartil y el máximo valor.
-
-```{r}
-cruceros <- read.xlsx('../fuentes/TUR_CRU_AX04.xls', startRow = 3,endRow = 24, sheetIndex = 1)
-```
-
-
-Crear un vector booleano que indique si aumento la recalada respecto al año anterior:
-
-hint: Podemos utilizar `<` o `>` junto con `[]`
-
-
-```{r}
-cruceros$Recaladas
-```
-
-
-```{r}
-cruceros$Recaladas[2:21] > cruceros$Recaladas[1:20]
-
-```
-
-Agregar el vector como una nueva columna al dataframe, que se llame "aumento_recalada"
-```{r}
-
-```
-
-
-con la nueva variable, filtrar los datos para que nos quede un nuevo dataset sólo de los años con aumento de la recalada
+- Hacer un `summary` sobre la cantidad de recaladas para saber el mínimo, el primer cuartil, la mediana, la media, tercer cuartil y el máximo valor.
 
 ```{r}
 
 ```
 
+- Crear un vector booleano que indique si aumentó la recalada respecto al año anterior:
 
-### archivos y ambientes de trabajo
+Pista: Podemos utilizar `<` o `>` junto con `[]`
 
+```{r}
+
+```
+
+- Agregar el vector como una nueva columna al dataframe, que se llame "aumento_recalada"
+
+```{r}
+
+```
+
+- Con la nueva variable, filtrar los datos para que nos quede un nuevo dataset sólo de los años con aumento de la recalada
+
+```{r}
+
+```
+
+### Archivos y ambientes de trabajo
 
 1. Crear un script `.R` con el código de la práctica independiente.
 2. Crear un proyecto para la clase 1.
@@ -111,8 +95,4 @@ con la nueva variable, filtrar los datos para que nos quede un nuevo dataset só
 4. Reinciar R y abrir el Rdata.
 5. Guardar el dataset de cruceros en un .RDS.
 6. Levantar el .RDS con otro nombre.
-
-
-
-
 
