@@ -12,23 +12,23 @@ library(tidyverse)
 
 ### Generación de datos aleatorios
 
-Para generar datos aleatorios, usamos las funciones
+Para generar datos aleatorios, usamos las funciones:
 
--`rnorm` para generar datos que surgen de una distribución normal
--`rt` para generar datos que surgen de una distribución T-student
--`rchisq` para generar datos que surgen de una distribución Chi cuadrado
+- `rnorm` para generar datos que surgen de una distribución normal
+- `rt` para generar datos que surgen de una distribución T-student
+- `rchisq` para generar datos que surgen de una distribución Chi cuadrado
 
-> pero antes, tenemos que fijar la _semilla_ para que los datos sean reproducibles
+> Pero antes, tenemos que fijar la _semilla_ para que los datos sean reproducibles
 
 ```{r}
 set.seed(1234)
-rnorm(n = 15,mean = 0, sd = 1 )
-rt(n = 15,df=1 )
+rnorm(n = 15, mean = 0, sd = 1 )
+rt(n = 15, df=1 )
 rchisq(n = 15,df=1)
 ```
 
 
-Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando plot
+Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando `plot`
 ```{r}
 
 plot(rnorm(n = 15,mean = 0, sd = 1 ))
@@ -44,7 +44,7 @@ Noten que el eje X es el índice de los valores, es decir que no agrega informac
 
 Utilicemos ahora datos reales. 
 
-los datos salen de [https://data.buenosaires.gob.ar/dataset/femicidios](https://data.buenosaires.gob.ar/dataset/femicidios)
+Los datos salen de [https://data.buenosaires.gob.ar/dataset/femicidios](https://data.buenosaires.gob.ar/dataset/femicidios)
 
 > Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.
 
@@ -54,7 +54,7 @@ femicidios <- read_csv(file = '../fuentes/vict_fem_annio__g_edad_limpio.csv')
 femicidios
 ```
 
-fijense que las estadísitcas no estan desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron '-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
+Fijense que las estadísitcas no están desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron '-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
 
 Vamos a reorganizar la información para corregir todas estas cosas
 
@@ -86,7 +86,7 @@ La idea es que tenemos dos variables: El rango etario y la cantidad de femicidio
 chisq.test(femicidios$cantidad_femicidios)
 ```
 
-noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
+Noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
 
 
 ### Descripción estadística de los datos
@@ -107,9 +107,9 @@ summary(sueldos$asignacion_por_cargo_i)
 
 ### Gráficos estadísticos
 
-No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad. Como los presentados en las notas de clase
+No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad, como los presentados en las notas de clase.
 
-A modo de ejemplo, dejamos los comandos de R base para realizar gráficos
+A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 
 ```{r}
 boxplot(sueldos$asignacion_por_cargo_i)

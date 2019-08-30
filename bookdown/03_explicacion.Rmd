@@ -1,5 +1,5 @@
 # Probabilidad y Estadística
-
+  
 Esta clase es un repaso de los rudimentos de probabilidad y estadística. El objetivo es obtener las herramientas básicas para la interpretación de resultados estadísticos. 
 
 + Introducción a probabilidad
@@ -13,13 +13,12 @@ Esta clase es un repaso de los rudimentos de probabilidad y estadística. El obj
 ## Explicación
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE,echo=FALSE, fig.width = 15)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=FALSE, fig.width = 15)
 library(tidyverse)
 library(kableExtra)
 library(cowplot)
 set.seed(12)
 ```
-
 
 ### Probabilidad
 
@@ -59,13 +58,13 @@ A) $P(A\cup B) = P(A) + P(B)\ si\ A \cap B = \emptyset$
 
 Sigamos con el ejemplo de dado. 
 
-Podríamos definir la distribución de probabilidad, si no esta cargado, cómo:
+Podríamos definir la distribución de probabilidad, si el dado no está cargado, como:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-tibble(valor=1:6, probabilidad=rep("1/6", 6))
+tibble(valor=1:6, probabilidad = rep("1/6", 6))
 ```
 
-Cómo el conjunto de resultados posibles es acotado, podemos definirlo en una tabla, esta es una distribución _discreta_
+Como el conjunto de resultados posibles es acotado, podemos definirlo en una tabla, esta es una distribución _discreta_.
 
 ##### Distribuciones continuas
 
@@ -90,7 +89,7 @@ ggplot(data = data.frame(x = c(114, 234)), aes(x)) +
 
 - Sin embargo, sí podemos definir una _función de probabilidad_, la _densidad_.
 
-- Según qué función utilicemos, cambiara la forma de la curva.
+- Según qué función utilicemos, cambiará la forma de la curva.
 
 
 Por ejemplo:
@@ -169,16 +168,16 @@ ggplot(data = data.frame(x = c(-10,10)), aes(x)) +
 El problema de la probabilidad se podría pensar de la siguiente forma:
 
 1. Vamos a partir de un __proceso generador de datos__
-1. para calcular su __distribución de probabilidad__, los __parámetros__ que caracterizan a ésta, y a partir de allí, 
-1. calcular la probabilidad de que, al tomar una __muestra__, tenga ciertos eventos.
+1. Para calcular su __distribución de probabilidad__, los __parámetros__ que caracterizan a ésta, y a partir de allí, 
+1. Calcular la probabilidad de que, al tomar una __muestra__, tenga ciertos eventos.
 
 ![](img/problema_inversion_1.png){width=1000}
 
 El problema de la estadística es exactamente el contrario:
 
 1. Partimos de una __muestra__ para
-1. inferir cuál es la __distribución de probabilidad__, y los __parámetros__ que la caracterizan
-1. para finalmente poder sacar conclusiones sobre el __proceso generador de datos__
+1. Inferir cuál es la __distribución de probabilidad__, y los __parámetros__ que la caracterizan
+1. Para finalmente poder sacar conclusiones sobre el __proceso generador de datos__
 
 ![](img/problema_inversion_2.png){width=1000}
 
@@ -196,7 +195,7 @@ Solemos utilizar las mayúsculas (N) para la población y las minúsculas (n) pa
 
 ##### Parámetros y Estimadores
 
-- Como dijimos, los __parámetros__ describen a la función de probabilidad. Por lo tanto hacen referencia a los atributos de la __población__. Podemos suponer que son _constantes_
+- Como dijimos, los __parámetros__ describen a la función de probabilidad. Por lo tanto hacen referencia a los atributos de la __población__. Podemos suponer que son _constantes_.
 - Un __estimador__ es un estadístico (esto es, una función de la muestra) usado para estimar un parámetro desconocido de la población.
 
 ##### Ejemplo. La media
@@ -218,9 +217,9 @@ Como no puedo conocer $\mu$, lo estimo mediante $\bar{X}$
 
 #### Estimación puntual, Intervalos de confianza y Tests de hipótesis
 
-- El estimador $\bar{X}$ nos devuelve un número. Esto es una inferencia de cuál creemos que es la media. Pero no es seguro de que esa sea realmente la media. Esto es lo que denominamos estimación puntual
+- El estimador $\bar{X}$ nos devuelve un número. Esto es una inferencia de cuál creemos que es la media. Pero no es seguro que esa sea realmente la media. Esto es lo que denominamos estimación puntual.
 
-- También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parámetro poblacional realmente este dentro de este intervalo. Esto se conoce como __intervalos de confianza__
+- También podemos estimar un intervalo, dentro del cual consideramos que se encuentra la media poblacional. La ventaja de esta metodología es que podemos definir la probabilidad de que el parámetro poblacional realmente esté dentro de este intervalo. Esto se conoce como __intervalos de confianza__.
 
 - Por su parte, también podemos calcular la probabilidad de que el parámetro poblacional sea mayor, menor o igual a un cierto valor. Esto es lo que se conoce como __test de hipótesis__.
 
@@ -239,24 +238,24 @@ Si la evidencia es lo suficientemente fuerte, podremos rechazar la hipótesis $H
 
 ##### Significatividad en los tests
 
-- Muchas veces decimos que algo es __"estadística mente significativo"__. Detrás de esto se encuentra un test de hipótesis que indica que hay una suficiente _significativdad estadística_. 
+- Muchas veces decimos que algo es __"estadísticamente significativo"__. Detrás de esto se encuentra un test de hipótesis que indica que hay una suficiente _significativdad estadística_. 
 
-- La _significatividad estadística_,representada con $\alpha$, es la probabilidad de rechazar $H_0$ cuando en realidad es cierta. Por eso, cuanto más bajo el valor de $\alpha$, más seguros estamos de no equivocarnos. Por lo general testeamos con valores de alpha de 1%, 5% y 10%, dependiendo del área de estudio
-
-
-- El __p-valor__ es _la mínima significatividad para la que rechazo el test. Es decir, cuanto más bajo es el p-valor, más seguros estamos de rechazar $H_0$
+- La _significatividad estadística_, representada con $\alpha$, es la probabilidad de rechazar $H_0$ cuando en realidad es cierta. Por eso, cuanto más bajo el valor de $\alpha$, más seguros estamos de no equivocarnos. Por lo general testeamos con valores de alpha de 1%, 5% y 10%, dependiendo del área de estudio.
 
 
-- El resultado de un test esta determinado por
+- El __p-valor__ es _la mínima significatividad_ para la que rechazo el test. Es decir, cuanto más bajo es el p-valor, más seguros estamos de rechazar $H_0$.
 
-  1. __La fuerza evidencia empírica__: Si nuestra duda es si la media poblacional es mayor a, digamos, 10. Y la media muestral es 11, no es es lo mismo que si es 100, 1000 o 10000.
+
+- El resultado de un test está determinado por:
+
+  1. __La fuerza de la evidencia empírica__: Si nuestra duda es si la media poblacional es mayor a, digamos, 10, y la media muestral es 11, no es lo mismo que si es 100, 1000 o 10000.
   1. __El tamaño de la muestra__: En las fórmulas que definen los test siempre juega el tamaño de la muestra: cuanto más grande es, más seguros estamos de que el resultado no es producto del mero azar.
   1. __La veracidad de los supuestos__: Otra cosa importante es que los test asumen ciertas cosas: 
     - Normalidad en los datos.
     - Que conocemos algún otro parámetro de la distribución, como la varianza.
     - Que los datos son independientes entre sí,
     - Etc. \
-__Cada Test tiene sus propios supuestos__. Por eso a veces luego de hacer un test, hay que hacer otros tests para validar que los supuestos se cumplen. 
+__Cada Test tiene sus propios supuestos__. Por eso a veces, luego de hacer un test, hay que hacer otros tests para validar que los supuestos se cumplen. 
 
 
 - Lo primero, la fuerza de la evidencia, es lo que más nos importa, y no hay mucho por hacer. 
@@ -265,9 +264,9 @@ __Cada Test tiene sus propios supuestos__. Por eso a veces luego de hacer un tes
 
 - Sin embargo, el verdadero problema en _La era del big data_ es que tenemos muestras demasiado grandes, por lo que cualquier test, por más mínima que sea la diferencia, puede dar significativo.
 
-> Por ejemplo, podemos decir que la altura promedio en Argentina es 1,74. Pero si hacemos un test, utilizando como muestra 40 millones de personas, vamos a rechazar que ese es el valor, porque en realidad es 1,74010010. En términos de lo que nos puede interesar, 1,74 sería válido, pero estadísticamente rechazaríamos. 
+> Por ejemplo, podemos decir que la altura promedio en Argentina es 1,74. Pero si hacemos un test, utilizando como muestra 40 millones de personas, vamos a rechazar que ese es el valor, porque en realidad es 1,7401001. En términos de lo que nos puede interesar, 1,74 sería válido, pero estadísticamente rechazaríamos. 
 
-- Finalmente, según la información que tengamos de la población y cual es el problema que queremos resolver, vamos a tener que utilizar distintos tipos de tests. La cantidad de tests posibles es ENORME, y escapa al contenido de este curso, así como sus fórmulas. A modo de ejemplo, les dejamos el siguiente machete:
+- Finalmente, según la información que tengamos de la población y cuál es el problema que queremos resolver, vamos a tener que utilizar distintos tipos de tests. La cantidad de tests posibles es ENORME, y escapa al contenido de este curso, así como sus fórmulas. A modo de ejemplo, les dejamos el siguiente machete:
 
 ![fuente: http://abacus.bates.edu/~ganderso/biology/resources/statistics.html](img/tests.jpeg){width=1000}
 
@@ -276,6 +275,7 @@ __Cada Test tiene sus propios supuestos__. Por eso a veces luego de hacer un tes
 ### Algunos estimadores importantes
 
 #### Medidas de centralidad
+
 - __Media__
 
 $$
@@ -320,7 +320,7 @@ ggplot(data = data.frame(x = c(0, 10)), aes(x)) +
 
 Así como dijimos que la mediana es el valor que deja al 50% de los datos de un lado y al 50% del otro, podemos generalizar este concepto a cualquier X%. Esto son los cuantiles. El cuantil x, es el valor tal que queda un x% de la distribución a izquierda, y 1-x a derecha. 
 
-Algunos de los más utilizados son el del 25%, también conocido como $Q_1$ (el _cuartil_ 1), el $Q_2$ (la mediana) y el $Q_3$ (el _cuartil_ 3), que deja el 75% de los datos a su derecha. Veamos como se ven en la distribución de arriba
+Algunos de los más utilizados son el del 25%, también conocido como $Q_1$ (el _cuartil_ 1), el $Q_2$ (la mediana) y el $Q_3$ (el _cuartil_ 3), que deja el 75% de los datos a su derecha. Veamos cómo se ven en la distribución de arriba.
 
 
 ```{r}
@@ -347,7 +347,8 @@ ggplot(data = data.frame(x = c(0, 10)), aes(x)) +
 
 
 
-#### desvío estándar
+#### Desvío estándar
+
 - El _desvío estándar_ es una medida de dispersión de los datos, que indica cuánto se suelen alejar de la media. 
 
 
@@ -366,7 +367,7 @@ El Boxplot es muy útil para describir una distribución y para detectar outlier
 - Outliers, definidos como aquellos puntos que se encuentran a más de 1,5 veces el rango intercuartílico del centro de la distribución.
 
 
-veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
+Veamos qué pinta tienen los boxplot de números generados aleatoriamente a partir de tres distribuciones que ya vimos. En este caso, sólo tomaremos 15 valores de cada distribución
 
 ```{r}
 
@@ -391,7 +392,7 @@ ggplot(data = distribuciones, aes(distribucion, valor, fill=distribucion)) +
 Algunas cosas que resaltan:
 
 - la distribución $\chi^2$ no toma valores en los negativos.
-- La normal esta más concentrada en el centro de la distribución
+- La normal esta más concentrada en el centro de la distribución.
 
 
 
@@ -420,7 +421,7 @@ ggplot(data = distribuciones, aes(distribucion, valor, fill=distribucion)) +
 Cuando generamos 100 valores en lugar de 15, tenemos más chances de agarrar un punto alejado en la distribución. De esta forma podemos apreciar las diferencias entre la distribución normal y la T-student.
 
 
-También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo
+También podemos volver a repasar qué efecto generan los distintos parámetros. Por ejemplo:
 
 ```{r}
 distribuciones <- tibble(
@@ -446,9 +447,9 @@ ggplot(data = distribuciones, aes(distribucion, valor, fill=distribucion)) +
 Otra forma de analizar una distribución es mediante los histogramas:
 
 - En un histograma agrupamos las observaciones en rangos fijos de la variable y contamos la cantidad de ocurrencias.
-- Cuanto más alta es una barra, es porque más observaciones se encuentran en dicho rango
+- Cuanto más alta es una barra, es porque más observaciones se encuentran en dicho rango.
 
-Veamos el mismo ejemplo que arriba, pero con histogramas
+Veamos el mismo ejemplo que arriba, pero con histogramas:
 
 ```{r}
 distribuciones <- tibble(
@@ -486,7 +487,7 @@ ggplot(data = distribuciones, aes( x=valor, fill=distribucion)) +
 
 #### Kernel
 
-Los Kernels son simplemente un suavizados sobre los histogramas
+Los Kernels son simplemente un suavizado sobre los histogramas.
 
 
 ```{r}
@@ -524,7 +525,7 @@ ggplot(data = distribuciones, aes( x=valor, fill=distribucion)) +
 
 #### Violin plots
 
-Combinando la idea de Kernels y boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados
+Combinando la idea de Kernels y Boxplots, se crearon los violin plots, que simplemente muestran a los kernels duplicados.
 
 ```{r}
 distribuciones <- tibble(
