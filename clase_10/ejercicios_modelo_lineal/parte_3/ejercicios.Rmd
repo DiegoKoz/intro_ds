@@ -1,0 +1,366 @@
+---
+title: "Ejercicios modelo lineal. III"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+---
+
+
+# 3. Ejercicios de Regresión Lineal Simple (segunda parte)
+  
+### Ejercicio 3.1 Medidas del cuerpo, Parte IV. Base de datos bdims del paquete openintro. 
+ a) Compare los ajustes realizados en los ejercicios 2.1 y 2.2.
+
+* __modelo 2.1__:
+      + formula = wgt ~ hip.gi
+      + $R^2$  0.5821
+* __modelo 2.2__:
+      + formula = wgt ~ hgt
+      + $R^2$  0.5145
+ 
+ El modelo wgt ~ hip.gi es mejor, porque tiene un mejor $R^2$
+ 
+ b)Para el ajuste del peso usando la circunferencia de cadera como única covariable, halle un intervalo de confianza de nivel 0.95 cuando el contorno de cadera mide 100 cm. Compárelo con el intervalo de predicción para ese mismo contorno de cadera.
+```{r}
+lm_fitted <- lm(wgt~hip.gi,data =bdims )
+new <- data.frame(hip.gi = 100)
+#intervalo de confianza
+predict.lm(lm_fitted,newdata = new,interval="confidence",level = 0.95)
+#intervalo de predicción
+predict.lm(lm_fitted,newdata = new,interval="prediction",level = 0.95)
+
+```
+
+ c) Para el ajuste del peso usando la altura como única covariable, halle un intervalo de confianza de nivel 0.95 cuando la altura es de 176 cm. Compárelo con el intervalo de predicción para esa misma altura. ¿Cuál de los dos modelos da un intervalo de predicción más útil?
+  
+```{r}
+lm_fitted <- lm(wgt~hgt,data =bdims )
+new <- data.frame(hgt = 176)
+#intervalo de confianza
+predict.lm(lm_fitted,newdata = new,interval="confidence",level = 0.95)
+#intervalo de predicción
+predict.lm(lm_fitted,newdata = new,interval="prediction",level = 0.95)
+
+```
+
+Es más útil el primer modelo, de la circunferencia de la cadera, porque el intervalo de predicción, a un mismo nivel de significatividad, es más acotado.
+
+ d) Construya un intervalo de confianza para el peso esperado cuando el contorno de cintura es de 80cm.,95cm., 125cm. de nivel 0.95. Estos tres intervalos, ¿tienen nivel simultáneo 0.95? Es decir, la siguiente afirmación ¿es verdadera o falsa? Justifique. En aproximadamente 95 de cada 100 veces que yo construya los IC basados en una (misma) muestra, cada uno de los 3 IC contendrán al verdadero valor esperado del peso.
+  
+  
+```{r}
+lm_fitted <- lm(wgt~hip.gi,data =bdims )
+new <- data.frame(hip.gi = c(80,95,125))
+#intervalo de confianza
+predict.lm(lm_fitted,newdata = new,interval="confidence",level = 0.95)
+```
+Es falso, no tienen un nivel de confianza simultaneo del 95%, porque no son independientes los test, al tratarse de una misma muestra.
+
+### Ejercicio 3.2: heights.txt
+
+a) Realice un scatterplot de los datos, con la altura de las madres en el eje horizontal.
+
+```{r}
+library(alr3)
+
+height.plot <-  ggplot(heights, aes(Mheight,Dheight)) +
+  geom_point()+
+  geom_abline(colour="firebrick", size =1)+
+  theme_minimal()+
+  lims(x = c(55,75), y = c(55,75))
+height.plot
+```
+
+¿Describe esta figura un buen resumen de la relación entre ambas variables?
+__Si__, aunque pareciera que existe una tendencia a que las hijas sean más altas que las madres.
+
+En base al scatterplot, ¿parecería ser cierto que las madres más altas suelen tener hijas más altas y viceversa con las más bajas? 
+__Si__
+b) Ajuste el modelo lineal a los datos. Indique el valor de la recta ajustada. Superpóngala al scatter plot.
+
+```{r}
+lm.ajustado <- lm(Dheight~Mheight,data = heights)
+lm.ajustado
+
+#intervalo de confianza para la pendiente
+height.plot+  geom_smooth(method = "lm", se = FALSE)
+```
+
+¿Presenta visualmente un mejor ajuste que la recta identidad postulada en el ítem anterior?
+__si__
+```{r}
+#coeficientes, errores estandar, coeficientes de determinación
+summary(lm.ajustado)
+# varianza de los errores
+anova(lm.ajustado)
+
+confint(lm.ajustado,level = 0.95,parm = 2)
+```
+
+El p-valor del test t para $\beta_0$ es <2e-16, por lo que rechazamos la hipótesis nula de que $E(Dheight |Mheight) =  \beta_0$, esto implica que el incremento de la altura de la madre es significativa para la altura esperada de la hija
+
+c) Prediga y obtenga un intervalo de predicción para la altura de una hija cuya madre mide 64 pulgadas.
+```{r}
+new <- data.frame(Mheight = 64, Dheight = NA)
+predict.lm(lm.ajustado,newdata = new,interval="confidence",level = 0.95)
+```
+
+d) Una pulgada equivale a 2.54cm. Convierta ambas variables a centímetros (Dheightcm y Mheightcm) y ajuste un modelo lineal a estas nuevas variables.
+
+```{r}
+heights <- heights %>% 
+  mutate(Mheightcm = Mheight/2.54,
+         Dheightcm = Dheight/2.54)
+
+lm.ajustado.cm <- lm(Dheightcm~Mheightcm,data = heights)
+
+# Ajuste en cm
+summary(lm.ajustado.cm)
+# Ajuste en pulgadas
+summary(lm.ajustado)
+
+```
+
+_preguntas_
+
+* ¿Deberían cambiar los estimadores de $\beta_0$ y $\beta_1$? 
+      * Si la ordenada al origen, $\beta_0$, no $\beta_1$ porque es independiente de las unidades de medida
+* ¿De qué manera? 
+      * $\beta_0$ tiene que ser en cm 2,54 veces menor que en pulgadas
+* ¿Y los errores estándares? 
+      * de igual manera
+* ¿Y los p-valores?
+      * no cambian
+* ¿Y el coeficiente de determinación? 
+      * no cambia
+* ¿Y la estimación del desvío estándar de los errores?
+      * tiene que ser en cm 2,54 veces menor que en pulgadas
+
+### Ejercicio 3.3. Simulación 1.
+
+a) Generar n = 22 datos que sigan el modelo lineal simple
+ $$ Y = 10 + 5X + \epsilon $$
+ 
+$\epsilon  \sim \mathcal{N}(0,\,\sigma^{2}).$ con $\sigma^2=49$
+
+```{r}
+set.seed(54321)
+epsilon <- rnorm(n = 22,sd = 7)
+densityPlot(epsilon, col="lightcoral")
+
+X <- round(runif(n = 22, min = 0, max = 10),2)
+Y <- 10 + 5*X + epsilon
+XY <- data.frame(X=X, Y=Y)
+ggplot(XY, aes(X,Y)) + geom_point()
+```
+c) Ajuste el modelo lineal
+
+```{r}
+ajuste <- lm(Y~X, data = XY)
+
+summary(ajuste)
+confint(ajuste)
+
+```
+
+__preguntas__:
+
+* ¿Los verdaderos $\beta_0$ y $\beta_1$ pertenecen a dichos intervalos? 
+    * Si
+* ¿Cuánto dio la pendiente estimada, $\hat{\beta_1}$?
+    * 8.427
+* ¿En qué parte de la salida del ajuste lineal podemos encontrar el estimador de $\sigma$?     * en el _Residual standard error_ se indica $\sigma$
+* ¿Cuánto debería valer?
+    * 7
+    
+d) Pídamosle al R que chequee si el 5 pertenece al IC de nivel 0.95 calculado en base a la muestra.
+
+
+```{r}
+beta1est <- 5 > confint(ajuste, parm = 2)[1] & 5 < confint(ajuste, parm = 2)[2]
+beta1est
+```
+
+e) Superpóngale al scatterplot de los datos la recta verdadera (en azul) y la estimada en base a ellos (en rojo).
+
+```{r}
+ggplot(XY, aes(X,Y)) + 
+  geom_point()+
+  geom_smooth(method = "lm",color="firebrick",se = FALSE)+
+  geom_abline(slope =5,intercept = 10, color = "steelblue", size = 1)
+
+```
+
+### Ejercicio 3.4 Simulación 2. 
+
+1000 repeticiones del ejercicio anterior
+
+a) ¿Puede usted anticipar, desde la teoría las respuestas de las preguntas que siguen?
+
+
+i. Las pendientes estimadas en las B = 1000 replicaciones, ¿serán siempre iguales o cambiarán de replicación en replicación?
+   + Cambian
+ii. ¿Alrededor de qué número variarán las pendientes estimadas en las 1000 replicaciones?
+   + 5
+iii. Si hacemos un histograma de estas B = 1000 replicaciones, ¿a qué distribución debería parecerse?
+   +  $\beta_1  \sim \mathcal{N}(5,\,\sigma_b^{2}).$
+iv. Aproximadamente, ¿qué porcentaje de los 1000 intervalos de confianza para la pendiente estimados a partir de las 1000 muestras cubrirá al verdadero valor de la pendiente?
+   + 950
+
+b)
+
+```{r}
+beta1est <- rep(NA,1000)
+icbet <- rep(NA,1000)
+
+set.seed(54321)
+X <- round(runif(n = 22, min = 0, max = 10),2)
+for(i in 1:1000){
+epsilon <- rnorm(n = 22,sd = 7)
+Y <- 10 + 5*X + epsilon
+XY <- data.frame(X=X, Y=Y)
+
+ajuste <- lm(Y~X, data = XY)
+
+beta1est[i] <- ajuste$coefficients[2]
+icbet[i] <- 5 > confint(ajuste, parm = 2)[1] & 5 < confint(ajuste, parm = 2)[2]
+}
+
+```
+
+d) Haga un histograma de las pendientes estimadas. ¿Qué distribución parecen tener los datos?
+
+```{r}
+ggplot(as.data.frame(beta1est), aes(beta1est))+
+  geom_histogram(fill='aquamarine3',color="gray40", alpha=0.75)+
+  geom_vline(xintercept = mean(beta1est), linetype ="dashed")+
+  theme_light()
+```
+
+
+Tienen una distribución aproximadamente normal, con media ```r mean(beta1est)``` 
+
+e) ¿Qué proporción de los intervalos de conanza construidos contiene al verdadero valor de la pendiente?
+
+```{r}
+sum(icbet)/length(icbet)
+```
+
+### Ejercicio 3.5 Mamíferos, Parte IV.conjunto de datos mammals del paquete openintro.
+
+a) Si dos animales difieren en el BodyWt por un factor de diez, dé un intervalo
+del 95% de confianza para la diferencia en el log10(BrainWt) para estos dos animales.
+
+```{r}
+
+lm_fitted <- lm(logBrainWt ~ logBodyWt, data = mammals)
+confint(lm_fitted)[2,]
+
+```
+
+
+b) Para un mamífero que no está en la base de datos, cuyo peso corporal es de 100 kg., obtenga la predicción y un intervalo de nivel 95% de predicción del log10 (BrainWt) :
+
+
+```{r}
+nuevo <- data.frame(logBodyWt = log10(100), logBrainWt = NA)
+
+predict.lm(lm_fitted,newdata = nuevo,interval="prediction",level = 0.95)
+
+```
+
+intervalo de predicción del peso del cerebro del mamífero cuyo peso
+corporal es 100kg. Mirando los valores numéricos obtenidos, ¿parece muy útil el resultado obtenido?
+
+```{r}
+10^predict.lm(lm_fitted,newdata = nuevo,interval="prediction",level = 0.95)[2:3]
+```
+
+No es útil el resultado obtenido.
+
+### Ejercicio 3.6. wblake
+
+a) Hacer un scatter plot de la longitud (Length) en función de la edad (Age).
+```{r}
+ggplot(wblake, aes(Age, Length))+geom_point()
+```
+
+
+La variable años es discreta
+
+b) Calcule las medias y los desvíos estándares muestrales para cada uno de las ocho subpoblaciones
+
+```{r}
+wblake %>% 
+  group_by(Age) %>% 
+  summarise(media   = mean(Length),
+            desvio_estandar = sd(Length))
+
+ggplot(wblake, aes(Age, Length, fill = as.factor(Age), group = Age))+
+  geom_boxplot()+
+  theme_minimal()+
+  theme(legend.position = "none")
+
+```
+
+La longitud, ¿parece aumentar con la edad? __si__    
+La dispersión de la longitud, ¿parece mantenerse más o menos constante con la edad? ? ¿O crece? ¿O decrece? __se mantiene constante__
+
+
+c) Ajuste un modelo lineal para explicar la longitud (Length) en función de la edad (Age). 
+
+```{r}
+ajuste <- lm(Length ~ Age, data = wblake)
+summary(ajuste)
+```
+
+¿Resulta significativa la pendiente?       
+__si__   
+Resuma la bondad del ajuste con el R2:    
+__el modelo explica un 82% de la variabilidad del largo__
+
+Superponga la recta estimada al gráfico de dispersión, y también las medias muestrales por grupos.
+
+```{r}
+ggplot(wblake, aes(Age, Length))+
+  geom_point()+
+  geom_smooth(method = "lm", se = FALSE)+
+  geom_boxplot(aes( color = as.factor(Age), fill=NULL, group = Age), alpha=0.5)+
+  theme_minimal()+
+  theme(legend.position = "none")
+
+
+
+```
+
+Halle el estimador de $\sigma$ que proporciona el modelo lineal.
+
+```{r}
+sigma(ajuste)
+```
+
+¿A qué valor debiera parecerse?        
+se debe parecer al Residual standard error       
+¿Se parece?       
+ __si__
+
+```{r}
+sd(wblake$Length)
+```
+
+¿Le parece que el ajuste obtenido por el modelo lineal es satisfactorio?    
+__si__
+
+d) Obtenga intervalos de confianza de nivel 95% para la longitud media a edades 2, 4 y 6 años
+
+```{r}
+new <- data.frame(Age = c(2,4,6))
+#intervalo de confianza
+predict.lm(ajuste,newdata = new,interval="confidence",level = 0.95)
+
+```
+
+¿Sería correcto obtener IC para la longitud media a los 9 años con este conjunto de datos?  
+__implicaría realizar una extrapolación de los resultados.__
+

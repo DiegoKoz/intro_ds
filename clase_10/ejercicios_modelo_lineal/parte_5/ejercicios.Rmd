@@ -1,0 +1,90 @@
+---
+title: "Ejercicios modelo lineal V"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+---
+
+
+# 5. Ejercicios Regresión Lineal Múltiple
+
+### Ejercicio 5.1 Medidas del cuerpo V. Base de datos bdims del paquete openintro.
+
+Proponga un modelo de regresión múltiple que explique el peso medido en kilogramos (wgt) utilizando el contorno de la cadera medida en centímetros (hip.gi) y la altura media en centímetros (hgt) como covariables.    
+Escriba el modelo que está ajustando. Realice el ajuste con el R.
+
+__modelo propuesto__:
+$$
+wgt = \beta_0 + \beta_1*hip.gi + \beta_1*hgt + \epsilon
+$$
+__modelo ajustado__
+$$
+\widehat{wgt} = \widehat{\beta_0} + \widehat{\beta_1}*hip.gi + \widehat{\beta_1}*hgt
+$$
+
+```{r}
+ajuste <- lm(wgt ~ hip.gi + hgt, data = bdims)
+summary(ajuste)
+```
+
+
+b) Interprete los coeficientes estimados.     
+ * Para una altura dada, frente a un aumento en un cm del contorno de la cadera se espera un aumento de 1,17 kg.  
+  * Para una contorno de la cadera dado, frente a un aumento en un cm del alto se espera un aumento de 0,74 kg.  
+¿Resultan significativos?       
+  * __Si__      
+Cambian sus valores respecto de los que tenían los coeficientes que acompañaban a estas variables en los modelos de regresión lineal simple?
+  * hip.gi 1.52417    
+  * hgt    1.01762    
+  * Cambia la magnitud, pero no el sentido.
+  
+c) Evalúe la bondad del ajuste realizado, a través del R2: Indique cuánto vale y qué significa. Se quiere comparar este ajuste con el que dan los dos modelos lineales simples propuestos en los ejercicios 2.1 y 2.2. ¿Es correcto comparar los R2 de los tres ajustes? ¿Qué valores puedo comparar? ¿Es mejor este ajuste múltiple?
+
+
+```{r}
+kable(data.frame( modelo      = c("wgt~hip.gi", "wgt ~ hgt", "wgt ~ hip.gi + hgt"),
+                  R2          = c(0.5821, 0.5145, 0.8201),
+                  R2.ajustado = c(0.5813, 0.5136, 0.8193 )))
+
+
+```
+ 
+el modelo que incluye el alto y el ancho de la cintura explica un 82% del peso esperado del individuo. Para comparar este modelo con las regresiones simples, utilizamos el $R^{2}_{ajustado}$, donde el modelo múltiple es claramente superior a las regresiones simples.
+
+d) Estime la varianza de los errores. Compare este estimador con los obtenidos en los dos ajustes simples.
+
+```{r}
+kable(data.frame( modelo = c("wgt~hip.gi", "wgt ~ hgt", "wgt ~ hip.gi + hgt"),
+                  'Residual standard error' = c(8.636 ,9.308 , 5.673)))
+
+```
+
+$\widehat{\sigma^2}$ es mayor en los modelos simples que en el modelo múltiple. Este último logra captar una mayor variablidad de la información como variabilidad explicada por el modelo.
+
+e) Estime el peso esperado para la población de adultos cuyo contorno de cadera mide 100 cm y su altura es de 174cm. Dé un intervalo de confianza de nivel 0.95 para este valor esperado.
+
+```{r}
+pob <- data.frame(hip.gi =  100,hgt = 174, wgt=NA)
+predict(ajuste, newdata = pob,interval="confidence",level = 0.95)
+
+```
+
+f) Prediga el peso de un adulto cuyo contorno de cadera mide 100 cm y su altura es de 174cm. Dé un intervalo de predicción de nivel 0.95 para este valor.Compare las longitudes de los tres intervalos de predicción que se obtienen usando el modelo que solamente tiene al contorno de cadera como explicativa, al que solamente usa la altura y al modelo múltiple que contiene a ambas.
+
+
+```{r}
+ajuste_s_hip    <- lm(wgt ~ hip.gi , data = bdims)
+ajuste_s_hgt    <- lm(wgt ~ hgt, data = bdims)
+ajuste_multiple <- lm(wgt ~ hip.gi + hgt, data = bdims)
+
+# ajuste wgt ~ hip.gi
+predict(ajuste_s_hip,    newdata = pob, ,interval="predict",level = 0.95)
+# ajuste wgt ~ hgt
+predict(ajuste_s_hgt,    newdata = pob, ,interval="predict",level = 0.95)
+# ajuste wgt ~ hip.gi + hgt
+predict(ajuste_multiple, newdata = pob, ,interval="predict",level = 0.95)
+
+```
+
+El modelo de regresión múltiple, que explica mejor, tiene un intervalo más acotado que los modelos de regresión simple.

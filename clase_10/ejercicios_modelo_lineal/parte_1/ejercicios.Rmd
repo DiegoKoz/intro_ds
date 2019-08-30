@@ -1,0 +1,182 @@
+---
+title: "Ejercicios modelo lineal. I"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+---
+
+#1. Ejercicios de Correlación
+
+### Ejercicio 1.1 Mamíferos, Parte I.
+Usando el conjunto de datos de mammals, crear un diagrama de dispersión que muestre cómo el peso del cerebro de un mamífero (BrainWt) varía en función de su peso corporal (BodyWt).
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(openintro,warn.conflicts = FALSE)
+
+```
+
+```{r}
+ggplot(mammals, aes(BrainWt, BodyWt))+
+  geom_point()
+```
+
+```{r}
+
+ggplot(mammals, aes(BrainWt, BodyWt))+
+  geom_point()+
+  lims(x=c(0,1000), y = c(0,1000))
+```
+
+
+### Ejercicio 1.2 Medidas del cuerpo, Parte I. 
+Utilizando el conjunto de datos bdims, realizar un diagrama de dispersión que muestre cómo el peso de una persona {wgt) varía en función de su altura {hgt). Jdentifque el género de las observaciones en el scatterplot, para ello pinte de rojo a las mujeres y de azul a los hombres, use la instrucción col de R. Observar que en esta base de datos, sex= 1 para los hombres y sex= O para las mujeres.
+
+```{r}
+ggplot(bdims, aes(wgt, hgt, color= factor(sex)))+
+  geom_point()+
+  scale_color_manual("genero",values = c("blue","red"),labels=c("Mujeres","Hombres"))
+
+
+```
+
+
+
+### Ejercicio 1.3 
+Utilizando el conjunto de datos smoking, realizar un diagrama de dispersión que ilustre cómo varía la cantidad de cigarrillos que fuma por día una persona durante el fn de semana (amtWeekends), en función de su edad (age).
+
+```{r}
+ggplot(smoking, aes(age,amtWeekends))+
+  geom_point()
+
+```
+
+
+### Ejercicio 1.4
+Utilizando el conjunto de datos cars, realizar un scatter plot del rendimiento del auto en la ciudad (mpgCity) en función del peso del auto (weight).
+
+```{r}
+ggplot(cars,aes(weight, mpgCity))+
+  geom_point()
+```
+
+
+### Ejercicio 1.5 
+Para cada uno de los cuatro scatterplots anteriores describa la forma, la dirección y la fuerza de la relación entre las dos variables involucradas. Respuestas posibles:
+
+* _forma_:
+    + lineal
+    + no lineal (cuadrática, exponencial, etc.)
+
+* _dirección_: 
+    * positiva
+    * negativa
+
+* _fuerza de la relación_: 
+    * fuerte
+    * moderada
+    * débil
+    * no asociación.
+
+__RTA__:    
+
+* Gráfico 1:
+    * froma: no lineal
+    * dirección: positiva
+    * fuerza: moderada
+* Gráfico 2:
+    * froma: lineal
+    * dirección: positiva
+    * fuerza: fuerte
+* Gráfico 3:
+    * froma:  
+    * dirección:
+    * fuerza: no asociación
+* Gráfico 4:
+    * froma: no lineal 
+    * dirección: negativa
+    * fuerza: fuerte
+   
+   
+### Ejercicio 1.6 
+¿Para cuáles de los 4 conjuntos de datos tiene sentido resumir la relación entre ambas variables con el coefciente de correlación muestral de Pearson? Para los casos en los cuales contestó que era apropiado        
+
+a) calcúlelo usando R.        
+b) Testee las siguientes hipótesis     
+H0 : ρ =0        
+H1 : ρ $\neq$ 0         
+
+para cada uno de esos conjuntos. Antes de hacerlo defina a ρ en palabras. Observe que en el ítem 1.6 a) calculó un estimador de esta cantidad, para cada conjunto. ¿En qué casos rechaza la hipótesis nula, a nivel 0.05?
+   
+   
+__RTA__: Para el casao 2 y 4    
+
+__a)__ 
+```{r}
+cor(bdims$wgt, bdims$hgt)
+cor(cars$weight, cars$mpgCity)
+```
+
+__b)__        
+Nivel de asociación lineal entre el peso de una persona (wgt) y su altura (hgt).      
+Nivel de asociación lineal entre el rendimiento del auto en la ciudad (mpgCity) y el peso del auto (weight).
+
+```{r}
+cor.test(bdims$wgt, bdims$hgt)
+cor.test(cars$weight, cars$mpgCity)
+```
+
+### Ejercicio 1.7 
+
+ a) Calcule el coefciente de correlación muestral de Pearson para los 62 mamíferos.
+
+```{r}
+cor(mammals$BrainWt, mammals$BodyWt)
+```
+
+
+ b) Identifque las dos observaciones que tienen valores de peso corporal y cerebral más grandes que el resto. Realice un scatter plot de las restantes 60 variables. ¿Cómo podría describir este gráfco? Calcule el coefciente de correlación muestral de Pearson para estas 60 observaciones.
+
+```{r}
+mammals %>% 
+  top_n(2, wt = BodyWt)
+
+
+mammals %>% 
+  top_n(nrow(.)-2, wt = -BodyWt) %>% 
+ggplot(.,aes(BrainWt, BodyWt))+
+  geom_point()
+#Sigue teniendo un outlier y relación no lineal
+
+mammals %>% 
+  top_n(nrow(.)-2, wt = -BodyWt) %>%
+  summarise(
+    corr = cor(BrainWt, BodyWt)
+  )
+
+```
+
+
+c) Realice un scatterplot con todas las observaciones, del logaritmo (en base 10, o en base e) del peso del cerebro en función del logaritmo del peso corporal. Observe el gráfco. ¿Cómo lo describiría? Calcule la correlación de Pearson para los datos transformados.
+  
+  
+```{r}
+ggplot(mammals, aes(BrainWt,BodyWt))+
+  geom_point()+
+  scale_x_log10()+
+  scale_y_log10()
+
+cor(log(mammals$BrainWt), log(mammals$BodyWt))
+```
+  
+   
+d) Para ambos conjuntos de datos (transformados por el logaritmo y sin transformar) calcule la correlación de Spearman.
+
+```{r}
+cor(mammals$BrainWt, mammals$BodyWt, method = "spearman")
+cor(log(mammals$BrainWt), log(mammals$BodyWt), method = "spearman")
+```
+
+### Ejercicio 1.8 
+¿Con qué coefciente de correlación, Pearson o Spearman, resumiría los datos de cars?(weight, mpgCity):
+__Pearson__

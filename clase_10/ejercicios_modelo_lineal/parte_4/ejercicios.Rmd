@@ -1,0 +1,144 @@
+---
+title: "Ejercicios modelo lineal IV"
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+---
+
+
+# 4. Ejercicios de Diagnóstico para Regresión Lineal Simple
+
+### Ejercicio 4.1. Madres e hijas II. datos: heights
+
+```{r}
+lm.ajustado <- lm(Dheight~Mheight,data = heights)
+plot(lm.ajustado)
+```
+
+b) Compare el ajuste clásico con el ajuste robusto propuesto.
+
+```{r}
+library(robustbase)
+ajuste.robusto <- lmrob(Dheight~Mheight,data = heights)
+summary(ajuste.robusto)
+summary(lm.ajustado)
+plot(ajuste.robusto)
+```
+
+Los coeficientes son muy similares. 
+
+c) Concluya respecto de la adecuación del modelo lineal en este caso.
+__Era adecuado__
+
+### Ejercicio 4.2 Medidas del cuerpo V. Base de datos bdims del paquete openintro.
+
+a) Realice gráficos de que le permitan evaluar los ajustes realizados en los ejercicios 2.1 y 2.2
+
+
+```{r}
+lm.ajustado.2.1 <- lm(wgt~hip.gi,data = bdims)
+lm.ajustado.2.2 <- lm(wgt~hgt,data = bdims)
+plot(lm.ajustado.2.1)
+plot(lm.ajustado.2.2)
+```
+
+
+__2.1__ el QQ plot se aleja mucho de la normalidad. Existe una observación con alto leverage (474)
+__2.2__ el QQ plot se aleja mucho de la normalidad. 
+
+¿Lo conforman estos modelos ajustados?      
+El 2.1 no, el 2.2 sí
+
+b) Compare el ajuste clásico del modelo lineal con el ajuste robusto
+
+```{r}
+lm.ajustado.2.1.rob <- lmrob(wgt~hip.gi,data = bdims)
+lm.ajustado.2.2.rob <- lmrob(wgt~hgt,data = bdims)
+plot(lm.ajustado.2.1.rob)
+plot(lm.ajustado.2.2.rob)
+```
+
+
+¿Cambian mucho los modelos ajustados?        
+__no__
+¿Qué indica esto?     
+__que el ajuste robusto no soluciona el problema__
+
+
+### Ejercicio 4.3 Mamíferos, Parte V. Base de datos mammals del paquete openintro.
+
+a) Ajuste el modelo lineal simple que explica BrainWt en función de BodyWt. Luego
+realice el gráfico de residuos versus valores predichos
+
+```{r}
+ajuste <- lm(BrainWt~BodyWt, data = mammals)
+plot(ajuste)
+
+```
+
+¿Difieren mucho entre sí?
+__si__
+b) Use el test de outliers basado en los residuos estudentizados. Indique cuáles son las observaciones candidatas a outliers.
+```{r}
+outlierTest(ajuste)
+```
+
+Las observaciones candidatas a ser outliers son la 1,5 y 34
+
+
+c) Calcule los leverages. Identifique las observaciones candidatas a más influyentes según este criterio.
+
+```{r}
+library(VGAM)
+library(knitr)
+infl <- hatvalues(ajuste)
+infl <- infl[order(-infl)]
+kable(head(data.frame(leverage = infl)))
+```
+
+Calcule las distancias de Cook, vea cuáles son las observaciones influyentes.
+
+```{r}
+cook.d <- cooks.distance(ajuste)
+cook.d <- cook.d[order(-cook.d)]
+head(data.frame(distancia.cook = cook.d))
+```
+
+d) Compare con el ajuste robusto.
+
+```{r}
+ajuste <- lmrob(BrainWt~BodyWt, data = mammals)
+plot(ajuste)
+
+```
+
+Se marcan las observaciones 1 y 5 como outliers
+
+e) Finalmente, para el modelo de regresión propuesto en el ejercicio 3.5 para vincular los logaritmos en base 10 de ambas variables, haga un gráfico de residuos versus valores predichos, y algunos otros grácos de diagnóstico. 
+
+```{r}
+lm_fitted <- lm(logBrainWt ~ logBodyWt, data = mammals)
+plot(lm_fitted)
+```
+
+
+¿Le parece que este modelo ajusta mejor a los datos?        
+__ajusta mucho mejor__
+
+### Ejercicio 4.4 
+Hacer un ajuste robusto a los datos de perímetro cefálico y edad gestacional. Comparar con el ajuste clásico. Identificar la presencia de outliers.
+
+```{r}
+
+birth <- read.table('low_birth_weight_infants.txt', header = T)
+
+lm_fitted     <- lm(headcirc ~ gestage, data = birth)
+lm_fitted.rob <- lmrob(headcirc ~ gestage, data = birth)
+summary(lm_fitted)
+summary(lm_fitted.rob)
+plot(lm_fitted)
+plot(lm_fitted.rob)
+```
+El registro 31 y 33 parecieran ser outliers. Sin embargo el $R^2$ sólo pasa de .6 a .65
+

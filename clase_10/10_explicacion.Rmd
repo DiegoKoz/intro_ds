@@ -439,3 +439,5 @@ Estas notas de clase estan fuertemente inspiradas en los siguientes libros/notas
 - [R para Cienca de Datos](https://es.r4ds.hadley.nz/)
 - [Apuntes regresión lineal](http://mate.dm.uba.ar/~meszre/apunte_regresion_lineal_szretter.pdf)
 
+
+Un punto pendiente de estas clases que es muy importante son los __supuestos__ que tiene detrás el modelo lineal.
