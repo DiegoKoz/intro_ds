@@ -12,7 +12,8 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 [<i class="fas fa-download"></i>](materiales_curso.zip)
 
-## [Notas de clase](bookdown/_book/index.html)
+## [Notas de clase](bookdown/_book/)
+
 
 
 
