@@ -15,7 +15,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 - Materiales eje 1
 
-[![](img/Download.png){width=50%}](materiales_eje1.zip)
+[![](img/Download.png)](materiales_eje1.zip)
 
 
 # [Notas de clase](https://diegokoz.github.io/intro_ds_bookdown/)
@@ -41,17 +41,17 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 3__: Programación funcional
 
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
+- [Explicación](clase_3/03_explicacion.nb.html)
+- [Práctica Guiada](clase_3/03_practica_guiada.nb.html)
+- [Pŕactica independiente](clase_3/03_practica_independiente.nb.html)
 
 ## __Eje 2. Presentación de resultados__
 
 ### __clase 4__: Visualización de la información
 
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
+- [Explicación](clase_4/04_explicacion.nb.html)
+- [Práctica Guiada](clase_4/04_practica_guiada.nb.html)
+- [Pŕactica independiente](clase_4/04_practica_independiente.nb.html)
 
 ### __clase 5__: Documentación en R
 
@@ -71,16 +71,16 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 7__: Estadística descriptiva
 
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
-
+- [Explicación](clase_7/07_explicacion.nb.html)
+- [Práctica Guiada](clase_7/07_practica_guiada.nb.html)
+- [Pŕactica independiente](clase_7/07_practica_independiente.nb.html)
 
 ### __clase 8__: Correlación y Modelo Lineal
 
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
+- [Explicación](clase_8/08_explicacion.nb.html)
+- [Práctica Guiada](clase_8/08_practica_guiada.nb.html)
+- [Pŕactica independiente](clase_8/ejercicios_modelo_lineal)
+
 
 ## __Eje 4. Clases temáticas__
 
