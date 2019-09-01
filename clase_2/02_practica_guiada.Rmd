@@ -1,0 +1,113 @@
+---
+title: Tidyverse
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica Guiada
+---
+
+En esta ocasión utilizaremos los datos de la librería `gapminder` para utilizar todo lo que aprendimos sobre el `tidyverse`.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(gapminder)
+```
+
+```{r}
+glimpse(gapminder)
+```
+
+### Ejemplo 1
+
+> Calcular el promedio, el máximo y el mínimo de la esperanza de vida de cada continente en el año 2007. Presentar los datos ordenados según la esperanza de vida promedio.
+
+Necesitamos filtrar los datos tal que sólo queden aquellos correspondientes a 2007. Luego, agrupamos los casos de acuerdo a su _continente_, y calculamos los indicadores agregados solicitados. Luego, ordenamos los resultados.
+
+```{r}
+ejercicio1 <- gapminder %>% 
+  filter(year == 2007) %>% 
+  group_by(continent) %>% 
+  summarise(esp_vida_prom = mean(lifeExp),
+            esp_vida_max =  max(lifeExp),
+            esp_vida_min =  min(lifeExp)) %>% 
+  arrange(esp_vida_prom)
+
+ejercicio1
+```
+
+### Ejemplo 2
+
+> Construir una nueva variable en el dataset que contenga una estimación del PBI. Estimar la mediana del PBI, y construir otra variable que tome valor "ALTO" cuando el PBI supera ese valor, y "BAJO" cuando no.
+
+Calculamos el PBI como el producto entre la población y el PBI per cápita para cada uno de los países y años. A continuación, guardamos el cálculo de la mediana del PBI en un valor llamado _mediana_GDP_. Por último, utilizamos la función `case_when` para poder construir la variable de nivel de PBI de acuerdo a la condición lógica solicitada. Nótese que el dataframe `ejercicio2` ha sido re-escrito.
+
+```{r}
+ejercicio2 <- gapminder %>% 
+  mutate(GDP = pop * gdpPercap)
+
+mediana_GDP <- median(ejercicio2$GDP)
+
+ejercicio2 <- ejercicio2 %>% 
+  mutate(GDP_level = case_when(GDP > mediana_GDP ~ "ALTO",
+                               GDP < mediana_GDP ~ "BAJO"))
+
+head(ejercicio2)
+```
+
+### Ejemplo 3
+
+> Crear una copia de la base donde sólo se conserven las variables _country_, _year_ y _lifeExp_, pero con los nombres _pais_, _anio_ y _espVida_.
+
+Utilizamos `select()` para quedarnos con las columnas solicitadas, y `rename()` para cambiar sus nombres.
+
+```{r}
+ejercicio3 <- gapminder %>% 
+  select(country, year, lifeExp) %>% 
+  rename(pais = country,
+         anio = year,
+         espVida = lifeExp)
+
+head(ejercicio3)
+```
+
+### Ejemplo 4
+
+> Crear una copia de la base donde sólo se conserven las variables _country_, _year_ y _gdpPercap_, pero con los nombres _pais_, _anio_ y _pbiPercap_.
+
+```{r}
+ejercicio4 <- gapminder %>% 
+  select(country, year, gdpPercap) %>% 
+  rename(pais = country,
+         anio = year,
+         pbiPercap = gdpPercap)
+
+head(ejercicio4)
+```
+
+### Ejemplo 5
+
+> Crear una nueva tabla que contenga los datos de las tablas `ejercicio3` y `ejercicio4`. Deben unirse de acuerdo al _pais_ y al _anio_.
+
+Podemos utilizar la función `left_join()`.
+
+```{r}
+ejercicio5 <- left_join(ejercicio3, ejercicio4, by = c("pais", "anio"))
+
+head(ejercicio5)
+```
+
+### Ejemplo 6
+
+> Presentar los datos de la tabla `ejercicio1` de forma tal que _esp_vida_prom_, _esp_vida_max_ y _esp_vida_min_ sean valores de una variable llamada _indicador_, y los valores se encuentren en la variable _valor_.
+
+Utilizamos `gather()`, porque queremos transformar los datos de un formato "horizontal" a uno "vertical".
+
+```{r}
+ejercicio6 <- ejercicio1 %>% 
+  gather(., key = indicador, value = valor, 2:4)
+
+head(ejercicio6)
+```
+

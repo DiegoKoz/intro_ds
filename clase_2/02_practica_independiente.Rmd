@@ -1,0 +1,79 @@
+---
+title: Tidyverse
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica independiente
+---
+
+### Dataset Pokemon
+
+En esta ocasión utilizaremos datos facilitados por el proyecto colectivo [Datos de Miércoles](https://github.com/cienciadedatos/datos-de-miercoles) (__#DatosDeMiercoles__ en Twitter).   
+
+_Datos de miércoles_ es el primo latinoamericano de __#tidytuesday__, un proyecto semanal de datos organizado por la comunidad de R, que busca que sus participantes desarrollen sus habilidades procesando datos para crear gráficos significativos usando ggplot2, tidyr, dplyr y otras herramientas del tidyverse. El proyecto original surgió en el marco de la comunidad de aprendizaje online R4DS y desde abril de 2019 la comunidad sudamericana de R impulsa una versión local en español.    
+
+Con la siguiente sintaxis podrán cargar el dataset desde el repositorio de la iniciativa. En caso de no contar con el paquete `readr`, el mismo deberá ser instalado previamente.
+```{r message=FALSE, warning=FALSE}
+# install_packages("readr")
+pokemon <- readr::read_csv("https://raw.githubusercontent.com/cienciadedatos/datos-de-miercoles/master/datos/2019/2019-07-10/pokemon.csv")
+```
+
+### Ejercicios
+
+![](img/charmander.jpg){ width=100 }
+
+- Crear una nueva variable en el dataframe que se llame _TRUE_FALSE_, y tome valor `TRUE` cuando el nombre del pokemon en inglés es igual al nombre traducido, y `FALSO` cuando difieren. Realizar la operación sin utilizar el comando `case_when()`.
+
+```{r}
+#
+```
+
+![](img/Charmeleon.png){ width=100 }
+
+- Obtener la media de puntos totales (`total`) y puntos de vida (`puntos_vida`) para cada tipo de pokemon (`tipo_1`).
+
+```{r}
+#
+```
+
+![](img/charizard.jpg){ width=150 }
+
+- Calcular la media de puntos de ataque y defensa para todos los pokemon de generación 4 o superior, según si son legendarios o no. Luego, calcular la diferencia entre puntos de ataque y de defensa para los legendarios y no legendarios.
+
+```{r}
+#
+```
+
+![](img/squirtle.jpg){ width=100 }     
+
+- Para todos aquellos pokemon que no son missing en el nivel de evolución: calcular la media de su velocidad de acuerdo a su nivel de evolución y si son legendarios o no.
+
+```{r}
+#
+```
+
+![](img/8-Wartortle.png){ width=100 }  
+
+- Agrupar los datos según la variable `tipo_1`, calcular los promedios de:
+  + ataque
+  + defensa
+  + velocidad
+  + puntos_vida
+  + total
+- agrupar las variables de puntajes con gather en dos nuevas variables que se llamen: `skills` y `valor`
+- guardar el contenido en un dataframe llamado `promedios`
+
+```{r}
+#
+```
+
+![](img/blastoise.png){ width=150 }  
+
+- Volver la tabla `promedios` al formato anterior, y ordenar los datos de forma decreciente por la variable `total`.
+
+```{r}
+#
+```
+
