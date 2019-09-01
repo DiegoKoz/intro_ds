@@ -164,6 +164,46 @@ Datos %>%
   summarise(INDICE_PROM = mean(TASA))
 ```
 
+## Joins
+
+Otra implementación muy importante del paquete dplyr son las funciones para unir tablas (joins).
+
+![fuente: http://rstudio-pubs-static.s3.amazonaws.com/227171_618ebdce0b9d44f3af65700e833593db.html](img/joins.png)         
+
+
+### left_join    
+
+Veamos un ejemplo de la función __left_join__ (una de las más utilizadas en la práctica).       
+Para ello crearemos previamente un Dataframe que contenga las cantidades de población total y población económicamente activa para cada uno de los períodos del Dataframe _Datos_.
+
+```{r}
+Poblaciones <- data.frame(FECHA = c("2018.3T", "2018.4T", "2019.1T"),
+                          POBLACION_miles = c(27842, 27914, 28261),
+                          PEA_miles = c(12990, 12979, 13285))
+
+Poblaciones
+```
+
+Unimos nuestras dos tablas. La siguiente forma de realizarlo es equivalente a:   
+`Datos_join <- left_join(Datos, Poblaciones, by = "FECHA")`
+
+```{r}
+Datos_join <- Datos %>% 
+  left_join(Poblaciones, by = "FECHA")
+
+Datos_join
+```
+
+Finalmente, podemos calcular la cantidad de personas desocupadas en cada uno de los períodos con los que contamos.
+
+```{r}
+Datos_join %>% 
+  filter(INDICADOR == "Tasa de Desocupación") %>% 
+  group_by(FECHA) %>% 
+  summarise(DESOCUP_miles = round(TASA/100 * PEA_miles, 0))
+```
+
+
 
 
 
