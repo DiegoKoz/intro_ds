@@ -203,11 +203,107 @@ Datos_join %>%
   summarise(DESOCUP_miles = round(TASA/100 * PEA_miles, 0))
 ```
 
+## Tidyr
 
+El paquete tidyr está pensado para facilitar el emprolijamiento de los datos.
 
+__Gather__ es una función que nos permite pasar los datos de forma horizontal a una forma vertical. 
 
+__spread__ es una función que nos permite pasar los datos de forma vertical a una forma horizontal.
 
+![fuente: http://www.gis-blog.com/data-management-with-r-tidyr-part-1/](img/spreadVSgather.png)
 
+```{r}
+# Utilizamos un conjunto de datos que viene con la librería datasets
+library(datasets)
 
+head(iris)
+```
 
+```{r}
+iris <- iris %>% 
+  mutate(id = 1:nrow(.)) %>%  # le agrego un ID
+  select(id, everything())    # lo acomodo para que el id este primero. 
+
+head(iris)
+```
+
+### Gather y Spread
+
+```{r}
+iris_vertical <- iris %>% gather(., # el . llama a lo que esta atras del %>% 
+                                 key   = Variables,
+                                 value = Valores,
+                                 2:5) #le indico qué columnas juntar
+head(iris_vertical)
+```
+
+Podemos deshacer el __gather__ con un __Spread__
+```{r}
+iris_horizontal <- iris_vertical %>%
+  spread(. ,
+         key   = Variables, # la llave es la variable que va a dar los nombres de columna
+         value = Valores) # los valores con que se llenan las celdas
+
+head(iris_horizontal)
+```
+
+## Lubridate
+
+El paquete lubridate está pensado para trabajar con los datos tipo fecha (date) o fecha-hora (datetime) para cambiarles el formato, realizar operaciones y extraer información
+
+```{r}
+library(lubridate)
+```
+
+### Cambio de formato
+
+Existe una gran cantidad de funciones para realizar esto. La idea general es poder llevar los objetos datetime a un formato común compuesto de los elementos: año, mes, día, hora, minuto y segundo (también se puede setear el huso horario)
+
+```{r}
+fecha  <- "04/12/92 17:35:16"
+fecha
+```
+
+Con la función dmy_hms podemos convertir este string a una fecha: estamos indicando que el formato de la fecha es día(d), mes(m), año(y), hora(h), minuto(m) y segundo(s).
+
+```{r}
+fecha  <- dmy_hms(fecha)
+fecha
+```
+
+Muchas funciones de lubridate operan con esta misma lógica.   
+
+Otra función para realizar un cambio de formato es *parse_date_time*. Permite construir objetos datetime a partir de datos más complejos, como por ejemplo cuando aparece el nombre del mes y el año.    
+
+En el parámetro *x* pasamos el dato de la fecha y en el parámetro *orders* especificamos el orden en el cual se encuentra la información de la fecha.
+
+```{r}
+fecha2  <- "Dec-92"
+fecha2 <- parse_date_time(fecha2, orders = 'my')
+fecha2
+```
+
+### Extracción de información
+
+Existen muchas funciones muy sencillas para extraer información de un objeto datetime. Algunas son:
+
+```{r}
+year(fecha)  # Obtener el año
+month(fecha) # Obtener el mes
+day(fecha)   # Obtener el día
+wday(fecha, label = TRUE) # Obtener el nombre del día
+hour(fecha) # Obtener la hora
+```
+
+### Operaciones
+
+Podemos sumar o restarle cualquier período de tiempo a un objeto datetime
+
+```{r}
+# Sumo dos días 
+fecha + days(2)
+# Resto 1 semana y dos horas
+fecha - (weeks(1) + hours(2))
+```
 

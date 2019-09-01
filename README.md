@@ -35,9 +35,9 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 2__: Tidyverse:
 
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
+- [Explicación](clase_2/02_explicacion.nb.html)
+- [Práctica Guiada](clase_2/02_practica_guiada.nb.html)
+- [Pŕactica independiente](clase_2/02_practica_independiente.nb.html)
 
 ### __clase 3__: Programación funcional
 
