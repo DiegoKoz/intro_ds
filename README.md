@@ -78,9 +78,10 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 8__: Correlación y Modelo Lineal
 
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
+- [Explicación](clase_8/08_explicacion.nb.html)
+- [Práctica Guiada](clase_8/08_practica_guiada.nb.html)
+- [Pŕactica independiente](clase_8/08_practica_independiente.nb.html)
+
 
 ## __Eje 4. Clases temáticas__
 
