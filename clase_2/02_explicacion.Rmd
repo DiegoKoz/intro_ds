@@ -1,0 +1,173 @@
+---
+title: Tidyverse
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Explicación
+---
+
+# [Tidyverse](https://www.tidyverse.org/)         
+
+A lo largo de esta clase, trabajaremos con el paquete __tidyverse__. El mismo agrupa una serie de paquetes que tienen una misma lógica en su diseño y por ende funcionan en armonía.     
+Entre ellos, usaremos principalmente __dplyr__ y __tidyr__ para realizar transformaciones sobre nuestro set de datos. En una futura clase utilizaremos __ggplot__ para realizar gráficos.   
+      
+A continuación cargamos la librería a nuestro ambiente. Para ello debe estar previamente instalada en nuestra pc.
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+Para mostrar el funcionamiento básico de tidyverse utilizaremos a modo de ejemplo datos del [Informe de Mercado de Trabajo del INDEC](https://www.indec.gob.ar/uploads/informesdeprensa/mercado_trabajo_eph_1trim19B489ACCDF9.pdf).    
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+INDICADOR <- c("Tasa de Actividad", "Tasa de Empleo", "Tasa de Desocupación",
+               "Tasa de Actividad", "Tasa de Empleo", "Tasa de Desocupación",
+               "Tasa de Actividad", "Tasa de Empleo", "Tasa de Desocupación")
+
+FECHA <-     c("2018.3T", "2018.3T", "2018.3T",
+               "2018.4T", "2018.4T", "2018.4T",
+               "2019.1T", "2019.1T", "2019.1T")
+
+TASA <-      c(46.7, 42.5, 9,
+               46.5, 42.2, 9.1, 
+               47,   42.3, 10.1)
+
+Datos <- data.frame(INDICADOR, FECHA, TASA)
+Datos
+```
+
+## Dplyr
+
+El caracter principal para utilizar este paquete es ```%>%``` , _pipe_ (de tubería).   
+
+Los ```%>%``` toman el set de datos a su izquierda, y los transforman mediante los comandos a su derecha, en los cuales los elementos de la izquierda están implícitos. En otros términos:  
+
+$f(x,y)$ es equivalente a $x$ %>% $f(.,y)$ 
+
+Veamos las principales funciones que pueden utilizarse con la lógica de este paquete:
+
+### glimpse
+
+Permite ver la estructura de la tabla. Nos muestra: 
+
+* número de filas
+* número de columnas
+* nombre de las columnas
+* tipo de dato de cada columna
+* las primeras observaciones de la tabla
+
+```{r}
+glimpse(Datos)
+```
+
+### filter
+
+Permite filtrar la tabla de acuerdo al cumplimiento de condiciones lógicas.
+ 
+```{r}
+Datos %>% 
+  filter(TASA > 10 , INDICADOR == "Tasa de Desocupación")
+```
+
+Nótese que en este caso al separar con una  __,__ las condiciones se exige el cumplimiento de ambas. En caso de desear que se cumpla alguna de las condiciones debe utilizarse el caracter __|__.
+
+```{r}
+Datos %>% 
+  filter(TASA > 10 | INDICADOR == "Tasa de Desocupación")
+```
+
+### rename
+
+Permite renombrar una columna de la tabla. Funciona de la siguiente manera:  
+  
+ ```Data %>% rename(nuevo_nombre = viejo_nombre)``` 
+
+```{r}
+Datos %>% 
+  rename(Periodo = FECHA)
+```
+
+Nótese que, a diferencia del ejemplo de la función __filter__ donde utilizábamos __==__ para comprobar una condición lógica, en este caso se utiliza sólo un __=__ ya que lo estamos haciendo es _asignar_ un nombre.
+
+### mutate
+
+Permite agregar una variable a la tabla (especificando el nombre que tomará ésta), que puede ser el resultado de operaciones sobre otras variables de la misma tabla.       
+
+En caso de especificar el nombre de una columna existente, el resultado de la operación realizada "sobre-escribirá" la información de la columna con dicho nombre.
+
+```{r}
+Datos <- Datos %>% 
+  mutate(PROPORCION = TASA / 100)
+
+Datos
+```
+
+### case_when
+
+Permite definir una variable, de forma tal que tome un valor particular para cada condición establecida. En caso de no cumplir con ninguna de las condiciones establecidas, la variable tomará valor __NA__.   
+La sintaxis de la función es:   
+`case_when(condicion lógica1 ~ valor asignado1)`
+
+```{r}
+Datos <- Datos %>% 
+  mutate(CODIGO = case_when(INDICADOR == "Tasa de Actividad"    ~ "ACT",
+                            INDICADOR == "Tasa de Empleo"       ~ "EMP",
+                            INDICADOR == "Tasa de Desocupación" ~ "DES"))
+
+Datos
+```
+
+### select
+
+Permite especificar la serie de columnas que se desea conservar de un DataFrame. También pueden especificarse las columnas que se desean descartar (agregándoles un _-_ adelante). Muy útil para agilizar el trabajo en bases de datos de gran tamaño.
+
+```{r}
+Datos2 <- Datos %>% 
+  select(CODIGO, FECHA, PROPORCION)
+Datos2
+
+Datos <- Datos %>% 
+  select(-c(PROPORCION, CODIGO))
+Datos
+```
+
+### arrange
+
+Permite ordenar la tabla según los valores de determinada/s variable/s. Es útil cuando luego deben hacerse otras operaciones que requieran del ordenamiento de la tabla, o para mostrar resultados de forma ordenada.
+
+```{r}
+Datos <- Datos %>% 
+  arrange(INDICADOR, FECHA)
+
+Datos
+```
+
+### summarise
+
+Crea una nueva tabla que resuma la información original. Para ello, definimos las variables de resumen y las formas de agregación.
+
+```{r}
+Datos %>% 
+  filter(INDICADOR == "Tasa de Desocupación") %>% 
+  summarise(INDICE_MAX = max(TASA),
+            INDICE_MIN = min(TASA),
+            INDICE_PROM = mean(TASA))
+```
+
+### group_by
+
+Esta función permite realizar operaciones de forma agrupada. Lo que hace la función es "separar" a la tabla según los valores de la variable indicada y realizar las operaciones que se especifican a continuación, de manera independiente para cada una de las "subtablas". En nuestro ejemplo, podría ser útil para calcular el promedio de las tasas por _INDICADOR_. 
+
+```{r}
+Datos %>% 
+  group_by(INDICADOR) %>%
+  summarise(INDICE_PROM = mean(TASA))
+```
+
+
+
+
+
+
+
+
