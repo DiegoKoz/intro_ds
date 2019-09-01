@@ -10,9 +10,9 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 
 
-[![](<i class="fas fa-download"></i>)](materiales_curso.zip)
+[![](img/Download.png)](materiales_curso.zip)
 
-## [Notas de clase](bookdown/_book)
+## [Notas de clase](https://diegokoz.github.io/intro_ds_bookdown/)
 
 
 
