@@ -1,5 +1,5 @@
 ---
-title: Probabilidad y Estadística
+title: Programacion Funcional
 output:
   html_notebook:
     toc: yes
@@ -9,118 +9,267 @@ subtitle: Práctica Guiada
 ---
 
 ```{r}
+library(fs)
 library(tidyverse)
+library(openxlsx)
+library(glue)
+
 ```
 
+### Ejemplo 1: Iterando en la EPH
 
-### Generación de datos aleatorios
+Lo primero que necesitamos es definir un vector o lista sobre el que iterar. 
 
-Para generar datos aleatorios, usamos las funciones:
-
-- `rnorm` para generar datos que surgen de una distribución normal
-- `rt` para generar datos que surgen de una distribución T-student
-- `rchisq` para generar datos que surgen de una distribución Chi cuadrado
-
-> Pero antes, tenemos que fijar la _semilla_ para que los datos sean reproducibles
+Por ejemplo, podemos armar un vector con los path a las bases individuales, con el comando `fs::dir_ls`
 
 ```{r}
-set.seed(1234)
-rnorm(n = 15,mean = 0, sd = 1 )
-rt(n = 15,df=1 )
-rchisq(n = 15,df=1)
+
+bases_individuales_path <- dir_ls(path = '../fuentes/', regexp= 'individual')
+bases_individuales_path
 ```
 
+Luego, como en la función que usamos para leer las bases definimos muchos parametros, nos podemos armar una función _wrapper_ que sólo necesite un parámetro, y que simplifique la escritura del map
 
-Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando `plot`
-```{r}
+```{r message=FALSE, warning=FALSE}
 
-plot(rnorm(n = 15, mean = 0, sd = 1 ))
-plot(rt(n = 15, df=1 ))
-plot(rchisq(n = 15,df=1))
+leer_base_eph <- function(path) {
+  read.table(path,sep=";", dec=",", header = TRUE, fill = TRUE) %>% 
+    select(ANO4,TRIMESTRE,REGION,P21,CH04, CH06)
+}
+
+bases_df <- tibble(bases_individuales_path) %>%
+  mutate(base = map(bases_individuales_path, leer_base_eph))
+
 ```
-
-Noten que el eje X es el índice de los valores, es decir que no agrega información.
-
-
-### Tests
-
-
-Utilicemos ahora datos reales. 
-
-Los datos salen de [https://data.buenosaires.gob.ar/dataset/femicidios](https://data.buenosaires.gob.ar/dataset/femicidios)
-
-> Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.
-
 
 ```{r}
-femicidios <- read_csv(file = '../fuentes/vict_fem_annio__g_edad_limpio.csv')
-femicidios
+bases_df
 ```
 
-Fijense que las estadísitcas no están desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron '-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
+El resultado es un DF donde la columna __base__ tiene en cada fila, otro DF con la base de la EPH de ese período. Esto es lo que llamamos un _nested DF_ o dataframe nesteado pa les pibes.
 
-Vamos a reorganizar la información para corregir todas estas cosas
+Si queremos juntar todo, podemos usar `unnest()`
 
+```{r message=FALSE, warning=FALSE}
+bases_df <- bases_df %>% unnest()
+bases_df
+```
+
+> ¿Qué pasa si los DF que tenemos nesteados no tienen la misma cantidad de columnas?
+
+
+Esto mismo lo podemos usar para fragmentar el datastet por alguna variable, con el `group_by()`
 
 
 ```{r}
-femicidios <- femicidios %>% 
-  filter(anio!=2017, grupo_edad !='Ignorado') %>%  #Sacamos al 2017 y los casos donde se ignora la edad
-  mutate(cantidad_femicidios = case_when(cantidad_femicidios=='-' ~ 0, # reemplazamos el - por 0
-                                         TRUE ~as.numeric(cantidad_femicidios)), # y convertimos la variable en numerica
-         grupo_edad = case_when(grupo_edad %in% c('0 - 15','16 - 20','21 - 40') ~ '0-40', # agrupamos para tener sólo dos grupos
-                                grupo_edad %in% c('41 - 60','61 y más') ~ '41 y más')) %>% 
-  group_by(grupo_edad) %>% 
-  summarise(cantidad_femicidios= sum(cantidad_femicidios)) # sumamos los años y grupos para tener datos agregados
-femicidios
+bases_df %>% 
+  group_by(REGION) %>% 
+  nest()
+
 ```
 
+Así, para cada región tenemos un DF.
 
-Con esta tabla de contingencia podemos hacer un test de hipótesis.
+> ¿ De qué sirve todo esto?
 
-¿Cuál usamos? Nos fijamos en el machete, o googleamos, y vemos que como queremos comparar la cantidad de casos por grupos categóricos, tenemos que usar el test Chi. 
+No todo en la vida es un Dataframe. Hay estucturas de datos que no se pueden normalizar a filas y columnas. En esos casos recurríamos tradicionalmente a los loops. Con MAP podemos tener los elementos agrupados en un sólo objeto y aún conservar sus formas diferentes.
 
-- $H_0$ No hay asociación entre las variables
-- $H_1$ Hay asociación entre las variables
+### Ejemplo 2. Regresión lineal
 
-La idea es que tenemos dos variables: El rango etario y la cantidad de femicidios
+Si bien no nos vamos a meter en el detalle del modelo lineal hoy, es útil usarlo como ejemplo de lo que podemos hacer con MAP.
 
-```{r}
-chisq.test(femicidios$cantidad_femicidios)
-```
-
-Noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
-
-
-### Descripción estadística de los datos
-
-Volveremos a ver los datos de [sueldos de funcionarios](https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios)
+Planteamos el modelo 
+$$
+P21 = \beta_0 + \beta_1*CH04 + \beta_2*CH06
+$$
+Osea, un modleo que explica el ingreso según sexo y edad
 
 
 ```{r}
-sueldos <- read_csv('../fuentes/sueldo_funcionarios_2019.csv')
-```
 
-Con el comando `summary` podemos ver algunos de los principales estadísticos de resumen
+lmfit <- lm(P21~factor(CH04)+CH06,data = bases_df)
+
+summary(lmfit)
+```
+(al final de la clase podemos charlar sobre los resultados, si hay interés :-) )
+
+De forma Tidy, la librería `broom` nos da los resultados en un DF.
 
 ```{r}
-summary(sueldos$asignacion_por_cargo_i)
+broom::tidy(lmfit)
 ```
-
-
-### Gráficos estadísticos
-
-No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad, como los presentados en las notas de clase.
-
-A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
+ 
+ Si lo queremos hacer por region
+ 
+ 
+#### Loopeando
 
 ```{r}
-boxplot(sueldos$asignacion_por_cargo_i)
-hist(sueldos$asignacion_por_cargo_i)
-plot(density(sueldos$asignacion_por_cargo_i))
+
+resultados <- tibble()
+
+for (region in unique(bases_df$REGION)) {
+  
+  data <- bases_df %>% 
+    filter(REGION==region)
+  
+  lmfit <- lm(P21~factor(CH04)+CH06,data = data)
+  
+  lmtidy <- broom::tidy(lmfit)
+  lmtidy$region <- region
+  resultados <- bind_rows(resultados,lmtidy)
+
+}
+
+resultados
+```
+
+#### Usando MAP
+
+Primero me armo una funcion que me simplifica el codigo
+```{r}
+fun<-function(porcion,grupo) {  broom::tidy(lm(P21~factor(CH04)+CH06,data = porcion))}
+```
+
+```{r}
+bases_df_lm <- bases_df %>% 
+  group_by(REGION) %>%
+  nest() %>% 
+  mutate(lm = map(data,fun))
+bases_df_lm
+bases_df_lm %>% 
+  unnest(lm)
+```
+
+O incluso más facil, utilizando `group_modify` (que es un atajo que solo acepta DF)
+
+
+
+```{r}
+bases_df %>% 
+  group_by(REGION) %>% 
+  group_modify(fun)
 ```
 
 
+Pero MAP sirve para operar con cualquier objeto de R.
 
+Por ejemplo podemos guardar el __objeto__ `S3:lm` que es la regresion lineal entrenada. Ese objeto no es ni un vector, ni una lista, ni un DF. No es una estructura de datos, sino que es algo distinto, con _propiedades_ como `predict()` para predecir, el `summary()` que vimos, etc.
+
+```{r}
+fun<-function(porcion,grupo) {  lm(P21~factor(CH04)+CH06,data = porcion)}
+
+bases_df %>% 
+  group_by(REGION) %>%
+  nest() %>%  
+  mutate(lm = map(data,fun))
+```
+
+### Ejemplo 3: Gráficos en serie
+
+Veamos un tercer ejemplo con otra base de datos que ya conocemos: Gapminder, que muestra algunos datos sobre la población de los países por año.
+
+El objetivo de este ejercicio es hacer un gráfico por país de forma automática. 
+
+- Primero veamos los datos
+
+
+```{r}
+
+library(gapminder)
+
+
+gapminder_unfiltered %>% 
+  sample_n(10)
+
+```
+
+la base tiene la siguiente info:
+
+- country: Nombre del país
+- continent: Nombre del continente
+- year: año
+- lifeExp: Esperanza de vida al nacer
+- pop: Población
+- gdpPercap
+
+
+- Vamos a hacer un gráfico sencillo para Argentina
+
+```{r}
+
+data_argentina <- gapminder_unfiltered %>% 
+  filter(country=='Argentina')
+
+ggplot(data_argentina, aes(year, lifeExp, size= pop, color=gdpPercap))+
+  geom_point()+
+  geom_line(alpha=0.6)+
+  labs(title = unique(data_argentina$country))
+```
+
+
+- Ahora que tenemos una idea de lo que queremos gráficar lo podemos poner adentro de una función que grafique.
+
+```{r}
+
+
+# definimos la función
+graficar_pais <- function(data, pais){
+  
+  ggplot(data, aes(year, lifeExp, size= pop, color=gdpPercap))+
+    geom_point()+
+    geom_line(alpha=0.6)+
+    labs(title = pais)
+}
+
+```
+
+
+probamos la función para un caso
+
+```{r}
+graficar_pais(data_argentina, 'Argentina')
+
+```
+
+
+- Nos armamos un dataset nesteado
+
+```{r}
+
+gapminder_nest <- gapminder_unfiltered %>% 
+  group_by(country) %>% 
+  nest()
+
+gapminder_nest %>% 
+  sample_n(10)
+
+```
+
+- Ahora podemos crear una nueva columna que contenga los gráficos
+
+```{r}
+gapminder_nest <- gapminder_nest %>% 
+  mutate(grafico= map2(.x = data, .y = country,.f =  graficar_pais))
+
+gapminder_nest %>% 
+  sample_n(10)
+```
+
+Veamos un ejemplo
+
+
+```{r }
+gapminder_nest$grafico[2]
+```
+
+
+Ahora podemos guardar todos los gráficos en un archivo PDF
+
+```{reval=FALSE, message=FALSE, warning=FALSE, include=TRUE}
+pdf('../resultados/graficos_gapminder.pdf')
+gapminder_nest$grafico
+dev.off()
+```
 
 
