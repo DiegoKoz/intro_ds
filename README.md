@@ -9,61 +9,54 @@ Este programa se destaca, entre otras cosas, por su capacidad de trabajar con gr
 El presente Taller tiene como objetivo principal introducir a los participantes en la ciencia de datos, sobre la base de la utilización del lenguaje R aplicado procesamiento de diferentes bases de datos provistas por el programa de Gobierno Abierto y la Encuesta Permanente de Hogares (EPH) - INDEC.  Se apunta a brindar las herramientas necesarias para la gestión de la información, presentación de resultados y algunas técnicas de modelado de datos, de forma tal que los participantes puedan luego avanzar por su cuenta a técnicas más avanzadas.
 
 
+
+[<i class="fas fa-download"></i>](materiales_curso.zip)
+
+## [Notas de clase](bookdown/_book/index.html)
+
+
+
 ## Temario
 
 __Eje 1. Programación en R__
 
 ### __clase 1__: Introducción al entorno R:
 	
-+ Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
-+ Presentación de la plataforma RStudio para trabajar en “R”
-+ Caracteres especiales en “R”
-+ Operadores lógicos y aritméticos
-+ Definición de Objetos: Valores, Vectores y DataFrames
-+ Tipos de variable (numérica, de caracteres, lógicas)
-+ Lectura y Escritura de Archivos
+- [Explicación](clase_1/01_explicacion.nb.html)
+- [Práctica Guiada](clase_1/01_practica_guiada.nb.html)
+- [Pŕactica independiente](clase_1/01_practica_independiente.nb.html)
 
 ### __clase 2__: Tidyverse:
 
-+ Limpieza de Base de datos: Renombrar y recodificar variables, tratamiento de valores faltantes (missing values/ NA´s)
-+ Seleccionar variables, ordenar y agrupar la base de datos para realizar cálculos
-+ Creación de nuevas variables
-+ Aplicar filtros sobre la base de datos
-+ Construir medidas de resumen de la información
-+ Tratamiento de variables numéricas (edad, ingresos, horas de trabajo, cantidad de hijos / componentes del hogar, entre otras).
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 ### __clase 3__: Programación funcional
 
-+ Estructuras de código condicionales
-+ Loops
-+ Creación de funciones a medida del usuario
-+ Librería purrr para programación funcional
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 __Eje 2. Presentación de resultados__
 
 ### __clase 4__: Visualización de la información
 
-+ Gráficos básicos de R (función “plot”): Comandos para la visualización ágil de la información
-+ Gráficos elaborados en R (función “ggplot”): 
-+ Gráficos de línea, barras, Boxplots y distribuciones de densidad
-+ Parámetros de los gráficos: Leyendas, ejes, títulos, notas, colores
-+ Gráficos con múltiples cruces de variables.
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 ### __clase 5__: Documentación en R
 
-+ Manejo de las extensiones del software “Rmarkdown” y “RNotebook” para elaborar documentos de trabajo, presentaciones interactivas e informes:
-+ Opciones para mostrar u ocultar código en los reportes
-+ Definición de tamaño, títulos y formato con el cual se despliegan los gráficos y tablas en el informe
-+ Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
-+ Código embebido en el texto para automatización de reportes
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 ### __clase 6__: Shiny
 
-+ Shiny como reportes dinámicos
-+ Su utilidad para el análisis exploratorio
-+ Lógica de servidor- interfaz de usuario
-+ Extensiones del mundo shiny
-+ Publicación de resultados
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 
 __Eje 3. Estadística__
@@ -71,53 +64,39 @@ __Eje 3. Estadística__
 
 ### __clase 7__: Estadística descriptiva
 
-+ Introducción a probabilidad
-+ Introducción a distribuciones
-+ El problema de la inversión
-+ Estadística
-+ Población y muestra
-+ Estimadores puntuales, tests de hipótesis
-+ Boxplots, histogramas y kernels
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 
 ### __clase 8__: Correlación y Modelo Lineal
 
-+ Análisis de correlación.
-+ Presentación conceptual del modelo lineal
-+ El modelo lineal desde una perspectiva computacional
-+ Supuestos del modelo lineal
-+ Modelo lineal en R
-+ Modelo lineal en el tidyverse
-
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 __Eje 4. Clases temáticas__
 
 
 ### __clase 9__: Análisis de encuestas
 
-+ Introducción al diseño de encuestas
-+ Presentación de la Encuesta Permanente de Hogares
-+ Generación de estadísticos de resumen en muestras estratificadas
-+ Utilización de los ponderadores
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 
 ### __clase 10__: Mapas
 
-+ Utilización de información geográfica en R
-+ Elaboración de mapas
-+ gestión de shapefiles
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 
 ### __clase 11__: Text Mining
 
-+ Introducción al análisis de textos
-+ Limpieza
-+ Preprocesamiento
-+ BoW
-+ Stopwords
-+ TF-IDF
-+ Wordcloud
-+ Escrapeo de Twitter
+- Explicación
+- Práctica Guiada
+- Pŕactica independiente
 
 
 ## Bibliografía
