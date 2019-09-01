@@ -11,6 +11,8 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ## Temario
 
+__Eje 1. Programación en R__
+
 ### __clase 1__: Introducción al entorno R:
 	
 + Descripción del programa “R”. Lógica sintáctica del lenguaje y comandos básicos
@@ -30,15 +32,14 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 + Construir medidas de resumen de la información
 + Tratamiento de variables numéricas (edad, ingresos, horas de trabajo, cantidad de hijos / componentes del hogar, entre otras).
 
-### __clase 3__: Estadística descriptiva
+### __clase 3__: Programación funcional
 
-+ Introducción a probabilidad
-+ Introducción a distribuciones
-+ El problema de la inversión
-+ Estadística
-+ Población y muestra
-+ Estimadores puntuales, tests de hipótesis
-+ Boxplots, histogramas y kernels
++ Estructuras de código condicionales
++ Loops
++ Creación de funciones a medida del usuario
++ Librería purrr para programación funcional
+
+__Eje 2. Presentación de resultados__
 
 ### __clase 4__: Visualización de la información
 
@@ -56,30 +57,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 + Caracteres especiales para incluir múltiples recursos en el texto del informe: Links a páginas web, notas al pie, enumeraciones, cambios en el formato de letra (tamaño, negrita, cursiva)
 + Código embebido en el texto para automatización de reportes
 
-### __clase 6__: Análisis de encuestas
-
-+ Introducción al diseño de encuestas
-+ Presentación de la Encuesta Permanente de Hogares
-+ Generación de estadísticos de resumen en muestras estratificadas
-+ Utilización de los ponderadores
-
-
-### __clase 7__: Programación funcional
-
-+ Estructuras de código condicionales
-+ Loops
-+ Creación de funciones a medida del usuario
-+ Librería purrr para programación funcional
-
-
-### __clase 8__: Mapas
-
-+ Utilización de información geográfica en R
-+ Elaboración de mapas
-+ gestión de shapefiles
-
-
-### __clase 9__: Shiny
+### __clase 6__: Shiny
 
 + Shiny como reportes dinámicos
 + Su utilidad para el análisis exploratorio
@@ -88,7 +66,21 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 + Publicación de resultados
 
 
-### __clase 10__: Correlación y Modelo Lineal
+__Eje 3. Estadística__
+
+
+### __clase 7__: Estadística descriptiva
+
++ Introducción a probabilidad
++ Introducción a distribuciones
++ El problema de la inversión
++ Estadística
++ Población y muestra
++ Estimadores puntuales, tests de hipótesis
++ Boxplots, histogramas y kernels
+
+
+### __clase 8__: Correlación y Modelo Lineal
 
 + Análisis de correlación.
 + Presentación conceptual del modelo lineal
@@ -96,6 +88,25 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 + Supuestos del modelo lineal
 + Modelo lineal en R
 + Modelo lineal en el tidyverse
+
+
+__Eje 4. Clases temáticas__
+
+
+### __clase 9__: Análisis de encuestas
+
++ Introducción al diseño de encuestas
++ Presentación de la Encuesta Permanente de Hogares
++ Generación de estadísticos de resumen en muestras estratificadas
++ Utilización de los ponderadores
+
+
+### __clase 10__: Mapas
+
++ Utilización de información geográfica en R
++ Elaboración de mapas
++ gestión de shapefiles
+
 
 ### __clase 11__: Text Mining
 
@@ -107,9 +118,6 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 + TF-IDF
 + Wordcloud
 + Escrapeo de Twitter
-
-
-
 
 
 ## Bibliografía
