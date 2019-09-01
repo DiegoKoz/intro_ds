@@ -71,7 +71,7 @@ Sin embargo, existen librerías mucho mejores para crear gráficos de nivel de p
 
 A continuación se muestra un gráfico de varias capas de construcción, con su correspondiente porción de código. En el mismo se buscará visualizar, a partir de la base de datos **iris** la relación entre el ancho y el largo de los petalos, mediante un gráfico de puntos.
 
-  ```{r echo=TRUE, message=FALSE, warning=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse) # cargamos la librería
 ```
 
