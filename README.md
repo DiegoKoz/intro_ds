@@ -80,7 +80,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 - [Explicación](clase_8/08_explicacion.nb.html)
 - [Práctica Guiada](clase_8/08_practica_guiada.nb.html)
-- [Pŕactica independiente](clase_8/08_practica_independiente.nb.html)
+- [Pŕactica independiente](clase_8/ejercicios_modelo_lineal)
 
 
 ## __Eje 4. Clases temáticas__
