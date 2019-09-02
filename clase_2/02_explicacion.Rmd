@@ -1,5 +1,5 @@
 ---
-title: Tidyverse
+title: Tidyverse    
 output:
   html_notebook:
     toc: yes
@@ -8,9 +8,8 @@ date: ""
 subtitle: Explicación
 ---
 
-# [Tidyverse](https://www.tidyverse.org/)         
 
-A lo largo de esta clase, trabajaremos con el paquete __tidyverse__. El mismo agrupa una serie de paquetes que tienen una misma lógica en su diseño y por ende funcionan en armonía.     
+A lo largo de esta clase, trabajaremos con el paquete [__tidyverse__](https://www.tidyverse.org/). El mismo agrupa una serie de paquetes que tienen una misma lógica en su diseño y por ende funcionan en armonía.     
 Entre ellos, usaremos principalmente __dplyr__ y __tidyr__ para realizar transformaciones sobre nuestro set de datos. En una futura clase utilizaremos __ggplot__ para realizar gráficos.   
       
 A continuación cargamos la librería a nuestro ambiente. Para ello debe estar previamente instalada en nuestra pc.
@@ -56,9 +55,12 @@ Permite ver la estructura de la tabla. Nos muestra:
 * tipo de dato de cada columna
 * las primeras observaciones de la tabla
 
-```{r}
+```{r, eval = FALSE}
 glimpse(Datos)
 ```
+
+![](img/glimpse.png)
+
 
 ### filter
 
@@ -116,6 +118,8 @@ Datos <- Datos %>%
 
 Datos
 ```
+
+Si querémos asignar un valor a todo lo que no cumple ningúna de las condiciones anteriores, podemos poner `TRUE ~ valor`
 
 ### select
 
