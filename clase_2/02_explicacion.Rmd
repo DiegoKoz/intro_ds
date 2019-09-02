@@ -35,7 +35,7 @@ Datos <- data.frame(INDICADOR, FECHA, TASA)
 Datos
 ```
 
-## Dplyr
+### Dplyr
 
 El caracter principal para utilizar este paquete es ```%>%``` , _pipe_ (de tubería).   
 
@@ -45,7 +45,7 @@ $f(x,y)$ es equivalente a $x$ %>% $f(.,y)$
 
 Veamos las principales funciones que pueden utilizarse con la lógica de este paquete:
 
-### glimpse
+#### glimpse
 
 Permite ver la estructura de la tabla. Nos muestra: 
 
@@ -62,7 +62,7 @@ glimpse(Datos)
 ![](img/glimpse.png)
 
 
-### filter
+#### filter
 
 Permite filtrar la tabla de acuerdo al cumplimiento de condiciones lógicas.
  
@@ -78,7 +78,7 @@ Datos %>%
   filter(TASA > 10 | INDICADOR == "Tasa de Desocupación")
 ```
 
-### rename
+#### rename
 
 Permite renombrar una columna de la tabla. Funciona de la siguiente manera:  
   
@@ -91,7 +91,7 @@ Datos %>%
 
 Nótese que, a diferencia del ejemplo de la función __filter__ donde utilizábamos __==__ para comprobar una condición lógica, en este caso se utiliza sólo un __=__ ya que lo estamos haciendo es _asignar_ un nombre.
 
-### mutate
+#### mutate
 
 Permite agregar una variable a la tabla (especificando el nombre que tomará ésta), que puede ser el resultado de operaciones sobre otras variables de la misma tabla.       
 
@@ -104,7 +104,7 @@ Datos <- Datos %>%
 Datos
 ```
 
-### case_when
+#### case_when
 
 Permite definir una variable, de forma tal que tome un valor particular para cada condición establecida. En caso de no cumplir con ninguna de las condiciones establecidas, la variable tomará valor __NA__.   
 La sintaxis de la función es:   
@@ -121,7 +121,7 @@ Datos
 
 Si querémos asignar un valor a todo lo que no cumple ningúna de las condiciones anteriores, podemos poner `TRUE ~ valor`
 
-### select
+#### select
 
 Permite especificar la serie de columnas que se desea conservar de un DataFrame. También pueden especificarse las columnas que se desean descartar (agregándoles un _-_ adelante). Muy útil para agilizar el trabajo en bases de datos de gran tamaño.
 
@@ -135,7 +135,7 @@ Datos <- Datos %>%
 Datos
 ```
 
-### arrange
+#### arrange
 
 Permite ordenar la tabla según los valores de determinada/s variable/s. Es útil cuando luego deben hacerse otras operaciones que requieran del ordenamiento de la tabla, o para mostrar resultados de forma ordenada.
 
@@ -146,7 +146,7 @@ Datos <- Datos %>%
 Datos
 ```
 
-### summarise
+#### summarise
 
 Crea una nueva tabla que resuma la información original. Para ello, definimos las variables de resumen y las formas de agregación.
 
@@ -158,7 +158,7 @@ Datos %>%
             INDICE_PROM = mean(TASA))
 ```
 
-### group_by
+#### group_by
 
 Esta función permite realizar operaciones de forma agrupada. Lo que hace la función es "separar" a la tabla según los valores de la variable indicada y realizar las operaciones que se especifican a continuación, de manera independiente para cada una de las "subtablas". En nuestro ejemplo, podría ser útil para calcular el promedio de las tasas por _INDICADOR_. 
 
@@ -168,14 +168,14 @@ Datos %>%
   summarise(INDICE_PROM = mean(TASA))
 ```
 
-## Joins
+### Joins
 
 Otra implementación muy importante del paquete dplyr son las funciones para unir tablas (joins).
 
 ![fuente: http://rstudio-pubs-static.s3.amazonaws.com/227171_618ebdce0b9d44f3af65700e833593db.html](img/joins.png)         
 
 
-### left_join    
+#### left_join    
 
 Veamos un ejemplo de la función __left_join__ (una de las más utilizadas en la práctica).       
 Para ello crearemos previamente un Dataframe que contenga las cantidades de población total y población económicamente activa para cada uno de los períodos del Dataframe _Datos_.
@@ -207,7 +207,7 @@ Datos_join %>%
   summarise(DESOCUP_miles = round(TASA/100 * PEA_miles, 0))
 ```
 
-## Tidyr
+### Tidyr
 
 El paquete tidyr está pensado para facilitar el emprolijamiento de los datos.
 
@@ -232,7 +232,7 @@ iris <- iris %>%
 head(iris)
 ```
 
-### Gather y Spread
+#### Gather y Spread
 
 ```{r}
 iris_vertical <- iris %>% gather(., # el . llama a lo que esta atras del %>% 
@@ -252,7 +252,7 @@ iris_horizontal <- iris_vertical %>%
 head(iris_horizontal)
 ```
 
-## Lubridate
+### Lubridate
 
 El paquete lubridate está pensado para trabajar con los datos tipo fecha (date) o fecha-hora (datetime) para cambiarles el formato, realizar operaciones y extraer información
 
@@ -260,7 +260,7 @@ El paquete lubridate está pensado para trabajar con los datos tipo fecha (date)
 library(lubridate)
 ```
 
-### Cambio de formato
+#### Cambio de formato
 
 Existe una gran cantidad de funciones para realizar esto. La idea general es poder llevar los objetos datetime a un formato común compuesto de los elementos: año, mes, día, hora, minuto y segundo (también se puede setear el huso horario)
 
@@ -288,7 +288,7 @@ fecha2 <- parse_date_time(fecha2, orders = 'my')
 fecha2
 ```
 
-### Extracción de información
+#### Extracción de información
 
 Existen muchas funciones muy sencillas para extraer información de un objeto datetime. Algunas son:
 
@@ -300,7 +300,7 @@ wday(fecha, label = TRUE) # Obtener el nombre del día
 hour(fecha) # Obtener la hora
 ```
 
-### Operaciones
+#### Operaciones
 
 Podemos sumar o restarle cualquier período de tiempo a un objeto datetime
 
