@@ -1,0 +1,161 @@
+---
+title: Shiny apps
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica Guiada
+---
+
+
+### Ejemplo 2. Gapminder 
+
+Construyamos nuestro propio ejemplo con los datos de Gapminder. Para eso, vamos a ver que la manera más cómoda de escribir una shiny app no es en el orden en que aparece el código final. 
+
+> Al código hay que comerlo de a pedacitos. 
+
+1. Pensamos qué queremos mostrar
+2. Escribimos código _estático_ para un caso particular.
+3. Pensamos qué partes queremos generalizar.
+4. Armamos una función que tome como parámetros aquello que generalizamos
+5. Armamos un shiny estático que nos muestre el resultado de la función con parámetros fijos
+6. Agregamos los inputs en el ui
+7. reemplazamos los parámetros fijos por los de input en el server
+8. Agregamos texto y otros elementos 'cosméticos'
+
+> A cada paso vamos armando un código que no falle. De esta forma es más fácil detectar los errores. 
+
+```{r}
+library(tidyverse)
+library(gapminder)
+
+gapminder <- gapminder
+gapminder
+```
+
+
+#### 1. qué queremos mostrar
+
+- tenemos tres variables que podrían ser agrupadoras: País, continente y año
+- y tres variables que puede ser interesante representar: Esperanza de vida, población y PBI per cápita
+
+
+Podríamos mostrar por ejemplo la serie de tiempo de algún país para alguna variable
+
+#### 2. código _estático_ para un caso particular.
+
+```{r}
+gapminder %>% 
+  filter(country == 'Argentina') %>% 
+  ggplot(aes(year, lifeExp))+
+  geom_line()+
+  geom_point()
+```
+
+#### 3. partes que queremos generalizar.
+
+- El gráfico podría ser para cualquier país (o para un conjunto de países!)
+- podríamos elegir qué variable ver
+
+
+#### 4. función que tome como parámetros aquello que generalizamos
+
+
+```{r}
+
+graficar <- function(pais, variable){
+  
+  gapminder %>% 
+  filter(country %in% pais) %>% ## reemplze el == por %in% para que me reciba más de un país. 
+  ggplot(aes_string("year", variable, color= "country"))+ ## Le cambio aes por aes_string para que me reciba el texto del input
+  geom_line()+
+  geom_point()
+}
+
+graficar(pais = "Argentina", variable = "lifeExp")
+graficar(pais = c("Argentina","Angola"), variable = "lifeExp")
+
+```
+
+#### 5. shiny estático con parámetros fijos
+
+> ver ejemplo_2_a
+
+6. Agregamos los inputs en el ui
+
+Necesitamos agregar dos inputs: País y variable. 
+
+Para opciones podemos usar [selectize](https://shiny.rstudio.com/articles/selectize.html)
+
+`selectizeInput(inputId, label, choices, selected = NULL, multiple = FALSE,
+               options = NULL)`
+
+Podemos crear la lista de opciones de países automaticamente               
+```{r}
+unique(gapminder$country)[1:10]
+```
+
+
+> ver ejemplo_2_b
+
+#### 7. reemplazamos los parámetros fijos por los de input en el server
+
+
+> ver ejemplo_2_c
+
+
+#### 8. Tuneamos a discreción
+
+Una vez que tenemos un shiny funcionando como queríamos, podemos agregar `tags` y texto para agregar explicaciones y emprolijar los resultados.
+
+```{r}
+# Headers
+shiny::tags$h1('Nivel 1')
+shiny::tags$h2('Nivel 2')
+shiny::tags$h3('Nivel 3')
+shiny::tags$h4('Nivel 4')
+shiny::tags$h5('Nivel 5')
+shiny::tags$h6('Nivel 6')
+
+shiny::br() # espacio en blanco
+shiny::hr() # linea horizontal
+
+shiny::helpText('texto para ayudas')
+```
+
+#### Multiples pestañas
+
+También puede ocurrir que queremos mostrar varios resultados en un mismo shiny. En nuestro ejemplo, podríamos querer mostrar una tabla con los datos.
+
+- Para eso podemos usar `tabsetPanel` en el `ui`
+
+- Imaginemos que queremos tener dos tabs: Una con el gráfico, y otra con una tabla de resultados:
+
+Entonces, en el shiny debemos agregar:
+
+```{r eval=FALSE}
+ mainPanel(
+      tabsetPanel(type = "tabs",
+                  tabPanel("Gráfico", plotOutput("grafico")),
+                  tabPanel("Tabla", tableOutput("tabla"))
+      )
+
+    )
+```
+
+Mientras que en el server debemos generar un nuevo resultado, llamado _tabla_ con los datos
+
+```{r, eval=FALSE}
+
+output$tabla <- renderTable({
+    gapminder %>% 
+        filter(country %in% input$inputPais) 
+  })
+
+```
+
+
+
+> ver ejemplo_2_d
+

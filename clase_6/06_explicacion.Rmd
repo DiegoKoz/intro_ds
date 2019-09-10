@@ -1,0 +1,101 @@
+---
+title: Shiny apps
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Explicación
+---
+
+
+[![](img/shiny_logo.png){width=500}](https://shiny.rstudio.com/)
+
+
+### ¿Qué es un shiny app?
+
+Shiny es un paquete de R que facilita la creación de aplicaciones web interactivas directamente desde R. Permite a quienes no son versados en diseño web construir rápidamente una página reactiva para explorar la información.
+
+### Galería de ejemplos
+
+Veamos algunos ejemplos de la página:
+
+
+ <font size="6"> [https://shiny.rstudio.com/gallery/](https://shiny.rstudio.com/gallery/) </font>
+
+
+### Componentes fundamentales de un Shiny app
+
+Un Shiny App tiene dos componentes
+
+- Interfaz de Usuario (_UI_): Contiene los _dispositivos_ para recibir el __input__ del usuario y mostrar los __outputs__
+- Server: Recibe los __inputs__ del UI y con ellos general los __outputs__
+
+
+#### Ejemplo 1. Old Faithful Geyser
+
+> Abrir el archivo [ejemplo_1/app.R](ejemplo_1/app.R)
+
+Comencemos con el ejemplo más básico. Cuando creamos un nuevo shiny, nos genera este ejemplo como _template_. 
+
+- Primero cargamos la librería.
+
+```{r eval=FALSE, include=TRUE}
+library(shiny)
+```
+
+
+- Luego definimos la interfaz de usuario. 
+
+Elementos del ui:
+
+- `fluidPage`: La función con que definimos el _layout_ general
+  - `titlePanel`: Para definir el título
+  - `sidebarLayout`: Definimos que el diseño de la app va a ser con una barra lateral y un panel central
+    - `sidebarPanel`: Dentro del _sidebarPanel_ definimos los elementos que van en la barra lateral
+      - `sliderInput`: Definimos que el tipo de input se es _slider_, y sus parámetros
+    - `mainPanel`: Dentro del _mainPanel_ definimos los elementos que van en el panel central
+      - `plotOutput`: con esta función indicamos que el output es un gráfico
+
+
+```{r eval=FALSE, include=TRUE}
+ui <- fluidPage(
+    titlePanel("Old Faithful Geyser Data"),
+    sidebarLayout(
+        sidebarPanel(
+            sliderInput(inputId = "bins",
+                        label = "Number of bins:",
+                        min = 1,
+                        max = 50,
+                        value = 30)
+        ),
+        mainPanel(
+           plotOutput("distPlot")
+        )
+    )
+)
+
+```
+
+Elementos del server
+
+- `input`: Es una lista de elementos que recibimos del _ui_. en este caso sólo contiene `bins` (el inputId)
+- `output`: Es una lista que generamos dentro del server. En este caso definimos el elemento `distPlot`
+- `renderPlot`: Es una _función reactiva_, que observa cada vez que _cambia el input_ y vuelve a generar el output. Noten que lo que hace es envolver una porción del código entre llaves. 
+
+```{r eval=FALSE, include=TRUE}
+server <- function(input, output) {
+
+    output$distPlot <- renderPlot({
+        x    <- faithful[, 2]
+        bins <- seq(min(x), max(x), length.out = input$bins + 1)
+        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    })
+}
+```
+
+```{r eval=FALSE, include=TRUE}
+shinyApp(ui = ui, server = server)
+```
+
+
