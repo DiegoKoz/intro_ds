@@ -1,5 +1,5 @@
 ---
-title: Introducción a R
+title: Shiny apps
 output:
   html_notebook:
     toc: yes
@@ -8,91 +8,37 @@ date: ""
 subtitle: Práctica independiente
 ---
 
-> Reiniciar R (`Session --> Restart R`)
 
-### Objetos y vectores
+Nuestro compañero de trabajo, _Estatikoz_,realizó el siguiente código para visualizar la información de `gapminder`. 
 
-- Crear un OBJETO llamado _objeto_ definido como el resultado de la suma: 5 + 6
+- Si bien la idea del gráfico es interesante, el objetivo de _Estatikoz_ no era ver sólo la información del año 2000
+- Tampóco le interesa sólo la información de Europa
+- Por último, en gapminder también hay información sobre la esperanza de vida (`lifeExp`) que es relevante en el análisis. 
 
-```{r}
-objeto <- 5+6
-```
-
-- Crear un VECTOR _VEC0_ que contenga los números 1, 3, 4.
 
 ```{r}
+library(tidyverse)
+library(treemapify)
+library(gapminder)
+library(viridis)
 
-```
+gapminder <- gapminder_unfiltered
 
-- Crear 3 vectores ( _VEC1_, _VEC2_, _VEC3_) que sean transformaciones del anterior
-
-```{r}
-
-```
-
-- Crear 3 vectores con la misma cantidad de elementos que VEC0, pero con variables string (texto) ( _VEC4_, _VEC5_, 
-_VEC6_).
-
-```{r}
-
-```
-
-- Crear un dataframe _DFRAME_ como combinación de todos los __vectores__ creados previamente
-
-```{r}
+gapminder %>% 
+  filter(year==2000, continent=='Europe') %>%
+  ggplot(., aes(area = pop, fill = gdpPercap, label = country)) +
+  geom_treemap() +
+  geom_treemap_text(fontface = "italic", colour = "white", place = "centre",
+                    grow = TRUE)+
+  scale_fill_viridis(option = 'C')+
+  labs(title = 'Treemap Europe', subtitle = 'Año 2000',caption = 'Tamaño según población.')
 
 ```
 
-### Dataset [cruceros](https://data.buenosaires.gob.ar/dataset/cruceros)
 
-El archivo `TUR_CRU_AX04.xls` contiene información de las recaladas de cruceros en Buenos Aires. Se encuentra en la carpeta `fuentes`.
+> __El objetivo es transformar este código en una visualización Shiny que incorpore todos los elementos que faltan.__
 
-El objetivo es leer el archivo:
-
-1. sin mover su ubicación
-2. sin cambiar su formato (pueden usar la librería `xlsx`)
-3. Indicando que queremos leer la primer hoja
-4. sin modificar el archivo (¿hay algún parámetro de la función que nos permita esquivar las primeras filas?)
-5. Noten que al final del archivo hay notas aclaratorias. ¿hay algún parámetro de la función que nos permita especificar hasta qué fila leer el archivo?
-
-```{r}
-
-```
-
-### Operaciones sobre objetos
-
-- Hacer un `summary` sobre la cantidad de recaladas para saber el mínimo, el primer cuartil, la mediana, la media, tercer cuartil y el máximo valor.
-
-```{r}
-
-```
-
-- Crear un vector booleano que indique si aumentó la recalada respecto al año anterior:
-
-Pista: Podemos utilizar `<` o `>` junto con `[]`
-
-```{r}
-
-```
-
-- Agregar el vector como una nueva columna al dataframe, que se llame "aumento_recalada"
-
-```{r}
-
-```
-
-- Con la nueva variable, filtrar los datos para que nos quede un nuevo dataset sólo de los años con aumento de la recalada
-
-```{r}
-
-```
-
-### Archivos y ambientes de trabajo
-
-1. Crear un script `.R` con el código de la práctica independiente.
-2. Crear un proyecto para la clase 1.
-3. Guardar en un Rdata los elementos del enviroment (googlear cómo se guarda).
-4. Reinciar R y abrir el Rdata.
-5. Guardar el dataset de cruceros en un .RDS.
-6. Levantar el .RDS con otro nombre.
+- hint: A veces esta bueno pegar las cosas con $glue$
+- hint: Qué pasa con el ancho y largo del gráfico? lo podemos mejorar?
+- hint: Que tipo de _widget_ nos conviene usar para el input de años? podemos mirar las opciones acá: [inputs](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/)
 

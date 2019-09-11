@@ -111,12 +111,12 @@ Una vez que tenemos un shiny funcionando como queríamos, podemos agregar `tags`
 
 ```{r}
 # Headers
-shiny::tags$h1('Nivel 1')
-shiny::tags$h2('Nivel 2')
-shiny::tags$h3('Nivel 3')
-shiny::tags$h4('Nivel 4')
-shiny::tags$h5('Nivel 5')
-shiny::tags$h6('Nivel 6')
+# shiny::tags$h1('Nivel 1')
+# shiny::tags$h2('Nivel 2')
+# shiny::tags$h3('Nivel 3')
+# shiny::tags$h4('Nivel 4')
+# shiny::tags$h5('Nivel 5')
+# shiny::tags$h6('Nivel 6')
 
 shiny::br() # espacio en blanco
 shiny::hr() # linea horizontal
