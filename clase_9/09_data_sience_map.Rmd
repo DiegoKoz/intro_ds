@@ -7,83 +7,178 @@ output:
 date: ""
 ---
 
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(datasets)
+library(titanic)
 
-![](img/venn_ds.png){width=1000}
+```
+
+
+![](img/venn_ds.png){width=750}
 
 ## Técnicas
 
 
 ### Desde el punto de vista del tipo de aprendizaje:
 
-- Aprendizaje Supervisado:
-  - Desde estadística:
-    - [Modelo Lineal](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
-    - [Ridge, Lasso, Elastic Net, Splines, etc.](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
-    - [Regresión logísitca](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
-    - [Support Vector Machine](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
-    - [Naive Bayes](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
-    - [Markov chains](https://web.stanford.edu/~hastie/Papers/ESLII.pdf)
-    - ...
-  - Desde computación:
-    - [Sistema experto](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
-    - [K nearest neighbors](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
-    - [Árboles de decisión](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
-    - [Ensambles de árboles](https://doc.lagout.org/Others/Data%20Mining/Ensemble%20Methods%20in%20Data%20Mining_%20Improving%20Accuracy%20through%20Combining%20Predictions%20%5BSeni%20%26%20Elder%202010-02-24%5D.pdf)
-      - [Random Forest (Bagging)](https://bookdown.org/content/2031/ensambladores-random-forest-parte-i.html#random-forest)
-      - [XG-BOOST (Boosting)](https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/)
-    - ...
-  - Deep Learning:
-    - [Multi-layer perceptron network](https://www.deeplearningbook.org/contents/mlp.html)
-    - [Convolutional Neural Network](http://cs231n.github.io/convolutional-networks/)
-    - [Long-short Term Memory Neural Network](https://www.deeplearningbook.org/contents/rnn.html)
-    - ...
+#### Aprendizaje Supervisado:
+##### Desde estadística:
+
+- [Modelo Lineal](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
     
-  ![MLP](img/nn.png){width=500}
-  ![CNN](img/cnn.png){width=1000}
 
-- Aprendizaje No supervisado:
-
-  - Clustering:
-    - [K-means](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
-    - [Patition around medioids](https://www.cs.umb.edu/cs738/pam1.pdf)
-    - [DBSCAN](https://elvex.ugr.es/idbis/dm/slides/43%20Clustering%20-%20Density.pdf)
+```{r}
+datasets::attitude
+ggplot(attitude, aes(rating, complaints))+
+  geom_point()+
+  geom_smooth(method = 'lm')
+```
     
-  - Reducción de dimensionalidad:
-    - [PCA](http://www.ub.edu/stat/personal/cuadras/metodos.pdf)
-    - [LSI](http://lsa.colorado.edu/papers/dp1.LSAintro.pdf)
-    - [LDA](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
-    - [T-SNE](https://lvdmaaten.github.io/tsne/)
+- [Ridge, Lasso, Elastic Net, Splines, etc.](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
+    
+![](img/ridge_lasso.png){width=500}
+  
+- [Regresión logísitca](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
+  
+```{r}
+set.seed(123)
+df <- tibble(x = c(rchisq(20, 2),rchisq(20, 10)), y = rep(c(0,1), each=20))
 
-- [Aprendizaje Semi-supervisado](https://www.geeksforgeeks.org/ml-semi-supervised-learning/)
-- [Modelos generativos](https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/ch01.html)
+ggplot(df, aes(x, y))+
+  geom_point()+
+  geom_smooth(method = "glm", 
+    method.args = list(family = "binomial"), 
+    se = FALSE)
+```
 
+- [Support Vector Machine](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
+![](img/SVM_margin.png){width=500}
+
+- [Naive Bayes](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
+  
+![](img/NB_1.png){width=500}
+![](img/NB_2.png){width=750}
+  
+- [Markov chains](https://web.stanford.edu/~hastie/Papers/ESLII.pdf){width=500}
+- ...
+##### Desde computación:
+
+- [Sistema experto](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
+- [K nearest neighbors](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
+![](img/knn.png)
+- [Árboles de decisión](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
+
+![](img/what-is-a-decision-tree.png){width=750}    
+
+- [Ensambles de árboles](https://doc.lagout.org/Others/Data%20Mining/Ensemble%20Methods%20in%20Data%20Mining_%20Improving%20Accuracy%20through%20Combining%20Predictions%20%5BSeni%20%26%20Elder%202010-02-24%5D.pdf)
+- [Random Forest (Bagging)](https://bookdown.org/content/2031/ensambladores-random-forest-parte-i.html#random-forest)
+![](img/RF.png){width=750}    
+- [XG-BOOST (Boosting)](https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/)
+    
+![](img/boosted-trees-process.png){width=750}    
+
+- Y muchos más...
+
+##### Deep Learning:
+
+- [Multi-layer perceptron network](https://www.deeplearningbook.org/contents/mlp.html)
+![MLP](img/nn.png){width=500}
+- [Convolutional Neural Network](http://cs231n.github.io/convolutional-networks/)
+![CNN](img/cnn.png){width=1000}
+- [Long-short Term Memory Neural Network](https://www.deeplearningbook.org/contents/rnn.html)
+- ...
+    
+
+#### Aprendizaje No supervisado:
+
+##### Clustering:
+
+- [K-means](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
+- [Patition around medioids](https://www.cs.umb.edu/cs738/pam1.pdf)
+- [DBSCAN](https://elvex.ugr.es/idbis/dm/slides/43%20Clustering%20-%20Density.pdf)
+
+![](img/cluster_comparison.png){width=500}
+    
+##### Reducción de dimensionalidad:
+- [PCA](http://www.ub.edu/stat/personal/cuadras/metodos.pdf)
+![](img/PCAexample.png){width=500}
+- [LSI](http://lsa.colorado.edu/papers/dp1.LSAintro.pdf)
+- [T-SNE](https://lvdmaaten.github.io/tsne/)
+![](img/tsne.png){width=500}
+
+
+#### [Aprendizaje Semi-supervisado](https://www.geeksforgeeks.org/ml-semi-supervised-learning/)
+
+![](img/semisupervised.png){width=500}
+
+#### [Modelos generativos](https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/ch01.html)
+
+Por ejemplo: [https://transformer.huggingface.co/doc/gpt2-large](https://transformer.huggingface.co/doc/gpt2-large)
 
 ### Desde el punto de vista del tipo de datos:
 
-- Datos estructurados:
-  - Datos tabulados
-  - Series de Tiempo:
-    - [ARIMA](https://otexts.com/fpp2/arima.html)
-    - [Wavelets](http://sedici.unlp.edu.ar/bitstream/handle/10915/24289/Documento_completo.pdf?sequence=1)
-  - Grafos:
-  - Datos geográficos
-- Datos no estructurados:
-  - texto:
-    - [LDA](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
-    - [Word Embeddings](https://medium.com/@gruizdevilla/introducci%C3%B3n-a-word2vec-skip-gram-model-4800f72c871f)
-  - imagenes
-  - sonidos
+#### Datos estructurados:
+##### Datos tabulados
+```{r}
+iris
+```
+
+##### Series de Tiempo:
+
+![](img/timeseries.png){width=750}
+
+- [ARIMA](https://otexts.com/fpp2/arima.html)
+- [Wavelets](http://sedici.unlp.edu.ar/bitstream/handle/10915/24289/Documento_completo.pdf?sequence=1)
+
+![](img/wavelets.png){width=500}
+
+##### Grafos:
+
+![](img/network.png){width=500}
+
+##### Datos geográficos
+
+![](img/geodata.gif){width=500}
+
+#### Datos no estructurados:
+##### texto:
+
+- [LDA](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
+
+![](img/LDA.png){width=500}
+
+- [Word Embeddings](https://medium.com/@gruizdevilla/introducci%C3%B3n-a-word2vec-skip-gram-model-4800f72c871f)
+
+![](img/word_embeddings.png){width=500}
+
+##### imagenes
+##### sonido
 
 
 ### Desde el punto de vista del remuestreo:
 
 - Test-train
 - Cross-Validation
+
+![](img/testtrainsplit.png){width=500}
+
+
 - [Bootstraping](https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/)
+
+![](img/bootstrap-resampling.png){width=500}
+
 
 ### Desde el punto de vista de la optimización:
 - [Gradient Descent](https://hackernoon.com/gradient-descent-aynk-7cbe95a778da)
+
+![](img/gradientdescent.png){width=500}
+
+
 - [Algorítmos Genéticos](https://towardsdatascience.com/introduction-to-genetic-algorithms-including-example-code-e396e98d8bf3)
+
+![](img/gadiagram.png){width=500}
+
 - [Inferencia Variacional](https://arxiv.org/pdf/1601.00670.pdf)
 
 
@@ -105,7 +200,14 @@ Ejemplo: [https://github.com/DiegoKoz/intro_ds](https://github.com/DiegoKoz/intr
 ## Otros temas
 
 - [Sobreajuste](https://diegokoz.shinyapps.io/overfitting/)
+
+![](img/overfitting.png){width=750}
+
+
 - [Trade-off sesgo varianza](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
+
+![](img/biasvariance.jpg){width=500}
+
 - Trade-off Precision-recall
 
 ![](img/precrecall.png){width=500}
