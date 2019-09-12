@@ -61,9 +61,10 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 6__: Shiny
 
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
+- [Explicación](clase_6/06_explicacion.nb.html)
+- [Práctica Guiada](clase_6/06_practica_guiada.nb.html)
+- [Pŕactica independiente](clase_6/06_practica_independiente.nb.html)
+- [Ejemplos](clase_6/README.md)
 
 
 ## __Eje 3. Estadística__
