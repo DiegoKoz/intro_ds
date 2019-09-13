@@ -10,7 +10,6 @@ date: ""
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(datasets)
-
 ```
 
 ![](img/venn_ds.png){width=750}
