@@ -59,6 +59,8 @@ ggplot(df, aes(x, y))+
   
 - [Markov chains](https://web.stanford.edu/~hastie/Papers/ESLII.pdf){width=500}
 - ...
+
+
 ##### Desde computación:
 
 - [Sistema experto](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
@@ -107,87 +109,9 @@ ggplot(df, aes(x, y))+
 
 #### [Aprendizaje Semi-supervisado](https://www.geeksforgeeks.org/ml-semi-supervised-learning/)
 
-![](img/semisupervised.png){width=500}
+![](img/semisupervised.png){width=750}
 
     
-![](img/ridge_lasso.png){width=500}
-  
-- [Regresión logísitca](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
-  
-```{r}
-set.seed(123)
-df <- tibble(x = c(rchisq(20, 2),rchisq(20, 10)), y = rep(c(0,1), each=20))
-
-ggplot(df, aes(x, y))+
-  geom_point()+
-  geom_smooth(method = "glm", 
-    method.args = list(family = "binomial"), 
-    se = FALSE)
-```
-
-- [Support Vector Machine](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
-![](img/SVM_margin.png){width=500}
-
-- [Naive Bayes](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
-  
-![](img/NB_1.png){width=500}
-![](img/NB_2.png){width=750}
-  
-- [Markov chains](https://web.stanford.edu/~hastie/Papers/ESLII.pdf){width=500}
-- ...
-##### Desde computación:
-
-- [Sistema experto](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
-- [K nearest neighbors](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
-![](img/knn.png)
-- [Árboles de decisión](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
-
-![](img/what-is-a-decision-tree.png){width=750}    
-
-- [Ensambles de árboles](https://doc.lagout.org/Others/Data%20Mining/Ensemble%20Methods%20in%20Data%20Mining_%20Improving%20Accuracy%20through%20Combining%20Predictions%20%5BSeni%20%26%20Elder%202010-02-24%5D.pdf)
-- [Random Forest (Bagging)](https://bookdown.org/content/2031/ensambladores-random-forest-parte-i.html#random-forest)
-![](img/RF.png){width=750}    
-- [XG-BOOST (Boosting)](https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/)
-    
-![](img/boosted-trees-process.png){width=750}    
-
-- Y muchos más...
-
-##### Deep Learning:
-
-- [Multi-layer perceptron network](https://www.deeplearningbook.org/contents/mlp.html)
-![MLP](img/nn.png){width=500}
-- [Convolutional Neural Network](http://cs231n.github.io/convolutional-networks/)
-![CNN](img/cnn.png){width=1000}
-- [Long-short Term Memory Neural Network](https://www.deeplearningbook.org/contents/rnn.html)
-- ...
-    
-
-#### Aprendizaje No supervisado:
-
-##### Clustering:
-
-- [K-means](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
-- [Patition around medioids](https://www.cs.umb.edu/cs738/pam1.pdf)
-- [DBSCAN](https://elvex.ugr.es/idbis/dm/slides/43%20Clustering%20-%20Density.pdf)
-
-![](img/cluster_comparison.png){width=500}
-    
-##### Reducción de dimensionalidad:
-- [PCA](http://www.ub.edu/stat/personal/cuadras/metodos.pdf)
-![](img/PCAexample.png){width=500}
-- [LSI](http://lsa.colorado.edu/papers/dp1.LSAintro.pdf)
-- [T-SNE](https://lvdmaaten.github.io/tsne/)
-![](img/tsne.png){width=500}
->>>>>>> 9d1d6c9565caa34a3995cdcd4ae102982479ff65
-
-#### [Modelos generativos](https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/ch01.html)
-
-Por ejemplo: [https://transformer.huggingface.co/doc/gpt2-large](https://transformer.huggingface.co/doc/gpt2-large)
-
-#### [Aprendizaje Semi-supervisado](https://www.geeksforgeeks.org/ml-semi-supervised-learning/)
-
-![](img/semisupervised.png){width=500}
 
 #### [Modelos generativos](https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/ch01.html)
 
@@ -243,7 +167,7 @@ iris
 
 - [Bootstraping](https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/)
 
-![](img/bootstrap-resampling.png){width=500}
+![](img/bootstrap-resampling.png){width=750}
 
 
 ### Desde el punto de vista de la optimización:
