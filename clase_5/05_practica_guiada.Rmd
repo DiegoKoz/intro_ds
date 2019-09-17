@@ -1,0 +1,107 @@
+---
+title: Documentación en R
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+    depth: 5
+date: ""
+subtitle: Práctica Guiada
+---
+
+### Introducción
+
+El objetivo de esta clase es comenzar a trabajar utilizando el formato RNotebook para realizar reportes compilados directamente en RStudio, de forma tal que nuestro trabajo pueda quedar documentado y ser fácilmente compartido con otras personas.       
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.height = 7, fig.width = 10)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(datos)
+```
+
+Para esto utilizaremos un dataframe del paquete __datos__. Deberemos instalarlo en caso de contar con el mismo, y luego cargarlo con la función `library()`. En particular, utilizaremos los datos de __encuesta__, que consiste en una muestra de variables categóricas de la Encuesta Social General de EE.UU. 
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+encuesta <- datos::encuesta
+```
+
+El dataframe cuenta con `r format(nrow(encuesta), big.mark = ".", decimal.mark = ",")` observaciones y `r ncol(encuesta)` variables.
+
+### Explorando los datos
+
+La muestra refiere a información obtenida entre `r min(encuesta$anio)` y `r max(encuesta$anio)`. Se presentan datos sobre estado civil, raza, ingresos, partido político de pertenencia, religión, y cantidad de horas dedicadas a mirar televisión, para personas de entre `r min(encuesta$edad, na.rm = TRUE)` y `r max(encuesta$edad, na.rm = TRUE)` años.     
+
+#### Religión
+
+En primer lugar, nos interesa ver la distribución en términos de la __religión__ de las personas, haciendo énfasis en aquellas más populares.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+tabla1 <- encuesta %>% 
+  group_by(religion) %>% 
+  summarise(cantidad = n()) %>% 
+  arrange(-cantidad)
+
+relig_popular <- tabla1$religion[tabla1$cantidad == max(tabla1$cantidad)]
+cant_popular <- format(tabla1$cantidad[tabla1$cantidad == max(tabla1$cantidad)], 
+                       big.mark = ".", 
+                       decimal.mark = ",")
+
+tabla1
+```
+
+Puede verse que aquella que cuenta con más seguidores es la religión `r relig_popular`, con `r cant_popular` fieles.
+
+#### Estado Civil
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+tabla2 <- encuesta %>% 
+  group_by(estado_civil) %>% 
+  summarise(cantidad = n()) %>% 
+  arrange(-cantidad)
+
+estcivil_pop <- tabla2$estado_civil[tabla2$cantidad == max(tabla2$cantidad)]
+estcivil_cant <- format(tabla2$cantidad[tabla2$cantidad == max(tabla2$cantidad)], 
+                        big.mark = ".", 
+                        decimal.mark = ",")
+```
+
+También podemos visualizar la distribución del __estado civil__ de las personas.  
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+encuesta %>% 
+  ggplot(aes(estado_civil)) +
+  geom_bar() +
+  coord_flip()
+```
+
+Vemos que la mayoría de las personas (`r estcivil_cant` en total) responde "`r estcivil_pop`" cuando se indaga sobre su estado civil.
+
+#### Partido político
+
+La encuesta también nos permite conocer sobre las pertenencias partidarias de los individuos. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+encuesta %>% 
+  ggplot(aes(partido)) +
+  geom_bar() +
+  coord_flip()
+```
+
+#### Horas de exposición a la televisión
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+media <- format(mean(encuesta$horas_tv, na.rm = TRUE), big.mark = ".", 
+                        decimal.mark = ",", digits = 1)
+```
+
+A partir de los datos, sabemos que los individuos miran la televisión, en promedio, durante `r media` horas por día. A continuación se presenta toda la distribución de la variable:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+encuesta %>% 
+  filter(!is.na(horas_tv)) %>% 
+  ggplot(aes(horas_tv)) +
+  geom_bar()
+```

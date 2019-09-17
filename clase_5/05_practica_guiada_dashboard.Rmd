@@ -1,0 +1,63 @@
+---
+title: "Dashboard sobre encuesta"
+output: flexdashboard::flex_dashboard
+---
+
+```{r setup, include = FALSE}
+library(datos)
+library(tidyverse)
+knitr::opts_chunk$set(fig.width = 5, fig.asp = 1 / 3)
+```
+
+## Columna 1
+
+### Estado Civil
+
+```{r}
+encuesta %>% 
+  ggplot(aes(estado_civil)) +
+  geom_bar() +
+  coord_flip()
+```
+
+### Partido Político
+
+```{r}
+encuesta %>% 
+  ggplot(aes(partido)) +
+  geom_bar() +
+  coord_flip()
+```
+
+### Televisión
+
+```{r}
+encuesta %>% 
+  filter(!is.na(horas_tv)) %>% 
+  ggplot(aes(horas_tv)) +
+  geom_bar()
+```
+
+## Columna 2
+
+### Religión
+
+```{r message=FALSE, warning=FALSE}
+encuesta %>% 
+  group_by(religion) %>% 
+  summarise(cantidad = n()) %>% 
+  arrange(-cantidad) %>% 
+  DT::datatable()
+```
+
+
+
+
+
+
+
+
+
+
+
+

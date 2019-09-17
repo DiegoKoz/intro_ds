@@ -1,0 +1,41 @@
+---
+title: Documentación en R
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica independiente
+---
+
+En esta ocasión trabajaremos con el archivo __pases_subte_201801.rds__, alojado en la carpeta __fuentes__ del curso. Dicha base de datos es una versión reducida del dataset __Molinetes 2018__ de SBASE, que podemos descargar de [data.buenosaires](https://data.buenosaires.gob.ar/dataset/subte-viajes-molinetes/archivo/202.7). Refiere a la cantidad de pasajeros por molinete en cada estación de subte en rangos de a 15 minutos y discriminando según tipo de pasaje correspondiente al año 2018.   
+
+En nuestra versión reducida, los datos han sido filtrados y cuenta sólo con datos de Enero 2018. Además, fueron agrupados por _Hora de inicio del registro_ (__desde__), _Hora de finalización del registro_ (__hasta__), __linea__, __estacion__. A partir de este agrupamiento se obtuvieron las variables __totales__ (_el total de pasajeros que ingresaron en dicho intervalo, en dicha línea y estación, en todo el mes_) y __promedio__ (_el promedio mensual de pasajeros que ingresan en dicho intervalo, en dicha línea y estación_).
+
+### Ejercicio 1
+
+> Hugo nos solicitó un informe. El procesamiento ya está hecho, y se encuentra en el archivo __05_practica_independiente.R__. Debemos presentar el informe en formato .nb.html, por lo que un archivo __R Notebook__ nos va a servir: Queremos compartir una narrativa/documentación del ejercicio realizado, el código utilizado y los resultados. 
+
+Para el texto, debemos comentar el código. Es decir, describir las acciones que se están realizando y presentar una descripción de los resultados obtenidos.
+
+### Ejercicio 2
+
+> A Hugo le gustó el informe así que el mismo será compartido con un superior. Para eso, el mismo trabajo deberá ser presentado en formato .html, pero sin necesidad de compartir el código utilizado. Por eso, nos serviría un archivo de tipo __R Markdown__.
+
+### Ejercicio 3
+
+> El informe sigue rompiendo corazones: como seguirá circulando, ahora deberá ser presentado de forma tal que sea posible imprimirlo. Por eso, necesitamos re-editarlo en formato Word. 
+
+En este caso debemos recordar que los __R Markdown__ permiten exportar en formato Word, y que las tablas deberán tener un formato apto para ser presentados en dicho formato.
+
+### Ejercicio 4
+
+> Se solicita una versión más cómoda para ver las tablas y gráficos realizados, así que proponemos un FlexDashboard. Deberemos acomodar los elementos de la forma que más cómoda nos resulte: en la misma pestaña o en más de una, en una o muchas columnas, etc.
+
+
+
+
+
+
+
+
