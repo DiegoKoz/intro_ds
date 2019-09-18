@@ -55,9 +55,10 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 5__: Documentación en R
 
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
+- [Explicación](clase_5/05_explicacion.nb.html)
+- [Práctica Guiada](clase_5/05_practica_guiada.nb.html)
+- [Práctica Guiada Dashboard](clase_5/05_practica_guiada_dashboard.html)
+- [Pŕactica independiente](clase_5/05_practica_independiente.nb.html)
 
 ### __clase 6__: Shiny
 
