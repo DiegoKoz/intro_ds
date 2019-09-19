@@ -19,7 +19,7 @@ Rbase tiene algunos comandos genéricos para realizar gráficos, que se adaptan 
 
 ```{r fig.height=8, fig.width=8}
 # iris es un set de datos clásico, que ya viene incorporado en R
-iris[10,]
+iris[1:10,]
 plot(iris)
 ```
 ```{r}
@@ -66,6 +66,22 @@ Sin embargo, existen librerías mucho mejores para crear gráficos de nivel de p
     - División en subconjuntos ```facet_wrap()```,```facet_grid()```
 
 `ggplot` tiene __muchos__ comandos, y no tiene sentido saberlos de memoria, es siempre útil reutilizar gráficos viejos y tener a mano el [machete](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf).    
+
+#### Dimensiones del gráfico
+
+Esta forma de pensar los gráficos nos permite repenser los distintos atributos como potenciales aliados a la hora de mostrar información multidimensional. Por ejemplo:
+
+
+- [__color__](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) ```color = ```
+- __relleno__```fill = ```
+- __forma__ ```shape = ```
+- __tamaño__ ```size = ```
+- __transparencia__ ```alpha = ```
+- Abrir un mismo gráfico según alguna variable discreta: ```facet_wrap()```
+
+
++ Los atributos que queremos que _mapeen_ una variable, deben ir __dentro del aes()__, ```aes(... color = variable)```
++ Cuando queremos simplemente mejorar el diseño (es fijo), se asigna por fuera, o dentro de cada tipo de gráficos, ```geom_col(color = 'green')```.
 
 #### Gráfico de Puntos
 
@@ -119,9 +135,9 @@ La librería GGplot tiene a su vez muchas otras librerías que extienden sus pot
 - [gganimate](https://gganimate.com/): Para hacer gráficos animados.
 - [ggridge](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html): Para hacer gráficos de densidad faceteados
 - [ggally](https://ggobi.github.io/ggally/): Para hacer varios gráficos juntos.
-^
+- [treemapify](https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html)
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, fig.height=10, fig.width=10}
 library(GGally)
 
 ggpairs(iris,  mapping = aes(color = Species))
@@ -145,63 +161,62 @@ esquisse::esquisser()
 ```
 
 
-### Dimensiones del gráfico
+### Ejemplo con datos reales
+#### Boxplot de ingresos de la ocupación principal, según nivel educativo
 
-Esta forma de pensar los gráficos nos permite repenser los distintos atributos como potenciales aliados a la hora de mostrar información multidimensional. Por ejemplo:
+```{r strip.white=FALSE}
 
+Individual_t119 <- read.table("../fuentes/usu_individual_t119.txt",
+                              sep=";", dec=",", header = TRUE, fill = TRUE)
 
-- [__color__](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) ```color = ```
-- __relleno__```fill = ```
-- __forma__ ```shape = ```
-- __tamaño__ ```size = ```
-- __transparencia__ ```alpha = ```
-- Abrir un mismo gráfico según alguna variable discreta: ```facet_wrap()```
-
-
-+ Los atributos que queremos que _mapeen_ una variable, deben ir __dentro del aes()__, ```aes(... color = variable)```
-+ Cuando queremos simplemente mejorar el diseño (es fijo), se asigna por fuera, o dentro de cada tipo de gráficos, ```geom_col(color = 'green')```.
-
-
-
-### Treemaps
-
-```{r}
-library(treemapify)
 ```
 
 
-[Trabajo doméstico no remunerado](https://data.buenosaires.gob.ar/dataset/trabajo-domestico-no-remunerado)
 
+Hacemos un procesamiento simple: Sacamos los ingresos iguales a cero y las no respuestas de nivel educativo.    
+Es importante que las variables sean del tipo que conceptualmente les corresponde (el nivel educativo es una variable categórica, no continua), para que el ggplot pueda graficarlo correctamente. 
 
-```{r message=FALSE, warning=FALSE}
-trabajo_no_remunerado <- read_csv('../fuentes/prom_t_simul_dom_16_sexo__annio__g_edad_limpio.csv')
+```{r}
+# Las variables sexo( CH04 ) y Nivel educativo están codificadas como números, y el R las entiende como numéricas.
+class(Individual_t119$NIVEL_ED)
+class(Individual_t119$CH04)
+
+ggdata <- Individual_t119 %>% 
+  filter(P21>0, !is.na(NIVEL_ED)) %>% 
+  mutate(NIVEL_ED = as.factor(NIVEL_ED),
+         CH04     = as.factor(CH04))
 ```
 
 ```{r}
- trabajo_no_remunerado %>% 
-  filter(sexo != 'TOTAL', grupo_edad != 'TOTAL') %>%
-   mutate(promedio_hs_diarias = as.numeric(promedio_hs_diarias),
-          sexo = case_when(sexo=='m'~'Mujer',
-                           sexo=='v'~'Varón')) %>% 
-  ggplot(., aes(area = promedio_hs_diarias, fill = promedio_hs_diarias, label = grupo_edad,
-                subgroup = sexo)) +
-  geom_treemap() +
-  geom_treemap_subgroup_border() +
-  geom_treemap_subgroup_text(place = "centre", grow = T, alpha = 0.5, colour =
-                             "black", fontface = "italic", min.size = 0) +
-  geom_treemap_text(colour = "white", place = "topleft", reflow = T)+
-  theme(legend.position = 'none')
+
+ggplot(ggdata, aes(x = NIVEL_ED, y = P21)) +
+  geom_boxplot()+
+  scale_y_continuous(limits = c(0, 40000))#Restrinjo el gráfico hasta ingresos de $40000
 ```
 
+Si queremos agregar la dimensión _sexo_, podemos hacer un ```facet_wrap()```
+
+```{r}
+
+ggplot(ggdata, aes(x= NIVEL_ED, y = P21, group = NIVEL_ED, fill = NIVEL_ED )) +
+  geom_boxplot()+
+  scale_y_continuous(limits = c(0, 40000))+
+  facet_wrap(~ CH04, labeller = "label_both")
+```
+
+Por la forma en que está presentado el gráfico, el foco de atención sigue puesto en las diferencias de ingresos entre niveles educativo. Simplemente se agrega un corte por la variable de sexo.
+
+Si lo que queremos hacer es poner el foco de atención en las diferencias por sexo, simplemente basta con invertir la variable x especificada con la variable utilizada en el ```facet_wrap```
 
 
 ```{r}
- trabajo_no_remunerado %>% 
-  filter(sexo != 'TOTAL', grupo_edad != 'TOTAL') %>%
-   mutate(promedio_hs_diarias = as.numeric(promedio_hs_diarias)) %>% 
-ggplot(., aes(area=promedio_hs_diarias, fill=sexo, label=sexo))+
-  geom_treemap() +
-  geom_treemap_text(colour = "white", place = "topleft", reflow = T)+
-  facet_wrap(.~grupo_edad, ncol = 1)
+ggplot(ggdata, aes(x= CH04, y = P21, group = CH04, fill = CH04 )) +
+  geom_boxplot()+
+  scale_y_continuous(limits = c(0, 40000))+
+  facet_grid(~ NIVEL_ED, labeller = "label_both") +
+  theme(legend.position = "none")
+
 ```
+
+
 

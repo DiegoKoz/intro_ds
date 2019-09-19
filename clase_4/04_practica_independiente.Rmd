@@ -1,5 +1,5 @@
 ---
-title: Probabilidad y Estadística
+title: Visualización de la información
 output:
   html_notebook:
     toc: yes
@@ -16,7 +16,7 @@ En la carpeta `fuentes` se encuentran dos archivos:
 - _prom_t_simul_dom_16_sexo__annio__n_instruc_limpio.csv_ Con las horas de trabajo no remunerado según nivel de instrucción.
 - _prom_t_simul_dom_16_sexo__annio__quin_ingr_fliar_limpio.csv_ Con las horas de trabajo no remunerado según el quintil de ingreso.
 
-Elegir el que les resulte más interesante y reproducir el ejercicio de la explicación con treemaps. Repensar cual es la mejor manera de armar los grupos y subgrupos
+Elegir el que les resulte más interesante y reproducir algunos de los gráficos vistos para analizar los datos
 
 ```{r}
 
@@ -28,7 +28,7 @@ Elegir el que les resulte más interesante y reproducir el ejercicio de la expli
 Siguiendo con la temática de uso del tiempo. Tenémos los siguientes datasets:
 
 - _tas_part_lad_sexo__annio__g_g_activ_limpio.csv_: Participación en diversas actividades año 2005
-- _tas_part_lad_16_sexo__annio__g_g_activ_limpio.csv_:Participación en diversas actividades año 2016
+- _tas_part_lad_16_sexo__annio__g_g_activ_limpio.csv_: Participación en diversas actividades año 2016
 - _prom_t_simul_part_16_sexo__annio__g_g_activ_limpio.csv_: Horas diarias dedicadas a cada grupo de actividad
 
 A partir de estos datos, se busca:
@@ -48,8 +48,6 @@ df <- bind_rows(df05,df16)
 
 
 ## [Gap Minder](https://www.gapminder.org/)
-
-Gapminder es un proyecto que junta datos sobre distribución del ingreso de muchos países del mundo. la librería homónima nos permite acceder facilmente a los datos
 
 ```{r}
 library(gapminder)

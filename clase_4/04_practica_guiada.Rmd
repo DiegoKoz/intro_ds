@@ -8,7 +8,7 @@ date: ""
 subtitle: Práctica Guiada
 ---
 
-# Graficos Ingresos - EPH
+### Caso práctico: Gráficos de ingresos - EPH
 
 Para esta práctica utilizaremos las variables de ingresos captadas por la [Encuesta Permanente de Hogares](https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos)
 
@@ -20,7 +20,7 @@ A continuación utilzaremos los conceptos abordados, para realizar gráficos a p
 library(tidyverse) # tiene ggplot, dplyr, tidyr, y otros
 library(ggthemes)  # estilos de gráficos
 library(ggrepel)   # etiquetas de texto más prolijas que las de ggplot
-
+library(scales)
 ```
 
 
@@ -32,54 +32,7 @@ Individual_t119 <- read.table("../fuentes/usu_individual_t119.txt",
 ```
 
 
-#### Boxplot de ingresos de la ocupación principal, según nivel educativo
-
-Hacemos un procesamiento simple: Sacamos los ingresos iguales a cero y las no respuestas de nivel educativo.    
-Es importante que las variables sean del tipo que conceptualmente les corresponde (el nivel educativo es una variable categórica, no continua), para que el ggplot pueda graficarlo correctamente. 
-
-```{r}
-# Las variables sexo( CH04 ) y Nivel educativo están codificadas como números, y el R las entiende como numéricas.
-class(Individual_t119$NIVEL_ED)
-class(Individual_t119$CH04)
-
-ggdata <- Individual_t119 %>% 
-  filter(P21>0, !is.na(NIVEL_ED)) %>% 
-  mutate(NIVEL_ED = as.factor(NIVEL_ED),
-         CH04     = as.factor(CH04))
-```
-
-```{r}
-
-ggplot(ggdata, aes(x = NIVEL_ED, y = P21)) +
-  geom_boxplot()+
-  scale_y_continuous(limits = c(0, 40000))#Restrinjo el gráfico hasta ingresos de $40000
-```
-
-Si queremos agregar la dimensión _sexo_, podemos hacer un ```facet_wrap()```
-
-```{r}
-
-ggplot(ggdata, aes(x= NIVEL_ED, y = P21, group = NIVEL_ED, fill = NIVEL_ED )) +
-  geom_boxplot()+
-  scale_y_continuous(limits = c(0, 40000))+
-  facet_wrap(~ CH04, labeller = "label_both")
-```
-
-Por la forma en que está presentado el gráfico, el foco de atención sigue puesto en las diferencias de ingresos entre niveles educativo. Simplemente se agrega un corte por la variable de sexo.
-
-Si lo que queremos hacer es poner el foco de atención en las diferencias por sexo, simplemente basta con invertir la variable x especificada con la variable utilizada en el ```facet_wrap```
-
-
-```{r}
-ggplot(ggdata, aes(x= CH04, y = P21, group = CH04, fill = CH04 )) +
-  geom_boxplot()+
-  scale_y_continuous(limits = c(0, 40000))+
-  facet_grid(~ NIVEL_ED, labeller = "label_both") +
-  theme(legend.position = "none")
-
-```
-
-### [Histogramas](https://ggplot2.tidyverse.org/reference/geom_histogram.html)
+#### [Histogramas](https://ggplot2.tidyverse.org/reference/geom_histogram.html)
 
 
 Por ejemplo, si observamos el ingreso de la ocupación principal:
@@ -89,14 +42,14 @@ hist_data <-Individual_t119 %>%
   filter(P21>0) 
 
 ggplot(hist_data, aes(x = P21,weights = PONDIIO))+ 
-geom_histogram()+
+geom_histogram(fill='salmon', color='grey25')+
 scale_x_continuous(limits = c(0,50000))
 ```
 
 En este gráfico, los posibles valores de p21 se dividen en 30 __bins__ consecutivos y el gráfico muestra cuantas observaciones caen en cada uno de ellos
 
 
-### [Kernels](https://plot.ly/ggplot2/geom_density/)
+#### [Kernels](https://plot.ly/ggplot2/geom_density/)
 
 La función  ```geom_density()``` nos permite construir __kernels__ de la distribución. Es particularmente útil cuando tenemos una variable continua, dado que los histogramas rompen esa sensación de continuidad.
 
@@ -109,7 +62,7 @@ kernel_data <-Individual_t119 %>%
   filter(P21>0) 
 
 ggplot(kernel_data, aes(x = P21,weights = PONDIIO))+ 
-geom_density()+
+geom_density(fill='salmon', color='grey25')+
 scale_x_continuous(limits = c(0,50000))
 ```
 **El eje y no tiene demasiada interpretabilidad en los Kernel, porque hace a la forma en que se construyen las distribuciones**. 
@@ -117,7 +70,7 @@ scale_x_continuous(limits = c(0,50000))
 El parametro adjust, dentro de la función ```geom_density```nos permite reducir o ampliar el rango de suavizado de la distribución. Su valor por default es 1. Veamos que sucede si lo seteamos en 2 
 ```{r warning=FALSE}
 ggplot(kernel_data, aes(x = P21,weights = PONDIIO))+ 
-geom_density(adjust = 2)+
+geom_density(adjust = 2,fill='salmon', color='grey25')+
 scale_x_continuous(limits = c(0,50000))
 
 ```
@@ -126,91 +79,137 @@ Como es esperable, la distribución del ingreso tiene "picos" en los valores red
 
 ```{r warning=FALSE}
 ggplot(kernel_data, aes(x = P21,weights = PONDIIO))+ 
-geom_density(adjust = 0.01)+
+geom_density(adjust = 0.01,fill='salmon', color='grey25')+
 scale_x_continuous(limits = c(0,50000))
 ```
 
-Ahora bien, como en todo grafico de R, podemos seguir agregando dimensiones para enriquecer el análisis. 
-```{r warning=FALSE}
-kernel_data_2 <- kernel_data %>% 
-  mutate(CH04= case_when(CH04 == 1 ~ "Varon",
-                         CH04 == 2 ~ "Mujer"))
-  
-ggplot(kernel_data_2, aes(x = P21,
-  weights = PONDIIO,
-  group = CH04,
-  fill = CH04)) +
-  geom_density(alpha=0.7,adjust =2)+
-  labs(x="Distribución del ingreso", y="",
-       title=" Total según tipo de ingreso y sexo", 
-       caption = "Fuente: Encuesta Permanente de Hogares")+
-  scale_x_continuous(limits = c(0,50000))+
-  theme_tufte()+
-  scale_fill_gdocs()+
-  theme(legend.position = "bottom",
-        plot.title      = element_text(size=12))
 
-ggsave(filename = "../resultados/Kernel_1.png",scale = 2)
+#### Geom Smooth
 
+Para realizar estos gráficos, vamos a modificar un poco los datos:
+
+- filtramos los ingresos iguales a 0.
+- eliminamos las no respuestas de nivel educativo y las personas con educación especial.
+- eliminamos las respuestas de tipo de establecimiento = 'otros'.
+- recodificamos las variables para que tengan nombres más sugestivos:
+    - __Nivel educativo__ además la convertimos a factor, porque queremos explicitarle el orden de los valores con ```levels()```. El "\\n"" es un _caracter especial_ que permite que el string continúe en la siguiente línea.
+    - Sexo.
+    - Tipo de establecimiento.
+    
+    
+```{r }
+ggdata <- Individual_t119 %>% 
+  filter(P21>0,
+         !is.na(NIVEL_ED),
+         NIVEL_ED!=7, 
+         PP04A !=3) %>% 
+  mutate(NIVEL_ED = factor(case_when(NIVEL_ED == 1  ~ 'Primaria \n Incompleta', # '\n' significa carriage return, o enter
+                                     NIVEL_ED == 2  ~ 'Primaria \n Completa',
+                                     NIVEL_ED == 3  ~ 'Secundaria \nIncompleta',
+                                     NIVEL_ED == 4  ~ 'Secundaria \nCompleta',
+                                     NIVEL_ED == 5  ~ 'Superior \nUniversitaria \nIncompleta',
+                                     NIVEL_ED == 6  ~ 'Superior \nUniversitaria \nCompleta',
+                                     FALSE          ~ 'Otro'),
+                           levels= c('Primaria \n Incompleta',
+                                     'Primaria \n Completa',
+                                     'Secundaria \nIncompleta',
+                                     'Secundaria \nCompleta',
+                                     'Superior \nUniversitaria \nIncompleta',
+                                     'Superior \nUniversitaria \nCompleta')),
+         Sexo     = case_when(CH04 == 1 ~ 'Varón',
+                              CH04 == 2 ~ 'Mujer'),
+         Establecimiento    = case_when(PP04A == 1 ~ 'Estatal',
+                                        PP04A == 2 ~ 'Privado',
+                                        FALSE      ~ 'Otro'))
+
+ggdata
 ```
 
-Podemos agregar aún la dimensión de ingreso laboral respecto del no laboral
+Para graficar un suavizado de las series, se utiliza la función [```geom_smooth()```](http://ggplot2.tidyverse.org/reference/geom_smooth.html). Con suavizado nos referimos al gráfico de un modelo realizado sobre los datos, que estima el valor en el punto x,y (para el grupo). Las regresiones lineales son un ejemplo de esto, aunque no el único, ni el que viene por default.
 
-```{r warning=FALSE}
-
-kernel_data_3 <-kernel_data_2 %>% 
-  select(REGION,P47T,T_VI, TOT_P12, P21 , PONDII, CH04) %>% 
-  filter(!is.na(P47T), P47T > 0 ) %>% 
-  mutate(ingreso_laboral    = TOT_P12 + P21,
-         ingreso_no_laboral = T_VI) %>%
-  gather(., key = Tipo_ingreso, Ingreso, c((ncol(.)-1):ncol(.))) %>%
-  filter( Ingreso !=0)# Para este gráfico, quiero eliminar los ingresos = 0
-
-kernel_data_3 %>% 
-  sample_n(10)
+```{r fig.height=5, fig.width=8}
+ggplot(ggdata, aes(CH06, P21, colour = Sexo, shape = Sexo, alpha = P21))+
+  geom_smooth() + 
+  labs(
+    x = 'Edad',
+    y = 'ingreso',
+    title = 'Ingreso por ocupación principal',
+    subtitle = 'Según edad, nivel educativo y sexo') +
+  theme_minimal()+
+  scale_y_continuous(labels = comma)+
+  scale_alpha(guide = FALSE)+
+  facet_grid(.~NIVEL_ED)
 ```
 
 
-```{r warning=FALSE}
-  ggplot(kernel_data_3, aes(
-  x = Ingreso,
-  weights = PONDII,
-  group = Tipo_ingreso,
-  fill = Tipo_ingreso)) +
-  geom_density(alpha=0.7,adjust =2)+
-  labs(x="Distribución del ingreso", y="",
-       title=" Total según tipo de ingreso y sexo", 
-       caption = "Fuente: Encuesta Permanente de Hogares")+
-  scale_x_continuous(limits = c(0,50000))+
-  theme_tufte()+
-  scale_fill_gdocs()+
-  theme(legend.position = "bottom",
-        plot.title      = element_text(size=12))+
-  facet_wrap(~ CH04, scales = "free")
+Si corremos el comando ```geom_smooth()```  por default, nos advierte que esta utilizando el método GAM, de [general additive models](https://m-clark.github.io/generalized-additive-models/building_gam.html).      
 
-ggsave(filename = "../resultados/Kernel_2.png",scale = 2)
+el __sombreado gris__ que envuelve cada línea es el intervalo de confianza de dicho punto (95% por default).
 
+También podemos utilizar métodos lineales, agregando el parámetro ```method = 'lm'```. Haciendo esto, el gráfico muestra una regresión lineal simple. Si queremos otro tipo de regresión lineal, le podemos explicitar la fórmula.    
+En el ejemplo siguiente, utilizamos la formula $y = \beta_0 +\beta_1x +\beta_2 x^2$.
+
+```{r fig.height=5, fig.width=8}
+
+ggplot(ggdata, aes(CH06, P21, colour = Sexo, weight = PONDIIO)) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2)) +
+  labs(x = 'Edad',
+       y = 'ingreso',
+       title = 'Regresion cuadrática del Ingreso por ocupación principal respecto de la Edad',
+       subtitle = 'Según Nivel educativo y sexo') +
+  theme_minimal()+
+  facet_grid(. ~ NIVEL_ED)
 ```
 
-En este tipo de gráficos, importa mucho qué variable se utiliza para _facetear_ y qué variable para agrupar, ya que la construcción de la distribución es diferente. 
 
-```{r,warning=FALSE}
-ggplot(kernel_data_3, aes(
-  x = Ingreso,
-  weights = PONDII,
-  group = CH04,
-  fill = CH04)) +
-  geom_density(alpha=0.7,adjust =2)+
-  labs(x="Distribución del ingreso", y="",
-       title=" Total según tipo de ingreso y sexo", 
-       caption = "Fuente: Encuesta Permanente de Hogares")+
-  scale_x_continuous(limits = c(0,50000))+
-  theme_tufte()+
-  scale_fill_gdocs()+
-  theme(legend.position = "bottom",
-        plot.title      = element_text(size=12))+
-  facet_wrap(~Tipo_ingreso, scales = "free")
+Si quisiéramos, además de ver la relación entre ingreso, Edad, Sexo y Nivel educativo, incorporar el tipo de establecimiento,público o privado. Podemos facetear el gráfico por dos variables en lugar de una, lo que crea una __matriz de gráficos__ según los cruces.
 
-ggsave(filename = "../resultados/Kernel_3.png",scale = 2)
+```{r fig.height=5, fig.width=8}
+ggplot(ggdata, aes(CH06, P21, colour = Establecimiento, weight = PONDIIO)) +
+  geom_smooth(method = "lm") +
+  labs(
+  x = 'Edad',
+  y = 'ingreso',
+  title = 'Tendencia del ingreso por ocupación principal',
+  subtitle = 'Según edad, nivel educativo, sexo y tipo de establecimiento') +
+  theme_minimal()+
+  facet_grid(Sexo ~ NIVEL_ED)
 
+ggsave(filename = paste0("../resultados/", "regresion lineal.png"),scale = 2)
 ```
+
+
+
+#### Treemaps (bonus track)
+
+```{r}
+library(treemapify)
+```
+
+
+[Trabajo doméstico no remunerado](https://data.buenosaires.gob.ar/dataset/trabajo-domestico-no-remunerado)
+
+
+```{r message=FALSE, warning=FALSE}
+trabajo_no_remunerado <- read_csv('../fuentes/prom_t_simul_dom_16_sexo__annio__g_edad_limpio.csv')
+```
+
+```{r}
+ trabajo_no_remunerado %>% 
+  filter(sexo != 'TOTAL', grupo_edad != 'TOTAL') %>%
+   mutate(promedio_hs_diarias = as.numeric(promedio_hs_diarias),
+          sexo = case_when(sexo=='m'~'Mujer',
+                           sexo=='v'~'Varón')) %>% 
+  ggplot(., aes(area = promedio_hs_diarias, fill = promedio_hs_diarias, label = grupo_edad,
+                subgroup = sexo)) +
+  geom_treemap() +
+  geom_treemap_subgroup_border() +
+  geom_treemap_subgroup_text(place = "centre", grow = T, alpha = 0.5, colour =
+                             "black", fontface = "italic", min.size = 0) +
+  geom_treemap_text(colour = "white", place = "topleft", reflow = T)+
+  theme(legend.position = 'none')
+```
+
+
+
+
