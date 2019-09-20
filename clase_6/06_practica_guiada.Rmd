@@ -26,7 +26,7 @@ Construyamos nuestro propio ejemplo con los datos de Gapminder. Para eso, vamos 
 
 > A cada paso vamos armando un código que no falle. De esta forma es más fácil detectar los errores. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(gapminder)
 
@@ -67,7 +67,7 @@ gapminder %>%
 graficar <- function(pais, variable){
   
   gapminder %>% 
-  filter(country %in% pais) %>% ## reemplze el == por %in% para que me reciba más de un país. 
+  filter(country %in% pais) %>% ## reemplace el == por %in% para que me reciba más de un país. 
   ggplot(aes_string("year", variable, color= "country"))+ ## Le cambio aes por aes_string para que me reciba el texto del input
   geom_line()+
   geom_point()
@@ -82,7 +82,7 @@ graficar(pais = c("Argentina","Angola"), variable = "lifeExp")
 
 > ver ejemplo_2_a
 
-6. Agregamos los inputs en el ui
+#### 6. Agregamos los inputs en el ui
 
 Necesitamos agregar dos inputs: País y variable. 
 
@@ -106,6 +106,8 @@ unique(gapminder$country)[1:10]
 
 
 #### 8. Tuneamos a discreción
+
+![](img/pimp.jpg){width=500}
 
 Una vez que tenemos un shiny funcionando como queríamos, podemos agregar `tags` y texto para agregar explicaciones y emprolijar los resultados.
 

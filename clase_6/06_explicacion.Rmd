@@ -8,8 +8,8 @@ date: ""
 subtitle: Explicación
 ---
 
+![](img/shiny_logo.png){width=750}
 
-[![](img/shiny_logo.png){width=500}](https://shiny.rstudio.com/)
 
 
 ### ¿Qué es un shiny app?
@@ -28,9 +28,12 @@ Veamos algunos ejemplos de la página:
 
 Un Shiny App tiene dos componentes
 
-- Interfaz de Usuario (_UI_): Contiene los _dispositivos_ para recibir el __input__ del usuario y mostrar los __outputs__
-- Server: Recibe los __inputs__ del UI y con ellos general los __outputs__
+- Interfaz de Usuario (_UI_): Contiene los _widgets_ para recibir el __input__ del usuario y mostrar los __outputs__
+- Server: Recibe los __inputs__ del UI y con ellos genera los __outputs__    
 
+> Un widget es un elemento web que le permite al usuario enviar un mensaje.
+
+![](img/basic-widgets.png){width=750}
 
 #### Ejemplo 1. Old Faithful Geyser
 
@@ -53,7 +56,7 @@ Elementos del ui:
   - `titlePanel`: Para definir el título
   - `sidebarLayout`: Definimos que el diseño de la app va a ser con una barra lateral y un panel central
     - `sidebarPanel`: Dentro del _sidebarPanel_ definimos los elementos que van en la barra lateral
-      - `sliderInput`: Definimos que el tipo de input se es _slider_, y sus parámetros
+      - `sliderInput`: Definimos que el input será ingresado desde un widget de tipo _slider_, y sus parámetros
     - `mainPanel`: Dentro del _mainPanel_ definimos los elementos que van en el panel central
       - `plotOutput`: con esta función indicamos que el output es un gráfico
 
