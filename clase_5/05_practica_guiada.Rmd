@@ -22,7 +22,7 @@ library(tidyverse)
 library(datos)
 ```
 
-Para esto utilizaremos un dataframe del paquete __datos__. Deberemos instalarlo en caso de contar con el mismo, y luego cargarlo con la función `library()`. En particular, utilizaremos los datos de __encuesta__, que consiste en una muestra de variables categóricas de la Encuesta Social General de EE.UU. 
+Para esto utilizaremos un dataframe del paquete __datos__. Deberemos instalarlo en caso de no contar con el mismo, y luego cargarlo con la función `library()`. En particular, utilizaremos los datos de __encuesta__, que consiste en una muestra de variables categóricas de la Encuesta Social General de EE.UU. 
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 encuesta <- datos::encuesta

@@ -67,17 +67,18 @@ El código se puede seguir corriendo con `Cmd/Ctrl + Enter` línea a línea. Sin
 Un bloque debería ser relativamente autónomo, y enfocado alrededor de una sola tarea.
 Las siguientes secciones decriben el encabezado de bloque que consiste en ` ```{r `, seguido por un nombre opcional para el bloque, seguido entonces por __opciones separadas por comas__, y concluyendo con ` } `. Inmediatamente después sigue tu código de R el bloque y el fin del bloque se indica con un ` ``` ` final.
 
-Hay un nombre de bloque que tiene comportamiento especial: `setup`. Cuando te encuentras en modo notebook, el bloque llamado setup se ejecutará automáticamente una vez, antes de ejecutar cualquier otro código.
+Hay un nombre de bloque que tiene comportamiento especial: `setup`. Cuando nos encontramos en modo notebook, el bloque llamado setup se ejecutará automáticamente una vez, antes de ejecutar cualquier otro código.
 
-La salida de los bloques puede personalizarse con options, argumentos suministrados al encabezado del bloque.
 
 ### Opciones en los bloques de código
 
 La salida de los bloques puede personalizarse con __options__, argumentos suministrados en el encabezado del bloque. Knitr provee casi 60 opciones para que puedas usar para personalizar tus bloques de código, la lista completa puede verse en http://yihui.name/knitr/options/.
 
+Las que más utilizamos nosotros son:
+
 - `eval = FALSE` evita que código sea evaluado. (Y obviamente si el código no es ejecutado no se generaran resultados). Esto es útil para mostrar códigos de ejemplo, o para deshabilitar un gran bloque de código sin comentar cada línea.
 
-- `include = FALSE` ejecuta el código, pero no muestra el código o los resultados en el documento final. Usa esto para que código de configuracion que no quieres que abarrote tu reporte.
+- `include = FALSE` ejecuta el código, pero no muestra el código o los resultados en el documento final. Usa esto para el código de configuracion que no quieres que abarrote tu reporte.
 
 - `echo = FALSE` evita que se vea el código, pero no los resultados en el archivo final. Utiliza esto cuando quieres escribir reportes enfocados a personas que no quieren ver el código subyacente de R.
 
@@ -85,7 +86,7 @@ La salida de los bloques puede personalizarse con __options__, argumentos sumini
 
 - `results = 'hide'` oculta el output impreso; `fig.show = 'hide'` oculta gráficos.
 
-- `error = TRUE` causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente quieres incluir en la version final de tu reporte.
+- `error = TRUE` causa que el render continúe incluso si el código devuelve un error. Esto es algo que raramente querés incluir en la version final de tu reporte.
 
 ![](img/opciones formato chunk.png)
 
@@ -93,7 +94,7 @@ Contamos con algunas de estas opciones en el menú de __Configuración__ en la p
 
 ### Tablas
 
-Por defecto, las tablas se imprimen tal como salen como en la consola. Si queremos que los datos tengan un formato adicional puedes usar la función `knitr::kable()`. Aún más, recomendamos mirar los paquetes [kableExtra](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#grouped_columns__rows) y [formattable](https://www.displayr.com/formattable/).
+Por defecto, las tablas se imprimen tal como salen como en la consola. Si queremos que los datos tengan un formato adicional podemos usar la función `knitr::kable()`. Aún más, recomendamos mirar los paquetes [kableExtra](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html#grouped_columns__rows) y [formattable](https://www.displayr.com/formattable/).
 
 Para una mayor personalización, se pueden considerar también los paquetes `xtable`, `stargazer`, `pander`, `tables`, y `ascii`. Cada uno provee un set de herramientas para generar tablas con formato a partir código de R.
 

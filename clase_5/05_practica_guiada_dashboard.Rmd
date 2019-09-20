@@ -47,7 +47,11 @@ encuesta %>%
   group_by(religion) %>% 
   summarise(cantidad = n()) %>% 
   arrange(-cantidad) %>% 
-  DT::datatable()
+  DT::datatable(filter = 'top',
+                extensions = 'Buttons',
+                options = list(
+                  dom = 'tB',
+                  buttons = c('copy', 'csv', 'excel','pdf')))
 ```
 
 
