@@ -17,6 +17,14 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 [![](img/Download.png)](materiales_eje1.zip)
 
+- Materiales eje 2
+
+[![](img/Download.png)](materiales_eje2.zip)
+
+- Materiales eje 3
+
+[![](img/Download.png)](materiales_eje3.zip)
+
 
 # [Notas de clase](https://diegokoz.github.io/intro_ds_bookdown/)
 
