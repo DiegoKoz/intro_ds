@@ -1,0 +1,60 @@
+---
+title: Mapas
+subtitle: Explicación
+date: ""
+output:
+  html_notebook: 
+    toc: true
+    toc_float: true 
+---
+
+```{r}
+library(tidyverse)
+library(sf)
+library(leaflet)
+library(osmdata)
+```
+
+```{r}
+arbolado_publico <- read_csv("arbolado-publico-lineal.csv")
+arbolado_publico %>% sample_n(10)
+```
+
+
+
+
+```{r}
+radios <- st_read("https://bitsandbricks.github.io/data/CABA_rc.geojson")
+```
+
+```{r}
+bb <-  getbb(place_name = 'Ciudad autónoma de Buenos Aires', format_out = 'sf_polygon')
+bb
+```
+
+```{r}
+leaflet(bb) %>% 
+  addTiles() %>% 
+  addPolygons() %>% 
+  
+```
+
+```{r}
+greenLeafIcon <- makeIcon(
+  iconUrl = "http://leafletjs.com/examples/custom-icons/leaf-green.png",
+  iconWidth = 15, iconHeight = 20,
+  iconAnchorX = 7, iconAnchorY = 12,
+  shadowUrl = "http://leafletjs.com/examples/custom-icons/leaf-shadow.png",
+  shadowWidth = 1, shadowHeight = 2,
+  shadowAnchorX = 1, shadowAnchorY = 3
+)
+
+```
+
+
+```{r}
+leaflet(data = arbolado_publico[1:1000,]) %>% 
+  addTiles() %>%
+  addMarkers(~long, ~lat, icon = greenLeafIcon)
+```
+

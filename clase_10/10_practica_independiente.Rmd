@@ -1,0 +1,75 @@
+---
+title: Visualización de la información
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica independiente
+---
+
+## [Trabajo doméstico no remunerado](https://data.buenosaires.gob.ar/dataset/trabajo-domestico-no-remunerado)
+
+
+En la carpeta `fuentes` se encuentran dos archivos:
+
+- _prom_t_simul_dom_16_sexo__annio__n_instruc_limpio.csv_ Con las horas de trabajo no remunerado según nivel de instrucción.
+- _prom_t_simul_dom_16_sexo__annio__quin_ingr_fliar_limpio.csv_ Con las horas de trabajo no remunerado según el quintil de ingreso.
+
+Elegir el que les resulte más interesante y reproducir algunos de los gráficos vistos para analizar los datos
+
+```{r}
+
+```
+
+
+## [Uso del tiempo](https://data.buenosaires.gob.ar/dataset/uso-del-tiempo) 
+
+Siguiendo con la temática de uso del tiempo. Tenémos los siguientes datasets:
+
+- _tas_part_lad_sexo__annio__g_g_activ_limpio.csv_: Participación en diversas actividades año 2005
+- _tas_part_lad_16_sexo__annio__g_g_activ_limpio.csv_: Participación en diversas actividades año 2016
+- _prom_t_simul_part_16_sexo__annio__g_g_activ_limpio.csv_: Horas diarias dedicadas a cada grupo de actividad
+
+A partir de estos datos, se busca:
+
+1. Analizar la evolución del uso del tiempo entre 2005 y 2016
+1. Ver las diferencias que presentan Muejeres y Hombres
+
+Para ello, deberán elegir qué gráficos son más apropiados, y realizar las transformaciónes necesarias en la información.
+
+```{r}
+df16 <- read_csv('../fuentes/tas_part_lad_16_sexo__annio__g_g_activ_limpio.csv')
+df05 <- read_csv('../fuentes/tas_part_lad_sexo__annio__g_g_activ_limpio.csv')
+
+
+df <- bind_rows(df05,df16)
+```
+
+
+## [Gap Minder](https://www.gapminder.org/)
+
+```{r}
+library(gapminder)
+
+```
+
+```{r}
+glimpse(gapminder)
+```
+
+> Con esta info a mi se me ocurre este gráfico. Propongan otra forma de visualizar esta información.
+
+```{r}
+library(ggridges)
+library(viridis)
+
+ggplot(gapminder, aes(x = lifeExp, y = factor(year), fill = ..x..)) +
+  geom_density_ridges_gradient()+
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_fill_viridis(name = "Esperanza de vida", option = "C")+
+  theme_ridges()+
+  theme(legend.position = 'bottom')
+```
+
+
