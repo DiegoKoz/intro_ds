@@ -96,24 +96,25 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 9__: Análisis de encuestas
 
-- [Mapa de la Ciencia de Datos](clase_9/09_data_sience_map.nb.html)
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
-
-
-### __clase 10__: Mapas
 
 - Explicación
 - Práctica Guiada
 - Pŕactica independiente
 
 
-### __clase 11__: Text Mining
+### __clase 10__: Text Mining 
+
+- [Explicación](clase_10/10_explicacion.nb.html)
+- [Práctica Guiada](clase_10/10_practica_guiada.nb.html)
+- [Práctica Guiada](clase_10/10_practica_guiada.nb.html)
+
+
+
+### __clase 11__: Mapas
 
 - Explicación
 - Práctica Guiada
-- Pŕactica independiente
+- [Mapa de la Ciencia de Datos](clase_11/1_data_sience_map.nb.html)
 
 
 ## Bibliografía

@@ -16,7 +16,12 @@ library(rtweet)
 library(tidyverse)
 library(tm)
 library(wordcloud2)
+library(topicmodels)
+library(LDAvis)
+library(tsne)
 ```
+
+### Descargas de tweets con `rtweet`
 
 
 ```{r eval=FALSE}
@@ -33,8 +38,7 @@ rt <- read_rds('../fuentes/rt.RDS')
 
 ```{r}
 rt %>% 
-  select(-c(starts_with('quote'), starts_with('retweet'), starts_with('place'), starts_with('url'), starts_with('ext'), starts_with('media'), starts_with('reply'), starts_with('profile'))) %>% 
-glimpse()
+  sample_n(10)
 ```
 
 ```{r}
@@ -42,7 +46,6 @@ range(rt$created_at)
 ```
 
 Nos da los tweets de los últimos nueve días, o el máximo que indicamos más reciente
-
 
 ```{r}
 rt %>%
@@ -55,7 +58,7 @@ rt %>%
     subtitle = "Agregado a intervalos de tres horas")
 ```
 
-Me quedo con el texto
+- Me quedo con el texto
 
 ```{r}
 texto <-  rt$text 
@@ -65,11 +68,16 @@ texto[1:10]
 
 Este texto es necesario limpiarlo para que sea más fácil de utilizar.
 
+### Armado del corpus con `tm`
 
-- Primero creo un objeto de tipo Corpus.
+- Primero creo un objeto de tipo Corpus. Utilizamos algo distinto a los conocidos vectores of dataframes porque es un objeto optimizado para trabajar con texto. Esto nos permite que los procesos sean mucho más eficientes, y por lo tanto trabajar con grandes corpus de manera rápida
+
 ```{r}
 myCorpus = Corpus(VectorSource(texto))
 ```
+
+
+### Limpieza del Corpus
 
 - Con la función `tm_map` podemos iterar sobre el corpus aplicando una transformación sobre cada documento (se acuerdan de la librería `PURRR`?)
 
@@ -102,6 +110,7 @@ podemos ver que nos quedaron unos __\n__ que son la forma de representar el "ent
 
 También queremos sacar los links. Para eso vamos a usar expresiones regulares para definir el patron que tiene un link, y luego crearemos una función que los elimine.
 
+#### Expresiones regulares
 
 Para que sea más sencilla la construcción de la expresión regular, usamos la librería [RVerbalExpressions](https://rverbalexpressions.netlify.com/index.html)
 
@@ -141,7 +150,7 @@ inspect(myCorpus[1:10])
 Creamos una matriz de Término-documento
 
 ```{r}
-myDTM = TermDocumentMatrix(myCorpus, control = list(minWordLength = 1))
+myDTM = DocumentTermMatrix(myCorpus, control = list(minWordLength = 1))
 ```
 
 
@@ -163,5 +172,61 @@ palabras_frecuentes <- tibble(word = names(palabras_frecuentes), freq =palabras_
 wordcloud2(palabras_frecuentes, shuffle = FALSE)
 ```
 
+### Topic Modeling
 
 
+necesito eliminar los documentos vacíos (que luego de la limpieza quedaron sin ningúna palabra)
+
+```{r}
+ui = unique(myDTM$i)
+dtm = myDTM[ui,]
+
+dim(myDTM)
+dim(dtm)
+```
+
+
+```{r eval=FALSE}
+lda_fit <- LDA(dtm, k = 10,method = "Gibbs", control = list(delta=0.6,seed = 1234))
+lda_fit
+```
+
+
+```{r}
+saveRDS(lda_fit,'../resultados/lda_fit.rds')
+```
+
+
+```{r}
+Terms <- terms(lda_fit, 10)
+Terms
+```
+
+
+```{r}
+topicmodels_json_ldavis <- function(fitted, dtm){
+    svd_tsne <- function(x) tsne(svd(x)$u)
+
+    # Find required quantities
+    phi <- as.matrix(posterior(fitted)$terms)
+    theta <- as.matrix(posterior(fitted)$topics)
+    vocab <- colnames(phi)
+    term_freq <- slam::col_sums(dtm)
+
+    # Convert to json
+    json_lda <- LDAvis::createJSON(phi = phi, theta = theta,
+                            vocab = vocab,
+                            mds.method = svd_tsne,
+                            plot.opts = list(xlab="tsne", ylab=""),
+                            doc.length = as.vector(table(dtm$i)),
+                            term.frequency = term_freq)
+
+    return(json_lda)
+}
+```
+
+```{r}
+json_res <- topicmodels_json_ldavis(lda_fit, dtm)
+
+serVis(json_res)
+```

@@ -1,0 +1,108 @@
+---
+title: Minería de Textos
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica independiente resuelta
+---
+
+
+fuente: https://github.com/DiegoKoz/discursos_presidenciales 
+
+```{r setup}
+library(rtweet)
+library(tidyverse)
+library(tm)
+library(wordcloud2)
+library(topicmodels)
+library(LDAvis)
+library(tsne)
+```
+
+```{r}
+df <- read_rds('../fuentes/discursos_presidenciales.rds')
+
+```
+
+```{r}
+texto <-  df$texto 
+```
+
+
+```{r}
+myCorpus = Corpus(VectorSource(texto))
+```
+
+
+```{r}
+myCorpus = tm_map(myCorpus, content_transformer(tolower))
+myCorpus = tm_map(myCorpus, removePunctuation)
+myCorpus = tm_map(myCorpus, removeNumbers)
+myCorpus = tm_map(myCorpus, removeWords, stopwords(kind = "es"))
+```
+
+```{r}
+inspect(myCorpus[1])
+```
+
+
+```{r}
+myCorpus = tm_map(myCorpus, content_transformer(function(x) str_remove_all(x, pattern = '\n')))
+myCorpus = tm_map(myCorpus, content_transformer(function(x) str_remove_all(x, pattern = '\r')))
+```
+
+
+```{r}
+inspect(myCorpus[1])
+```
+
+
+```{r}
+myDTM = DocumentTermMatrix(myCorpus, control = list(minWordLength = 1))
+inspect(myDTM)
+```
+
+
+```{r}
+palabras_frecuentes <- findMostFreqTerms(myDTM,n = 25, INDEX = rep(1,nDocs(myDTM)))[[1]]
+
+palabras_frecuentes
+```
+
+
+
+
+```{r}
+palabras_frecuentes <- tibble(word = names(palabras_frecuentes), freq =palabras_frecuentes)
+
+wordcloud2(palabras_frecuentes, shuffle = FALSE)
+```
+
+### Topic Modeling
+
+
+necesito eliminar los documentos vacíos (que luego de la limpieza quedaron sin ningúna palabra)
+
+```{r}
+ui = unique(myDTM$i)
+dtm = myDTM[ui,]
+
+dim(myDTM)
+dim(dtm)
+```
+
+
+```{r eval=FALSE}
+lda_fit <- LDA(dtm, k = 10,method = "Gibbs", control = list(delta=0.6,seed = 1234))
+lda_fit
+```
+
+
+```{r}
+Terms <- terms(lda_fit, 10)
+Terms
+```
+
+
