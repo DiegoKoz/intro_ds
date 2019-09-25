@@ -26,6 +26,8 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 [![](img/Download.png)](materiales_eje3.zip)
 
 
+## [Cheatsheet gráficos](fuentes/ggplot2-cheatsheet-2.1-Spanish.pdf)
+
 # [Notas de clase](https://diegokoz.github.io/intro_ds_bookdown/)
 
 
