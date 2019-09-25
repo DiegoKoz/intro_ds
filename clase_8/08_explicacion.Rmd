@@ -10,7 +10,7 @@ subtitle: Explicación
 
 En este módulo vamos a ver cómo analizar la relación entre dos variables. Primero, veremos los conceptos de covarianza y correlación, y luego avanzaremos hasta el modelo lineal.
 
-```{r}
+```{r warning=FALSE}
 library(tidyverse)
 library(modelr)
 library(GGally)

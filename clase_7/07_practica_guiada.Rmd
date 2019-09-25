@@ -10,6 +10,7 @@ subtitle: Práctica Guiada
 
 ```{r}
 library(tidyverse)
+library(plotly)
 ```
 
 
@@ -20,7 +21,7 @@ Para generar datos aleatorios, usamos las funciones:
 - `rnorm` para generar datos que surgen de una distribución normal
 - `rt` para generar datos que surgen de una distribución T-student
 - `rchisq` para generar datos que surgen de una distribución Chi cuadrado
-
+- `runif` para generar datos que surgen de una distribución uniforme
 > Pero antes, tenemos que fijar la _semilla_ para que los datos sean reproducibles
 
 ```{r}
@@ -28,73 +29,63 @@ set.seed(1234)
 rnorm(n = 15,mean = 0, sd = 1 )
 rt(n = 15,df=1 )
 rchisq(n = 15,df=1)
+runif(15,0,1)
 ```
 
 
-Para poder ver rápidamente de qué se tratan los valores, podemos usar el comando `plot`
+hagamos un ggplot para visualizar la info
+
 ```{r}
-
-plot(rnorm(n = 15, mean = 0, sd = 1 ))
-plot(rt(n = 15, df=1 ))
-plot(rchisq(n = 15,df=1))
+tibble(normal = rnorm(n = 15,mean = 0, sd = 1 ),
+       tstudent = rt(n = 15,df=1 ),
+       chi = rchisq(n = 15,df=1),
+       uniforme = runif(15,0,1)) %>%
+  gather(distribucion,valor) %>% 
+  ggplot(aes(distribucion,valor,fill=distribucion))+
+  geom_violin()+
+  facet_wrap(.~distribucion,scales = 'free')
 ```
 
-Noten que el eje X es el índice de los valores, es decir que no agrega información.
-
+> Qué pasa si lo corremos varias veces?
 
 ### Tests
 
 
-Utilicemos ahora datos reales. 
-
-Los datos salen de [https://data.buenosaires.gob.ar/dataset/femicidios](https://data.buenosaires.gob.ar/dataset/femicidios)
-
-> Vamos a ver ahora las estadisticas de Buenos Aires sobre la cantidad de femicidios por grupo etario. Es interesante preguntarse si hay más femicidios para cierto rango etario.
-
-
 ```{r}
-femicidios <- read_csv(file = '../fuentes/vict_fem_annio__g_edad_limpio.csv')
-femicidios
+dist1 <- rnorm(100, 10,sd = 1)
+dist2 <- rnorm(100, 15, sd = 1)
+
+
+t.test(dist1,dist2, paired = F,var.equal = TRUE)
 ```
 
-Fijense que las estadísitcas no están desagregadas por rango etario para 2017, que en caso de que haya 0 femicidios pusieron '-' en lugar de 0. Además, como tenemos pocos datos, es mejor hacer un test que compare sólamente dos grupos.
-
-Vamos a reorganizar la información para corregir todas estas cosas
-
-
-
 ```{r}
-femicidios <- femicidios %>% 
-  filter(anio!=2017, grupo_edad !='Ignorado') %>%  #Sacamos al 2017 y los casos donde se ignora la edad
-  mutate(cantidad_femicidios = case_when(cantidad_femicidios=='-' ~ 0, # reemplazamos el - por 0
-                                         TRUE ~as.numeric(cantidad_femicidios)), # y convertimos la variable en numerica
-         grupo_edad = case_when(grupo_edad %in% c('0 - 15','16 - 20','21 - 40') ~ '0-40', # agrupamos para tener sólo dos grupos
-                                grupo_edad %in% c('41 - 60','61 y más') ~ '41 y más')) %>% 
-  group_by(grupo_edad) %>% 
-  summarise(cantidad_femicidios= sum(cantidad_femicidios)) # sumamos los años y grupos para tener datos agregados
-femicidios
+dist1 <- rnorm(10, 10,sd = 1)
+dist2 <- rnorm(10, 15, sd = 1)
+
+
+t.test(dist1,dist2, paired = F,var.equal = TRUE)
 ```
 
-
-Con esta tabla de contingencia podemos hacer un test de hipótesis.
-
-¿Cuál usamos? Nos fijamos en el machete, o googleamos, y vemos que como queremos comparar la cantidad de casos por grupos categóricos, tenemos que usar el test Chi. 
-
-- $H_0$ No hay asociación entre las variables
-- $H_1$ Hay asociación entre las variables
-
-La idea es que tenemos dos variables: El rango etario y la cantidad de femicidios
-
 ```{r}
-chisq.test(femicidios$cantidad_femicidios)
+dist1 <- rnorm(5, 10,sd = 1)
+dist2 <- rnorm(5, 15, sd = 1)
+
+
+t.test(dist1,dist2, paired = F,var.equal = TRUE)
 ```
 
-Noten que el resultado lo dan en términos del p-valor. Como el valor es bajo, menor a 0.05, entonces podemos rechazar que no existe relación. O en otros términos, pareciera que la diferencia es significativa estadísticamente.
+```{r}
+dist1 <- rnorm(20, 10,sd = 2)
+dist2 <- rnorm(20, 11, sd = 1)
 
+
+t.test(dist1,dist2, paired = F,var.equal = F)
+```
 
 ### Descripción estadística de los datos
 
-Volveremos a ver los datos de [sueldos de funcionarios](https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios)
+Volvamos a ver los datos de [sueldos de funcionarios](https://data.buenosaires.gob.ar/dataset/sueldo-funcionarios)
 
 
 ```{r}
@@ -110,14 +101,25 @@ summary(sueldos$asignacion_por_cargo_i)
 
 ### Gráficos estadísticos
 
-No nos vamos a detener demasiado a ver cómo hacer los gráficos de resumen, porque la próxima clase veremos como realizar gráficos de mejor calidad, como los presentados en las notas de clase.
 
 A modo de ejemplo, dejamos los comandos de R base para realizar gráficos.
 
 ```{r}
-boxplot(sueldos$asignacion_por_cargo_i)
-hist(sueldos$asignacion_por_cargo_i)
-plot(density(sueldos$asignacion_por_cargo_i))
+
+mamiferos <- openintro::mammals
+
+
+ggplotly(ggplot(mamiferos, aes(y=LifeSpan))+
+  geom_boxplot() )
+
+
+
+ggplotly(ggplot(mamiferos, aes(BodyWt, BrainWt,label=Species))+
+  geom_point() )
+
+ggplotly(ggplot(mamiferos, aes(log(BodyWt), log(BrainWt),label=Species))+
+  geom_point() )
+
 ```
 
 

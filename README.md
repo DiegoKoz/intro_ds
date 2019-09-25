@@ -83,6 +83,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 - [Explicación](clase_7/07_explicacion.nb.html)
 - [Práctica Guiada](clase_7/07_practica_guiada.nb.html)
+- [Práctica independiente](clase_7/07_practica_independiente.nb.html)
 
 ### __clase 8__: Correlación y Modelo Lineal
 
@@ -114,7 +115,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 - Explicación
 - Práctica Guiada
-- [Mapa de la Ciencia de Datos](clase_11/1_data_sience_map.nb.html)
+- [Mapa de la Ciencia de Datos](clase_11/11_data_sience_map.nb.html)
 
 
 ## Bibliografía
