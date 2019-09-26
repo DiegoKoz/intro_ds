@@ -109,7 +109,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 - [Explicación](clase_10/10_explicacion.nb.html)
 - [Práctica Guiada](clase_10/10_practica_guiada.nb.html)
-- [Práctica Guiada](clase_10/10_practica_guiada.nb.html)
+- [Práctica independiente](clase_10/10_practica_independiente.nb.html)
 
 
 
