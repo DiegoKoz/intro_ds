@@ -1,11 +1,13 @@
 ---
-title: Mapa de Data Science
+title: Mapa de Data Science^[Disclaimer. Muchas de las imágenes, aunque no todas, fueron tomadas de búsquedas de google imágenes y no se desconoce su autoría.]
 output:
   html_notebook:
     toc: yes
     toc_float: yes
 date: ""
 ---
+
+
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
