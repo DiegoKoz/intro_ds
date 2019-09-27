@@ -11,16 +11,92 @@ subtitle: Práctica independiente
 
 fuente: https://github.com/DiegoKoz/discursos_presidenciales 
 
+> Consigna general: realizar los mismos ejercicios de la práctica guiada (Wordclowd y Topic Modelling) para el dataset de discrusos presidenciales que se encuentra en la carpeta fuentes.
 
-> Consigna: realizar los mismos ejercicios de la práctica guiada (Wordclowd y Topic Modelling) para el dataset de discrusos presidenciales que se encuentra en la carpeta fuentes.
-
-```{r setup}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
+library(tm)
+library(wordcloud2)
+library(topicmodels)
+library(LDAvis)
+library(tsne)
+
+
+df <- read_rds('../fuentes/discursos_presidenciales.rds')
+df
 ```
 
 
+### 1. Limpieza y organización de la información
+
+#### 1.a Crear un objeto Corpus de la librería `tm`
+
 ```{r}
-df <- read_rds('../fuentes/discursos_presidenciales.rds')
-df
+#
+```
+
+#### 1.b Limpiar el Corpus con `tm_map`
+
+- Pasar a minúscula
+- Eliminar puntuación
+- Eliminar numeros
+- Eliminar stopwords
+
+```{r}
+#
+```
+
+Inspeccionar el corpus y revisar si quedaron Caracteres especiales que deban ser eliminados. En caso de que así fuera eliminarlos con `tm_map` y `content_transformer(function(x) str_remove_all(x, pattern = ))`
+
+```{r}
+#
+```
+
+#### 1.c Crear una matriz Documento-término con `DocumentTermMatrix`
+
+```{r}
+#
+```
+
+### 2. Wordcloud
+
+#### 2.a Buscar los términos más frecuentes con `findMostFreqTerms`
+
+
+```{r}
+#
+```
+
+#### 2.b Crear un dataframe con las palabras más frecuentes
+
+```{r}
+#
+```
+
+#### 2.c Crear una nube de palabras con `wordcloud2`
+
+```{r}
+#
+```
+
+
+### 3. Topic Modelling
+
+#### 3.1  eliminar los documentos vacíos de la matriz documento-término
+
+```{r}
+#
+```
+
+#### 3.2 Entrenar un modelo de LDA con la función `LDA`
+
+```{r}
+#
+```
+
+#### 3.3 Recuperar los diez términos más frecuentes de cada Tópico con `terms`
+
+```{r}
+#
 ```
 

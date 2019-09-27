@@ -82,7 +82,6 @@ wordcloud2(palabras_frecuentes, shuffle = FALSE)
 
 ### Topic Modeling
 
-
 necesito eliminar los documentos vacíos (que luego de la limpieza quedaron sin ningúna palabra)
 
 ```{r}

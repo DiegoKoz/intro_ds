@@ -16,7 +16,7 @@ Nuestro compañero de trabajo, _Estatikoz_,realizó el siguiente código para vi
 - Por último, en gapminder también hay información sobre la esperanza de vida (`lifeExp`) que es relevante en el análisis. 
 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(treemapify)
 library(gapminder)
@@ -36,7 +36,39 @@ gapminder %>%
 ```
 
 
-> __El objetivo es transformar este código en una visualización Shiny que incorpore todos los elementos que faltan.__
+__El objetivo es transformar este código en una visualización Shiny que incorpore todos los elementos que faltan.__
+
+
+> Hagamos una guía paso a paso 
+
+![](img/meme.jpg){width=300}
+
+
+1. Pensamos qué queremos mostrar `r emo::ji("check")`
+2. Escribimos código _estático_ para un caso particular.`r emo::ji("check")`
+3. Pensamos qué partes queremos generalizar.`r emo::ji("check")`
+
+4. Armamos una función que tome como parámetros aquello que generalizamos
+
+```{r}
+grafico_treemap <- function(){
+  
+}
+```
+
+
+
+5. Armamos un shiny estático que nos muestre el resultado de la función con parámetros fijos
+
+```{r}
+# El shiny mejor hacerlo en un archivo separado, que se llame app.r
+```
+
+6. Agregamos los inputs en el ui
+7. reemplazamos los parámetros fijos por los de input en el server
+8. Agregamos texto y otros elementos 'cosméticos'
+
+
 
 - hint: A veces esta bueno pegar las cosas con $glue$
 - hint: Qué pasa con el ancho y largo del gráfico? lo podemos mejorar?

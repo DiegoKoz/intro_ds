@@ -17,10 +17,28 @@ Vamos a Trabajar con el dataset de iris, y en particular con las especies versic
 
 ### Consignas:
 
-1. Realizar estadísticas descriptivas para cada grupo para las variables `Petal.Length` y `Petal.Width` :
- + Media
- + Desvío estándar
- + Cuartiles
+1. Realizar estadísticas descriptivas para cada grupo para las variables `Petal.Length` y `Petal.Width`, interpretar los resultados:
+
+1.a. Media
+
+```{r}
+
+```
+
+1.b. Desvío estándar
+
+```{r}
+
+```
+
+1.c. Cuartiles 1,2 y 3.
+
+```{r}
+
+```
+
+ 
+ 
  
 2. Graficar el histograma y el boxplot de `Petal.Length` y `Petal.Width` para ambos grupos.
 
@@ -28,5 +46,5 @@ Vamos a Trabajar con el dataset de iris, y en particular con las especies versic
 
 4. Calcule el test, asumiendo que el desvío estandar en ambas poblaciones es igual
 5. Calcule el test, asumiendo que el desvío estandar en ambas poblaciones es diferente
-6. Es significativa la diferencia
+6. Es significativa la diferencia?
 

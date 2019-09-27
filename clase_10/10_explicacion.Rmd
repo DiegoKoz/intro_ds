@@ -30,7 +30,8 @@ output:
 __Ejemplo__: opiniones de trip advisor:
 
 
-```{r}
+```{r warning=FALSE}
+library(tidyverse)
 library(tm)
 doc1='Lugar espectacular e inolvidable'
 doc2='Precioso lugar, la comida era espectacular, de 10, precioso!'
@@ -66,11 +67,10 @@ Para construir el Bag of Words se debe considerar los siguientes procesos:
 
 - __Stemming__: Es similar a la lematización, pero no se basa en las estructuras lexicales, sino que realiza una aproximación, quedándose con las primeras letras de la palabra. 
 
-- _N-gramas_: A veces los conceptos que permiten distinguir entre documentos se componen de más de una palabra, por ejemplo:
+- __N-gramas__: A veces los conceptos que permiten distinguir entre documentos se componen de más de una palabra, por ejemplo:
   - “a duras penas” (trigrama),
   - “Buenos Aires” (bigrama) 
-
-- Las expresiones idiomáticas o los nombres propios cambian radicalmente de sentido si se separan sus componentes. 
+  - Las expresiones idiomáticas o los nombres propios cambian radicalmente de sentido si se separan sus componentes. 
   - Imaginense si quisiéramos clasificar la posición política de izquierda a derecha de los “Nacional Socialistas”!
 
 __Ejemplo__: Limpiando el texto:
@@ -180,7 +180,7 @@ La distancia de palabras se puede entender desde distintos lugares:
 ![](img/skipgram.png)
 
 
-__ejemplo__: [Word Embedding de textos marxistas](https://projector.tensorflow.org/?config=https%3A%2F%2Fraw.githubusercontent.com%2FDiegoKoz%2FMIA_text_mining%2Fmaster%2FWordVectors%2Ftensorboard_config.json)
+__ejemplo__: [Proyección en tres dimensiones](https://projector.tensorflow.org/)
 
 ### Distancia de Documentos
 
