@@ -13,6 +13,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo=FALSE, fig.width = 
 library(tidyverse)
 library(kableExtra)
 library(cowplot)
+library(DiagrammeR)
 set.seed(12)
 ```
 
@@ -23,7 +24,16 @@ Previo a estudiar las herramientas de la estadística descriptiva, es necesario 
 
 #### Marco conceptual
 
-![](img/marco_proba.svg){width=1000}
+
+```{r}
+mermaid(diagram = '
+graph TD
+A(Proceso Generador de Datos) -->|Experimento Aleatorio| B((Resultado ω))
+B --> C(Espacio muestral  Ω)
+B --> D(Evento: Conjunto de resultados A,B,C)
+D --> E[Propiedad: Probabilidad -> forma de medir los eventos]
+')
+```
 
 
 - El análisis de las probabilidades parte de un __proceso generador de datos__ entendido como cualquier fenómeno que produce algún tipo de información de forma sistemática. 
@@ -266,8 +276,7 @@ __Cada Test tiene sus propios supuestos__. Por eso a veces, luego de hacer un te
 
 - Finalmente, según la información que tengamos de la población y cuál es el problema que queremos resolver, vamos a tener que utilizar distintos tipos de tests. La cantidad de tests posibles es ENORME, y escapa al contenido de este curso, así como sus fórmulas. A modo de ejemplo, les dejamos el siguiente machete:
 
-![fuente: http://abacus.bates.edu/~ganderso/biology/resources/statistics.html](img/tests.jpeg){width=1000}
-
+![](img/tests.png)
 
 
 ### Algunos estimadores importantes
