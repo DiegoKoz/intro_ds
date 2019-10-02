@@ -8,6 +8,9 @@ output:
     toc_float: true 
 ---
 
+https://cran.r-project.org/web/packages/sf/vignettes/sf1.html
+
+
 ```{r}
 library(tidyverse)
 library(sf)

@@ -8,160 +8,138 @@ date: ""
 subtitle: Práctica Guiada
 ---
 
-
-
-```{r message=FALSE, warning=FALSE}
-# install.packages("rtweet")
-library(rtweet)
-library(tidyverse)
-library(tm)
-library(wordcloud2)
-```
-
-
-```{r eval=FALSE}
-rt <- search_tweets(q = "metrovias OR bondi OR Subte OR autopista OR transporte público",type = "mixed", n = 18000, include_rts = FALSE,
-                    lang='es')
-
-saveRDS(rt,'../fuentes/rt.RDS')
-```
-
-```{r}
-rt <- read_rds('../fuentes/rt.RDS')
-```
-
-
-```{r}
-rt %>% 
-  select(-c(starts_with('quote'), starts_with('retweet'), starts_with('place'), starts_with('url'), starts_with('ext'), starts_with('media'), starts_with('reply'), starts_with('profile'))) %>% 
-glimpse()
-```
-
-```{r}
-range(rt$created_at)
-```
-
-Nos da los tweets de los últimos nueve días, o el máximo que indicamos más reciente
-
-
-```{r}
-rt %>%
-  ts_plot("3 hours") +
-  ggplot2::theme_minimal() +
-  ggplot2::theme(plot.title = ggplot2::element_text(face = "bold")) +
-  ggplot2::labs(
-    x = NULL, y = NULL,
-    title = "Frecuencia de los tweets relacionados al tránsito",
-    subtitle = "Agregado a intervalos de tres horas")
-```
-
-Me quedo con el texto
-
-```{r}
-texto <-  rt$text 
-
-texto[1:10]
-```
-
-Este texto es necesario limpiarlo para que sea más fácil de utilizar.
-
-
-- Primero creo un objeto de tipo Corpus.
-```{r}
-myCorpus = Corpus(VectorSource(texto))
-```
-
-- Con la función `tm_map` podemos iterar sobre el corpus aplicando una transformación sobre cada documento (se acuerdan de la librería `PURRR`?)
-
-En este caso, para la limpieza utilizaremos las siguientes transformaciones.
-
-1. Pasar todo a minúscula (cómo la función que usamos no es de la librería `tm` tenemos que usar también `content_transformer` )
-2. Sacar la puntuación
-3. Sacar los números
-4. Sacar las stopwords
 ```{r warning=FALSE}
-myCorpus = tm_map(myCorpus, content_transformer(tolower))
-myCorpus = tm_map(myCorpus, removePunctuation)
-myCorpus = tm_map(myCorpus, removeNumbers)
-myCorpus = tm_map(myCorpus, removeWords, stopwords(kind = "es"))
-```
-
-También deberíamos sacar las palabras que utilizamos para descargar la información.
-
-```{r}
-# metrovias OR bondi OR Subte OR autopista OR transporte público
-myCorpus = tm_map(myCorpus, removeWords, c('metrovias', 'bondi','subte','autopista','transporte', 'público' ))
-```
-
-
-```{r}
-inspect(myCorpus[1:10])
-```
-
-podemos ver que nos quedaron unos __\n__ que son la forma de representar el "enter". Lo mejor sería eliminarlos.
-
-También queremos sacar los links. Para eso vamos a usar expresiones regulares para definir el patron que tiene un link, y luego crearemos una función que los elimine.
-
-
-Para que sea más sencilla la construcción de la expresión regular, usamos la librería [RVerbalExpressions](https://rverbalexpressions.netlify.com/index.html)
-
-```{r}
-# devtools::install_github("VerbalExpressions/RVerbalExpressions")
-library(RVerbalExpressions)
-
-expresion <- rx() %>% 
-  rx_find('http') %>% 
-  rx_maybe('s') %>% 
-  # rx_maybe('://') %>% #como ya lo pasamos por los otros filtros, ya no hay puntuacion
-  rx_anything_but(value = ' ')
-
-expresion
-
-```
-
-Probamos la expresion con un ejemplo
-```{r}
-txt <- "detienen  dos menores  asalto  transporte público\n\nhttpstcoffiewafx httpstcoerfywrlzy"      
-str_remove_all(txt, pattern = expresion)
-```
-
-Lo pasamos por el corpus
-
-```{r}
-myCorpus = tm_map(myCorpus, content_transformer(function(x) str_remove_all(x, pattern = expresion)))
-myCorpus = tm_map(myCorpus, content_transformer(function(x) str_remove_all(x, pattern = '\n')))
-
-```
-
-```{r}
-inspect(myCorpus[1:10])
-```
-
-
-Creamos una matriz de Término-documento
-
-```{r}
-myDTM = TermDocumentMatrix(myCorpus, control = list(minWordLength = 1))
+library(tidyverse)
+library(ggthemes)
+library(sf)
 ```
 
 
 
-```{r}
-inspect(myDTM)
-```
+
+#### 
 
 ```{r}
-palabras_frecuentes <- findMostFreqTerms(myDTM,n = 25, INDEX = rep(1,nDocs(myDTM)))[[1]]
-
-palabras_frecuentes
+radios <- st_read("https://bitsandbricks.github.io/data/CABA_rc.geojson")
 ```
 
 
 ```{r}
-palabras_frecuentes <- tibble(word = names(palabras_frecuentes), freq =palabras_frecuentes)
+summary(radios)
+```
 
-wordcloud2(palabras_frecuentes, shuffle = FALSE)
+```{r}
+ggplot() + geom_sf(data = radios)
+```
+
+```{r}
+ggplot() + geom_sf(data = radios, aes(fill = VIVIENDAS)) 
+ggplot() + geom_sf(data = radios, aes(fill = POBLACION), color = NA)
 ```
 
 
+```{r}
+ggplot() + geom_sf(data = radios, aes(fill = BARRIO), color = NA)+
+  theme(legend.position = 'none')
+```
+
+```{r}
+ggplot() + 
+    geom_sf(data = radios, aes(fill = POBLACION/AREA_KM2), color = NA) +
+    scale_fill_viridis_c() +
+    labs(title = "Densidad de población",
+         subtitle = "Ciudad Autónoma de Buenos Aires",
+         fill = "hab/km2")
+```
+
+
+#### Barrios
+
+Si queremos reconstruir los polígonos de los barrios, sólo necesitamos hacer un `group_by` y un `summarise` y automáticamente la columna `geometry` crea el polígono combinado. Además podemos hacer una agregación de las demás variables.
+
+```{r}
+glimpse(radios)
+
+barrios_geo <- radios %>% 
+    group_by(BARRIO) %>% 
+    summarise(POBLACION = sum(POBLACION),
+              VIVIENDAS = sum(VIVIENDAS),
+              HOGARES = sum(HOGARES),
+              HOGARES_NBI = sum(HOGARES_NBI),
+              AREA_KM2 = sum(AREA_KM2))
+
+glimpse(barrios_geo)
+```
+
+
+```{r fig.height=12, fig.width=10}
+ggplot() +
+    geom_sf(data = barrios_geo, aes(fill = POBLACION/AREA_KM2), color = NA) +
+    geom_sf_text(data = barrios_geo %>% 
+                   filter(POBLACION/AREA_KM2>25000), aes(label = BARRIO), size=3)+
+  theme(legend.position = 'bottom')+
+    scale_fill_viridis_c(option = 'C') +
+    labs(title = "Densidad de población",
+         subtitle = "Ciudad Autónoma de Buenos Aires",
+         fill = "hab/km2")+
+    theme_void()
+```
+
+
+#### Volcando en el mapa información de múltiples fuentes
+
+```{r}
+subte_lineas <- st_read("http://bitsandbricks.github.io/data/subte_lineas.geojson")
+glimpse(subte_lineas)
+```
+
+```{r}
+subte_estaciones <- st_read("http://bitsandbricks.github.io/data/subte_estaciones.geojson")
+glimpse(subte_estaciones)
+```
+
+
+```{r fig.height=10, fig.width=7}
+ggplot() +
+    geom_sf(data = barrios_geo, aes(fill = HOGARES_NBI/HOGARES), color = NA) +
+    geom_sf(data = subte_lineas, color = "yellow") +
+    geom_sf(data = subte_estaciones, color = "orange") +
+  theme(legend.position = 'bottom')+
+  scale_fill_viridis_c()+
+    labs(title = "Sistema de transporte subterráneo (SUBTE)",
+         subtitle = "Ciudad de Buenos Aires")
+```
+
+
+
+### Mapeo de Palos borrachos rosados en Buenos Aires
+
+![](img/Palo borracho rosado.jpg){width=500}
+
+```{r}
+palos_borrachos <- read_rds('../fuentes/arbolado_palo_borracho.rds')
+
+
+palos_borrachos %>% 
+  sample_n(10)
+```
+
+
+
+
+```{r}
+palos_borrachos <- st_as_sf(palos_borrachos, coords = c('long','lat') )%>% 
+  st_set_crs(4326)
+glimpse(palos_borrachos)
+glimpse(subte_estaciones)
+```
+
+```{r fig.height=7, fig.width=7}
+ggplot() +
+  geom_sf(data = barrios_geo) +
+  geom_sf(data = palos_borrachos, color = "darkgreen", size=.5) +
+  labs(title = 'localización de los palos borrachos de Buenos Aires')+
+  theme_void()+
+  theme(legend.position = 'none')
+```
 
