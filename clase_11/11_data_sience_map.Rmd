@@ -2,6 +2,7 @@
 title: Mapa de Data Science^[Disclaimer. Muchas de las imágenes, aunque no todas, fueron tomadas de búsquedas de google imágenes y no se desconoce su autoría.]
 output:
   html_notebook:
+    number_sections: true
     toc: yes
     toc_float: yes
 date: ""
@@ -9,26 +10,27 @@ date: ""
 
 
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 library(tidyverse)
 library(datasets)
 ```
 
 ![](img/venn_ds.png){width=750}
 
-## Técnicas
 
+![](img/map.svg){width=1000}
 
-### Desde el punto de vista del tipo de aprendizaje:
+# Técnicas
 
-#### Aprendizaje Supervisado:
-##### Desde estadística:
+## Según tipo de aprendizaje:
+
+### Aprendizaje Supervisado:
+#### Desde estadística:
 
 - [Modelo Lineal](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
     
 
-```{r}
-datasets::attitude
+```{r echo=FALSE}
 ggplot(attitude, aes(rating, complaints))+
   geom_point()+
   geom_smooth(method = 'lm')
@@ -52,6 +54,7 @@ ggplot(df, aes(x, y))+
 ```
 
 - [Support Vector Machine](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
+
 ![](img/SVM_margin.png){width=500}
 
 - [Naive Bayes](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
@@ -63,7 +66,7 @@ ggplot(df, aes(x, y))+
 - ...
 
 
-##### Desde computación:
+#### Desde computación:
 
 - [Sistema experto](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
 - [K nearest neighbors](http://profsite.um.ac.ir/~monsefi/machine-learning/pdf/Machine-Learning-Tom-Mitchell.pdf)
@@ -81,7 +84,7 @@ ggplot(df, aes(x, y))+
 
 - Y muchos más...
 
-##### Deep Learning:
+#### Deep Learning:
 
 - [Multi-layer perceptron network](https://www.deeplearningbook.org/contents/mlp.html)
 ![MLP](img/nn.png){width=500}
@@ -91,9 +94,9 @@ ggplot(df, aes(x, y))+
 - ...
     
 
-#### Aprendizaje No supervisado:
+### Aprendizaje No supervisado:
 
-##### Clustering:
+#### Clustering:
 
 - [K-means](http://faculty.marshall.usc.edu/gareth-james/ISL/ISLR%20Seventh%20Printing.pdf)
 - [Patition around medioids](https://www.cs.umb.edu/cs738/pam1.pdf)
@@ -101,7 +104,7 @@ ggplot(df, aes(x, y))+
 
 ![](img/cluster_comparison.png){width=500}
     
-##### Reducción de dimensionalidad:
+#### Reducción de dimensionalidad:
 - [PCA](http://www.ub.edu/stat/personal/cuadras/metodos.pdf)
 ![](img/PCAexample.png){width=500}
 - [LSI](http://lsa.colorado.edu/papers/dp1.LSAintro.pdf)
@@ -109,25 +112,27 @@ ggplot(df, aes(x, y))+
 ![](img/tsne.png){width=500}
 
 
-#### [Aprendizaje Semi-supervisado](https://www.geeksforgeeks.org/ml-semi-supervised-learning/)
+### [Aprendizaje Semi-supervisado](https://www.geeksforgeeks.org/ml-semi-supervised-learning/)
 
 ![](img/semisupervised.png){width=750}
 
     
 
-#### [Modelos generativos](https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/ch01.html)
+### [Modelos generativos](https://www.oreilly.com/library/view/generative-deep-learning/9781492041931/ch01.html)
 
 Por ejemplo: [https://transformer.huggingface.co/doc/gpt2-large](https://transformer.huggingface.co/doc/gpt2-large)
 
-### Desde el punto de vista del tipo de datos:
+## Según el tipo de datos:
 
-#### Datos estructurados:
-##### Datos tabulados
+### Datos estructurados:
+
+#### Datos tabulados
+
 ```{r}
 iris
 ```
 
-##### Series de Tiempo:
+#### Series de Tiempo:
 
 ![](img/timeseries.png){width=750}
 
@@ -136,16 +141,16 @@ iris
 
 ![](img/wavelets.png){width=500}
 
-##### Grafos:
+#### Grafos:
 
 ![](img/network.png){width=500}
 
-##### Datos geográficos
+#### Datos geográficos
 
 ![](img/geodata.gif){width=500}
 
-#### Datos no estructurados:
-##### texto:
+### Datos no estructurados:
+#### texto:
 
 - [LDA](http://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
 
@@ -155,11 +160,11 @@ iris
 
 ![](img/word_embeddings.png){width=500}
 
-##### imagenes
-##### sonido
+#### imagenes
+#### sonido
 
 
-### Desde el punto de vista del remuestreo:
+## Desde el punto de vista del remuestreo:
 
 - Test-train
 - Cross-Validation
@@ -172,7 +177,7 @@ iris
 ![](img/bootstrap-resampling.png){width=750}
 
 
-### Desde el punto de vista de la optimización:
+## Desde el punto de vista de la optimización:
 - [Gradient Descent](https://hackernoon.com/gradient-descent-aynk-7cbe95a778da)
 
 ![](img/gradientdescent.png){width=500}
@@ -185,7 +190,7 @@ iris
 - [Inferencia Variacional](https://arxiv.org/pdf/1601.00670.pdf)
 
 
-## Flujo de trabajo
+# Flujo de trabajo
 
 [![](img/data-science-workflow.png){width=1000}](https://r4ds.had.co.nz/introduction.html)
 
@@ -193,14 +198,14 @@ iris
 1. Entrenamiento
 1. Validación
 
-## Meta flujo de trabajo
+# Meta flujo de trabajo
 
 ![](img/git.jpeg){width=200}
 ![](img/git_flow.png){width=1000}
 
 Ejemplo: [https://github.com/DiegoKoz/intro_ds](https://github.com/DiegoKoz/intro_ds)
 
-## Otros temas
+# Otros temas
 
 - [Sobreajuste](https://diegokoz.shinyapps.io/overfitting/)
 
@@ -215,12 +220,17 @@ Ejemplo: [https://github.com/DiegoKoz/intro_ds](https://github.com/DiegoKoz/intr
 
 ![](img/precrecall.png){width=500}
 
-## Implementaciones:
+# Implementaciones:
 
 - [Caret](http://topepo.github.io/caret/index.html)
 - [Tidymodels](https://rviews.rstudio.com/2019/06/19/a-gentle-intro-to-tidymodels/)
 - [Sci-kit learn](https://scikit-learn.org/stable/)
 
+- [H20](https://www.h2o.ai/)
+
+- [Google Cloud](https://cloud.google.com/ml-engine/?hl=es-419)
+
+- [Watson IBM](https://www.ibm.com/watson)
 
 
 
