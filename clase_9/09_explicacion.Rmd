@@ -1,0 +1,142 @@
+---
+title: Análisis de encuestas
+subtitle: Explicación
+date: ""
+output:
+  html_notebook: 
+    toc: true
+    toc_float: true 
+---
+
+Población y muestra
+
+Tipos de muestras
+
+Cuestionario
+Completitud del universo debe estar reflejada en todo el flujo del cuestionario
+
+Sesgos
+Formas de preguntar/sensibilización
+ej: sexo en censo (no es por observación)
+
+No respuesta
+No respuesta sesgada
+Corrección de no respuesta con imputación
+
+Ponderadores
+Ponderadores como la inversa de la probabilidad de ser elegido
+Corrección de no respuesta con ponderación
+Operar con ponderadores en R
+
+Información:
+Nomencladores (rama, ocupación, productos en engho)
+substr()
+
+## Encuesta Permanente de Hogares
+https://pablotis.github.io/Presentaciones/index.html#15
+Leer metodologías, definiciones de las categorías (p ej asalariades no encubiertos/encubiertos)
+paquete eph
+ej. de uso: rpubs.com/natsumi_shokida
+
++ ingtot_2 ingreso total individual, por aglomerados y sexo
+
+```{r}
+library(eph)
+library(tidyverse)
+library(expss)
+
+individual <- get_microdata(year = 2019, trimester = 1, type = 'individual')
+hogar <- get_microdata(year = 2019, trimester = 1, type = 'hogar')
+
+individual <- organize_labels(individual, type = 'individual') %>% 
+  select(CODUSU, NRO_HOGAR, AGLOMERADO, COMPONENTE, CH04, ESTADO, CAT_OCUP, P21, P47T, PONDERA, PONDII, PONDIIO)
+  
+hogar <- organize_labels(hogar, type = 'hogar') %>% 
+  select(CODUSU, NRO_HOGAR, IV12_2, IV12_3)
+  
+# Cuántas personas viven en viviendas ubicadas en villas de emergencias y en zonas inundables?
+## IV12_2: zona inundable
+## IV12_3: villa de emergencia
+ejercicio1 <- left_join(individual, hogar, by = c("CODUSU", "NRO_HOGAR")) %>% 
+  filter(IV12_2 == 1 | IV12_3 == 1) %>% 
+  group_by(IV12_2, IV12_3) %>% 
+  summarise(Cantidad = sum(PONDERA)) %>% 
+  expss::values2labels(.)
+
+ejercicio1
+
+# Calcular el ingreso de la ocup. principal promedio, para las/os ocupadas/os por aglomerados y sexo
+ejercicio2 <- individual %>% 
+  filter(ESTADO == 1) %>% 
+  group_by(AGLOMERADO, CH04) %>% 
+  summarise(promedio_iop = weighted.mean(P21, PONDIIO)) %>% # ponderador
+  spread(., CH04, promedio_iop) %>% 
+  expss::values2labels(.) %>% 
+  mutate(Brecha = ((Varon - Mujer)/Varon)) %>% 
+  arrange(-Brecha) %>% 
+  mutate(Brecha = scales::percent(Brecha))
+
+ejercicio2
+
+# Calcular el ingreso total individual promedio, para quienes perciben ingresos, por aglomerados y sexo
+
+ejercicio3 <- individual %>% 
+  filter(P47T > 0) %>% 
+  group_by(AGLOMERADO, CH04) %>% 
+  summarise(promedio_iti = weighted.mean(P47T, PONDII)) %>% # ponderador
+  spread(., CH04, promedio_iti) %>% 
+  expss::values2labels(.) %>% 
+  mutate(Brecha = ((Varon - Mujer)/Varon)) %>% 
+  arrange(-Brecha) %>% 
+  mutate(Brecha = scales::percent(Brecha))
+```
+
+
+
+
+## ENGHO?
+(bases en fuentes)
+Ejercicios: gasto en transporte/gasto en total. Regresión entre nivel de ingresos y proporción de gastos en transporte.
+Las bases tienen un | al final de cada fila y eso nos trae advertencias al levantar.
+https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos-4
+
+## EAH Ciudad 2017 (Ampliada)
+(Datos en fuentes)
+ingresos imputados
+
+Ejercicio: Dejar para la práctica independiente la consigna de hacer el mismo ejercicio que hacemos con EPH por aglomerados, pero por comunas:
+
++ ocupades segun rama de actividad agregada, tasa de feminización, ingresos promedios, tasa de no les descuentan ni aportan
++ ioph_2 ingreso de la ocup principal (ocupados) por comunas y sexo (PRACTICA INDEPENDIENTE)
++ ingtot_2 ingreso total individual, por comunas y sexo (PRACTICA INDEPENDIENTE)
+
+## Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires
+(Datos en fuentes)
+
+```{r}
+library(readr)
+ENGH0405_gastos <- read_delim("fuentes/ENGH0405_gastos.txt", 
+                              "|", escape_double = FALSE, trim_ws = TRUE)
+
+ENGH0405_codigos_bienes_servicios <- read_delim("../fuentes/ENGH0405_codigos_bienes_servicios.txt", 
+      "|", escape_double = FALSE, col_types = cols(ARTICULO = col_character(), 
+          CLASE = col_character(), CLAVEAGRP = col_character(), 
+          DIVISION = col_character(), GRUPO = col_character(), 
+          SUBCLASE = col_character()), locale = locale(encoding = "ISO-8859-1"), 
+      trim_ws = TRUE)
+
+
+```
+
+Ciudad EAH 2017
+```{r}
+
+```
+
+
+
+
+
+
+
+

@@ -1,0 +1,142 @@
+codigo_rama;descripcion_rama
+101;Cultivos agrícolas
+102;Cría de animales
+103;Cultivo de productos agrícolas en combinación con la cría de animales
+104;Servicios agrícolas y pecuarios, excepto los veterinarios
+105;Caza y captura de animales vivos, repoblación de animales de caza y servicios de apoyo
+200;Silvicultura, extracción de madera y actividades de apoyo
+300;Pesca, acuicultura y actividades de apoyo
+500;Extracción de carbón y lignito
+600;Extracción de petróleo crudo y gas natural
+700;Extracción de minerales metalíferos
+800;Explotación de otras minas y canteras
+900;Actividades de apoyo a la explotación de minas y canteras
+1001;Producción y procesamiento de carne y pescado
+1002;Preparación de frutas, hortalizas y legumbres, aceites y grasas
+1003;Elaboración de productos lácteos
+1009;Elaboración de productos alimenticios n.c.p.
+1100;Elaboración de bebidas
+1200;Elaboración de productos de tabaco
+1300;Fabricación de productos textiles, excepto prendas de vestir
+1400;Confección de prendas de vestir, terminación y teñido de pieles
+1501;Curtido y terminación de cueros, fabricación de maletas, bolsos de mano y artículos de talabartería y guarnicionería, teñido de pieles
+1502;Fabricación de calzado y sus partes
+1600;Producción de madera y fabricación de productos de madera y corcho, excepto muebles, fabricación de artículos de paja y de materiales trenzables
+1700;Fabricación de papel y productos de papel
+1800;Actividades de impresión y servicios de apoyo, reproducción de grabaciones
+1901;Fabricación de productos de hornos de coque
+1902;Fabricación de productos de la refinación del petróleo
+2001;Fabricación de pinturas, barnices y productos de revestimiento similares, tintas de imprenta y masillas
+2002;Fabricación de jabones y detergentes, preparados para limpiar y pulir, perfumes y preparados de tocador
+2009;Fabricación de otros productos químicos n.c.p.
+2100;Fabricación de productos farmacéuticos, sustancias químicas medicinales y productos botánicos
+2201;Fabricación de productos de caucho
+2202;Fabricación de productos de plástico
+2301;Fabricación de vidrio y productos de vidrio
+2309;Fabricación de productos minerales no metálicos n.c.p.
+2400;Fabricación de metales
+2500;Fabricación de productos elaborados de metal y servicios de trabajos de metales, excepto máquinas y equipos
+2601;Fabricación de componentes electrónicos
+2602;Fabricación de equipos informáticos y periféricos
+2603;Fabricación de equipos y aparatos de radio, televisión y comunicaciones
+2604;Fabricación de equipos electromédicos, ópticos y de precisión, fabricación de relojes, soportes magnéticos y ópticos
+2701;Fabricación de aparatos de uso doméstico, excepto equipos de audio y video
+2709;Fabricación de otras maquinarias y equipos eléctricos n.c.p.
+2800;Fabricación de maquinarias y equipos n.c.p.
+2900;Fabricación de vehículos automotores, remolques y semirremolques
+3001;Construcción de buques y otras embarcaciones
+3002;Fabricación de locomotoras y de material rodante para ferrocarriles y tranvías
+3003;Fabricación de aeronaves
+3009;Fabricación de otros equipos de transporte n.c.p.
+3100;Fabricación de muebles y colchones
+3200;Industrias manufactureras n.c.p
+3300;Mantenimiento, reparación e instalación de maquinas y equipos
+3501;Generación, transmisión y distribución de energía eléctrica
+3502;Fabricación de gas, distribución de combustibles gaseosos por tuberías, suministro de vapor y aire acondicionado
+3600;Captación, tratamiento y suministro de agua
+3700;Alcantarillado
+3800;Recolección, tratamiento y eliminación de desechos, recuperación de materiales
+3900;Actividades de saneamiento y otros servicios de gestión de desechos
+4000;Construcción
+4501;Venta de vehículos automotores, excepto motocicletas
+4502;Mantenimiento y reparación de vehículos automotores, excepto motocicletas
+4503;Venta de partes, piezas y accesorios de vehículos automotores, excepto motocicletas
+4504;Venta, mantenimiento y reparación de motocicletas y de sus piezas y accesorios
+4801;Comercio de intermediación
+4802;Comercio de materias primas agropecuarias
+4803;Comercio de alimentos, bebidas y tabaco
+4804;Comercio de textiles y avíos, mercería, prendas de vestir, calzado, marroquinería y artículos similares
+4805;Comercio de materiales de construcción, artículos de ferretería, plomería, pinturería, espejos y artículos para revestimiento
+4806;Comercio de combustibles para vehículos
+4807;Comercio de mercaderías n.c.p. incluso mercaderías usadas
+4808;Tiendas no especializadas con predominancia de alimentos y bebidas
+4809;Tiendas no especializadas sin predominancia de alimentos y bebidas
+4810;Venta al por menor en puestos móviles y no realizadas en tiendas n.c.p.
+4811;Venta al por menor por correo, televisión, internet y otros medios de comunicación
+4899;Comercio n.c.p.
+4901;Transporte ferroviario
+4902;Transporte por metro
+4903;Transporte automotor de pasajeros
+4904;Transporte automotor de cargas
+4905;Transporte por tuberías
+4909;Transporte terrestre n.c.p.
+5000;Transporte por vía acuática
+5100;Transporte aéreo
+5201;Depósito y almacenamiento
+5202;Servicios auxiliares al transporte
+5300;Correo y servicio de mensajería
+5500;Servicios de alojamiento en hoteles, campamentos y otros tipos de hospedaje temporal
+5601;Servicios de expendio de comidas y bebidas, excepto por vendedores ambulantes
+5602;Servicios de expendio de comidas y bebidas por vendedores ambulantes
+5800;Edición de libros, periódicos y otras publicaciones, incluso integrada a la impresión
+5900;Actividades cinematográficas, producción de vídeos y programas de televisión, grabación sonora y edición de música
+6000;Actividades de programación y difusión de radio y televisión
+6100;Telecomunicaciones
+6200;Actividades de programación y consultoría informáticas y otras actividades conexas
+6300;Actividades de servicios de información
+6400;Intermediación financiera y otros servicios financieros, excepto los de seguros y administración de fondos de jubilaciones y pensiones
+6500;Seguros, reaseguros y fondos de pensiones, excepto los planes de seguridad social de afiliación obligatoria
+6600;Actividades auxiliares a los servicios financieros y a los seguros
+6800;Actividades inmobiliarias
+6900;Actividades jurídicas y de contabilidad
+7000;Actividades de servicios de consultoría en gestión empresarial
+7100;Servicios de arquitectura e ingeniería, ensayos y análisis técnicos
+7200;Investigación y desarrollo
+7301;Actividades publicitarias
+7302;Investigación de mercados y encuestas de opinión pública
+7400;Otras actividades profesionales, científicas y técnicas
+7500;Actividades veterinarias
+7701;Alquiler de efectos personales y domésticos
+7702;Alquiler de vehículos de transporte, de maquinaria y equipo sin operador y gestión de activos intangibles no financieros
+7800;Actividades relacionadas con el suministro de empleo
+7900;Agencias de viajes, operadores turísticos y actividades conexas
+8000;Actividades de investigación y seguridad
+8101;Servicios de apoyo a edificios y actividades de limpieza en general
+8102;Servicios de paisajismo y jardinería
+8200;Actividades administrativas de oficinas y otras actividades auxiliares de las empresas
+8401;Servicios de la administración pública y prestación pública de servicios a la comunidad
+8402;Servicios de seguridad publica (fuerzas armadas, policias, etc)
+8403;Servicios de la seguridad social obligatoria
+8501;Enseñanza inicial y primaria, secundaria y superior
+8502;Otros tipos de enseñanza n.c.p., y servicios de apoyo
+8600;Actividades de atención a la salud humana
+8700;Asistencia social relacionada con la atención a la salud
+8800;Servicios sociales sin alojamiento
+9000;Actividades artísticas y de espectáculos
+9100;Actividades de bibliotecas, archivos, museos y otras actividades culturales
+9200;Actividades de juegos de azar y apuestas
+9301;Actividades para la práctica deportiva
+9302;Actividades de entretenimiento n.c.p.
+9401;Actividades de organizaciones empresariales, profesionales y de empleadores
+9402;Actividades de sindicatos
+9409;Actividades de asociaciones n.c.p.
+9501;Reparación de equipos informáticos
+9502;Reparación de equipos de comunicación
+9503;Reparación de efectos de uso personal y doméstico
+9601;Lavado y limpieza de artículos de tela, cuero y o de piel incluso limpieza en seco
+9602;Servicios de peluquería y tratamientos de belleza
+9603;Pompas fúnebres y servicios conexos
+9609;Servicios personales n.c.p.
+9700;Actividades de los hogares como empleadores de personal doméstico
+9900;Actividades de organizaciones y organismos extraterritoriales
+9999;No sabe / No responde ó Actividad no especificada claramente

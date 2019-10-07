@@ -1,0 +1,1308 @@
+﻿codigo_ocupacion;descripcion_ocupacion
+00001;Funcionarios del poder ejecutivo nacional, provincial, municipal y/o departamental- Calificación profesional
+01001;Funcionarios del poder legislativo nacional, provincial/ municipal y/o departamental- Calificación profesional
+02001;Funcionarios del poder judicialfederal/ nacional/ provincial/municipal y/o departamental- Calificación profesional
+03001;Directivos de organismos, empresas e instituciones estatales - Calificación profesional
+04001;Directivos de instituciones sociales (comunales, políticas, gremiales, religiosas, derechos humanos, medio ambiente y otras instituciones de bien público) - Calificación profesional
+05001;Directivos de pequeñas y microempresas (patrones de 1 a 5 personas) - Calificación profesional
+05002;Directivos de pequeñas y microempresas (patrones de 1 a 5 personas) - Calificación técnica
+06001;Directivos de medianas empresas privadas productora de bienes y/o servicios (establecimientos de 6 a 40 personas) - Calificación profesional
+07001;Directivos de grandes empresas privadas productoras de bienes y/o servicios (establecimientos de más de 41 personas) - Calificación profesional
+10111;Cuenta propia sin operación de maquinarias de la gestión administrativa, planificación y control de gestión- Calificación profesional
+10112;Cuenta propia sin operación de maquinarias de la gestión administrativa, planificación y control de gestión- Calificación técnica
+10113;Cuenta propia sin operación de maquinarias de la gestión administrativa, planificación y control de gestión- Calificación operativa
+10119;Cuenta propia sin operación de maquinarias de la gestión administrativa, planificación y control de gestión- Calificación ignorada
+10121;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión administrativa, planificación y control de gestión - Calificación profesional
+10122;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión administrativa, planificación y control de gestión - Calificación técnica
+10123;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión administrativa, planificación y control de gestión - Calificación operativa
+10129;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión administrativa, planificación y control de gestión - Calificación ignorada
+10131;Cuenta propiacon operación de sistemasy/o equipos informatizados de la gestión administrativa, planificación y control de gestión- Calificación profesional
+10132;Cuenta propiacon operación de sistemasy/o equipos informatizados de la gestión administrativa, planificación y control de gestión- Calificación técnica
+10133;Cuenta propiacon operación de sistemasy/o equipos informatizados de la gestión administrativa, planificación y control de gestión- Calificación operativa
+10139;Cuenta propiacon operación de sistemasy/o equipos informatizados de la gestión administrativa, planificación y control de gestión- Calificación ignorada
+10201;Jefes de gestión administrativa, de planificación, y control de gestión - Calificación profesional
+10202;Jefes de gestión administrativa, de planificación, y control de gestión - Calificación técnica
+10203;Jefes de gestión administrativa, de planificación, y control de gestión - Calificación operativa
+10209;Jefes de gestión administrativa, de planificación, y control de gestión - Calificación ignorada
+10311;Trabajadores sin operación de maquinarias de la gestión administrativa, de planificación y control degestiónCalificación profesional
+10312;Trabajadores sin operación de maquinarias de la gestión administrativa, de planificación y control degestión Calificación técnica
+10313;Trabajadores sin operación demaquinarias de la gestión administrativa, de planificación y control degestiónCalificación operativa
+10314;Trabajadores sin operación demaquinarias de la gestión administrativa, de planificación y control degestión- No calificados
+10319;Trabajadores sin operación demaquinarias de la gestión administrativa, de planificación y control degestión - Calificación ignorada
+10321;Operadores de maquinaria y/o equipos electromecánicos de las ocupaciones de la administración, planificación y control de gestión - Calificación profesional
+10322;Operadores de maquinaria y/o equipos electromecánicos de las ocupaciones de la administración, planificación y control de gestión- Calificación técnica
+10323;Operadores de maquinaria y/o equipos electromecánicos de las ocupaciones de la administración, planificación y control de gestión - Calificación operativa
+10324;Operadores de maquinaria y/o equipos electromecánicos de las ocupaciones de la administración, planificación y control de gestión - No calificados
+10329;Operadores de maquinaria y/o equipos electromecánicos de las ocupaciones de la administración, planificación y control de gestión - Calificación ignorada
+10331;Operadores de sistemas y/o equipos informatizados de las ocupaciones de la administración, planificación ycontrol de gestión - Calificación profesional
+10332;Operadores de sistemas y/o equipos informatizados de las ocupaciones de la administración, planificación ycontrol de gestión- Calificación técnica
+10333;Operadores de sistemas y/o equipos informatizados de las ocupaciones de la administración, planificación ycontrol de gestión-Calificación operativa
+10334;Operadores de sistemas y/o equipos informatizados de las ocupaciones de la administración, planificación ycontrol de gestión- no calificadas
+10339;Operadores de sistemas y/o equipos informatizados de las ocupaciones de la administración, planificación ycontrol de gestión-Calificación ignorada
+11111;Cuenta propias in operación de maquinarias de la gestión jurídico-legal - Calificación profesional
+11112;Cuenta propias in operación de maquinarias de la gestión jurídico-legal - Calificación técnica
+11113;Cuenta propias in operación de maquinarias de la gestión jurídico-legal - Calificación operativa
+11119;Cuenta propias in operación de maquinarias de la gestión jurídico-legal - Calificación ignorada
+11121;Cuenta propia con operación demaquinarias y equipos electromecánicos de la gestión jurídico-legal - Calificaciónprofesional
+11122;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión jurídico-legal- Calificación técnica
+11123;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión jurídico-legal - Calificación operativa
+11129;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión jurídico-legal - Calificación ignorada
+11131;Cuenta propia con operación desistemasy/o equipos informatizados de la gestión jurídico-legal - Calificaciónprofesional
+11132;Cuenta propia con operación de sistemasy/o equipos informatizados de la gestión jurídico-legal - Calificación técnica
+11133;Cuenta propia con operación de sistemasy/o equipos informatizados de la gestión jurídico-legal - Calificación operativa
+11139;Cuenta propia con operación de sistemasy/o equipos informatizados de la gestión jurídico-legal - Calificación ignorada
+11201;Jefes de la gestión jurídico-legal - Calificación profesional
+11202;Jefes de la gestión jurídico-legal- Calificación técnica
+11203;Jefes de la gestión jurídico-legal- Calificación operativa
+11209;Jefes de la gestión jurídico-legal- Calificación ignorada
+11311;Trabajadores sin operación de maquinarias de la gestión jurídico-legal - Calificación profesional
+11312;Trabajadores sin operación de maquinarias de la gestión jurídico-legal - Calificación técnica
+11313;Trabajadores sin operación de maquinarias de la gestión jurídico-legal - Calificación operativa
+11314;Trabajadores sin operación de maquinarias de la gestión jurídico-legal - No calificados
+11319;Trabajadores sin operación de maquinarias de la gestión jurídico-legal - Calificación ignorada
+11321;Operadores de maquinaria y/ equipos electromecánicos de las ocupaciones jurídico-legal- Calificación profesional
+11322;Operadores de maquinaria y/ equipos electromecánicos de las ocupaciones jurídico-legal - Calificación técnica
+11323;Operadores de maquinaria y/ equipos electromecánicos de las ocupaciones jurídico-legal - Calificación operativa
+11324;Operadores de maquinaria y/ equipos electromecánicos de las ocupaciones jurídico-legal - No calificados
+11329;Operadores de maquinaria y/ equipos electromecánicos de las ocupaciones jurídico-legal - Calificación ignorada
+11331;Operadores de sistemas y/o equipos informatizados de las ocupaciones jurídico-legales - Calificación profesional
+11332;Operadores de sistemas y/o equipos informatizados de las ocupaciones jurídico-legales- Calificación técnica
+11333;Operadores de sistemas y/o equipos informatizados de las ocupaciones jurídico-legales- Calificación operativa
+11334;Operadores de sistemas y/o equipos informatizados de las ocupaciones jurídico-legales- No calificados
+11339;Operadores de sistemas y/o equipos informatizados de las ocupaciones jurídico-legales- Calificación ignorada
+20111;Cuenta propia sin operación de maquinarias de la gestión presupuestaria, contable y financiera- Calificación profesional
+20112;Cuenta propia sin operación de maquinarias de la gestión presupuestaria, contable y financiera- Calificación técnica
+20113;Cuenta propia sin operación de maquinarias de la gestión presupuestaria, contable y financiera- Calificación operativa
+20119;Cuenta propia sin operación de maquinarias de la gestión presupuestaria, contable y financiera- Calificación ignorada
+20121;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión presupuestaria, contable y financiera- Calificación profesional
+20122;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión presupuestaria, contable y financiera- Calificación técnica
+20123;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión presupuestaria, contable y financiera- Calificación operativa
+20129;Cuenta propia con operación de maquinarias y equipos electromecánicos de la gestión presupuestaria, contable y financiera- Calificación ignorada
+20131;Cuenta propia con operación de sistemasy/o equipos informatizados de la gestión presupuestaria, contable y financiera- Calificación profesional
+20132;Cuenta propia con operación de sistemasy/o equipos informatizados de la gestión presupuestaria, contable y financiera- Calificación técnica
+20133;Cuenta propia con operación de sistemasy/o equipos informatizados de la gestión presupuestaria, contable y financiera- Calificación operativa
+20139;Cuenta propia con operación de sistemasy/o equipos informatizados de la gestión presupuestaria, contable y financiera- Calificación ignorada
+20201;Jefes de gestión presupuestaria, contable y financiera- Calificación profesional
+20202;Jefes de gestión presupuestaria, contable y financiera - Calificación técnica
+20203;Jefes de gestión presupuestaria, contable y financiera - Calificación operativa
+20209;Jefes de gestión presupuestaria, contable y financiera - Calificación ignorada
+20311;Trabajadores sin operación de maquinarias de la gestión presupuestaria, contable y financiera - Calificación profesional
+20312;Trabajadores sin operación de maquinarias de la gestión presupuestaria, contable y financiera- Calificación técnica
+20313;Trabajadores sin operación de maquinarias de la gestión presupuestaria, contable y financiera- Calificación operativa
+20314;Trabajadores sin operación de maquinarias de la gestión presupuestaria, contable y financiera- No calificados
+20319;Trabajadores sin operación de maquinarias de la gestión presupuestaria, contable y financiera- Calificación ignorada
+20321;Operadores de maquinaria y/o equipos electromecánicos de la gestión presupuestaria, contable y financiera- Calificación profesional
+20322;Operadores de maquinaria y/o equipos electromecánicos de la gestión presupuestaria, contable y financiera- Calificación técnica
+20323;Operadores de maquinaria y/o equipos electromecánicos de la gestión presupuestaria, contable y financiera- Calificación operativa
+20324;Operadores de maquinaria y/o equipos electromecánicos de la gestión presupuestaria, contable y financiera- No calificados
+20329;Operadores de maquinaria y/o equipos electromecánicos de la gestión presupuestaria, contable y financiera- Calificación ignorada
+20331;Operadores de sistemas y/o equipos informatizados de la gestión presupuestaria,contable y financiera- Calificación profesional
+20332;Operadores de sistemas y/o equipos informatizados de la gestión presupuestaria, contable y financiera- Calificación técnica
+20333;Operadores de sistemas y/o equipos informatizados de la gestión presupuestaria, contable y financiera- Calificación operativa
+20334;Operadores de sistemas y/o equipos informatizados de la gestión presupuestaria, contable y financiera- No calificados
+20339;Operadores de sistemas y/o equipos informatizados de la gestión presupuestaria, contable y financiera- Calificación ignorada
+30111;Cuenta propia sin operación de maquinarias de la comercialización directa (tradicional y telefónicos)- Calificación profesional
+30112;Cuenta propia sin operación de maquinarias de la comercialización directa (tradicional y telefónicos)- Calificación técnica
+30113;Cuenta propia sin operación de maquinarias de la comercialización directa (tradicional y telefónicos)- Calificación operativa
+30119;Cuenta propia sin operación de maquinarias de la comercialización directa (tradicional y telefónicos)- Calificación ignorada
+30121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos)- Calificación profesional
+30122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos)- Calificación técnica
+30123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos)- Calificación operativa
+30129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos)- Calificación ignorada
+30131;Cuenta propia con operación de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos)- Calificación profesional
+30132;Cuenta propia con operación de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos)-Calificación técnica
+30133;Cuenta propia con operación de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos)-Calificación operativa
+30139;Cuenta propia con operación de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos)-Calificación ignorada
+30201;Jefes de la comercialización directa (tradicional y telefónicos)- Calificación profesional
+30202;Jefes de la comercialización directa (tradicional y telefónicos)- Calificación técnica
+30203;Jefes de la comercialización directa (tradicional y telefónicos)- Calificación operativa
+30209;Jefes de la comercialización directa (tradicional y telefónicos)- Calificación ignorada
+30311;Vendedores y trabajadores sin operación de maquinarias de la comercialización directa (tradicional y telefónicos)- Calificación profesional
+30312;Vendedores y trabajadores sin operación de maquinarias de la comercialización directa (tradicional y telefónicos)- Calificación técnica
+30313;Vendedores y trabajadores sin operación de maquinarias de la comercialización directa (tradicional y telefónicos)- Calificación operativa
+30314;Vendedores y trabajadores sin operación de maquinarias de la comercialización directa (tradicional y telefónicos) - No calificados
+30319;Vendedores y trabajadores sin operación de maquinarias de la comercialización directa (tradicional y telefónicos) - Calificación ignorada
+30321;Operadores de maquinaria y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos)- Calificación profesional
+30322;Operadores de maquinaria y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos)- Calificación técnica
+30323;Operadores de maquinaria y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos)- Calificación operativa
+30324;Operadores de maquinaria y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos) - No calificados
+30329;Operadores de maquinaria y/o equipos electromecánicos de la comercialización directa (tradicional y telefónicos)- Calificación ignorada
+30331;Operadores de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos) - Calificación profesional
+30332;Operadores de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos) - Calificación técnica
+30333;Operadores de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos) - Calificación operativa
+30334;Operadores de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos) - No calificados
+30339;Operadores de sistemas y/o equipos informatizados de la comercialización directa (tradicional y telefónicos) - Calificación ignorada
+31111;Cuenta propia sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios y promotores- Calificación profesional
+31112;Cuenta propia sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios y promotores- Calificación técnica
+31113;Cuenta propia sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios y promotores- Calificación operativa
+31119;Cuenta propia sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios y promotores- Calificación ignorada
+31121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos viajantes, corredores comerciales y vendedores domiciliarios - Calificación profesional
+31122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos viajantes, corredores comerciales y vendedores domiciliarios - Calificación técnica
+31123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos viajantes, corredores comerciales y vendedores domiciliarios - Calificación operativa
+31129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos viajantes, corredores comerciales y vendedores domiciliarios - Calificación ignorada
+31131;Cuenta propia viajantes con operación de sistemas y/o equipos informatizados, corredores comerciales y vendedores domiciliarios- Calificación profesional
+31132;Cuenta propia viajantes con operación de sistemas y/o equipos informatizados, corredores comerciales y vendedores domiciliarios- Calificación técnica
+31133;Cuenta propia viajantes con operación de sistemas y/o equipos informatizados, corredores comerciales y vendedores domiciliarios- Calificación operativa
+31139;Cuenta propia viajantes con operación de sistemas y/o equipos informatizados, corredores comerciales y vendedores domiciliarios- Calificación ignorada
+31201;Jefes de viajantes, corredores comerciales y vendedores domiciliarios- Calificación profesional
+31202;Jefes de viajantes, corredores comerciales y vendedores domiciliarios- Calificación técnica
+31203;Jefes de viajantes, corredores comerciales y vendedores domiciliarios- Calificación operativa
+31209;Jefes de viajantes, corredores comerciales y vendedores domiciliarios- Calificación ignorada
+31311;Trabajadores sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios- Calificación profesional
+31312;Trabajadores sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios- Calificación técnica
+31313;Trabajadores sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios- Calificación operativa
+31314;Trabajadores sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios- No calificados
+31319;Trabajadores sin operación de maquinarias viajantes, corredores comerciales y vendedores domiciliarios- Calificación ignorada
+31321;Trabajadores con operación de maquinarias y/o equipos electromecánicos viajantes, corredores comerciales y vendedores domiciliarios- Calificación profesional
+31322;Trabajadores con operación de maquinarias y/o equipos electromecánicos viajantes, corredores comerciales y vendedores domiciliarios- Calificación técnica
+31323;Trabajadores con operación de maquinarias y/o equipos electromecánicos viajantes, corredores comerciales y vendedores domiciliarios- Calificación operativa
+31329;Trabajadores con operación de maquinarias y/o equipos electromecánicos viajantes, corredores comerciales y vendedores domiciliarios- Calificación ignorada
+31331;Trabajadores viajantes con operación de sistemas y/o equipos informatizados, corredores comerciales y vendedores domiciliarios- Calificación profesional
+31332;Trabajadores viajantes con operación de sistemas y/o equipos informatizados, corredores comerciales y vendedores domiciliarios- Calificación técnica
+31333;Trabajadores viajantes con operación de sistemas y/o equipos informatizados, corredores comerciales y vendedores domiciliarios- Calificación operativa
+31339;Trabajadores viajantes con operación de sistemas y/o equipos informatizados, corredores comerciales y vendedores domiciliarios- Calificación ignorada
+32111;Cuenta propia sin operación de maquinarias de otras ocupaciones de la comercialización indirecta- Calificación profesional
+32112;Cuenta propia sin operación de maquinarias de otras ocupaciones de la comercialización indirecta- Calificación técnica
+32113;Cuenta propia sin operación de maquinarias de otras ocupaciones de la comercialización indirecta- Calificación operativa
+32119;Cuenta propia sin operación de maquinarias de otras ocupaciones de la comercialización indirecta- Calificación ignorada
+32121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de la comercialización indirecta- Calificación profesional
+32122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de la comercialización indirecta- Calificación técnica
+32123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de la comercialización indirecta- Calificación operativa
+32129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de la comercialización indirecta- Calificación ignorada
+32131;Cuenta propia con operación de sistemas y/equipos informatizados de otras ocupaciones de la comercialización indirecta- Calificación profesional
+32132;Cuenta propia con operación de sistemas y/equipos informatizados de otras ocupaciones de la comercialización indirecta- Calificación técnica
+32133;Cuenta propia con operación de sistemas y/equipos informatizados de otras ocupaciones de la comercialización indirecta- Calificación operativa
+32139;Cuenta propia con operación de sistemas y/equipos informatizados de otras ocupaciones de la comercialización indirecta- Calificación ignorada
+32201;Jefes de otras ocupaciones de la comercialización- Calificación profesional
+32202;Jefes de otras ocupaciones de la comercialización- Calificación técnica
+32203;Jefes de otras ocupaciones de la comercialización- Calificación operativa
+32209;Jefes de otras ocupaciones de la comercialización- Calificación ignorada
+32311;Trabajadores sin operación de maquinarias de otras ocupaciones de la comercialización- Calificación profesional
+32312;Trabajadores sin operación de maquinarias de otras ocupaciones de la comercialización- Calificación técnica
+32313;Trabajadores sin operación de maquinarias de otras ocupaciones de la comercialización- Calificación operativa
+32314;Trabajadores sin operación de maquinarias de otras ocupaciones de la comercialización- No calificados
+32319;Trabajadores sin operación de maquinarias de otras ocupaciones de la comercialización- Calificación ignorada
+32321;Trabajadores con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de la comercialización indirecta- Calificación profesional
+32322;Trabajadores con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de la comercialización indirecta- Calificación técnica
+32323;Trabajadores con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de la comercialización indirecta- Calificación operativa
+32329;Trabajadores con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de la comercialización indirecta- Calificación ignorada
+32331;Trabajadores con operación de sistemas y/o equipos informatizados de otras ocupaciones de la comercialización indirecta- Calificación profesional
+32332;Trabajadores con operación de sistemas y/o equipos informatizados de otras ocupaciones de la comercialización indirecta- Calificación técnica
+32333;Trabajadores con operación de sistemas y/o equipos informatizados de otras ocupaciones de la comercialización indirecta- Calificación operativa
+32339;Trabajadores con operación de sistemas y/o equipos informatizados de otras ocupaciones de la comercialización indirecta- Calificación ignorada
+33111;Cuenta propia sin operación de maquinarias vendedores ambulantes y callejeros- Calificación profesional
+33112;Cuenta propia sin operación de maquinarias vendedores ambulantes y callejeros- Calificación técnica
+33113;Cuenta propia sin operación de maquinarias vendedores ambulantes y callejeros- Calificación operativa
+33114;Cuenta propia sin operación de maquinarias vendedores ambulantes y callejeros- No calificados
+33119;Cuenta propia sin operación de maquinarias vendedores ambulantes y callejeros- Calificación ignorada
+33121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos vendedores ambulantes y callejeros- Calificación profesional
+33122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos vendedores ambulantes y callejeros- Calificación técnica
+33123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos vendedores ambulantes y callejeros- Calificación operativa
+33124;Cuenta propia con operación de maquinarias y/o equipos electromecánicos vendedores ambulantes y callejeros- No calificados
+33129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos vendedores ambulantes y callejeros- Calificación ignorada
+33131;Cuenta propia con operación de sistemas y/o equipos informatizados vendedores ambulantes y callejeros- Calificación profesional
+33132;Cuenta propia con operación de sistemas y/o equipos informatizados vendedores ambulantes y callejeros- Calificación técnica
+33133;Cuenta propia con operación de sistemas y/o equipos informatizados vendedores ambulantes y callejeros- Calificación operativa
+33134;Cuenta propia con operación de sistemas y/o equipos informatizados vendedores ambulantes y callejeros- No calificados
+33139;Cuenta propia con operación de sistemas y/o equipos informatizados vendedores ambulantes y callejeros- Calificación ignorada
+33201;Jefes de los vendedores ambulantes y callejeros- Calificación profesional
+33202;Jefes de los vendedores ambulantes y callejeros- Calificación técnica
+33203;Jefes de los vendedores ambulantes y callejeros- Calificación operativa
+33209;Jefes de los vendedores ambulantes y callejeros- Calificación ignorada
+33311;Trabajadores sin operación de maquinarias vendedores ambulantes y callejeros- Calificación profesional
+33312;Trabajadores sin operación de maquinarias vendedores ambulantes y callejeros- Calificación técnica
+33313;Trabajadores sin operación de maquinarias vendedores ambulantes y callejeros- Calificación operativa
+33314;Trabajadores sin operación de maquinarias vendedores ambulantes y callejeros - No calificados
+33319;Trabajadores sin operación de maquinarias vendedores ambulantes y callejeros- Calificación ignorada
+34111;Cuenta propia sin operación de maquinarias del Transporte- Calificación profesional
+34113;Cuenta propia sin operación de maquinarias del Transporte- Calificación operativa
+34114;Cuenta propia sin operación de maquinarias del Transporte- No calificados
+34119;Cuenta propia sin operación de maquinarias del Transporte- Calificación ignorada
+34121;Cuenta propia con operación de maquinaria y/o equipos electromecánicos del transporte- Calificación profesional
+34123;Cuenta propia con operación de maquinaria y/o equipos electromecánicos del transporte- Calificación operativa
+34124;Cuenta propia con operación de maquinaria y/o equipos electromecánicos del transporte - No calificados
+34129;Cuenta propia con operación de maquinaria y/o equipos electromecánicos del transporte- Calificación ignorada
+34131;Cuenta propia con operación de sistema y/o equipos informatizados del transporte- Calificación profesional
+34133;Cuenta propia con operación de sistema y/o equipos informatizados del transporte- Calificación operativa
+34134;Cuenta propia con operación de sistema y/o equipos informatizados del transporte- No calificados
+34139;Cuenta propia con operación de sistema y/o equipos informatizados del transporte- Calificación ignorada
+34201;Jefes de servicios de transporte- Calificación profesional
+34202;Jefes de servicios de transporte- Calificación técnica
+34203;Jefes de servicios de transporte- Calificación operativa
+34209;Jefes de servicios de transporte- Calificación ignorada
+34311;Trabajadores sin operación de maquinarias del transporte - Calificación profesional
+34312;Trabajadores sin operación de maquinarias del transporte - Calificación técnica
+34313;Trabajadores sin operación de maquinarias del transporte - Calificación operativa
+34314;Trabajadores sin operación de maquinarias del transporte - No calificados
+34319;Trabajadores sin operación de maquinarias del transporte - Calificación ignorada
+34321;Conductores y operadores de maquinaria y/o equipos electromecánicos del transporte Calificación profesional
+34322;Conductores y operadores de maquinaria y/o equipos electromecánicos del transporte Calificación técnica
+34323;Conductores y operadores de maquinaria y/o equipos electromecánicos del transporte Calificación operativa
+34324;Conductores y operadores de maquinaria y/o equipos electromecánicos del transporte- No calificados
+34329;Conductores y operadores de maquinaria y/o equipos electromecánicos del transporte Calificación ignorada
+34331;Operadores de sistemas y/o equipos informatizados o paneles de control del transporte- Calificación profesional
+34332;Operadores de sistemas y/o equipos informatizados o paneles de control del transporte- Calificación técnica
+34333;Operadores de sistemas y/o equipos informatizados o paneles de control del transporte- Calificación operativa
+34334;Operadores de sistemas y/o equipos informatizados o paneles de control del transporte- No calificados
+34339;Operadores de sistemas y/o equipos informatizados o paneles de control del transporte- Calificación ignorada
+35111;Cuenta propia sin operación de maquinarias de las telecomunicaciones- Calificación profesional
+35112;Cuenta propia sin operación de maquinarias de las telecomunicaciones- Calificación técnica
+35113;Cuenta propia sin operación de maquinarias de las telecomunicaciones- Calificación operativa
+35119;Cuenta propia sin operación de maquinarias de las telecomunicaciones- Calificación ignorada
+35121;Cuenta propia con operación de maquinarias y/o equipos electromecanicos de las telecomunicaciones- Calificación profesional
+35122;Cuenta propia con operación de maquinarias y/o equipos electromecanicos de las telecomunicaciones- Calificación técnica
+35123;Cuenta propia con operación de maquinarias y/o equipos electromecanicos de las telecomunicaciones- Calificación operativa
+35129;Cuenta propia con operación de maquinarias y/o equipos electromecanicos de las telecomunicaciones- Calificación ignorada
+35131;Cuenta propia con operación de sistemas y/o equipos informatizados de las telecomunicaciones- Calificación profesional
+35132;Cuenta propia con operación de sistemas y/o equipos informatizados de las telecomunicaciones- Calificación técnica
+35133;Cuenta propia con operación de sistemas y/o equipos informatizados de las telecomunicaciones- Calificación operativa
+35139;Cuenta propia con operación de sistemas y/o equipos informatizados de las telecomunicaciones- Calificación ignorada
+35201;Jefes de las telecomunicaciones- Calificación profesional
+35202;Jefes de las telecomunicaciones- Calificación técnica
+35203;Jefes de las telecomunicaciones- Calificación operativa
+35209;Jefes de las telecomunicaciones- Calificación ignorada
+35311;Trabajadores sin operación de maquinarias de las telecomunicaciones- Calificación profesional
+35312;Trabajadores sin operación de maquinarias de las telecomunicaciones Calificación técnica
+35313;Trabajadores sin operación de maquinarias de las telecomunicaciones Calificación operativa
+35314;Trabajadores sin operación de maquinarias de las telecomunicaciones- No calificados
+35319;Trabajadores sin operación de maquinarias de las telecomunicaciones Calificación ignorada
+35321;Operadores de maquinaria y/o equipos electromecánicos de las telecomunicaciones- Calificación profesional
+35322;Operadores de maquinaria y/o equipos electromecánicos de las telecomunicaciones- Calificación técnica
+35323;Operadores de maquinaria y/o equipos electromecánicos de las telecomunicaciones- Calificación operativa
+35324;Operadores de maquinaria y/o equipos electromecánicos de las telecomunicaciones- No calificados
+35329;Operadores de maquinaria y/o equipos electromecánicos de las telecomunicaciones- Calificación ignorada
+35331;Operadores de equipos y/o sistemas informatizados de telecomunicaciones- Calificación profesional
+35332;Operadores de equipos y/o sistemas informatizados de telecomunicaciones- Calificación técnica
+35333;Operadores de equipos y/o sistemas informatizados de telecomunicaciones- Calificación operativa
+35334;Operadores de equipos y/o sistemas informatizados de telecomunicaciones - No calificados
+35339;Operadores de equipos y/o sistemas informatizados de telecomunicaciones- Calificación ignorada
+36111;Cuenta propia sin operación de maquinarias del almacenaje - Calificación profesional
+36112;Cuenta propia sin operación de maquinarias del almacenaje - Calificación técnica
+36113;Cuenta propia sin operación de maquinarias del almacenaje - Calificación operativa
+36114;Cuenta propia sin operación de maquinarias del almacenaje - No calificados
+36119;Cuenta propia sin operación de maquinarias del almacenaje - Calificación ignorada
+36121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del almacenaje- Calificación profesional
+36122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del almacenaje- Calificación técnica
+36123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del almacenaje- Calificación operativa
+36124;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del almacenaje- No calificados
+36129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del almacenaje- Calificación ignorada
+36131;Cuenta propia con operación de sistemas y/o equipos informatizados del almacenaje - Calificación profesional
+36132;Cuenta propia con operación de sistemas y/o equipos informatizados del almacenaje - Calificación técnica
+36133;Cuenta propia con operación de sistemas y/o equipos informatizados del almacenaje - Calificación operativa
+36134;Cuenta propia con operación de sistemas y/o equipos informatizados del almacenaje - No calificados
+36139;Cuenta propia con operación de sistemas y/o equipos informatizados del almacenaje - Calificación ignorada
+36201;Jefes del almacenaje - Calificación profesional
+36202;Jefes del almacenaje - Calificación técnica
+36203;Jefes del almacenaje - Calificación operativa
+36209;Jefes del almacenaje - Calificación ignorada
+36311;Trabajadores sin operación de maquinarias del almacenaje- Calificación profesional
+36312;Trabajadores sin operación de maquinarias del almacenaje- Calificación técnica
+36313;Trabajadores sin operación de maquinarias del almacenaje- Calificación operativa
+36314;Trabajadores sin operación de maquinarias del almacenaje- No calificados
+36319;Trabajadores sin operación de maquinarias del almacenaje- Calificación ignorada
+36321;Operadores de maquinaria y/o equipos electromecánicos del almacenaje- Calificación profesional
+36322;Operadores de maquinaria y/o equipos electromecánicos del almacenaje- Calificación técnica
+36323;Operadores de maquinaria y/o equipos electromecánicos del almacenaje- Calificación operativa
+36324;Operadores de maquinaria y/o equipos electromecánicos del almacenaje- No calificados
+36329;Operadores de maquinaria y/o equipos electromecánicos del almacenaje- Calificación ignorada
+36331;Operadores de sistemas y/o equipos informatizados del almacenaje- Calificación profesional
+36332;Operadores de sistemas y/o equipos informatizados del almacenaje - Calificación técnica
+36333;Operadores de sistemas y/o equipos informatizados del almacenaje - Calificación operativa
+36334;Operadores de sistemas y/o equipos informatizados del almacenaje - No calificados
+36339;Operadores de sistemas y/o equipos informatizados del almacenaje - Calificación ignorada
+40111;Cuenta propia sin operación de maquinarias de la salud y sanidad- Calificación profesional
+40112;Cuenta propia sin operación de maquinarias de la salud y sanidad- Calificación técnica
+40113;Cuenta propia sin operación de maquinarias de la salud y sanidad- Calificación operativa
+40119;Cuenta propia sin operación de maquinarias de la salud y sanidad- Calificación ignorada
+40121;Cuenta propia con operación de maquinarias yo equipos electromecánicos de la salud y sanidad- Calificación profesional
+40122;Cuenta propia con operación de maquinarias yo equipos electromecánicos de la salud y sanidad- Calificación técnica
+40123;Cuenta propia con operación de maquinarias yo equipos electromecánicos de la salud y sanidad- Calificación operativa
+40129;Cuenta propia con operación de maquinarias yo equipos electromecánicos de la salud y sanidad- Calificación ignorada
+40131;Cuenta propia con operación de sistemas y/o equipos informatizados de la salud y sanidad- Calificación profesional
+40132;Cuenta propia con operación de sistemas y/o equipos informatizados de la salud y sanidad - Calificación técnica
+40133;Cuenta propia con operación de sistemas y/o equipos informatizados de la salud y sanidad - Calificación operativa
+40139;Cuenta propia con operación de sistemas y/o equipos informatizados de la salud y sanidad - Calificación ignorada
+40201;Jefes de la salud y sanidad - Calificación profesional
+40202;Jefes de la salud y sanidad - Calificación técnica
+40203;Jefes de la salud y sanidad - Calificación operativa
+40209;Jefes de la salud y sanidad - Calificación ignorada
+40311;Trabajadores sin operación de maquinarias de salud y sanidad- Calificación profesional
+40312;Trabajadores sin operación de maquinarias de salud y sanidad - Calificación técnica
+40313;Trabajadores sin operación de maquinarias de salud y sanidad - Calificación operativa
+40314;Trabajadores sin operación de maquinarias de salud y sanidad - No calificados
+40319;Trabajadores sin operación de maquinarias de salud y sanidad - Calificación ignorada
+40321;Operadores de maquinaria y/o equipos electromecánicos de la salud, sanidad - Calificación profesional
+40322;Operadores de maquinaria y/o equipos electromecánicos de la salud, sanidad- Calificación técnica
+40323;Operadores de maquinaria y/o equipos electromecánicos de la salud, sanidad- Calificación operativa
+40324;Operadores de maquinaria y/o equipos electromecánicos de la salud, sanidad- No calificado
+40329;Operadores de maquinaria y/o equipos electromecánicos de la salud, sanidad- Calificación ignorada
+40331;Operadores de sistemas y/o equipos informatizados de la salud y sanidad- Calificación profesional
+40332;Operadores de sistemas y/o equipos informatizados de la salud y sanidad- Calificación técnica
+40333;Operadores de sistemas y/o equipos informatizados de la salud y sanidad- Calificación operativa
+40334;Operadores de sistemas y/o equipos informatizados de la salud y sanidad - No calificados
+40339;Operadores de sistemas y/o equipos informatizados de la salud y sanidad- Calificación ignorada
+41111;Cuenta propia sin operación de maquinaria de la educación- Calificación profesional
+41112;Cuenta propia sin operación de maquinaria de la educación- Calificación técnica
+41113;Cuenta propia sin operación de maquinaria de la educación- Calificación operativa
+41119;Cuenta propia sin operación de maquinaria de la educación- Calificación ignorada
+41121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la educación- Calificación profesional
+41122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la educación - Calificación técnica
+41123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la educación - Calificación operativa
+41129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la educación - Calificación ignorada
+41131;Cuenta propia con operación de sistemas y/o equipos informatizados de la educación - Calificación profesional
+41132;Cuenta propia con operación de sistemas y/o equipos informatizados de la educación - Calificación técnica
+41139;Cuenta propia con operación de sistemas y/o equipos informatizados de la educación - Calificación operativa
+41201;Jefes de la educación - Calificación profesional
+41202;Jefes de la educación - Calificación técnica
+41203;Jefes de la educación - Calificación operativa
+41209;Jefes de la educación - Calificación ignorada
+41311;Trabajadores sin operación de maquinarias de la educación- Calificación profesional
+41312;Trabajadores sin operación de maquinarias de la educación- Calificación técnica
+41313;Trabajadores sin operación de maquinarias de la educación - Calificación operativa
+41314;Trabajadores sin operación de maquinarias de la educación - No calificados
+41319;Trabajadores sin operación de maquinarias de la educación - Calificación ignorada
+41321;Operadores de maquinaria y/o equipos electromecánicos de la educación - Calificación profesional
+41322;Operadores de maquinaria y/o equipos electromecánicos de la educación - Calificación técnica
+41323;Operadores de maquinaria y/o equipos electromecánicos de la educación - Calificación operativa
+41324;Operadores de maquinaria y/o equipos electromecánicos de la educación- No calificado
+41329;Operadores de maquinaria y/o equipos electromecánicos de la educación - Calificación ignorada
+41331;Operadores de sistemas y/o equipos informatizados de la educación - Calificación profesional
+41332;Operadores de sistemas y/o equipos informatizados de la educación - Calificación técnica
+41333;Operadores de sistemas y/o equipos informatizados de la educación - Calificación operativa
+41334;Operadores de sistemas y/o equipos informatizados de la educación - No calificados
+41339;Operadores de sistemas y/o equipos informatizados de la educación - Calificación ignorada
+42111;Cuenta propia sin operación de maquinarias de la investigacióncientífica y tecnológica- Calificación profesional
+42112;Cuenta propia sin operación de maquinarias de la investigacióncientífica y tecnológica- Calificación técnica
+42113;Cuenta propia sin operación de maquinarias de la investigación científica y tecnológica- Calificación operativa
+42119;Cuenta propia sin operación de maquinarias de la investigación científica y tecnológica- Calificación ignorada
+42121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la investigación científica y tecnológica- Calificación profesional
+42122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la investigación científica y tecnológica- Calificación técnica
+42123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la investigación científica y tecnológica- Calificación operativa
+42129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la investigación científica y tecnológica- Calificación ignorada
+42131;Cuenta propia con operación de sistemas y/o equipos informatizados de la investigación científica y tecnológica- Calificación profesional
+42132;Cuenta propia con operación de sistemas y/o equipos informatizados de la investigación científica y tecnológica- Calificación técnica
+42133;Cuenta propia con operación de sistemas y/o equipos informatizados de la investigación científica y tecnológica- Calificación operativa
+42139;Cuenta propia con operación de sistemas y/o equipos informatizados de la investigación científica y tecnológica- Calificación ignorada
+42201;Jefes de la investigación científica y tecnológica- Calificación profesional
+42202;Jefes de la investigación científica y tecnológica- Calificación técnica
+42203;Jefes de la investigación científica y tecnológica- Calificación operativa
+42209;Jefes de la investigación científica y tecnológica- Calificación ignorada
+42311;Trabajadores sin operación de maquinarias de la investigación científica y tecnológica- Calificación profesional
+42312;Trabajadores sin operación de maquinarias de la investigación científica y tecnológica- Calificación técnica
+42313;Trabajadores sin operación de maquinarias de la investigación científica y tecnológica- Calificación operativa
+42314;Trabajadores sin operación de maquinarias de la investigación científica y tecnológica- No calificados
+42319;Trabajadores sin operación de maquinarias de la investigación científica y tecnológica- Calificación ignorada
+42321;Operadores de maquinaria y/o equipos electromecánicos de la investigación científica y tecnológica- Calificación profesional
+42322;Operadores de maquinaria y/o equipos electromecánicos de la investigación científica y tecnológica- Calificación técnica
+42323;Operadores de maquinaria y/o equipos electromecánicos de la investigación científica y tecnológica- Calificación operativa
+42324;Operadores de maquinaria y/o equipos electromecánicos de la investigación científica y tecnológica- No calificados
+42329;Operadores de maquinaria y/o equipos electromecánicos de la investigación científica y tecnológica- Calificación ignorada
+42331;Operadores de sistemas y/o equipos informatizados de la investigación científica y tecnológica- Calificación profesional
+42332;Operadores de sistemas y/o equipos informatizados de la investigación científica y tecnológica- Calificación técnica
+42333;Operadores de sistemas y/o equipos informatizados de la investigación científica y tecnológica- Calificación operativa
+42334;Operadores de sistemas y/o equipos informatizados de la investigación científica y tecnológica- No calificados
+42339;Operadores de sistemas y/o equipos informatizados de la investigación científica y tecnológica- Calificación ignorada
+43111;Cuenta propia sin operación de maquinarias de la asesoría y consultoría- Calificación profesional
+43112;Cuenta propia sin operación de maquinarias de la asesoría y consultoría- Calificación técnica
+43113;Cuenta propia sin operación de maquinarias de la asesoría y consultoría- Calificación operativa
+43119;Cuenta propia sin operación de maquinarias de la asesoría y consultoría- Calificación ignorada
+43121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la asesoría y consultoría- Calificación profesional
+43122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la asesoría y consultoría- Calificación técnica
+43123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la asesoría y consultoría- Calificación operativa
+43129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la asesoría y consultoría- Calificación ignorada
+43131;Cuenta propia con operación de sistemas y/o equipos informatizados de la asesoría y consultoría- Calificación profesional
+43132;Cuenta propia con operación de sistemas y/o equipos informatizados de la asesoría y consultoría- Calificación técnica
+43133;Cuenta propia con operación de sistemas y/o equipos informatizados de la asesoría y consultoría- Calificación operativa
+43139;Cuenta propia con operación de sistemas y/o equipos informatizados de la asesoría y consultoría- Calificación ignorada
+43201;Jefes de la asesoría y consultoría- Calificación profesional
+43202;Jefes de la asesoría y consultoría- Calificación técnica
+43203;Jefes de la asesoría y consultoría- Calificación operativa
+43209;Jefes de la asesoría y consultoría- Calificación ignorada
+43311;Trabajadores sin la operación de maquinarias de la asesoría y consultoría- Calificación profesional
+43312;Trabajadores sin la operación de maquinarias de la asesoría y consultoría- Calificación técnica
+43313;Trabajadores sin la operación de maquinarias de la asesoría y consultoría- Calificación operativa
+43319;Trabajadores sin la operación de maquinarias de la asesoría y consultoría- Calificación ignorada
+43321;Operadores de maquinariasy/o equipos electromecánicos de la asesoría y consultoría- Calificación profesional
+43322;Operadores de maquinariasy/o equipos electromecánicos de la asesoría y consultoría- Calificación técnica
+43323;Operadores de maquinariasy/o equipos electromecánicos de la asesoría y consultoría- Calificación operativa
+43324;Operadores de maquinariasy/o equipos electromecánicos de la asesoría y consultoría- No calificado
+43329;Operadores de maquinariasy/o equipos electromecánicos de la asesoría y consultoría- Calificación ignorada
+43331;Operadores de sistemas y/o equipos informatizados de la asesoría y consultoría- Calificación profesional
+43332;Operadores de sistemas y/o equipos informatizados de la asesoría y consultoría- Calificación técnica
+43333;Operadores de sistemas y/o equipos informatizados de la asesoría y consultoría- Calificación operativa
+43334;Operadores de sistemas y/o equipos informatizados de la asesoría y consultoría- No calificado
+43339;Operadores de sistemas y/o equipos informatizados de la asesoría y consultoría- Calificación ignorada
+44111;Cuenta propia sin operación de maquinarias de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación profesional
+44112;Cuenta propia sin operación de maquinarias de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación técnica
+44113;Cuenta propia sin operación de maquinarias de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación operativa
+44119;Cuenta propia sin operación de maquinarias de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación ignorada
+44122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calific
+44123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calific
+44129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calific
+44131;Cuenta propia con operación de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación
+44132;Cuenta propia con operación de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación
+44133;Cuenta propia con operación de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación
+44139;Cuenta propia con operación de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación
+44201;Jefes de la prevención de siniestros (naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación profesional
+44202;Jefes de la prevención de siniestros (naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación técnica
+44203;Jefes de la prevención de siniestros (naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación operativa
+44209;Jefes de la prevención de siniestros (naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación ignorada
+44311;Trabajadores sin operación de maquinarias de prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación profesional
+44312;Trabajadores sin operación de maquinarias de prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación técnica
+44313;Trabajadores sin operación de maquinarias de prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación operativa
+44314;Trabajadores sin operación de maquinarias de prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología - No calificados
+44319;Trabajadores sin operación de maquinarias de prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación ignorada
+44321;Operadores de maquinarias y/o equipos electromecánicos de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación profesional
+44322;Operadores de maquinarias y/o equipos electromecánicos de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación técnica
+44323;Operadores de maquinarias y/o equipos electromecánicos de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación operativa
+44324;Operadores de maquinarias y/o equipos electromecánicos de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología - No calificados
+44329;Operadores de maquinarias y/o equipos electromecánicos de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación ignorada
+44331;Operadores de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación profesional
+44332;Operadores de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación técnica
+44333;Operadores de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación operativa
+44334;Operadores de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- no calificadas
+44339;Operadores de sistemas y/o equipos informatizados de la prevención de siniestros(naturales, humanos, productivos) y atención del medio ambiente y ecología- Calificación ignorada
+45111;Cuenta propia sin operación de maquinarias de la comunicación de masas- Calificación profesional
+45112;Cuenta propia sin operación de maquinarias de la comunicación de masas- Calificación técnica
+45113;Cuenta propia sin operación de maquinarias de la comunicación de masas - Calificación operativa
+45119;Cuenta propia sin operación de maquinarias de la comunicación de masas - Calificación ignorada
+45121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la comunicación de masas- Calificación profesional
+45122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la comunicación de masas- Calificación técnica
+45123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la comunicación de masas- Calificación operativa
+45129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la comunicación de masas- Calificación ignorada
+45131;Cuenta propia con operación de sistemas y/o equipos informatizados de la comunicación de masas - Calificación profesional
+45132;Cuenta propia con operación de sistemas y/o equipos informatizados de la comunicación de masas- Calificación técnica
+45133;Cuenta propia con operación de sistemas y/o equipos informatizados de la comunicación de masas- Calificación operativa
+45139;Cuenta propia con operación de sistemas y/o equipos informatizados de la comunicación de masas- Calificación ignorada
+45201;Jefes de la comunicación de masas- Calificación profesional
+45202;Jefes de la comunicación de masas- Calificación técnica
+45203;Jefes de la comunicación de masas- Calificación operativa
+45209;Jefes de la comunicación de masas- Calificación ignorada
+45311;Trabajadores sin operación de maquinarias de la comunicación de masas- Calificación profesional
+45312;Trabajadores sin operación de maquinarias de la comunicación de masas- Calificación técnica
+45313;Trabajadores sin operación de maquinarias de la comunicación de masas- Calificación operativa
+45314;Trabajadores sin operación de maquinarias de la comunicación de masas- No calificado
+45319;Trabajadores sin operación de maquinarias de la comunicación de masas- Calificación ignorada
+45321;Operadores de maquinaria y/o equipos electromecánicos de la comunicación de masas- Calificación profesional
+45322;Operadores de maquinaria y/o equipos electromecánicos de la comunicación de masas - Calificación técnica
+45323;Operadores de maquinaria y/o equipos electromecánicos de la comunicación de masas- Calificación operativa
+45324;Operadores de maquinaria y/o equipos electromecánicos de la comunicación de masas- No calificados
+45329;Operadores de maquinaria y/o equipos electromecánicos de la comunicación de masas- Calificación ignorada
+45331;Operadores de sistemas y/o equipos informatizados de la comunicación de masas- Calificación profesional
+45332;Operadores de sistemas y/o equipos informatizados de la comunicación de masas- Calificación técnica
+45333;Operadores de sistemas y/o equipos informatizados de la comunicación de masas- Calificación operativa
+45334;Operadores de sistemas y/o equipos informatizados de la comunicación de masas- No calificados
+45339;Operadores de sistemas y/o equipos informatizados de la comunicación de masas- Calificación ignorada
+46111;Cuenta propia sin operación de maquinarias de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación profesional
+46112;Cuenta propia sin operación de maquinarias de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación técnica
+46113;Cuenta propia sin operación de maquinarias de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación operativa
+46119;Cuenta propia sin operación de maquinarias de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación ignorada
+46121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación profesional
+46122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación técnica
+46123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación operativa
+46129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación ignorada
+46131;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación profesional
+46132;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios sociales, comunales, políticos, gremiales y religiosos - Calificación técnica
+46133;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios sociales, comunales, políticos, gremiales y religiosos - Calificación operativa
+46139;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios sociales, comunales, políticos, gremiales y religiosos - Calificación ignorada
+46201;Jefes de los servicios sociales, comunales, políticos, gremiales y religiosos- Calificación profesional
+46202;Jefes de los servicios sociales, comunales, políticos, gremiales y religiosos - Calificación técnica
+46203;Jefes de los servicios sociales, comunales, políticos, gremiales y religiosos - Calificación operativa
+46209;Jefes de los servicios sociales, comunales, políticos, gremiales y religiosos - Calificación ignorada
+46311;Trabajadores sin operación de maquinarias de servicios sociales, comunales, políticos, gremiales y religiosos- Calificación profesional
+46312;Trabajadores sin operación de maquinarias de servicios sociales, comunales, políticos, gremiales y religiosos- Calificación técnica
+46313;Trabajadores sin operación de maquinarias de servicios sociales, comunales, políticos, gremiales y religiosos- Calificación operativa
+46314;Trabajadores sin operación de maquinarias de servicios sociales, comunales, políticos, gremiales y religiosos- No calificado
+46319;Trabajadores sin operación de maquinarias de servicios sociales, comunales, políticos, gremiales y religiosos- Calificación ignorada
+46321;Operadores de maquinarias y/o equipos electromecánicos de servicios sociales,comunales, políticos, gremiales y religiosos- Calificación profesional
+46322;Operadores de maquinarias y/o equipos electromecánicos de servicios sociales,comunales, políticos, gremiales y religiosos- Calificación técnica
+46323;Operadores de maquinarias y/o equipos electromecánicos de servicios sociales,comunales, políticos, gremiales y religiosos- Calificación operativa
+46324;Operadores de maquinarias y/o equipos electromecánicos de servicios sociales,comunales, políticos, gremiales y religiosos- No calificado
+46329;Operadores de maquinarias y/o equipos electromecánicos de servicios sociales,comunales, políticos, gremiales y religiosos- Calificación ignorada
+46331;Operadores de sistemas y/o equipos informatizados de servicios sociales,comunales, políticos, gremiales y religiosos- Calificación profesional
+46332;Operadores de sistemas y/o equipos informatizados de servicios sociales,comunales, políticos, gremiales y religiosos- Calificación técnica
+46333;Operadores de sistemas y/o equipos informatizados de servicios sociales,comunales,políticos, gremiales y religiosos- Calificación operativa
+46334;Operadores de sistemas y/o equipos informatizados de servicios sociales,comunales, políticos, gremiales y religiosos- No calificado
+46339;Operadores de sistemas y/o equipos informatizados de servicios sociales,comunales,políticos, gremiales y religiosos- Calificación ignorada
+47111;Cuenta propia sin operación de maquinarias de los servicios de vigilancia y seguridad civil- Calificación profesional
+47112;Cuenta propia sin operación de maquinarias de los servicios de vigilancia y seguridad civil- Calificación técnica
+47113;Cuenta propia sin operación de maquinarias de los servicios de vigilancia y seguridad civil- Calificación operativa
+47119;Cuenta propia sin operación de maquinarias de los servicios de vigilancia y seguridad civil- Calificación ignorada
+47121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil- Calificación profesional
+47122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil - Calificación técnica
+47123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil - Calificación operativa
+47129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil - Calificación ignorada
+47131;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de vigilancia y seguridad civil- Calificación profesional
+47132;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de vigilancia y seguridad civil - Calificación técnica
+47133;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de vigilancia y seguridad civil- Calificación operativa
+47139;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de vigilancia y seguridad civil- Calificación ignorada
+47201;Jefes de los servicios de vigilancia y seguridad civil- Calificación profesional
+47202;Jefes de los servicios de vigilancia y seguridad civil- Calificación técnica
+47203;Jefes de los servicios de vigilancia y seguridad civil- Calificación operativa
+47209;Jefes de los servicios de vigilancia y seguridad civil- Calificación ignorada
+47311;Trabajadores sin operación de maquinarias de los servicios de vigilancia y seguridad civil - Calificación profesional
+47312;Trabajadores sin operación de maquinarias de los servicios de vigilancia y seguridad civil - Calificación técnica
+47313;Trabajadores sin operación de maquinarias de los servicios de vigilancia y seguridad civil- Calificación operativa
+47314;Trabajadores sin operación de maquinarias de los servicios de vigilancia y seguridad civil- No calificados
+47319;Trabajadores sin operación de maquinarias de los servicios de vigilancia y seguridad civil- Calificación ignorada
+47321;Operadores de maquinaria y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil- Calificación profesional
+47322;Operadores de maquinaria y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil- Calificación técnica
+47323;Operadores de maquinaria y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil- Calificación operativa
+47324;Operadores de maquinaria y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil- No calificados
+47329;Operadores de maquinaria y/o equipos electromecánicos de los servicios de vigilancia y seguridad civil- Calificación ignorada
+47331;Operadores de sistemas y/o equipos informáticos de los servicios de vigilancia y seguridad civil- Calificación profesional
+47332;Operadores de sistemas y/o equipos informáticos de los servicios de vigilancia y seguridad civil- Calificación técnica
+47333;Operadores de sistemas y/o equipos informáticos de los servicios de vigilancia y seguridad civil- Calificación operativa
+47334;Operadores de sistemas y/o equipos informáticos de los servicios de vigilancia y seguridad civil- No calificados
+47339;Operadores de sistemas y/o equipos informáticos de los servicios de vigilancia y seguridad civil- Calificación ignorada
+48311;Trabajadores sin operación de maquinarias de los servicios policiales- Calificación profesional
+48312;Trabajadores sin operación de maquinarias de los servicios policiales- Calificación técnica
+48313;Trabajadores sin operación de maquinarias de los servicios policiales- Calificación operativa
+48314;Trabajadores sin operación de maquinarias de los servicios policiales- No calificados
+48319;Trabajadores sin operación de maquinarias de los servicios policiales- Calificación ignorada
+48321;Operadores de maquinaria y/o equipos electromecánicos de los servicios de policía- Calificación profesional
+48322;Operadores de maquinaria y/o equipos electromecánicos de los servicios de policía- Calificación técnica
+48323;Operadores de maquinaria y/o equipos electromecánicos de los servicios de policía- Calificación operativa
+48324;Operadores de maquinaria y/o equipos electromecánicos de los servicios de policía- No calificados
+48329;Operadores de maquinaria y/o equipos electromecánicos de los servicios de policía- Calificación ignorada
+48331;Operadores de sistemas y/o equipos informáticos de los servicios de policía- Calificación profesional
+48332;Operadores de sistemas y/o equipos informáticos de los servicios de policía- Calificación técnica
+48333;Operadores de sistemas y/o equipos informáticos de los servicios de policía- Calificación operativa
+48334;Operadores de sistemas y/o equipos informáticos de los servicios de policía- No calificados
+48339;Operadores de sistemas y/o equipos informáticos de los servicios de policía- Calificación ignorada
+49311;Trabajadores sin operación de maquinarias de las FFAA, Gendarmería y Prefectura- Calificación profesional
+49312;Trabajadores sin operación de maquinarias de las FFAA, Gendarmería y Prefectura- Calificación técnica
+49313;Trabajadores sin operación de maquinarias de las FFAA, Gendarmería y Prefectura Calificación operativa
+49314;Trabajadores sin operación de maquinarias de las FFAA, Gendarmería y Prefectura- No calificados
+49319;Trabajadores sin operación de maquinarias de las FFAA, Gendarmería y Prefectura Calificación ignorada
+49321;Operadores de maquinarias y/o equipos electromecánicos de las FFAA, Gendarmería y Prefectura- Calificación profesional
+49322;Operadores de maquinarias y/o equipos electromecánicos de las FFAA, Gendarmería y Prefectura- Calificación técnica
+49323;Operadores de maquinarias y/o equipos electromecánicos de las FFAA, Gendarmería y Prefectura Calificación operativa
+49324;Operadores de maquinarias y/o equipos electromecánicos de las FFAA, Gendarmería y Prefectura- No calificados
+49329;Operadores de maquinarias y/o equipos electromecánicos de las FFAA, Gendarmería y Prefectura Calificación ignorada
+49331;Operadores de sistemas y/o equipos informatizados de las FFAA, Gendarmería y Prefectura- Calificación profesional
+49332;Operadores de sistemas y/o equipos informatizados de las FFAA, Gendarmería y Prefectura- Calificación técnica
+49333;Operadores de sistemas y/o equipos informatizados de las FFAA, Gendarmería y Prefectura Calificación operativa
+49334;Operadores de sistemas y/o equipos informatizados de las FFAA, Gendarmería y Prefectura- No calificados
+49339;Operadores de sistemas y/o equipos informatizados de las FFAA, Gendarmería y Prefectura Calificación ignorada
+50111;Cuenta propia sin operación de maquinarias del arte- Calificación profesional
+50112;Cuenta propia sin operación de maquinarias del arte - Calificación técnica
+50113;Cuenta propia sin operación de maquinarias del arte - Calificación operativa
+50119;Cuenta propia sin operación de maquinarias del arte - Calificación ignorada
+50121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del arte- Calificación profesional
+50122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del arte- Calificación técnica
+50123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del arte- Calificación operativa
+50129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del arte- Calificación ignorada
+50131;Cuenta propia con operación de sistemas y/o equipos informatizados del arte- Calificación profesional
+50132;Cuenta propia con operación de sistemas y/o equipos informatizados del arte - Calificación técnica
+50133;Cuenta propia con operación de sistemas y/o equipos informatizados del arte - Calificación operativa
+50139;Cuenta propia con operación de sistemas y/o equipos informatizados del arte - Calificación ignorada
+50201;Jefes del arte- Calificación profesional
+50202;Jefes del arte- Calificación técnica
+50203;Jefes del arte- Calificación operativa
+50209;Jefes del arte- Calificación ignorada
+50311;Trabajadores sin operación de maquinarias del arte - Calificación profesional
+50312;Trabajadores sin operación de maquinarias del arte - Calificación técnica
+50313;Trabajadores sin operación de maquinarias del arte- Calificación operativa
+50314;Trabajadores sin operación de maquinarias del arte - No calificado
+50319;Trabajadores sin operación de maquinarias del arte- Calificación ignorada
+50321;Operadores de maquinaria y/o equipos electromecánicos del arte - Calificación profesional
+50322;Operadores de maquinaria y/o equipos electromecánicos del arte - Calificación técnica
+50323;Operadores de maquinaria y/o equipos electromecánicos del arte - Calificación operativa
+50324;Operadores de maquinaria y/o equipos electromecánicos del arte - No calificado
+50329;Operadores de maquinaria y/o equipos electromecánicos del arte - Calificación ignorada
+50331;Operadores de sistemas y/o equipos informatizados del arte- Calificación profesional
+50332;Operadores de sistemas y/o equipos informatizados del arte - Calificación técnica
+50333;Operadores de sistemas y/o equipos informatizados del arte - Calificación operativa
+50334;Operadores de sistemas y/o equipos informatizados del arte - No calificado
+50339;Operadores de sistemas y/o equipos informatizados del arte - Calificación ignorada
+51111;Cuenta propia sin operación de maquinarias del deporte- Calificación profesional
+51112;Cuenta propia sin operación de maquinarias del deporte - Calificación técnica
+51113;Cuenta propia sin operación de maquinarias del deporte - Calificación operativa
+51119;Cuenta propia sin operación de maquinarias del deporte - Calificación ignorada
+51121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del deporte - Calificación profesional
+51122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del deporte- Calificación técnica
+51123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del deporte- Calificación operativa
+51129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del deporte- Calificación ignorada
+51131;Cuenta propia con operación de sistemas y/o equipos informatizados del deporte- Calificación profesional
+51132;Cuenta propia con operación de sistemas y/o equipos informatizados del deporte- Calificación técnica
+51133;Cuenta propia con operación de sistemas y/o equipos informatizados del deporte- Calificación operativa
+51139;Cuenta propia con operación de sistemas y/o equipos informatizados del deporte- Calificación ignorada
+51201;Jefes del deporte- Calificación profesional
+51202;Jefes del deporte- Calificación técnica
+51203;Jefes del deporte- Calificación operativa
+51209;Jefes del deporte- Calificación ignorada
+51311;Trabajadores sin operación de maquinarias del deporte - Calificación profesional
+51312;Trabajadores sin operación de maquinarias del deporte - Calificación técnica
+51313;Trabajadores sin operación de maquinarias del deporte - Calificación operativa
+51314;Trabajadores sin operación de maquinarias del deporte - No calificados
+51319;Trabajadores sin operación de maquinarias del deporte - Calificación ignorada
+51321;Operadores de maquinaria y/o equipos electromecánicos del deporte- Calificación profesional
+51322;Operadores de maquinaria y/o equipos electromecánicos del deporte - Calificación técnica
+51323;Operadores de maquinaria y/o equipos electromecánicos del deporte - Calificación operativa
+51324;Operadores de maquinaria y/o equipos electromecánicos del deporte - No calificados
+51329;Operadores de maquinaria y/o equipos electromecánicos del deporte - Calificación ignorada
+51331;Operadores de sistemas y/o equipos informatizados del deporte- Calificación profesional
+51332;Operadores de sistemas y/o equipos informatizados del deporte- Calificación técnica
+51333;Operadores de sistemas y/o equipos informatizados del deporte- Calificación operativa
+51334;Operadores de sistemas y/o equipos informatizados del deporte- No calificados
+51339;Operadores de sistemas y/o equipos informatizados del deporte- Calificación ignorada
+52111;Cuenta propia sin operación de maquinarias de la recreación - Calificación profesional
+52112;Cuenta propia sin operación de maquinarias de la recreación - Calificación técnica
+52113;Cuenta propia sin operación de maquinarias de la recreación - Calificación operativa
+52119;Cuenta propia sin operación de maquinarias de la recreación - Calificación ignorada
+52121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la recreación- Calificación profesional
+52122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la recreación- Calificación técnica
+52123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la recreación- Calificación operativa
+52129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la recreación- Calificación ignorada
+52131;Cuenta propia con operación de sistemas y/o equipos informatizados de la recreación- Calificación profesional
+52132;Cuenta propia con operación de sistemas y/o equipos informatizados de la recreación- Calificación técnica
+52133;Cuenta propia con operación de sistemas y/o equipos informatizados de la recreación- Calificación operativa
+52139;Cuenta propia con operación de sistemas y/o equipos informatizados de la recreación- Calificación ignorada
+52201;Jefes de la recreación - Calificación profesional
+52202;Jefes de la recreación - Calificación técnica
+52203;Jefes de la recreación - Calificación operativa
+52209;Jefes de la recreación - Calificación ignorada
+52311;Trabajadores sin operación de maquinarias de la recreación- Calificación profesional
+52312;Trabajadores sin operación de maquinarias de la recreación- Calificación técnica
+52313;Trabajadores sin operación de maquinarias de la recreación- Calificación operativa
+52314;Trabajadores sin operación de maquinarias de la recreación- No calificados
+52319;Trabajadores sin operación de maquinarias de la recreación- Calificación ignorada
+52321;Operadores de maquinaria y/o equipos electromecánicos de la recreación- Calificación profesional
+52322;Operadores de maquinaria y/o equipos electromecánicos de la recreación- Calificación técnica
+52323;Operadores de maquinaria y/o equipos electromecánicos de la recreación- Calificación operativa
+52324;Operadores de maquinaria y/o equipos electromecánicos de la recreación- No calificados
+52329;Operadores de maquinaria y/o equipos electromecánicos de la recreación- Calificación ignorada
+52331;Operadores de sistemas y/o equipos informatizados de la recreación- Calificación profesional
+52332;Operadores de sistemas y/o equipos informatizados de la recreación- Calificación técnica
+52333;Operadores de sistemas y/o equipos informatizados de la recreación - Calificación operativa
+52334;Operadores de sistemas y/o equipos informatizados de la recreación - No calificados
+52339;Operadores de sistemas y/o equipos informatizados de la recreación - Calificación ignorada
+53111;Cuenta propia sin operación de maquinarias de servicios gastronómicos- Calificación profesional
+53112;Cuenta propia sin operación de maquinarias de servicios gastronómicos - Calificación técnica
+53113;Cuenta propia sin operación de maquinarias de servicios gastronómicos- Calificación operativa
+53119;Cuenta propia sin operación de maquinarias de servicios gastronómicos- Calificación ignorada
+53121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de servicios gastrnómicos- Calificación profesional
+53122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de servicios gastrnómicos- Calificación técnica
+53123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de servicios gastrnómicos- Calificación operativa
+53129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de servicios gastrnómicos- Calificación ignorada
+53131;Cuenta propia con operación de sistemas y/o equipos informatizados de servicios gastrnómicos- Calificación profesional
+53132;Cuenta propia con operación de sistemas y/o equipos informatizados de servicios gastrnómicos- Calificación técnica
+53133;Cuenta propia con operación de sistemas y/o equipos informatizados de servicios gastrnómicos- Calificación operativa
+53139;Cuenta propia con operación de sistemas y/o equipos informatizados de servicios gastrnómicos- Calificación ignorada
+53201;Jefes de servicios gastrnómicos- Calificación profesional
+53202;Jefes de servicios gastrnómicos- Calificación técnica
+53203;Jefes de servicios gastrnómicos- Calificación operativa
+53209;Jefes de servicios gastrnómicos- Calificación ignorada
+53311;Trabajadores sin operación de maquinarias de servicios gastrnómicos- Calificación profesional
+53312;Trabajadores sin operación de maquinarias de servicios gastrnómicos- Calificación técnica
+53313;Trabajadores sin operación de maquinarias de servicios gastrnómicos- Calificación operativa
+53314;Trabajadores sin operación de maquinarias de servicios gastrnómicos- No calificados
+53319;Trabajadores sin operación de maquinarias de servicios gastrnómicos- Calificación ignorada
+53321;Operadores de maquinarias y/oequipos electromecánicos servicios gastrnómicos- Calificación profesional
+53322;Operadores de maquinarias y/oequipos electromecánicos servicios gastrnómicos - Calificación técnica
+53323;Operadores de maquinarias y/oequipos electromecánicos servicios gastrnómicos - Calificación operativa
+53324;Operadores de maquinarias y/oequipos electromecánicos servicios gastrnómicos - No calificados
+53329;Operadores de maquinarias y/oequipos electromecánicos servicios gastrnómicos - Calificación ignorada
+53331;Operadores de sistemas y/o equipos informatizados de servicios gastrnómicos- Calificación profesional
+53332;Operadores de sistemas y/o equipos informatizados de servicios gastrnómicos Calificación técnica
+53333;Operadores de sistemas y/o equipos informatizados de servicios gastrnómicos - Calificación operativa
+53334;Operadores de sistemas y/o equipos informatizados de servicios gastrnómicos - No calificados
+53339;Operadores de sistemas y/o equipos informatizados de servicios gastrnómicos - Calificación ignorada
+54111;Cuenta propia sin operación de maquinarias de los servicios de alojamiento y turismo- Calificación profesional
+54112;Cuenta propia sin operación de maquinarias de los servicios de alojamiento y turismo- Calificación técnica
+54113;Cuenta propia sin operación de maquinarias de los servicios de alojamiento y turismo- Calificación operativa
+54119;Cuenta propia sin operación de maquinarias de los servicios de alojamiento y turismo- Calificación ignorada
+54121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de alojamiento y turismo- Calificación profesional
+54122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de alojamiento y turismo- Calificación técnica
+54123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de alojamiento y turismo- Calificación operativa
+54129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de alojamiento y turismo- Calificación ignorada
+54131;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de alojamiento y turismo - Calificación profesional
+54132;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de alojamiento y turismo - Calificación técnica
+54133;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de alojamiento y turismo - Calificación operativa
+54139;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de alojamiento y turismo - Calificación ignorada
+54201;Jefes del alojamiento y turismo- Calificación profesional
+54202;Jefes del alojamiento y turismo - Calificación técnica
+54203;Jefes del alojamiento y turismo - Calificación operativa
+54209;Jefes del alojamiento y turismo - Calificación ignorada
+54311;Trabajadores sin operación demaquinarias del alojamiento y turismo- Calificación profesional
+54312;Trabajadores sin operación demaquinarias del alojamiento y turismo- Calificación técnica
+54313;Trabajadores sin operación demaquinarias del alojamiento y turismo- Calificación operativa
+54314;Trabajadores sin operación demaquinarias del alojamiento y turismo- No calificados
+54319;Trabajadores sin operación demaquinarias del alojamiento y turismo- Calificación ignorada
+54321;Operadores de maquinaria y/o equipos electromecánicos del alojamiento y turismo- Calificación profesional
+54322;Operadores de maquinaria y/o equipos electromecánicos del alojamiento y turismo- Calificación técnica
+54323;Operadores de maquinaria y/o equipos electromecánicos del alojamiento y turismo- Calificación operativa
+54324;Operadores de maquinaria y/o equipos electromecánicos del alojamiento y turismo- No calificados
+54329;Operadores de maquinaria y/o equipos electromecánicos del alojamiento y turismo- Calificación ignorada
+54331;Operadores de sistemas y/o equiposinformatizados del alojamiento y turismo- Calificación profesional
+54332;Operadores de sistemas y/o equiposinformatizados del alojamiento y turismo - Calificación técnica
+54333;Operadores de sistemas y/o equiposinformatizados del alojamiento y turismo - Calificación operativa
+54334;Operadores de sistemas y/o equiposinformatizados del alojamiento y turismo - No calificados
+54339;Operadores de sistemas y/o equiposinformatizados del alojamiento y turismo - Calificación ignorada
+55113;Cuenta propia sin operaión de maquinarias de los servicios domésticos - Calificación operativa
+55203;Jefes de los servicios domésticos - Calificación operativa
+55313;Trabajadores del servicio doméstico - Calificación operativa
+55314;Trabajadores del servicio doméstico - No calificados
+55319;Trabajadores del servicio doméstico - Calificación ignorada
+56113;Cuenta propia sin operación de maquinarias de los servicios de limpieza no doméstica- Calificación operativa
+56114;Cuenta propia sin operación de maquinarias de los servicios de limpieza no doméstica- No calificados
+56123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de los servicios de limpieza no doméstica- Calificación operativa
+56133;Cuenta propia con operación de sistemas y/o equipos informatizados de los servicios de limpieza no doméstica- Calificación operativa
+56202;Jefes de los servicios de limpieza no doméstica- Calificación técnica
+56203;Jefes de los servicios de limpieza no doméstica- Calificación operativa
+56209;Jefes de los servicios de limpieza no doméstica- Calificación ignorada
+56313;Trabajadores de servicios de limpieza no domésticos Calificación operativa
+56314;Trabajadores de servicios de limpieza no domésticos - No calificados
+56319;Trabajadores de servicios de limpieza no domésticos Calificación ignorada
+56323;Operadores de maquinaria y/o equipos electromecánicos de la limpieza no doméstica- Calificación operativa
+56324;Operadores de maquinaria y/o equipos electromecánicos de la limpieza no doméstica- No calificados
+56329;Operadores de maquinaria y/o equipos electromecánicos de la limpieza no doméstica- Calificación ignorada
+56333;Operadores de sistemas y/o equiposinformatizados de la limpieza no doméstica- Calificación operativa
+56334;Operadores de sistemas y/o equiposinformatizados de la limpieza no doméstica- No calificados
+56339;Operadores de sistemas y/o equiposinformatizados de la limpieza no doméstica- Calificación ignorada
+57111;Cuenta propia sin operación de maquinarias del cuidado y la atenciónde las personas - Calificación profesional
+57112;Cuenta propia sin operación de maquinarias del cuidado y la atenciónde las personas- Calificación técnica
+57113;Cuenta propia sin operación de maquinarias del cuidado y la atenciónde las personas - Calificación operativa
+57119;Cuenta propia sin operación de maquinarias del cuidado y la atenciónde las personas - Calificación ignorada
+57121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del cuidado y la atenciónde las personas- Calificación profesional
+57122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del cuidado y la atenciónde las personas - Calificación técnica
+57123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del cuidado y la atenciónde las personas - Calificación operativa
+57129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos del cuidado y la atenciónde las personas - Calificación ignorada
+57131;Cuenta propia con operación de sistemas y/o equipos informatizados del cuidado y la atenciónde las personas - Calificación profesional
+57132;Cuenta propia con operación de sistemas y/o equipos informatizados del cuidado y la atenciónde las personas - Calificación técnica
+57133;Cuenta propia con operación de sistemas y/o equipos informatizados del cuidado y la atenciónde las personas - Calificación operativa
+57139;Cuenta propia con operación de sistemas y/o equipos informatizados del cuidado y la atenciónde las personas - Calificación ignorada
+57201;Jefes de los servicios del cuidado y la atención de las personas- Calificación profesional
+57202;Jefes de los servicios del cuidado y la atención de las personas- Calificación técnica
+57203;Jefes de los servicios del cuidado y la atención de las personas- Calificación operativa
+57209;Jefes de los servicios del cuidado y la atención de las personas- Calificación ignorada
+57311;Trabajadores sin operación de maquinarias del cuidado y la atención de personas- Calificación profesional
+57312;Trabajadores sin operación de maquinarias del cuidado y la atención de personas- Calificación técnica
+57313;Trabajadores sin operación de maquinarias del cuidado y la atención de personas- Calificación operativa
+57314;Trabajadores sin operación de maquinarias del cuidado y la atención de personas- No calificados
+57319;Trabajadores sin operación de maquinarias del cuidado y la atención de personas- Calificación ignorada
+57321;Operadores de maquinaria y/o equipos electromecánicos del cuidado y la atención de las personas- Calificación profesional
+57322;Operadores de maquinaria y/o equipos electromecánicos del cuidado y la atención de las personas- Calificación técnica
+57323;Operadores de maquinaria y/o equipos electromecánicos del cuidado y la atención de las personas- Calificación operativa
+57324;Operadores de maquinaria y/o equipos electromecánicos del cuidado y la atención de las personas - No calificados
+57329;Operadores de maquinaria y/o equipos electromecánicos del cuidado y la atención de las personas- Calificación ignorada
+57331;Operadores de sistemas y/o equipos informatizados del cuidado y la atención delas personas- Calificación profesional
+57332;Operadores de sistemas y/o equipos informatizados del cuidado y la atención delas personas- Calificación técnica
+57333;Operadores de sistemas y/o equipos informatizados del cuidado y la atención delas personas- Calificación operativa
+57334;Operadores de sistemas y/o equipos informatizados del cuidado y la atención delas personas- No calificados
+57339;Operadores de sistemas y/o equipos informatizados del cuidado y la atención delas personas- Calificación ignorada
+58111;Cuenta propia sin operación de maquinarias de otras ocupaciones de los servicios sociales varios- Calificación profesional
+58112;Cuenta propia sin operación de maquinarias de otras ocupaciones de los servicios sociales varios- Calificación técnica
+58113;Cuenta propia sin operación de maquinarias de otras ocupaciones de los servicios sociales varios- Calificación operativa
+58119;Cuenta propia sin operación de maquinarias de otras ocupaciones de los servicios sociales varios- Calificación ignorada
+58121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de los servicios sociales varios- Calificación profesional
+58122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de los servicios sociales varios- Calificación técnica
+58123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de los servicios sociales varios- Calificación operativa
+58129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de otras ocupaciones de los servicios sociales varios- Calificación ignorada
+58131;Cuenta propia con operación de sistemas y/o equipos informatizados de otras ocupaciones delos servicios sociales varios- Calificación profesional
+58132;Cuenta propia con operación de sistemas y/o equipos informatizados de otras ocupaciones delos servicios sociales varios- Calificación técnica
+58133;Cuenta propia con operación de sistemas y/o equipos informatizados de otras ocupaciones delos servicios sociales varios- Calificación operativa
+58139;Cuenta propia con operación de sistemas y/o equipos informatizados de otras ocupaciones delos servicios sociales varios- Calificación ignorada
+58201;Jefes de otras ocupaciones de los servicios sociales varios - Calificación profesional
+58202;Jefes de otras ocupaciones de los servicios sociales varios - Calificación técnica
+58203;Jefes de otras ocupaciones de los servicios sociales varios - Calificación operativa
+58209;Jefes de otras ocupaciones de los servicios sociales varios - Calificación ignorada
+58311;Trabajadores sin operación de maquinarias de otros servicios- Calificación profesional
+58312;Trabajadores sin operación de maquinarias de otros servicios - Calificación técnica
+58313;Trabajadores sin operación de maquinarias de otros servicios - Calificación operativa
+58314;Trabajadores sin operación de maquinarias de otros servicios - No calificados
+58319;Trabajadores sin operación de maquinarias de otros servicios - Calificación ignorada
+58321;Operadores de maquinaria y/o equiposelectromecánicos de otras ocupaciones de los servicios sociales varios- Calificación profesional
+58322;Operadores de maquinaria y/o equiposelectromecánicos de otras ocupaciones de los servicios sociales varios - Calificación técnica
+58323;Operadores de maquinaria y/o equiposelectromecánicos de otras ocupaciones de los servicios sociales varios - Calificación operativa
+58324;Operadores de maquinaria y/o equiposelectromecánicos de otras ocupaciones de los servicios sociales varios - No calificados
+58329;Operadores de maquinaria y/o equiposelectromecánicos de otras ocupaciones de los servicios sociales varios - Calificación ignorada
+58331;Operadores de sistemas y/o equipos informatizados de otras ocupaciones de los servicios sociales varios- Calificación profesional
+58332;Operadores de sistemas y/o equipos informatizados de otras ocupaciones de los servicios sociales varios - Calificación técnica
+58333;Operadores de sistemas y/o equipos informatizados de otras ocupaciones de los servicios sociales varios - Calificación operativa
+58334;Operadores de sistemas y/o equipos informatizados de otras ocupaciones de los servicios sociales varios- No calificados
+58339;Operadores de sistemas y/o equipos informatizados de otras ocupaciones de los servicios sociales varios - Calificación ignorada
+60111;Cuenta propia sin operación de maquinarias de la producción agrícola- Calificación profesional
+60112;Cuenta propia sin operación de maquinarias de la producción agrícola- Calificación técnica
+60113;Cuenta propia sin operación de maquinarias de la producción agrícola- Calificación operativa
+60119;Cuenta propia sin operación de maquinarias de la producción agrícola- Calificación ignorada
+60121;Cuenta propia con operación de maquinaria y/o equipos electromecánicos de la producción agrícola- Calificación profesional
+60122;Cuenta propia con operación de maquinaria y/o equipos electromecánicos de la producción agrícola- Calificación técnica
+60123;Cuenta propia con operación de maquinaria y/o equipos electromecánicos de la producción agrícola- Calificación operativa
+60129;Cuenta propia con operación de maquinaria y/o equipos electromecánicos de la producción agrícola- Calificación ignorada
+60131;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción agrícola- Calificación profesional
+60132;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción agrícola- Calificación técnica
+60133;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción agrícola- Calificación operativa
+60139;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción agrícola- Calificación ignorada
+60201;Jefes de la producción agrícola- Calificación profesional
+60202;Jefes de la producción agrícola- Calificación técnica
+60203;Jefes de la producción agrícola- Calificación operativa
+60209;Jefes de la producción agrícola- Calificación ignorada
+60311;Trabajadores sin operación de maquinarias de la producción agrícola- Calificación profesional
+60312;Trabajadores sin operación de maquinarias de la producción agrícola- Calificación técnica
+60313;Trabajadores sin operación de maquinarias de la producción agrícola- Calificación operativa
+60314;Trabajadores sin operación de maquinarias de la producción agrícola- No calificada
+60319;Trabajadores sin operación de maquinarias de la producción agrícola- Calificación ignorada
+60321;Operadores de maquinaria y/o equipos electromecánicos de la producción agrícola- Calificación profesional
+60322;Operadores de maquinaria y/o equipos electromecánicos de la producción agrícola- Calificación técnica
+60323;Operadores de maquinaria y/o equipos electromecánicos de la producción agrícola- Calificación operativa
+60324;Operadores de maquinaria y/o equipos electromecánicos de la producción agrícola- No calificados
+60329;Operadores de maquinaria y/o equipos electromecánicos de la producción agrícola- Calificación ignorada
+60331;Operadores de sistemas y/o equipos informatizados de la producción agrícola- Calificación profesional
+60332;Operadores de sistemas y/o equipos informatizados de la producción agrícola- Calificación técnica
+60333;Operadores de sistemas y/o equipos informatizados de la producción agrícola- Calificación operativa
+60334;Operadores de sistemas y/o equipos informatizados de la producción agrícola- No calificados
+60339;Operadores de sistemas y/o equipos informatizados de la producción agrícola- Calificación ignorada
+61111;Cuenta propia sin operación de maquinarias de la producción ganadera- Calificación profesional
+61112;Cuenta propia sin operación de maquinarias de la producción ganadera- Calificación técnica
+61113;Cuenta propia sin operación de maquinarias de la producción ganadera- Calificación operativa
+61119;Cuenta propia sin operación de maquinarias de la producción ganadera- Calificación ignorada
+61121;Cuenta propia con operación de maquinaria y/o equipos electromecanica de la producción ganadera- Calificación profesional
+61122;Cuenta propia con operación de maquinaria y/o equipos electromecanica de la producción ganadera- Calificación técnica
+61123;Cuenta propia con operación de maquinaria y/o equipos electromecanica de la producción ganadera- Calificación operativa
+61129;Cuenta propia con operación de maquinaria y/o equipos electromecanica de la producción ganadera- Calificación ignorada
+61131;Cuenta propia con operación de sistemas y/o equipos Informatizados de la producción ganadera- Calificación técnica
+61132;Cuenta propia con operación de sistemas y/o equipos Informatizados de la producción ganadera- Calificación técnica
+61133;Cuenta propia con operación de sistemas y/o equipos Informatizados de la producción ganadera- Calificación operativa
+61139;Cuenta propia con operación de sistemas y/o equipos Informatizados de la producción ganadera- Calificación ignorada
+61201;Jefes de la producción ganadera- Calificación profesional
+61202;Jefes de la producción ganadera- Calificación técnica
+61203;Jefes de la producción ganadera- Calificación operativa
+61209;Jefes de la producción ganadera- Calificación ignorada
+61311;Trabajadores sin operación de maquinarias de la producción ganadera- Calificación profesional
+61312;Trabajadores sin operación de maquinarias de la producción ganadera- Calificación técnica
+61313;Trabajadores sin operación de maquinarias de la producción ganadera- Calificación operativa
+61314;Trabajadores sin operación de maquinarias de la producción ganadera - No calificados
+61319;Trabajadores sin operación de maquinarias de la producción ganadera- Calificación ignorada
+61321;Operadores de maquinaria y/o equipos electromecánicos de la producción ganadera- Calificación profesional
+61322;Operadores de maquinaria y/o equipos electromecánicos de la producción ganadera- Calificación técnica
+61323;Operadores de maquinaria y/o equipos electromecánicos de la producción ganadera- Calificación operativa
+61324;Operadores de maquinaria y/o equipos electromecánicos de la producción ganadera- No calificados
+61329;Operadores de maquinaria y/o equipos electromecánicos de la producción ganadera- Calificación ignorada
+61331;Operadores de sistemas y/o equipos informatizados de la producción ganadera- Calificación profesional
+61332;Operadores de sistemas y/o equipos informatizados de la producción ganadera- Calificación técnica
+61333;Operadores de sistemas y/o equipos informatizados de la producción ganadera- Calificación operativa
+61334;Operadores de sistemas y/o equipos informatizados de la producción ganadera- No calificados
+61339;Operadores de sistemas y/o equipos informatizados de la producción ganadera- Calificación ignorada
+62111;Cuenta propia sin operación de maquinarias de la producción forestal- Calificación profesional
+62112;Cuenta propia sin operación de maquinarias de la producción forestal- Calificación técnica
+62113;Cuenta propia sin operación de maquinarias de la producción forestal- Calificación operativa
+62119;Cuenta propia sin operación de maquinarias de la producción forestal- Calificación ignorada
+62121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción forestal - Calificación profesional
+62122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción forestal - Calificación técnica
+62123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción forestal - Calificación operativa
+62129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción forestal - Calificación ignorada
+62131;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción forestal - Calificación profesional
+62132;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción forestal - Calificación técnica
+62133;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción forestal - Calificación operativa
+62139;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción forestal - Calificación ignorada
+62201;Jefes de la producción forestal- Calificación profesional
+62202;Jefes de la producción forestal- Calificación técnica
+62203;Jefes de la producción forestal- Calificación operativa
+62209;Jefes de la producción forestal- Calificación ignorada
+62311;Trabajadores sin operación de maquinarias de la producción forestal- Calificación profesional
+62312;Trabajadores sin operación de maquinarias de la producción forestal- Calificación técnica
+62313;Trabajadores sin operación de maquinarias de la producción forestal- Calificación operativa
+62314;Trabajadores sin operación de maquinarias de la producción forestal- No calificados
+62319;Trabajadores sin operación de maquinarias de la producción forestal- Calificación ignorada
+62321;Operadores de maquinaria y/o equipos electromecánicos de la producción forestal- Calificación profesional
+62322;Operadores de maquinaria y/o equipos electromecánicos de la producción forestal- Calificación técnica
+62323;Operadores de maquinaria y/o equipos electromecánicos de la producción forestal- Calificación operativa
+62324;Operadores de maquinaria y/o equipos electromecánicos de la producción forestal - No calificados
+62329;Operadores de maquinaria y/o equipos electromecánicos de la producción forestal- Calificación ignorada
+62331;Operadores de sistemas y/o equipos informatizados de la producción forestal- Calificación profesional
+62332;Operadores de sistemas y/o equipos informatizados de la producción forestal- Calificación técnica
+62333;Operadores de sistemas y/o equipos informatizados de la producción forestal- Calificación operativa
+62334;Operadores de sistemas y/o equipos informatizados de la producción forestal- No calificados
+62339;Operadores de sistemas y/o equipos informatizados de la producción forestal- Calificación ignorada
+63111;Cuenta propia de la producción apicolaavicola yde otras especies menores- Calificación profesional
+63112;Cuenta propia de la producción apicolaavicola yde otras especies menores- Calificación técnica
+63113;Cuenta propia de la producción apicolaavicola yde otras especies menores- Calificación operativa
+63119;Cuenta propia de la producción apicolaavicola yde otras especies menores- Calificación ignorada
+63121;Cuenta propia con operación de maquinarias y/o equipos de la producción apicola-avicola- Calificación profesional
+63122;Cuenta propia con operación de maquinarias y/o equipos de la producción apicola-avicola- Calificación técnica
+63123;Cuenta propia con operación de maquinarias y/o equipos de la producción apicola-avicola- Calificación operativa
+63129;Cuenta propia con operación de maquinarias y/o equipos de la producción apicola-avicola- Calificación ignorada
+63131;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción apicolaavicola yde otras especies menores- Calificación profesional
+63132;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción apicolaavicola yde otras especies menores- Calificación técnica
+63133;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción apicolaavicola yde otras especies menores- Calificación operativa
+63139;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción apicolaavicola yde otras especies menores- Calificación ignorada
+63201;Jefes de la producción apicolaavicola y de otras especies menores- Calificación profesional
+63202;Jefes de la producción apicolaavicola y de otras especies menores- Calificación técnica
+63203;Jefes de la producción apicolaavicola y de otras especies menores- Calificación operativa
+63209;Jefes de la producción apicolaavicola y de otras especies menores- Calificación ignorada
+63311;Trabajadores sin operación de maquinarias de la producción apicolaavicola y de otras especies menores- Calificación profesional
+63312;Trabajadores sin operación de maquinarias de la producción apicolaavicola y de otras especies menores- Calificación técnica
+63313;Trabajadores sin operación de maquinarias de la producción apicolaavicola y de otras especies menores- Calificación operativa
+63314;Trabajadores sin operación de maquinarias de la producción apicolaavicola y de otras especies menores - No calificados
+63319;Trabajadores sin operación de maquinarias de la producción apicolaavicola y de otras especies menores- Calificación ignorada
+63321;Operadores de maquinaria y/o equipos electromecanica de la producción apicolaavicola y de otras especies menores- Calificación profesional
+63322;Operadores de maquinaria y/o equipos electromecanica de la producción apicolaavicola y de otras especies menores- Calificación técnica
+63323;Operadores de maquinaria y/o equipos electromecanica de la producción apicolaavicola y de otras especies menores- Calificación operativa
+63324;Operadores de maquinaria y/o equipos electromecanica de la producción apicolaavicola y de otras especies menores - No calificados
+63329;Operadores de maquinaria y/o equipos electromecanica de la producción apicolaavicola y de otras especies menores- Calificación ignorada
+63331;Operadores de sistemas, equipos y/o paneles informatizados de la producción deapicultura, avicultura y otras especies menores - Calificación profesional
+63332;Operadores de sistemas, equipos y/o paneles informatizados de la producción deapicultura, avicultura y otras especies menores - Calificación técnica
+63333;Operadores de sistemas, equipos y/o paneles informatizados de la producción deapicultura, avicultura y otras especies menores - Calificación operativa
+63334;Operadores de sistemas, equipos y/o paneles informatizados de la producción deapicultura, avicultura y otras especies menores - No calificado
+63339;Operadores de sistemas, equipos y/o paneles informatizados de la producción deapicultura, avicultura y otras especies menores - Calificación ignorada
+64111;Cuenta propia sin operación de maquinarias de la producción pesquera- Calificación profesional
+64112;Cuenta propia sin operación de maquinarias de la producción pesquera- Calificación técnica
+64113;Cuenta propia sin operación de maquinarias de la producción pesquera- Calificación operativa
+64119;Cuenta propia sin operación de maquinarias de la producción pesquera- Calificación ignorada
+64121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción pesquera- Calificación profesional
+64122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción pesquera- Calificación técnica
+64123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción pesquera- Calificación operativa
+64129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción pesquera- Calificación ignorada
+64131;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción pesquera- Calificación profesional
+64132;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción pesquera- Calificación técnica
+64133;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción pesquera- Calificación operativa
+64139;Cuenta propia con operación de sistemas y/o equipos informatizados de la producción pesquera- Calificación ignorada
+64201;Jefes de la producción pesquera- Calificación profesional
+64202;Jefes de la producción pesquera- Calificación técnica
+64203;Jefes de la producción pesquera- Calificación operativa
+64209;Jefes de la producción pesquera- Calificación ignorada
+64311;Trabajadores sin operación de maquinarias de la producción pesquera- Calificaciónprofesional
+64312;Trabajadores sin operación de maquinarias de la producción pesquera- Calificación técnica
+64313;Trabajadores sin operación de maquinarias de la producción pesquera- Calificación operativa
+64314;Trabajadores sin operación de maquinarias de la producción pesquera - No calificados
+64319;Trabajadores sin operación de maquinarias de la producción pesquera- Calificación ignorada
+64321;Operadores de maquinaria y/o equipos electromecánicos de la producción pesquera- Calificaciónprofesional
+64322;Operadores de maquinaria y/oequipos electromecánicos de la producción pesquera- Calificación técnica
+64323;Operadores de maquinaria y/o equipos electromecánicos de la producción pesquera- Calificación operativa
+64324;Operadores de maquinaria y/o equipos electromecánicos de la producción pesquera - No calificados
+64329;Operadores de maquinaria y/o equipos electromecánicos de la producción pesquera- Calificación ignorada
+64331;Operadores de sistemas y/o equipos informatizados de la producción pesquera- Calificaciónprofesional
+64332;Operadores de sistemas y/o equipos informatizados de la producción pesquera- Calificación técnica
+64333;Operadores de sistemas y/o equipos informatizados de la producción pesquera- Calificación operativa
+64334;Operadores de sistemas y/o equipos informatizados de la producción pesquera - No calificados
+64339;Operadores de sistemas y/o equipos informatizados de la producción pesquera- Calificación ignorada
+65111;Cuenta propia sin operación de maquinarias de la caza- Calificación profesional
+65112;Cuenta propia sin operación de maquinarias de la caza- Calificación técnica
+65113;Cuenta propia sin operación de maquinarias de la caza- Calificación operativa
+65119;Cuenta propia sin operación de maquinarias de la caza- Calificación ignorada
+65121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la caza- Calificación profesional
+65122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la caza- Calificación técnica
+65123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la caza- Calificación operativa
+65129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la caza- Calificación ignorada
+65131;Cuenta propia con operación de sistemas y/o equipos informatizados de la caza- Calificación profesional
+65132;Cuenta propia con operación de sistemas y/o equipos informatizados de la caza- Calificación técnica
+65133;Cuenta propia con operación de sistemas y/o equipos informatizados de la caza- Calificación operativa
+65139;Cuenta propia con operación de sistemas y/o equipos informatizados de la caza- Calificación ignorada
+65201;Jefes de la caza- Calificación profesional
+65202;Jefes de la caza- Calificación técnica
+65203;Jefes de la caza- Calificación operativa
+65209;Jefes de la caza- Calificación ignorada
+65311;Trabajadores sin operación de maquinarias de la caza- Calificación profesional
+65312;Trabajadores sin operación de maquinarias de la caza- Calificación técnica
+65313;Trabajadores sin operación de maquinarias de la caza- Calificación operativa
+65314;Trabajadores sin operación de maquinarias de la caza - No calificados
+65319;Trabajadores sin operación de maquinarias de la caza- Calificación ignorada
+65321;Operadores de maquinaria y/o equipos electromecánicos de la caza - Calificación profesional
+65322;Operadores de maquinaria y/o equipos electromecánicos de la caza - Calificación técnica
+65323;Operadores de maquinaria y/o equipos electromecánicos de la caza- Calificación operativa
+65324;Operadores de maquinaria y/o equipos electromecánicos de la caza - No calificados
+65329;Operadores de maquinaria y/o equipos electromecánicos de la caza- Calificación ignorada
+65331;Operadores de sistemas y/o equipos informatizados de la caza- Calificación profesional
+65332;Operadores de sistemas y/o equipos informatizados de la caza Calificación técnica
+65333;Operadores de sistemas y/o equipos informatizados de la caza Calificación operativa
+65334;Operadores de sistemas y/o equipos informatizados de la caza- No calificados
+65339;Operadores de sistemas y/o equipos informatizados de la caza Calificación ignorada
+70111;Cuenta propia sin operación de maquinarias de la producción extractiva- Calificación profesional
+70112;Cuenta propia sin operación de maquinarias de la producción extractiva- Calificación técnica
+70113;Cuenta propia sin operación de maquinarias de la producción extractiva- Calificación operativa
+70119;Cuenta propia sin operación de maquinarias de la producción extractiva- Calificación ignorada
+70121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción extractiva- Calificación profesional
+70122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción extractiva- Calificación técnica
+70123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción extractiva- Calificación operativa
+70129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción extractiva- Calificación ignorada
+70131;Cuenta propia con la operación de sistemas y/o equipos informatizados de la producción extractiva- Calificación profesional
+70132;Cuenta propia con la operación de sistemas y/o equipos informatizados de la producción extractiva- Calificación técnica
+70133;Cuenta propia con la operación de sistemas y/o equipos informatizados de la producción extractiva- Calificación operativa
+70139;Cuenta propia con la operación de sistemas y/o equipos informatizados de la producción extractiva- Calificación ignorada
+70201;Jefes de la producción extractiva- Calificación profesional
+70202;Jefes de la producción extractiva- Calificación técnica
+70203;Jefes de la producción extractiva- Calificación operativa
+70209;Jefes de la producción extractiva- Calificación ignorada
+70311;Trabajadores sin operación de maquinarias de la producción extractivaCalificación profesional
+70312;Trabajadores sin operación de maquinarias de la producción extractivaCalificación técnica
+70313;Trabajadores sin operación de maquinarias de la producción extractiva- Calificación operativa
+70314;Trabajadores sin operación de maquinarias de la producción extractiva- No calificados
+70319;Trabajadores sin operación de maquinarias de la producción extractiva- Calificación ignorada
+70321;Operadores de maquinaria y/o equipos electromecánicos de laproducción extractiva- Calificación profesional
+70322;Operadores de maquinaria y/o equipos electromecánicos de laproducción extractiva- Calificación técnica
+70323;Operadores de maquinaria y/o equipos electromecánicos de laproducción extractiva- Calificación operativa
+70324;Operadores de maquinaria y/o equipos electromecánicos de laproducción extractiva - No calificados
+70329;Operadores de maquinaria y/o equipos electromecánicos de laproducción extractiva- Calificación ignorada
+70331;Operadores de sistemas y/o equiposinformatizados de la producción extractiva- Calificación profesional
+70332;Operadores de sistemas y/o equiposinformatizados de la producción extractiva Calificación técnica
+70333;Operadores de sistemas y/o equiposinformatizados de la producción extractiva- Calificación operativa
+70334;Operadores de sistemas y/o equiposinformatizados de la producción extractiva- No calificados
+70339;Operadores de sistemas y/o equiposinformatizados de la producción extractiva- Calificación ignorada
+71111;Cuenta propia sin operación de maquinarias de la producción de energía, agua y gas- Calificación profesional
+71112;Cuenta propia sin operación de maquinarias de la producción de energía, agua y gas- Calificación técnica
+71113;Cuenta propia sin operación de maquinarias de la producción de energía, agua y gas - Calificación operativa
+71119;Cuenta propia sin operación de maquinarias de la producción de energía, agua y gas- Calificación ignorada
+71121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción de energia, agua y gas - Calificación profesional
+71122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción de energia, agua y gas - Calificación técnica
+71123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción de energia, agua y gas- Calificación operativa
+71129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la producción de energia, agua y gas- Calificación ignorada
+71131;Cuenta propia con la operación de sistemas y/o equipos informatizados de la producción de energia, agua y gas- Calificación profesional
+71132;Cuenta propia con la operación de sistemas y/o equipos informatizados de la producción de energia, agua y gas - Calificación técnica
+71133;Cuenta propia con la operación de sistemas y/o equipos informatizados de la producción de energia, agua y gas- Calificación operativa
+71139;Cuenta propia con la operación de sistemas y/o equipos informatizados de la producción de energia, agua y gas- Calificación ignorada
+71201;Jefes de la producción de energia, agua y gas - Calificación profesional
+71202;Jefes de la producción de energia, agua y gas - Calificación técnica
+71203;Jefes de la producción de energia, agua y gas - Calificación operativa
+71209;Jefes de la producción de energia, agua y gas - Calificación ignorada
+71311;Trabajadores sin operación de maquinarias de la producción de energia, agua y gas - Calificación profesional
+71312;Trabajadores sin operación de maquinarias de la producción de energia, agua y gas - Calificación técnica
+71313;Trabajadores sin operación de maquinarias de la producción de energia, agua y gas - Calificación operativa
+71314;Trabajadores sin operación de maquinarias de la producción de energia, agua y gas - No calificados
+71319;Trabajadores sin operación de maquinarias de la producción de energia, agua y gas - Calificación ignorada
+71321;Operadores de maquinaria y/o equipos electromecánicos de la producción de energia, agua y gas Calificaciónprofesional
+71322;Operadores de maquinaria y/o equipos electromecánicos de la producción de energia, agua y gas Calificacióntécnica
+71323;Operadores de maquinaria y/o equipos electromecánicos de la producción de energia, agua y gas Calificación operativa
+71324;Operadores de maquinaria y/o equipos electromecánicos de la producción de energía, agua y gas- No calificados
+71329;Operadores de maquinaria y/o equipos electromecánicos de la producción de energia, agua y gas Calificación ignorada
+71331;Operadores de sistemas y/o equipos informatizados de la producción de energia, agua y gas- Calificación profesional
+71332;Operadores de sistemas y/o equipos informatizados de la producción de energia, agua y gas- Calificación técnica
+71333;Operadores de sistemas y/o equipos informatizados de la producción de energia, agua y gas- Calificación operativa
+71334;Operadores de sistemas y/o equipos informatizados de la producción de energia, agua y gas- No calificados
+71339;Operadores de sistemas y/o equipos informatizados de la producción de energia, agua y gas- Calificación ignorada
+72111;Cuenta propia sin operación de maquinarias de la construcción edilicia y de obras de infraestructura y de redes de distribución de energia, agua potable, gas y telefonía - Calificación
+72112;Cuenta propia sin operación de maquinarias de la construcción edilicia y de obras de infraestructura y de redes de distribución de energia, agua potable, gas y telefonía - Calificación
+72113;Cuenta propia sin operación de maquinarias de la construcción edilicia y de obras de infraestructura y de redes de distribución de energia, agua potable, gas y telefonía - Calificación
+72114;Cuenta propia sin operación de maquinarias de la construcción edilicia y de obras de infraestructura y de redes de distribución de energia, agua potable, gas y telefonía - No calificados
+72119;Cuenta propia sin operación de maquinarias de la construcción edilicia y de obras de infraestructura y de redes de distribución de energia, agua potable, gas y telefonía - Calificación
+72121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, ga
+72122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, ga
+72123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, ga
+72129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, ga
+72131;Cuenta propia con operación de sistemas y/o equipos informatizados de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, gas y t
+72132;Cuenta propia con operación de sistemas y/o equipos informatizados de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, gas y t
+72133;Cuenta propia con operación de sistemas y/o equipos informatizados de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, gas y t
+72139;Cuenta propia con operación de sistemas y/o equipos informatizados de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, gas y t
+72201;Jefes de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía Calificación profesional
+72202;Jefes de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía Calificación técnica
+72203;Jefes de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía- Calificación operativa
+72209;Jefes de la construcción edilicia y de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía- Calificación ignorada
+72311;Trabajadores sin operación de maquinarias de la construcción edilicia, de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía- Calificación pro
+72312;Trabajadores sin operación de maquinarias de la construcción edilicia, de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía- Calificación téc
+72313;Trabajadores sin operación de maquinarias de la construcción edilicia, de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía- Calificación ope
+72314;Trabajadores sin operación de maquinarias de la construcción edilicia, de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía- No calificados
+72319;Trabajadores sin operación de maquinarias de la construcción edilicia, de obras de infraestructura y de redes de distribución de energía, agua potable, gas y telefonía- Calificación ign
+72321;Operadores de maquinaria y/o equipos electromecánicos de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía Calificació
+72322;Operadores de maquinaria y/o equipos electromecánicos de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía Calificació
+72323;Operadores de maquinaria y/o equipos electromecánicos de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía- Calificaci
+72324;Operadores de maquinaria y/o equipos electromecánicos de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía- No calific
+72329;Operadores de maquinaria y/o equipos electromecánicos de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía- Calificaci
+72331;Operadores de sistemas y/o equipos informatizados de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía Calificación pr
+72332;Operadores de sistemas y/o equipos informatizados de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía Calificación té
+72333;Operadores de sistemas y/o equipos informatizados de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía Calificación op
+72334;Operadores de sistemas y/o equipos informatizados de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía- No calificados
+72339;Operadores de sistemas y/o equipos informatizados de la construcción edilicia, de obras de infraestructura y de la distribución de energía, agua potable, gas y telefonía Calificación ig
+80111;Cuenta propia sin operación de maquinarias de la producción Industrial y artesanal - Calificación profesional
+80112;Cuenta propia sin operación de maquinarias de la producción Industrial y artesanal- Calificación técnica
+80113;Cuenta propia sin operación de maquinarias de la producción Industrial y artesanal - Calificación operativa
+80119;Cuenta propia sin operación de maquinarias de la producción Industrial y artesanal - Calificación ignorada
+80121;Cuenta propia con operación de maquinarias de la producción industrial y artesanal Calificación profesional
+80122;Cuenta propia con operación de maquinarias de la producción Industrial y artesanal- Calificación técnica
+80123;Cuenta propia con operación de maquinarias de la producción Industrial y artesanal- Calificación operativa
+80129;Cuenta propia con operación de maquinarias de la producción Industrial y artesanal- Calificación ignorada
+80131;Cuenta propia con operación de sistemas y/o equipos informatizados de la Producción industrial y artesanal Calificación profesional
+80132;Cuenta propia con operación de sistemas y/o equipos informatizados de la Producción industrial y artesanal Calificación técnica
+80133;Cuenta propia con operación de sistemas y/o equipos informatizados de la Producción industrial y artesanal - Calificación operativa
+80139;Cuenta propia con operación de sistemas y/o equipos informatizados de la Producción industrial y artesanal - Calificación ignorada
+80201;Jefes de la producción industrial y artesanal- Calificación profesional
+80202;Jefes de la producción industrial y artesanal- Calificación técnica
+80203;Jefes de la producción industrial y artesanal- Calificación operativa
+80209;Jefes de la producción industrial y artesanal- Calificación ignorada
+80311;Trabajadores sin operación de maquinarias de la producción
+80312;Trabajadores sin operación de maquinarias de la producción industrial y artesanal- Calificación técnica
+80313;Trabajadores sin operación de maquinarias de la producción industrial y artesanal- Calificación operativa
+80314;Trabajadores sin operación de maquinarias de la producción industrial y artesanal- No calificados
+80319;Trabajadores sin operación de maquinarias de la producción industrial y artesanal- Calificación ignorada
+80321;Operadores de maquinaria y/o equipos electromecánicos de la producción Industrial y artesanal- Calificación profesional
+80322;Operadores de maquinaria y/o equipos electromecánicos de la producción Industrial y artesanal- Calificación técnica
+80323;Operadores de maquinaria y/o equipos electromecánicos de la producción Industrial y artesanal- Calificación operativa
+80324;Operadores de maquinaria y/o equipos electromecánicos de la producción Industrial y artesanal - No calificados
+80329;Operadores de maquinaria y/o equipos electromecánicos de la producción Industrial y artesanal- Calificación ignorada
+80331;Operadores de sistemas y/o equipos informatizados de la producción industrial y artesanal Operadores de sistemas y/o equipos informatizados de la producción industrial y artesanal - Cal
+80332;Operadores de sistemas y/o equipos informatizados de la producción industrial y artesanal - Calificación técnica
+80333;Operadores de sistemas y/o equipos informatizados de la producción industrial y artesanal - Calificación operativa
+80334;Operadores de sistemas y/o equipos informatizados de la producción industrial y artesanal- No calificados
+80339;Operadores de sistemas y/o equipos informatizados de la producción industrial y artesanal - Calificación ignorada
+81131;Cuenta propia de la producción de software - Calificación profesional
+81132;Cuenta propia de la producción de software - Calificación técnica
+81133;Cuenta propia de la producción de software - Calificación operativa
+81139;Cuenta propia de la producción de software - Calificación ignorada
+81201;Jefes de la producción de software- Calificación profesional
+81202;Jefes de la producción de software- Calificación técnica
+81203;Jefes de la producción de software- Calificación operativa
+81209;Jefes de la producción de software- Calificación ignorada
+81331;Operadores de sistemas y/o equipos informatizados de la producción de software- Calificación profesional
+81332;Operadores de sistemas y/o equipos informatizados de la producción de software- Calificación técnica
+81333;Operadores de sistemas y/o equipos informatizados de la producción de software- Calificación operativa
+81334;Operadores de sistemas y/o equipos informatizados de la producción de software- No calificado
+81339;Operadores de sistemas y/o equipos informatizados de la producción de software- Calificación ignorada
+82111;Cuenta propia sin operación de maquinarias de la reparación de bienes de consumo - Calificación profesional
+82112;Cuenta propia sin operación de maquinarias de la reparación de bienes de consumo - Calificación técnica
+82113;Cuenta propia sin operación de maquinarias de la reparación de bienes de consumo - Calificación operativa
+82119;Cuenta propia sin operación de maquinarias de la reparación de bienes de consumo - Calificación ignorada
+82121;Cuenta propia con operación de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- Calificación profesional
+82122;Cuenta propia con operación de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- Calificación técnica
+82123;Cuenta propia con operación de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- Calificación operativa
+82129;Cuenta propia con operación de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- Calificación ignorada
+82131;Cuenta propia con operación de sistemas y/o equipos informatizados de la reparación de bienes de consumo- Calificación profesional
+82132;Cuenta propia con operación de sistemas y/o equipos informatizados de la reparación de bienes de consumo- Calificación técnica
+82133;Cuenta propia con operación de sistemas y/o equipos informatizados de la reparación de bienes de consumo- Calificación operativa
+82139;Cuenta propia con operación de sistemas y/o equipos informatizados de la reparación de bienes de consumo- Calificación ignorada
+82201;Jefes de la reparación de bienes de consumo - Calificación profesional
+82202;Jefes de la reparación de bienes de consumo - Calificación técnica
+82203;Jefes de la reparación de bienes de consumo - Calificación operativa
+82209;Jefes de la reparación de bienes de consumo - Calificación ignorada
+82311;Trabajadores sin operación de maquinarias de la reparación de bienes de consumo - Calificación profesional
+82312;Trabajadores sin operación de maquinarias de la reparación de bienes de consumo - Calificación técnica
+82313;Trabajadores sin operación de maquinarias de la reparación de bienes de consumo- Calificación operativa
+82314;Trabajadores sin operación de maquinarias de la reparación de bienes de consumo- No calificados
+82319;Trabajadores sin operación de maquinarias de la reparación de bienes de consumo- Calificación ignorada
+82321;Operadores de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- Calificación profesional
+82322;Operadores de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- Calificación técnica
+82323;Operadores de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- Calificación operativa
+82324;Operadores de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- No calificados
+82329;Operadores de maquinaria y/o equipos electromecánicos de la reparación de bienes de consumo- Calificación ignorada
+82331;Operadores de sistemas y/o equipos informatizados de la reparación de bienes de consumo- Calificación profesional
+82332;Operadores de sistemas y/o equipos informatizados de la reparación de bienes de consumo- Calificación técnica
+82333;Operadores de sistemas y/o equipos informatizados de la reparación de bienes de consumo- Calificación operativa
+82334;Operadores de sistemas y/o equipos informatizados de la reparación de bienes de consumo- No calificados
+82339;Operadores de sistemas y/o equipos informatizados de la reparación de bienes de consumo- Calificación ignorada
+90111;Cuenta propia sin operación de maquinarias de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes - Calificación profesional
+90112;Cuenta propia sin operación de maquinarias de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes - Calificación técnica
+90113;Cuenta propia sin operación de maquinarias de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes- Calificación operativa
+90119;Cuenta propia sin operación de maquinarias de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes- Calificación ignorada
+90121;Cuenta propia con operación de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes Calificación profesional
+90122;Cuenta propia con operación de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes
+90123;Cuenta propia con operación de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes Calificación operativa
+90129;Cuenta propia con operación de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes Calificación ignorada
+90131;Cuenta propia con operación de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes- Calificación profesional
+90132;Cuenta propia con operación de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes- Calificación técnica
+90133;Cuenta propia con operación de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes- Calificación operativa
+90139;Cuenta propia con operación de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinarias y equipos de la producción de bienes- Calificación ignorada
+90201;Jefes de la instalación y mantenimiento de maquinaria y equipos dela producción de bienes- Calificaciónprofesional
+90202;Jefes de la instalación y mantenimiento de maquinaria y equipos dela producción de bienes- Calificación técnica
+90203;Jefes de la instalación y mantenimiento de maquinaria y equipos dela producción de bienes- Calificación operativa
+90209;Jefes de la instalación y mantenimiento de maquinaria y equipos dela producción de bienes- Calificación ignorada
+90311;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación profesional
+90312;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación técnica
+90313;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación operativa
+90314;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes- No calificados
+90319;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación ignorada
+90321;Operadores de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación profesional
+90322;Operadores de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación técnica
+90323;Operadores de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación operativa
+90324;Operadores de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes- No calificados
+90329;Operadores de maquinaria/equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación ignorada
+90331;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación profesional
+90332;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación técnica
+90333;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación operativa
+90334;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes- No calificados
+90339;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la producción de bienes Calificación ignorada
+91111;Cuenta propia sin operación de maquinarias del desarrollo tecnológico productivo- Calificación profesional
+91112;Cuenta propia sin operación de maquinarias del desarrollo tecnológico productivo Calificación técnica
+91113;Cuenta propia sin operación de maquinarias del desarrollo tecnológico productivo Calificación operativa
+91119;Cuenta propia sin operación de maquinarias del desarrollo tecnológico productivo Calificación ignorada
+91121;Cuenta propia con operación de maquinarias y/o equipos del desarrollo tecnológico productivo- Calificación profesional
+91122;Cuenta propia con operación de maquinarias y/o equipos del desarrollo tecnológico productivo- Calificación técnica
+91123;Cuenta propia con operación de maquinarias y/o equipos del desarrollo tecnológico productivo- Calificación operativa
+91129;Cuenta propia con operación de maquinarias y/o equipos del desarrollo tecnológico productivo- Calificación ignorada
+91131;Cuenta propia con operación de sistemas y/o equipos informatizados del desarrollo tecnológico productivo- Calificación profesional
+91132;Cuenta propia con operación de sistemas y/o equipos informatizados del desarrollo tecnológico productivo- Calificación técnica
+91133;Cuenta propia con operación de sistemas y/o equipos informatizados del desarrollo tecnológico productivo- Calificación operativa
+91139;Cuenta propia con operación de sistemas y/o equipos informatizados del desarrollo tecnológico productivo- Calificación ignorada
+91201;Jefes del desarrollo tecnológico productivo- Calificación profesional
+91202;Jefes del desarrollo tecnológico productivo- Calificación técnica
+91203;Jefes del desarrollo tecnológico productivo - Calificación operativa
+91209;Jefes del desarrollo tecnológico productivo - Calificación ignorada
+91311;Trabajadores sin operación de maquinarias del desarrollo tecnológico Calificación profesional
+91312;Trabajadores sin operación de maquinarias del desarrollo tecnológico Calificación técnica
+91313;Trabajadores sin operación de maquinarias del desarrollo tecnológico Calificación operativa
+91314;Trabajadores sin operación de maquinarias del desarrollo tecnológico- No calificados
+91319;Trabajadores sin operación de maquinarias del desarrollo tecnológico Calificación ignorada
+91321;Operadores de maquinaria y/o equipos electromecánicos de ocupaciones del desarrollo tecnológico productivo Calificación profesional
+91322;Operadores de maquinaria y/o equipos electromecánicos de ocupaciones del desarrollo tecnológico productivo Calificación técnica
+91323;Operadores de maquinaria y/o equipos electromecánicos de ocupaciones del desarrollo tecnológico productivo Calificación operativa
+91324;Operadores de maquinaria y/o equipos electromecánicos de ocupaciones del desarrollo tecnológico productivo- No calificados
+91329;Operadores de maquinaria y/o equipos electromecánicos de ocupaciones del desarrollo tecnológico productivo Calificación ignorada
+91331;Operadores de sistemas y/o equipos informatizados de ocupaciones del desarrollo tecnológico productivo Calificación profesional
+91332;Operadores de sistemas y/o equipos informatizados de ocupaciones del desarrollo tecnológico productivo Calificación técnica
+91333;Operadores de sistemas y/o equipos informatizados de ocupaciones del desarrollo tecnológico productivo Calificación operativa
+91334;Operadores de sistemas y/o equipos informatizados de ocupaciones del desarrollo tecnológico productivo- No calificados
+91339;Operadores de sistemas y/o equipos informatizados de ocupaciones del desarrollo tecnológico productivo Calificación ignorada
+92111;Cuenta propia sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación profesional
+92112;Cuenta propia sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación técnica
+92113;Cuenta propia sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación operativa
+92119;Cuenta propia sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación ignorada
+92121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación profesional
+92122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación técnica
+92123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación operativa
+92129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación ignorada
+92131;Cuenta propia con operación de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación profesional
+92132;Cuenta propia con operación de sistemas y/o equipos informatizados de la Instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación técnica
+92133;Cuenta propia con operación de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios - Calificación operativa
+92139;Cuenta propia con operación de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios - Calificación ignorada
+92201;Jefes de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios Jefes de la instalación y mantenimiento de maquinaria y equipos de la prestación de servici
+92202;Jefes de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación técnica
+92203;Jefes de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación operativa
+92209;Jefes de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación ignorada
+92311;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios - Calificación profesional
+92312;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación técnica
+92313;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación operativa
+92314;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- No calificado
+92319;Trabajadores sin operación de maquinarias de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación ignorada
+92321;Operadores de maquinaria y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación profesional
+92322;Operadores de maquinaria y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación técnica
+92323;Operadores de maquinaria y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación operativa
+92324;Operadores de maquinaria y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- No calificado
+92329;Operadores de maquinaria y/o equipos electromecánicos de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación ignorada
+92331;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación profesional
+92332;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación técnica
+92333;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación operativa
+92334;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- No calificado
+92339;Operadores de sistemas y/o equipos informatizados de la instalación y mantenimiento de maquinaria y equipos de la prestación de servicios- Calificación ignorada
+99121;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de carácter ignorado - Calificación profesional
+99122;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de carácter ignorado - Calificación técnica
+99123;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de carácter ignorado - Calificación operativa
+99129;Cuenta propia con operación de maquinarias y/o equipos electromecánicos de carácter y calificación ignorados
+99131;Cuenta propia con operación de sistemas y/o equipos informatizados de carácter ignorado - Calificación profesional
+99132;Cuenta propia con operación de sistemas y/o equipos informatizados de carácter ignorado - Calificación técnica
+99133;Cuenta propia con operación de sistemas y/o equipos informatizados de carácter ignorado - Calificación operativa
+99139;Cuenta propia con operación de sistemas y/o equipos informatizados de carácter y calificación ignorados
+99201;Jefes de calificación profesional, carácter ignorado
+99202;Jefes de calificación técnica, carácter ignorado
+99203;Jefes de calificación operativa, carácter ignorado
+99209;Jefes, resto ignorado
+99321;Operadores de maquinarias y/o equipos electromecánicos de carácter ignorado - Calificación profesional
+99322;Operadores de maquinarias y/o equipos electromecánicos de carácter ignorado - Calificación técnica
+99323;Operadores de maquinarias y/o equipos electromecánicos de carácter ignorado - Calificación operativa
+99324;Operadores de maquinarias y/o equipos electromecánicos de carácter ignorado - No calificados
+99329;Operadores de maquinarias y/o equipos electromecánicos de carácter y calificación ignorados
+99331;Operadores de sistemas y/o equipos informatizados de carácter ignorado - Calificación profesional
+99332;Operadores de sistemas y/o equipos informatizados de carácter ignorado - Calificación técnica
+99333;Operadores de sistemas y/o equipos informatizados de carácter ignorado - Calificación operativa
+99339;Operadores de sistemas y/o equipos informatizados de carácter y calificación ignorados
+99921;Operadores de maquinarias y/o equipos electromecánicos de carácter y categoría ocupacional ignorados - Calificación profesional
+99922;Operadores de maquinarias y/o equipos electromecánicos de carácter y categoría ocupacional ignorados - Calificación técnica
+99923;Operadores de maquinarias y/o equipos electromecánicos de carácter y categoría ocupacional ignorados - Calificación operativa
+99924;Operadores de maquinarias y/o equipos electromecánicos de carácter y categoría ocupacional ignorados - No calificados
+99929;Operadores de maquinarias y/o equipos electromecánicos de carácter, y categoría ocupacional y calificación ignorados
+99931;Operadores de sistemas y/o equipos informatizados de carácter y categoría ocupacional ignorados - Calificación profesional
+99932;Operadores de sistemas y/o equipos informatizados de carácter y categoría ocupacional ignorados - Calificación técnica
+99933;Operadores de sistemas y/o equipos informatizados de carácter y categoría ocupacional ignorados - Calificación operativa
+99939;Operadores de sistemas y/o equipos informatizados de carácter, categoría ocupacional y calificación ignorados
+99991;Calificación profesional, resto ignorado
+99992;Calificación técnica, resto ignorado
+99993;Calificación operativa, resto ignorado
+99994;No calificados, resto ignorado
+99999;Sin información

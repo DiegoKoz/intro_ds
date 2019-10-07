@@ -1,0 +1,10 @@
+---
+title: Análisis de encuestas
+output:
+  html_notebook:
+    toc: yes
+    toc_float: yes
+date: ""
+subtitle: Práctica independiente
+---
+
