@@ -110,9 +110,3 @@ base <- st_as_sf(base, coords = c('long','lat'))%>%
 ```
 
 
-
-
-
-
-
-

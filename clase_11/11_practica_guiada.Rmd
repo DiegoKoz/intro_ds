@@ -8,58 +8,104 @@ date: ""
 subtitle: Práctica Guiada
 ---
 
+> Reiniciar R
 
+Cargamos las librerías. En esta ocasión usaremos por primera vez el paquete `sf`.
 
-```{r message=FALSE, warning=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(ggthemes)
 library(sf)
 ```
 
-#### 
+### Representación de la información en mapas
 
-```{r}
+Trabajaremos con datos del portal de datos abiertos de la Ciudad de Buenos Aires. En este caso, usamos los radios censales de la ciudad y los hemos descargado de https://bitsandbricks.github.io/data/CABA_rc.geojson.   
+
+La función `st_read` nos permite levantar un archivo de tipo _.geojson_. (también permite cargar otros con capas, pero no lo veremos en esta ocasión).    
+
+Vemos que el mismo cuenta con 3.554 _features_ y 8 campos.     
+`epsg (SRID): 4326` y `proj4string: +proj=longlat +datum=WGS84 +no_defs` refieren a que nuestros datos usan el sistema de coordenadas WGS84, también conocido por su código EPSG 4326 . Es el mismo que usan los sistemas GPS, Google Maps, y las aplicaciones de internet en general.
+
+```{r echo=TRUE}
 radios <- st_read("../fuentes/CABA_rc.geojson")
 ```
 
+Como los 8 campos son equivalentes a columnas/variables, podemos pedir un summary de la información contenida en `radios`.
 
-```{r}
+```{r echo=TRUE}
 summary(radios)
 ```
 
-```{r}
-ggplot() + geom_sf(data = radios)
-```
+A la hora de graficar, podemos representar la información utilizando la combinación del famoso `ggplot()` en conjunto con `geom_sf`, que identifica la variable con la geometría y la grafica.
 
-```{r}
-ggplot() + geom_sf(data = radios, aes(fill = VIVIENDAS)) 
-ggplot() + geom_sf(data = radios, aes(fill = POBLACION), color = NA)
-```
-
-
-```{r}
-ggplot() + geom_sf(data = radios, aes(fill = BARRIO, legend= BARRIO), color = NA)+
-  theme(legend.position = 'none')
-```
-
-```{r}
+```{r echo=TRUE}
 ggplot() + 
-    geom_sf(data = radios, aes(fill = POBLACION/AREA_KM2), color = NA) +
+  geom_sf(data = radios)
+```
+
+
+Podemos colorear los radios censales de acuerdo a la cantidad de viviendas que hay en cada una de ellas, convocando a la variable en el parámetro de relleno. A su vez, podemos "jugar" con el color y ancho de los bordes.
+
+```{r echo=TRUE}
+ggplot(data = radios, aes(fill = VIVIENDAS)) + 
+  geom_sf() 
+
+ggplot(data = radios, aes(fill = VIVIENDAS)) + 
+  geom_sf(color = "white") 
+
+ggplot(data = radios, aes(fill = VIVIENDAS)) +
+  geom_sf(color = "white", size=.1) 
+```
+
+O bien podemos omitir los bordes.
+
+```{r echo=TRUE}
+ggplot(data = radios, aes(fill = POBLACION)) + 
+  geom_sf(color = NA)
+```
+
+
+También podemos usar el campo del relleno para realizar una transformación de los datos. Por ejemplo, podemos calcular la densidad de la población utilizando los datos de `POBLACION` y `AREA_KM2`. Aprovechamos para mejorar otras cuestiones estéticas `r emo::ji("rainbow")`
+
+```{r echo=TRUE}
+ggplot(data = radios, aes(fill = POBLACION/AREA_KM2)) + 
+    geom_sf(color = NA) +
     scale_fill_viridis_c() +
     labs(title = "Densidad de población",
          subtitle = "Ciudad Autónoma de Buenos Aires",
-         fill = "hab/km2")+
+         fill = "hab/km2") +
   theme_void()
 ```
 
 
-#### Barrios
+También podemos rellenar de acuerdo a la variable `BARRIO`, que es una forma de graficar agregados. De todas formas, luego veremos como agruparlos con `group_by`.
 
-Si queremos reconstruir los polígonos de los barrios, sólo necesitamos hacer un `group_by` y un `summarise` y automáticamente la columna `geometry` crea el polígono combinado. Además podemos hacer una agregación de las demás variables.
+```{r}
+ggplot(data = radios, aes(fill = BARRIO)) + 
+  geom_sf(color = NA) +
+  theme(legend.position = 'none')
+```
+
+
+También podemos representar rápidamente la información de alguna de las variables realizando un `select()` de la misma y la geometría, y pidiendo un `plot()` (el parámetro `lwd` define el ancho de las líneas de cada geometría, en este caso, los radios censales). En términos visuales, es como haber agregado por `BARRIO` la información, no?
+
+```{r}
+radios %>% 
+  select(BARRIO, geometry) %>% 
+  plot(lwd=0.06)
+```
+
+
+#### Agrupando polígonos
+
+Sin embargo, si lo que queremos es reconstruir los polígonos de los barrios, sólo necesitamos hacer un `group_by` y un `summarise`, y automáticamente en la columna `geometry` se crea el polígono combinado. Además, podemos hacer una agregación de las demás variables.
 
 ```{r}
 glimpse(radios)
+```
 
+```{r}
 barrios_geo <- radios %>% 
     group_by(BARRIO) %>% 
     summarise(POBLACION = sum(POBLACION),
@@ -71,26 +117,31 @@ barrios_geo <- radios %>%
 glimpse(barrios_geo)
 ```
 
+Si pedimos un `plot()` del objeto, nos devuelve la representación geográfica con los datos de cada una de las variables.
+
 ```{r}
 plot(barrios_geo)
 ```
 
+Si deseamos agregar otra capa al gráfico que incluya texto o etiquetas de los datos, contamos con `geom_sf_text()`, en la cual podemos también solicitar que se etiqueten sólo aquellos datos que cumplen con alguna condición.
 
 ```{r fig.height=12, fig.width=10}
-ggplot() +
-    geom_sf(data = barrios_geo, aes(fill = POBLACION/AREA_KM2), color = NA) +
+ggplot(data = barrios_geo, aes(fill = POBLACION/AREA_KM2)) +
+    geom_sf(color = NA) +
     geom_sf_text(data = barrios_geo %>% 
-                   filter(POBLACION/AREA_KM2>25000), aes(label = BARRIO), size=3)+
+                   filter(POBLACION/AREA_KM2>25000), 
+                 aes(label = BARRIO), size=3)+
   theme(legend.position = 'bottom')+
-    scale_fill_viridis_c(option = 'C') +
-    labs(title = "Densidad de población",
-         subtitle = "Ciudad Autónoma de Buenos Aires",
-         fill = "hab/km2")+
-    theme_void()
+  scale_fill_viridis_c(option = 'C') +
+  labs(title = "Densidad de población",
+        subtitle = "Ciudad Autónoma de Buenos Aires",
+        fill = "hab/km2")+
+  theme_void()
 ```
 
+#### Volcando en el mapa información de múltiples fuentes: Subtes
 
-#### Volcando en el mapa información de múltiples fuentes
+Ahora utilizaremos la información de líneas y estaciones de subte. Hemos descargado los .geojson de http://bitsandbricks.github.io/data/subte_lineas.geojson y http://bitsandbricks.github.io/data/subte_estaciones.geojson.
 
 ```{r}
 subte_lineas <- st_read('../fuentes/subte_lineas.geojson')
@@ -103,6 +154,13 @@ subte_estaciones <- st_read('../fuentes/subte_estaciones.geojson')
 glimpse(subte_estaciones)
 ```
 
+Con `geom_sf` agregamos diferentes capas de información geográfica: 
+
+- los barrios: coloreados según su proporción de hogares con necesidades básicas insatisfechas, sin color de borde.
+- las líneas de subte: líneas en amarillo
+- las estaciones de subte: puntos en naranja       
+
+Alguna reflexión sobre los resultados?
 
 ```{r fig.height=10, fig.width=7}
 ggplot() +
@@ -122,22 +180,29 @@ ggplot() +
 
 ![](img/Palo borracho rosado.jpg){width=500}
 
+Ahora utilizaremos información del portal de datos abiertos de la Ciudad de Buenos Aires sobre arbolado. Nos hemos quedado con una selección de dicha base de datos, conservando sólo a los árboles de tipo "palo borracho rosado".    
 
+Notemos que en este caso la información está en formato .rds, es un dataframe donde los ejemplares están georreferenciados con variables long-lat, no hay una geometría como en los casos anteriores.
 
 ```{r}
 palos_borrachos <- read_rds('../fuentes/arbolado_palo_borracho.rds')
-
 
 palos_borrachos %>% 
   sample_n(10)
 ```
 
+#### Transformación de datos tabulados a datos sf
+
+Para transformar los datos a tipo `sf`, tenemos la función `st_as_sf()`, a la cual le indicamos en el parámetro `coords` las variables que contienen las coordenadas. Con la función `st_set_crs()` podemos indicar el sistema de coordenadas de referencia.
 
 ```{r}
-palos_borrachos <- st_as_sf(palos_borrachos, coords = c('long','lat') )%>% 
-  st_set_crs(4326)
+palos_borrachos <- st_as_sf(palos_borrachos, coords = c('long','lat')) %>% 
+    st_set_crs(4326)
+
 glimpse(palos_borrachos)
 ```
+
+Ahora podemos mapear los palos borrachos en los barrios de CABA que ya estuvimos trabajando!
 
 ```{r fig.height=7, fig.width=7}
 ggplot() +
@@ -148,13 +213,27 @@ ggplot() +
   theme(legend.position = 'none')
 ```
 
+#### Join espacial
 
-Densidad de borrachos por barrio
+Ahora probemos la forma de unir la información contenida en `palos_borrachos` con la de `barrios_geo`. Para eso usamos `st_join()`, pero... en qué orden deberíamos unirlos?
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+palos_borrachos %>% 
+  st_join(barrios_geo)%>% 
+  glimpse()
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+barrios_geo %>% 
+  st_join(palos_borrachos) %>% 
+  glimpse()
+```
+
+Si queremos visualizar la densidad de borrachos por barrio:
 
 ```{r fig.height=10, fig.width=10, message=FALSE, warning=FALSE}
 palos_borrachos_barrio <- barrios_geo %>% 
   st_join(palos_borrachos)
-
 
 palos_borrachos_barrio %>% 
   group_by(BARRIO) %>% 

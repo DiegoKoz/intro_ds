@@ -5,6 +5,6 @@ output:
     toc: yes
     toc_float: yes
 date: ""
-subtitle: Práctica independiente
+subtitle: Práctica Independiente
 ---
 
