@@ -75,6 +75,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 - [Explicación](clase_6/06_explicacion.nb.html)
 - [Práctica Guiada](clase_6/06_practica_guiada.nb.html)
 - [Pŕactica independiente](clase_6/06_practica_independiente.nb.html)
+- [Pŕactica independiente resuelta](clase_6/practica_independiente/app.R)
 - [Ejemplos](clase_6/README.md)
 
 
