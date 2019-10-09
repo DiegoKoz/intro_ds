@@ -2891,41 +2891,134 @@ div.tocify {
 
 
 <!-- rnb-text-begin -->
-<div id="encuesta-permanente-de-hogares" class="section level2">
-<h2>Encuesta Permanente de Hogares</h2>
-<p><a href="https://pablotis.github.io/Presentaciones/index.html#15" class="uri">https://pablotis.github.io/Presentaciones/index.html#15</a> Leer metodologías, definiciones de las categorías (p ej asalariades no encubiertos/encubiertos) paquete eph ej. de uso: rpubs.com/natsumi_shokida</p>
+<p>En esta sección trabajaremos con las bases de la Encuesta Permanente de Hogares del INDEC, para ejemplificar la forma de trabajar con encuestas en general. Realizaremos tres ejercicios que luego serán replicados, en la sección de <em>práctica independiente</em>, pero con la Encuesta Anual de Hogares de CABA.</p>
+<blockquote>
+<p>Reiniciar R</p>
+</blockquote>
+<div id="encuesta-permanente-de-hogares" class="section level3">
+<h3>Encuesta Permanente de Hogares</h3>
+<p>Recomendaciones para trabajar con esta encuesta:</p>
 <ul>
-<li>ingtot_2 ingreso total individual, por aglomerados y sexo</li>
+<li>Tener a mano el diseño de registro</li>
+<li>Utilizar el paquete <code>eph</code></li>
+<li>Si queremos estar seguros sobre la definición de una categoría, apelar a los documentos metodológicos (por ejemplo: el caso de los asalariados encubiertos)</li>
+<li>tirar frecuencias o plots de las variables antes de usarlas (-9, 0, NAs, etc…)</li>
+</ul>
+<p>Cargamos las librerías</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBpbnN0YWxsLnBhY2thZ2VzKFwiZXBoXCIpXG5saWJyYXJ5KGVwaCkgICAgICAgICAjIHBhcmEgdHJhYmFqYXIgY29uIEVQSFxubGlicmFyeSh0aWR5dmVyc2UpICAgXG5saWJyYXJ5KGV4cHNzKSAgICAgICAjIHBhcmEgdHJhYmFqYXIgY29uIGxhIGV0aXF1ZXRhIGRlIGxvcyBkYXRvc1xuYGBgIn0= -->
+<pre class="r"><code># install.packages(&quot;eph&quot;)
+library(eph)         # para trabajar con EPH
+library(tidyverse)   
+library(expss)       # para trabajar con la etiqueta de los datos</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Cargamos las bases con una función del paquete <code>eph</code>, que no va a descargar en disco la información pero sí la va a cargar en el entorno de trabajo de R.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuP2VwaDo6Z2V0X21pY3JvZGF0YVxuXG5pbmRpdmlkdWFsIDwtIGdldF9taWNyb2RhdGEoeWVhciA9IDIwMTksIHRyaW1lc3RlciA9IDEsIHR5cGUgPSAnaW5kaXZpZHVhbCcpXG5gYGAifQ== -->
+<pre class="r"><code>?eph::get_microdata
+
+individual &lt;- get_microdata(year = 2019, trimester = 1, type = 'individual')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoidHJ5aW5nIFVSTCAnaHR0cHM6Ly93d3cuaW5kZWMuZ29iLmFyL2Z0cC9jdWFkcm9zL21lbnVzdXBlcmlvci9lcGgvRVBIX3VzdV8xX1RyaW1fMjAxOV90eHQuemlwJ1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi94LXppcC1jb21wcmVzc2VkJyBsZW5ndGggMzM3NzIwOSBieXRlcyAoMy4yIE1CKVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbmRvd25sb2FkZWQgMy4yIE1CXG4ifQ== -->
+<pre><code>trying URL 'https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/EPH_usu_1_Trim_2019_txt.zip'
+Content type 'application/x-zip-compressed' length 3377209 bytes (3.2 MB)
+==================================================
+downloaded 3.2 MB</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaG9nYXIgPC0gZ2V0X21pY3JvZGF0YSh5ZWFyID0gMjAxOSwgdHJpbWVzdGVyID0gMSwgdHlwZSA9ICdob2dhcicpXG5gYGAifQ== -->
+<pre class="r"><code>hogar &lt;- get_microdata(year = 2019, trimester = 1, type = 'hogar')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoidHJ5aW5nIFVSTCAnaHR0cHM6Ly93d3cuaW5kZWMuZ29iLmFyL2Z0cC9jdWFkcm9zL21lbnVzdXBlcmlvci9lcGgvRVBIX3VzdV8xX1RyaW1fMjAxOV90eHQuemlwJ1xuQ29udGVudCB0eXBlICdhcHBsaWNhdGlvbi94LXppcC1jb21wcmVzc2VkJyBsZW5ndGggMzM3NzIwOSBieXRlcyAoMy4yIE1CKVxuPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT1cbmRvd25sb2FkZWQgMy4yIE1CXG4ifQ== -->
+<pre><code>trying URL 'https://www.indec.gob.ar/ftp/cuadros/menusuperior/eph/EPH_usu_1_Trim_2019_txt.zip'
+Content type 'application/x-zip-compressed' length 3377209 bytes (3.2 MB)
+==================================================
+downloaded 3.2 MB</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Sobre las bases:</p>
+<ul>
+<li>Qué tienen en común (CODUSU, NRO_HOGAR)</li>
+<li>Para qué nos pueden servir esas variables en común</li>
 </ul>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShlcGgpXG5saWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkoZXhwc3MpXG5cbmluZGl2aWR1YWwgPC0gZ2V0X21pY3JvZGF0YSh5ZWFyID0gMjAxOSwgdHJpbWVzdGVyID0gMSwgdHlwZSA9ICdpbmRpdmlkdWFsJylcbmhvZ2FyIDwtIGdldF9taWNyb2RhdGEoeWVhciA9IDIwMTksIHRyaW1lc3RlciA9IDEsIHR5cGUgPSAnaG9nYXInKVxuXG5pbmRpdmlkdWFsIDwtIG9yZ2FuaXplX2xhYmVscyhpbmRpdmlkdWFsLCB0eXBlID0gJ2luZGl2aWR1YWwnKSAlPiUgXG4gIHNlbGVjdChDT0RVU1UsIE5ST19IT0dBUiwgQUdMT01FUkFETywgQ09NUE9ORU5URSwgQ0gwNCwgRVNUQURPLCBDQVRfT0NVUCwgUDIxLCBQNDdULCBQT05ERVJBLCBQT05ESUksIFBPTkRJSU8pXG4gIFxuaG9nYXIgPC0gb3JnYW5pemVfbGFiZWxzKGhvZ2FyLCB0eXBlID0gJ2hvZ2FyJykgJT4lIFxuICBzZWxlY3QoQ09EVVNVLCBOUk9fSE9HQVIsIElWMTJfMiwgSVYxMl8zKVxuICBcbiMgQ3XDoW50YXMgcGVyc29uYXMgdml2ZW4gZW4gdml2aWVuZGFzIHViaWNhZGFzIGVuIHZpbGxhcyBkZSBlbWVyZ2VuY2lhcyB5IGVuIHpvbmFzIGludW5kYWJsZXM/XG4jIyBJVjEyXzI6IHpvbmEgaW51bmRhYmxlXG4jIyBJVjEyXzM6IHZpbGxhIGRlIGVtZXJnZW5jaWFcbmVqZXJjaWNpbzEgPC0gbGVmdF9qb2luKGluZGl2aWR1YWwsIGhvZ2FyLCBieSA9IGMoXCJDT0RVU1VcIiwgXCJOUk9fSE9HQVJcIikpICU+JSBcbiAgZmlsdGVyKElWMTJfMiA9PSAxIHwgSVYxMl8zID09IDEpICU+JSBcbiAgZ3JvdXBfYnkoSVYxMl8yLCBJVjEyXzMpICU+JSBcbiAgc3VtbWFyaXNlKENhbnRpZGFkID0gc3VtKFBPTkRFUkEpKSAlPiUgXG4gIGV4cHNzOjp2YWx1ZXMybGFiZWxzKC4pXG5cbmVqZXJjaWNpbzFcblxuIyBDYWxjdWxhciBlbCBpbmdyZXNvIGRlIGxhIG9jdXAuIHByaW5jaXBhbCBwcm9tZWRpbywgcGFyYSBsYXMvb3Mgb2N1cGFkYXMvb3MgcG9yIGFnbG9tZXJhZG9zIHkgc2V4b1xuZWplcmNpY2lvMiA8LSBpbmRpdmlkdWFsICU+JSBcbiAgZmlsdGVyKEVTVEFETyA9PSAxKSAlPiUgXG4gIGdyb3VwX2J5KEFHTE9NRVJBRE8sIENIMDQpICU+JSBcbiAgc3VtbWFyaXNlKHByb21lZGlvX2lvcCA9IHdlaWdodGVkLm1lYW4oUDIxLCBQT05ESUlPKSkgJT4lICMgcG9uZGVyYWRvclxuICBzcHJlYWQoLiwgQ0gwNCwgcHJvbWVkaW9faW9wKSAlPiUgXG4gIGV4cHNzOjp2YWx1ZXMybGFiZWxzKC4pICU+JSBcbiAgbXV0YXRlKEJyZWNoYSA9ICgoVmFyb24gLSBNdWplcikvVmFyb24pKSAlPiUgXG4gIGFycmFuZ2UoLUJyZWNoYSkgJT4lIFxuICBtdXRhdGUoQnJlY2hhID0gc2NhbGVzOjpwZXJjZW50KEJyZWNoYSkpXG5cbmVqZXJjaWNpbzJcblxuIyBDYWxjdWxhciBlbCBpbmdyZXNvIHRvdGFsIGluZGl2aWR1YWwgcHJvbWVkaW8sIHBhcmEgcXVpZW5lcyBwZXJjaWJlbiBpbmdyZXNvcywgcG9yIGFnbG9tZXJhZG9zIHkgc2V4b1xuXG5lamVyY2ljaW8zIDwtIGluZGl2aWR1YWwgJT4lIFxuICBmaWx0ZXIoUDQ3VCA+IDApICU+JSBcbiAgZ3JvdXBfYnkoQUdMT01FUkFETywgQ0gwNCkgJT4lIFxuICBzdW1tYXJpc2UocHJvbWVkaW9faXRpID0gd2VpZ2h0ZWQubWVhbihQNDdULCBQT05ESUkpKSAlPiUgIyBwb25kZXJhZG9yXG4gIHNwcmVhZCguLCBDSDA0LCBwcm9tZWRpb19pdGkpICU+JSBcbiAgZXhwc3M6OnZhbHVlczJsYWJlbHMoLikgJT4lIFxuICBtdXRhdGUoQnJlY2hhID0gKChWYXJvbiAtIE11amVyKS9WYXJvbikpICU+JSBcbiAgYXJyYW5nZSgtQnJlY2hhKSAlPiUgXG4gIG11dGF0ZShCcmVjaGEgPSBzY2FsZXM6OnBlcmNlbnQoQnJlY2hhKSlcbmBgYCJ9 -->
-<pre class="r"><code>library(eph)
-library(tidyverse)
-library(expss)
-
-individual &lt;- get_microdata(year = 2019, trimester = 1, type = 'individual')
-hogar &lt;- get_microdata(year = 2019, trimester = 1, type = 'hogar')
-
-individual &lt;- organize_labels(individual, type = 'individual') %&gt;% 
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2xpbXBzZShob2dhcilcbmdsaW1wc2UoaW5kaXZpZHVhbClcbmBgYCJ9 -->
+<pre class="r"><code>glimpse(hogar)
+glimpse(individual)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<ul>
+<li>La función <code>organize_labels()</code> permite etiquetar los datos</li>
+<li>Seleccionamos variables relevantes para el ejercicio: información contenida en cada una</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaW5kaXZpZHVhbCA8LSBvcmdhbml6ZV9sYWJlbHMoaW5kaXZpZHVhbCwgdHlwZSA9ICdpbmRpdmlkdWFsJykgJT4lIFxuICBzZWxlY3QoQ09EVVNVLCBOUk9fSE9HQVIsIEFHTE9NRVJBRE8sIENPTVBPTkVOVEUsIENIMDQsIEVTVEFETywgQ0FUX09DVVAsIFAyMSwgUDQ3VCwgUE9OREVSQSwgUE9ORElJLCBQT05ESUlPKVxuICBcbmhvZ2FyIDwtIG9yZ2FuaXplX2xhYmVscyhob2dhciwgdHlwZSA9ICdob2dhcicpICU+JSBcbiAgc2VsZWN0KENPRFVTVSwgTlJPX0hPR0FSLCBJVjEyXzIsIElWMTJfMylcbmBgYCJ9 -->
+<pre class="r"><code>individual &lt;- organize_labels(individual, type = 'individual') %&gt;% 
   select(CODUSU, NRO_HOGAR, AGLOMERADO, COMPONENTE, CH04, ESTADO, CAT_OCUP, P21, P47T, PONDERA, PONDII, PONDIIO)
   
 hogar &lt;- organize_labels(hogar, type = 'hogar') %&gt;% 
-  select(CODUSU, NRO_HOGAR, IV12_2, IV12_3)
-  
-# Cuántas personas viven en viviendas ubicadas en villas de emergencias y en zonas inundables?
-## IV12_2: zona inundable
-## IV12_3: villa de emergencia
-ejercicio1 &lt;- left_join(individual, hogar, by = c(&quot;CODUSU&quot;, &quot;NRO_HOGAR&quot;)) %&gt;% 
+  select(CODUSU, NRO_HOGAR, IV12_2, IV12_3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+<div id="ejercicio-1" class="section level4">
+<h4>Ejercicio 1</h4>
+<blockquote>
+<p>Cuántas personas viven en viviendas ubicadas en villas de emergencias y en zonas inundables?</p>
+</blockquote>
+<p>Notemos que la pregunta refiere a las personas, pero la información sobre la ubicación de la vivienda figura en la base de hogares.</p>
+<ul>
+<li>Join de bases individual y hogar (y al revés?)</li>
+<li>Las variables de filtro y agrupamiento</li>
+<li>El rol de los ponderadores</li>
+<li>Función para mostrar los resultados etiquetados</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZWplcmNpY2lvMSA8LSBsZWZ0X2pvaW4oaW5kaXZpZHVhbCwgaG9nYXIsIGJ5ID0gYyhcIkNPRFVTVVwiLCBcIk5ST19IT0dBUlwiKSkgJT4lIFxuICBmaWx0ZXIoSVYxMl8yID09IDEgfCBJVjEyXzMgPT0gMSkgJT4lIFxuICBncm91cF9ieShJVjEyXzIsIElWMTJfMykgJT4lIFxuICBzdW1tYXJpc2UoQ2FudGlkYWQgPSBzdW0oUE9OREVSQSkpICU+JSBcbiAgZXhwc3M6OnZhbHVlczJsYWJlbHMoLilcblxuZWplcmNpY2lvMVxuYGBgIn0= -->
+<pre class="r"><code>ejercicio1 &lt;- left_join(individual, hogar, by = c(&quot;CODUSU&quot;, &quot;NRO_HOGAR&quot;)) %&gt;% 
   filter(IV12_2 == 1 | IV12_3 == 1) %&gt;% 
   group_by(IV12_2, IV12_3) %&gt;% 
   summarise(Cantidad = sum(PONDERA)) %&gt;% 
   expss::values2labels(.)
 
-ejercicio1
-
-# Calcular el ingreso de la ocup. principal promedio, para las/os ocupadas/os por aglomerados y sexo
-ejercicio2 &lt;- individual %&gt;% 
+ejercicio1</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5jb2wiOjMsIm5yb3ciOjN9LCJyZGYiOiJINHNJQUFBQUFBQUFBNVZTeTA3RE1CQjBrN2FobFFxVitBRWZ5NkdSbWw2NElpb1FFdUxBUzcyaGJXSlNDOWV1YktkRm5EanlDWHdBZkNKSEdweUhCUWtxRWpuRXU3UFpuWm1OTHlmVGNYZmFSUWk1eUcwM2tOc3lJV3JkWEo4TUR4RnFPaVpwb0NicVpPZWorV2cvL3hLNS9md3NDczRWL1JXNUY4S3Y5YmNZekFnelFmOEhPRGtIdktJclNuZ0VtQ2dOT0puUkVMS0U0eWZCQVZPZW1OcU1FVHd3RUJNS0owelRoVGxIQVY0UVJkUkJuU2hrb0ZSSjVKVGdUczdPU0ZUbW5YQU9Fa0pOcEVrMld4M2xQcjdCbk1oSmF5YU8vakt4b293QmpnZ21DeUpqd2tNS2VMQVVFb3VaSW5JRklSVzhkT0NtL3hTTmVybG81LzBOQlM4ZnFIMzZXbDhGQjdPaWNxcDExejY3SFFWM1FTVWJXOFpqNEpwR0VOVUdkYVJZKzNaWXh1bzhtMWVhcHA4MTZiYWhHNEVHLzE2YWxrSnJaWndubHRyNE5zT2M3RVo1dGVhR3JBRjdDYy9JbzJFNFQvakRNTWdJOG5MeGJJdDdaZXhXNDB4SzB3cjI3QjRJanlrbjFjdGFxalcyRmNTMjVxMUJjc3JqTXQwMXE4azM0eThsNWRyNk42anl0ZEJncDNSRHdTeFMvTDNORjZkTUN2aCtBd0FBIn0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["IV12_2"],"name":[1],"type":["S3: labelled"],"align":["right"]},{"label":["IV12_3"],"name":[2],"type":["S3: labelled"],"align":["right"]},{"label":["Cantidad"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"Si","2":"Si","3":"173476"},{"1":"Si","2":"No.","3":"3311861"},{"1":"No.","2":"Si","3":"411544"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="ejercicio-2" class="section level4">
+<h4>Ejercicio 2</h4>
+<blockquote>
+<p>Calcular el ingreso de la ocupación principal promedio, para las/os ocupadas/os por aglomerados y sexo</p>
+</blockquote>
+<ul>
+<li>La variable de filtro</li>
+<li>Las variables de agrupamiento</li>
+<li>La media ponderada y un nuevo ponderador</li>
+<li>Cálculo de la brecha</li>
+<li>Función para presentar en formato porcentual</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZWplcmNpY2lvMiA8LSBpbmRpdmlkdWFsICU+JSBcbiAgZmlsdGVyKEVTVEFETyA9PSAxKSAlPiUgXG4gIGdyb3VwX2J5KEFHTE9NRVJBRE8sIENIMDQpICU+JSBcbiAgc3VtbWFyaXNlKHByb21lZGlvX2lvcCA9IHdlaWdodGVkLm1lYW4oUDIxLCBQT05ESUlPKSkgJT4lICMgcG9uZGVyYWRvclxuICBzcHJlYWQoLiwgQ0gwNCwgcHJvbWVkaW9faW9wKSAlPiUgXG4gIGV4cHNzOjp2YWx1ZXMybGFiZWxzKC4pICU+JSBcbiAgbXV0YXRlKEJyZWNoYSA9ICgoVmFyb24gLSBNdWplcikvVmFyb24pKSAlPiUgXG4gIGFycmFuZ2UoLUJyZWNoYSkgJT4lIFxuICBtdXRhdGUoQnJlY2hhID0gc2NhbGVzOjpwZXJjZW50KEJyZWNoYSkpXG5cbmVqZXJjaWNpbzJcbmBgYCJ9 -->
+<pre class="r"><code>ejercicio2 &lt;- individual %&gt;% 
   filter(ESTADO == 1) %&gt;% 
   group_by(AGLOMERADO, CH04) %&gt;% 
   summarise(promedio_iop = weighted.mean(P21, PONDIIO)) %&gt;% # ponderador
@@ -2935,11 +3028,33 @@ ejercicio2 &lt;- individual %&gt;%
   arrange(-Brecha) %&gt;% 
   mutate(Brecha = scales::percent(Brecha))
 
-ejercicio2
-
-# Calcular el ingreso total individual promedio, para quienes perciben ingresos, por aglomerados y sexo
-
-ejercicio3 &lt;- individual %&gt;% 
+ejercicio2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5jb2wiOjQsIm5yb3ciOjMyfSwicmRmIjoiSDRzSUFBQUFBQUFBQTNWV2ZXd1VWUkMvdG5mUUh0UVdnYllpbG8wZ0h5WmRlbmR0YWZGcmVrZmJXTnJTdEtWQXRNWjN0K3QxeTk2K3NyZExpd1F3QWtXamlaKzBVUUpHVFNRS0NSOEtrUWdrQkt0d0xmU2tINVNpaUVoaklpWkNWQ2dtVUdmdmR1KzJsOWcvdXU4M00yL21OelB2emJ1NlphdGQ5dFYyaThXU1lrbVpsR1JKc2VIU1lsdlpVSjVYYkxGWWt4RWtXYXlXTk8zYmprYlRjV0hGYnlaK0dWMHh3MDJhQmNLNFJTTDVDSlBIZUhoWkZuVGR6R29pTXh3dk1yVWlVVFNsR3orU3Juekl3OG1VWmVxRTlZUWo2d1ZOWGNjMkNLSzRRVGRnNm9uRTFBZytLcElnS2h0UlJSZ1BsWUtLb0tnK2dScU9wdFlKbEtrZ29zajdhVkNYMlRXWlJ5V3lRblhKNUZvYXhFQ0dRV1l0NmdTT0JpUDhLdHlsdWp6TEk2Z2M0VkRLdUZWZVFuMnBJUFBHcnFrVk1uTHlVSm1qWG1JVVlHV3dXU1ZSL2hvUnRPRDRDZloxR0ZrV0RDSjIzQzRMdktURXZLWkhyS3BJdEV5NjhNRWFYbDJIRE5CdHJVZ1ZSZUJsWFpOVHowWklsd1VWWHFhb3g1MXVER3JzdE5VVE1lWm1Tc1EzSmtza1E1UlJxYmFvR3pTL1JHd2xJcG5BdFpxWE9QcXlJWnVHTGNER2FRbWdmUU1sUm04eTZraGJrR3JrR21SZTVOdDBjYmJXc2lwVjBQcFZKaktlWmkxVlVhUVRFdFZzS3RYWU9VakRsdnF3b29JUjlKRkdnZWNDa2JORTVBQldBSHRSaTRYeFU0a1Bza2Ivb3BYbGd3SldRZkxGTnNkQ0lPMXlvdzJwV0NIc1RZdGg5RUMwamVnelFHU2ZJYzJPU0J0VW54b2drY3hZUEhOOFMrd0FsVk01Z0lWSXVCZzJrWGg1VVdOa0VzN3dVRTd3VTQxNXFWK2tBVjRtSEUzYzZNTnpIZFEzSmh0TUk5NUVuak9LNDJ2RzF2bXcwUWp1YTlTMWl3RWo1TnZEWC8yVUNTTTVPYS9sdkRFZmZpRlhRMU5IWFRDWXRYaVlIVytESzBuRjIyb08zb09CMDBNMTR2UmpjS0Z6WSsyYTlmZGdjS1pYdWoxckZmemM5WGJTeWVPMTBMKzVjKzdDTmZsd2JmYWx1d2Z6Zm9jaDZ0M3B5bm9Dd3RZUHR0Z1hmZ21ERjA4S3I5UFo4T1BueWszZnFTZWg5MFRUemJsVmU2RXZwM25SNWxBSUJuNjcxRjF5ekEvaDA2VXJ3Mldmd1FYZmFPV3JOOWZCNEZ4Uy9NZnRFaGorSkxXNjQ4M2pNTEQ3MGF5MUhjc2gvTmFDeGw5enZSRG14MUxaMlowd3RHZFg2NUdPZDZCdjRhdzd5ZU1XNlAvQ3N6Mjl1d3ZDbGdVNWpDc1QrdHBQaU9kdk5jQzU4OHN2SDAxNkduNjRWYkR6dXM4ZnEwUGZhRmY2L3VhbEVHNjZzblgzbFcwdytPZjEvZmt6KzZCblhuSGxobFg3b0grNDU3bS90ajhEdlV2bkxNbXN0c0haYi9nOXp2YU5jTzdUM054L0RwVEIwTExEWmMvdXV3TzkyNzFaVmJPNllPUWpaZEcvUUNEY2N6UjE3RkFUbk1tZVF6NmVIb0F3cmU5OTBaa09nOTgxWFU0L2N3UzY3KzdkOU80aEozdy92SlVmeUo0SDRleXQyOGE0citIcytWM1kzL2VndDNzVGJYdGZoZkJobUZkK2dFQi9lMVBHdlMxbzkzeG5UZFBmZVJDNlhyTHZZdlpkQ0oyU1NPT0pwK0JDeDdTeHhUY2VoNUNqZksxL3h3aUVQN3pmbEZGK0RYb0tUbnRKMmczb2VZRVpEVjJhRDZFNUQ5K29taklmK3ZiczNaR3JyTllQanpHS2JhNFN0dkN4R0ZqQ3V1S2dpQzJKZzBLMktBNWNabzJUelkrRGZMWTRCcHdsN0JJemlNZHhGcG5OaXN5YVF0WVJCd1Ztc3dRUUQrcDBtUjI0VENrZ3lQOGY0REI3YzB6VW1FQytLVzFIc1drUGdnSXppTE4yRkpxcTR6RFhEVUhjdGNOTXgrRTBlM05vRGhKdXZrUUN2SEh6cmNhelVGcFJ0YUs2cks1MDJRckRySkhJc1VmT1ZxMjJ4RjZBU1c2Wng4RVFkWnN5bmpCODdCd09OdllsR1lNa0JFNlRhUnRyQkUvWHhzNHIrRzk4ZlB4cWRMcE1NSjVNV3hWOFpORTBXWHYzYlFsUmt1UUVRWVlxYWE2NVBGK3pLcTNOYzJsTUl1cm9YN3ErWmt4cmF6U2sxY2pBWnVUSFMzNUJNcWEzUG1IMTBZMHBSREpnVzJWQlVveVVVUnBrRmFvUXc4Nk9QeHNNU1hSeTN2OFBmL1Z5Q3U0SUFBQT0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["AGLOMERADO"],"name":[1],"type":["S3: labelled"],"align":["right"]},{"label":["Varon"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Mujer"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Brecha"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"Bahia Blanca - Cerri","2":"27015.07","3":"16331.18","4":"39.5%"},{"1":"Mar del Plata - Batan","2":"26720.38","3":"16759.48","4":"37.3%"},{"1":"Cdro. Rivadavia - R.Tilly","2":"35599.02","3":"22463.57","4":"36.9%"},{"1":"San Nicolas - Villa Constitucion","2":"21592.75","3":"13896.44","4":"35.6%"},{"1":"Rio Gallegos","2":"30724.88","3":"20323.18","4":"33.9%"},{"1":"Rio Cuarto","2":"21263.35","3":"14452.24","4":"32.0%"},{"1":"Posadas","2":"19033.93","3":"13174.79","4":"30.8%"},{"1":"Partidos del GBA","2":"21589.54","3":"15174.24","4":"29.7%"},{"1":"Ciudad de Buenos Aires","2":"32350.25","3":"22802.79","4":"29.5%"},{"1":"Gran Cordoba","2":"19962.35","3":"14602.77","4":"26.8%"},{"1":"Ushuaia - Rio Grande","2":"37094.81","3":"27261.82","4":"26.5%"},{"1":"Gran Rosario","2":"22973.54","3":"17198.84","4":"25.1%"},{"1":"Corrientes","2":"16402.40","3":"12334.25","4":"24.8%"},{"1":"Gran La Plata","2":"22366.98","3":"16829.31","4":"24.8%"},{"1":"Neuquen - Plottier","2":"29349.83","3":"22297.47","4":"24.0%"},{"1":"S. del Estero - La Banda","2":"14714.73","3":"11251.31","4":"23.5%"},{"1":"Salta","2":"15920.81","3":"12209.03","4":"23.3%"},{"1":"Gran Parana","2":"21407.40","3":"16478.05","4":"23.0%"},{"1":"Jujuy - Palpala","2":"17165.02","3":"13213.21","4":"23.0%"},{"1":"Gran Mendoza","2":"18831.58","3":"14730.98","4":"21.8%"},{"1":"Santa Rosa - Toay","2":"21645.52","3":"17097.00","4":"21.0%"},{"1":"Rawson - Trelew","2":"25224.13","3":"19937.45","4":"21.0%"},{"1":"San Luis - El Chorrillo","2":"21108.53","3":"16754.35","4":"20.6%"},{"1":"Gran San Juan","2":"16956.61","3":"13768.45","4":"18.8%"},{"1":"Concordia","2":"16791.88","3":"13698.86","4":"18.4%"},{"1":"Viedma - Carmen de Patagones.","2":"23162.43","3":"18968.28","4":"18.1%"},{"1":"Gran Resistencia","2":"15952.21","3":"13410.55","4":"15.9%"},{"1":"Gran Santa Fe","2":"20137.05","3":"17003.97","4":"15.6%"},{"1":"La Rioja","2":"16384.61","3":"13929.53","4":"15.0%"},{"1":"Gran Catamarca","2":"16113.48","3":"14012.26","4":"13.0%"},{"1":"Gran Tucuman - T. Viejo","2":"15260.59","3":"13374.22","4":"12.4%"},{"1":"Formosa","2":"18372.82","3":"16189.31","4":"11.9%"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[32]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="ejercicio-3" class="section level4">
+<h4>Ejercicio 3</h4>
+<blockquote>
+<p>Calcular el ingreso total individual promedio, para quienes perciben ingresos, por aglomerados y sexo</p>
+</blockquote>
+<ul>
+<li>La variable de filtro: Ingreso total individual positivo</li>
+<li>Las variables de agrupamiento: El aglomerado y el sexo</li>
+<li>Un nuevo ponderador</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZWplcmNpY2lvMyA8LSBpbmRpdmlkdWFsICU+JSBcbiAgZmlsdGVyKFA0N1QgPiAwKSAlPiUgXG4gIGdyb3VwX2J5KEFHTE9NRVJBRE8sIENIMDQpICU+JSBcbiAgc3VtbWFyaXNlKHByb21lZGlvX2l0aSA9IHdlaWdodGVkLm1lYW4oUDQ3VCwgUE9ORElJKSkgJT4lICMgcG9uZGVyYWRvclxuICBzcHJlYWQoLiwgQ0gwNCwgcHJvbWVkaW9faXRpKSAlPiUgXG4gIGV4cHNzOjp2YWx1ZXMybGFiZWxzKC4pICU+JSBcbiAgbXV0YXRlKEJyZWNoYSA9ICgoVmFyb24gLSBNdWplcikvVmFyb24pKSAlPiUgXG4gIGFycmFuZ2UoLUJyZWNoYSkgJT4lIFxuICBtdXRhdGUoQnJlY2hhID0gc2NhbGVzOjpwZXJjZW50KEJyZWNoYSkpXG5cbmVqZXJjaWNpbzNcbmBgYCJ9 -->
+<pre class="r"><code>ejercicio3 &lt;- individual %&gt;% 
   filter(P47T &gt; 0) %&gt;% 
   group_by(AGLOMERADO, CH04) %&gt;% 
   summarise(promedio_iti = weighted.mean(P47T, PONDII)) %&gt;% # ponderador
@@ -2947,54 +3062,29 @@ ejercicio3 &lt;- individual %&gt;%
   expss::values2labels(.) %&gt;% 
   mutate(Brecha = ((Varon - Mujer)/Varon)) %&gt;% 
   arrange(-Brecha) %&gt;% 
-  mutate(Brecha = scales::percent(Brecha))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="engho" class="section level2">
-<h2>ENGHO?</h2>
-<p>(bases en fuentes) Ejercicios: gasto en transporte/gasto en total. Regresión entre nivel de ingresos y proporción de gastos en transporte. Las bases tienen un | al final de cada fila y eso nos trae advertencias al levantar. <a href="https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos-4" class="uri">https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos-4</a></p>
-</div>
-<div id="eah-ciudad-2017-ampliada" class="section level2">
-<h2>EAH Ciudad 2017 (Ampliada)</h2>
-<p>(Datos en fuentes) ingresos imputados</p>
-<p>Ejercicio: Dejar para la práctica independiente la consigna de hacer el mismo ejercicio que hacemos con EPH por aglomerados, pero por comunas:</p>
-<ul>
-<li>ocupades segun rama de actividad agregada, tasa de feminización, ingresos promedios, tasa de no les descuentan ni aportan</li>
-<li>ioph_2 ingreso de la ocup principal (ocupados) por comunas y sexo (PRACTICA INDEPENDIENTE)</li>
-<li>ingtot_2 ingreso total individual, por comunas y sexo (PRACTICA INDEPENDIENTE)</li>
-</ul>
-</div>
-<div id="encuesta-uso-del-tiempo-2016-ciudad-de-buenos-aires" class="section level2">
-<h2>Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires</h2>
-<p>(Datos en fuentes)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkcilcbkVOR0gwNDA1X2dhc3RvcyA8LSByZWFkX2RlbGltKFwiZnVlbnRlcy9FTkdIMDQwNV9nYXN0b3MudHh0XCIsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXCJ8XCIsIGVzY2FwZV9kb3VibGUgPSBGQUxTRSwgdHJpbV93cyA9IFRSVUUpXG5cbkVOR0gwNDA1X2NvZGlnb3NfYmllbmVzX3NlcnZpY2lvcyA8LSByZWFkX2RlbGltKFwiLi4vZnVlbnRlcy9FTkdIMDQwNV9jb2RpZ29zX2JpZW5lc19zZXJ2aWNpb3MudHh0XCIsIFxuICAgICAgXCJ8XCIsIGVzY2FwZV9kb3VibGUgPSBGQUxTRSwgY29sX3R5cGVzID0gY29scyhBUlRJQ1VMTyA9IGNvbF9jaGFyYWN0ZXIoKSwgXG4gICAgICAgICAgQ0xBU0UgPSBjb2xfY2hhcmFjdGVyKCksIENMQVZFQUdSUCA9IGNvbF9jaGFyYWN0ZXIoKSwgXG4gICAgICAgICAgRElWSVNJT04gPSBjb2xfY2hhcmFjdGVyKCksIEdSVVBPID0gY29sX2NoYXJhY3RlcigpLCBcbiAgICAgICAgICBTVUJDTEFTRSA9IGNvbF9jaGFyYWN0ZXIoKSksIGxvY2FsZSA9IGxvY2FsZShlbmNvZGluZyA9IFwiSVNPLTg4NTktMVwiKSwgXG4gICAgICB0cmltX3dzID0gVFJVRSlcblxuXG5gYGAifQ== -->
-<pre class="r"><code>library(readr)
-ENGH0405_gastos &lt;- read_delim(&quot;fuentes/ENGH0405_gastos.txt&quot;, 
-                              &quot;|&quot;, escape_double = FALSE, trim_ws = TRUE)
+  mutate(Brecha = scales::percent(Brecha))
 
-ENGH0405_codigos_bienes_servicios &lt;- read_delim(&quot;../fuentes/ENGH0405_codigos_bienes_servicios.txt&quot;, 
-      &quot;|&quot;, escape_double = FALSE, col_types = cols(ARTICULO = col_character(), 
-          CLASE = col_character(), CLAVEAGRP = col_character(), 
-          DIVISION = col_character(), GRUPO = col_character(), 
-          SUBCLASE = col_character()), locale = locale(encoding = &quot;ISO-8859-1&quot;), 
-      trim_ws = TRUE)
-</code></pre>
+ejercicio3</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImdyb3VwZWRfZGYiLCJ0YmxfZGYiLCJ0YmwiLCJkYXRhLmZyYW1lIl0sIm5jb2wiOjQsIm5yb3ciOjMyfSwicmRmIjoiSDRzSUFBQUFBQUFBQTQxV2Ewd1VWeFJlWU5lVlZSSEJnalZWcDFiN281YkpQbGhZYUZNUHV3SUdBZWt1RUd6VHhPdk95QTdPenVEc0RvcWhyY2JFVjdEK3FJay9yR213TGJXMnRsR1Qrb3cyMXRiZ0EvWWhDeTJvbGFTdHJjWWZnbTIxUEhwbmQrL3V1TC9LRDJhK2M4ODUzem5mM0h2dU9sYzBXUXhOQm8xR2s2SEptSmFteWREaFY0MnVvYjZpd0tiUmFOTXhTTk5vTlpuS2N6TjJ5c1V2V3Z6TXhrOHF2dkM4ZzVGRW1uSnliWWhCYlJ5aUNpZ25YYy94Zkh2Y1lhNGRlYkRaemlQQnJhdzZXRW5pNG11VUN3bFVMZWNXZWVURFM0MDRERkVPVWZENU9iL3M1a1FoN2plelVzS09UdEdISkU2TTIvUjFHRExJUjJnYWZCNFp4Zmc1a1ZJQ0dEYStsbDJISkQvSGlENktZWG1xMGw1RzdMRzBySS96K1ZuQnphRzRQYWVXbFRmS3JJQnoxZkdpMzgreFVueGxWalNpR21FNzhoUDNHVkVqNWtBQ01SbVVHaHd5cGlYbFBsZURwQ2g5TkJKbnR1TUg2VzkybGR3aXR5dDBpRzlGUE1reTI0azIrVVNsakhxSjVkbE5jWE9lZzVNWnhPQnNsQjFYaWRzcTR5U1dDSkd2YUZvdGM0cWc1VHpsOEloWWI1NG5kUmdjQ21ZRmZ5SWdKaTQyTStJNndxeHpJVDdSMzh5b29Jam4yV2FSQkdYaXIrVEdJUW5OWXNvbzNGVnlvcStFRVhkY1FiN0dQQmNkRmFJY2l5Nkp1RW9zcHgxL0xaSnBRU1BITXQ3b1ZrR1NGMzhGM0djZEZxdFpGRmdmVGJxTVpxNlgzYklYUlFXaThlNWhXMGlYV2JHZWNKUVhTVzZTV1Y4aFNsNjhhNTVwdklZVkdIRUxzVTNIeGVCMld3aWVFeXRlMlhvS2k0amFVdzZHamtmcldGN1pUQ3JqWElmSWNNMmlVbmxaTXk5NldRa3hZbXFnRzI5Nlh6d3duZEJIcy9Fc1EyUjJlL0MyY21PaE1KaFVHbE5PRFl6c3ZYbHIrZm1EY0d2SHF2Rzk1NWZDb1A1VlZyZmpBZ3lleXQzNFVvY1crbmVYbmhockM4Tkkyc1dUanpaVXdjQkh3MXV2VG5nZ2NHL2JsdUpIOStIV2g2VjFkczhLK0tuNE9MOW0zMTh3Y0h2ZU5YcHlNUXc4WG13N2UrOEtEQVVsL2FXTjU2QmZVK1lldG0yRzRmREx4b2ZIYjhMZDhYMzYxV3Y3SUpKLzROQjdFMjlBNkovUmhWMFgzb1JJenBPakFjY2toQTQvNm16U2RjUGRkeHUzMXEvU1FyRDJxRGZ2eUZvSXUwNVdqRk1qMFA5VjlZdzlKd3FoYitMQkIwV3RheUV5Vi83ODFKNE1DTzA4T0xZeU1nYWhqdDVTcHh5QjBHN0RvdTBQd2hCNUp5dkxmUDhjQkt2V1BBeC9VZ3lEMnpyQzF4d05DUjBpT3VzWGw1ODZJWnpWOWZhR1lqMzBMWm4yeXNvRFhnaTBMUEgvL2xrdTNNajllNlYyNURzWURMeWZpYmJsUThEWE9mRGliOVBoU3MrQzdrOXZ2d1g5T1U1LzlzS3pFT29jZXlHL2F6c0VEN2U1THAxdGgyRFBuQjh2amxiQ3pUdERqMGN2U05EWHVYVCtEejFOMEg4NjVBaWxmd3hEVll0Q1QrUmxFTGk4NnV0YWR6ZGM3OXYrNWRVSGVnaUVkcHdaQ3U2RjYzdU1UMHNucXVIbjBMZW5YVjN6NFpyZU9MMDc1eUgwN20ra1R1L0todURyUnc1Ly8rdHk2R216ZmJQbzNINElIbDEvNnVDeTNkRDcyc0tkZCtia1FxLzlVTjZ5amp6bzlZeVhCQnRHSVhUeXZzVjFYUXMzaGsrYythUHRHQXpNK0hmWE1jdWY4YzFEUnJHdTBFZ1hMeVhBWXFXdGFtQk9BZ3RkbEFSbXRadUpOaVdCa2JZa2dMbEVsZHBzbzIxSlVFUVhxa0V5Z2RtcWRyUFN4aVFvcEV2VW9FZ05UUDhIV05TcExlb0tMT3FxVFdvZTQ3UEFxZ2FGYXBBczFHUlRyV0JnVmdPVm0xb0RrMXBlSzEyQ2VWSk92b0M4TERuNVdqS1h5eXFyVjllVU84dFdyQ1p1alVoSzNJQzZHcmtsY1F0TnMwc3NIZ3l4dEJsVEtjUEh3T0N4UjYrWE1Fa0tjYVlrYnFJSitTeGw3R3pGLzZhbXBuNkpUWmRublBWaXF4L2Z3TmcxWGJuM2RTa3NhVktLWWJZc0tLbVpBcmRIRmpZVW1KUktvc3V4djFueGQwcjFybzFSYWtrSE90SWZLelJ6QXJrdjRoTTJQdGh4QzlFTzZGYUpFL3lrWld6MTBYN1JqNGlmQWYrbUlKYlk1Sno4RDQ5cDkzWHVDQUFBIn0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["AGLOMERADO"],"name":[1],"type":["S3: labelled"],"align":["right"]},{"label":["Varon"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Mujer"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Brecha"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"Cdro. Rivadavia - R.Tilly","2":"37998.65","3":"22548.84","4":"40.7%"},{"1":"Bahia Blanca - Cerri","2":"30233.19","3":"19514.52","4":"35.5%"},{"1":"San Nicolas - Villa Constitucion","2":"24604.69","3":"15944.05","4":"35.2%"},{"1":"Gran Rosario","2":"25308.30","3":"16808.57","4":"33.6%"},{"1":"Posadas","2":"22052.92","3":"14887.93","4":"32.5%"},{"1":"Ushuaia - Rio Grande","2":"36877.99","3":"25409.98","4":"31.1%"},{"1":"Partidos del GBA","2":"24179.45","3":"16846.20","4":"30.3%"},{"1":"Gran Resistencia","2":"17314.02","3":"12178.23","4":"29.7%"},{"1":"Neuquen - Plottier","2":"30284.91","3":"21577.29","4":"28.8%"},{"1":"Gran La Plata","2":"25822.77","3":"18995.81","4":"26.4%"},{"1":"Gran Parana","2":"24440.39","3":"18057.85","4":"26.1%"},{"1":"Rio Cuarto","2":"24532.53","3":"18212.28","4":"25.8%"},{"1":"Mar del Plata - Batan","2":"28485.78","3":"21375.44","4":"25.0%"},{"1":"Jujuy - Palpala","2":"21505.02","3":"16152.29","4":"24.9%"},{"1":"Rawson - Trelew","2":"29516.60","3":"22243.29","4":"24.6%"},{"1":"Ciudad de Buenos Aires","2":"36836.47","3":"27944.50","4":"24.1%"},{"1":"San Luis - El Chorrillo","2":"22622.37","3":"17169.18","4":"24.1%"},{"1":"Corrientes","2":"19427.80","3":"14751.03","4":"24.1%"},{"1":"Gran Cordoba","2":"22603.90","3":"17226.11","4":"23.8%"},{"1":"Salta","2":"19083.79","3":"14612.38","4":"23.4%"},{"1":"Rio Gallegos","2":"35818.70","3":"27466.86","4":"23.3%"},{"1":"Concordia","2":"17722.66","3":"13838.38","4":"21.9%"},{"1":"Gran San Juan","2":"19790.80","3":"15656.67","4":"20.9%"},{"1":"Gran Santa Fe","2":"22193.19","3":"17650.63","4":"20.5%"},{"1":"S. del Estero - La Banda","2":"16379.85","3":"13036.44","4":"20.4%"},{"1":"Viedma - Carmen de Patagones.","2":"22609.84","3":"18089.60","4":"20.0%"},{"1":"Gran Tucuman - T. Viejo","2":"18974.44","3":"15478.24","4":"18.4%"},{"1":"Gran Catamarca","2":"18931.22","3":"15493.23","4":"18.2%"},{"1":"Formosa","2":"18980.16","3":"15569.97","4":"18.0%"},{"1":"Gran Mendoza","2":"22900.22","3":"19151.68","4":"16.4%"},{"1":"La Rioja","2":"17705.41","3":"15289.40","4":"13.6%"},{"1":"Santa Rosa - Toay","2":"25093.95","3":"23599.93","4":"5.95%"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[32]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Ciudad EAH 2017</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
+<hr />
+</div>
+</div>
+<div id="ejemplo-de-utilizacion-de-la-encuesta" class="section level3">
+<h3>Ejemplo de utilización de la encuesta</h3>
+<p><a href="http://www.rpubs.com/natsumi_shokida/">La desigualdad de género se puede medir</a></p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiBBbsOhbGlzaXMgZGUgZW5jdWVzdGFzCm91dHB1dDoKICBodG1sX25vdGVib29rOgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCmRhdGU6ICIiCnN1YnRpdGxlOiBQcsOhY3RpY2EgR3VpYWRhCi0tLQoKCgoKCiMjIEVuY3Vlc3RhIFBlcm1hbmVudGUgZGUgSG9nYXJlcwpodHRwczovL3BhYmxvdGlzLmdpdGh1Yi5pby9QcmVzZW50YWNpb25lcy9pbmRleC5odG1sIzE1CkxlZXIgbWV0b2RvbG9nw61hcywgZGVmaW5pY2lvbmVzIGRlIGxhcyBjYXRlZ29yw61hcyAocCBlaiBhc2FsYXJpYWRlcyBubyBlbmN1YmllcnRvcy9lbmN1YmllcnRvcykKcGFxdWV0ZSBlcGgKZWouIGRlIHVzbzogcnB1YnMuY29tL25hdHN1bWlfc2hva2lkYQoKKyBpbmd0b3RfMiBpbmdyZXNvIHRvdGFsIGluZGl2aWR1YWwsIHBvciBhZ2xvbWVyYWRvcyB5IHNleG8KCmBgYHtyfQpsaWJyYXJ5KGVwaCkKbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoZXhwc3MpCgppbmRpdmlkdWFsIDwtIGdldF9taWNyb2RhdGEoeWVhciA9IDIwMTksIHRyaW1lc3RlciA9IDEsIHR5cGUgPSAnaW5kaXZpZHVhbCcpCmhvZ2FyIDwtIGdldF9taWNyb2RhdGEoeWVhciA9IDIwMTksIHRyaW1lc3RlciA9IDEsIHR5cGUgPSAnaG9nYXInKQoKaW5kaXZpZHVhbCA8LSBvcmdhbml6ZV9sYWJlbHMoaW5kaXZpZHVhbCwgdHlwZSA9ICdpbmRpdmlkdWFsJykgJT4lIAogIHNlbGVjdChDT0RVU1UsIE5ST19IT0dBUiwgQUdMT01FUkFETywgQ09NUE9ORU5URSwgQ0gwNCwgRVNUQURPLCBDQVRfT0NVUCwgUDIxLCBQNDdULCBQT05ERVJBLCBQT05ESUksIFBPTkRJSU8pCiAgCmhvZ2FyIDwtIG9yZ2FuaXplX2xhYmVscyhob2dhciwgdHlwZSA9ICdob2dhcicpICU+JSAKICBzZWxlY3QoQ09EVVNVLCBOUk9fSE9HQVIsIElWMTJfMiwgSVYxMl8zKQogIAojIEN1w6FudGFzIHBlcnNvbmFzIHZpdmVuIGVuIHZpdmllbmRhcyB1YmljYWRhcyBlbiB2aWxsYXMgZGUgZW1lcmdlbmNpYXMgeSBlbiB6b25hcyBpbnVuZGFibGVzPwojIyBJVjEyXzI6IHpvbmEgaW51bmRhYmxlCiMjIElWMTJfMzogdmlsbGEgZGUgZW1lcmdlbmNpYQplamVyY2ljaW8xIDwtIGxlZnRfam9pbihpbmRpdmlkdWFsLCBob2dhciwgYnkgPSBjKCJDT0RVU1UiLCAiTlJPX0hPR0FSIikpICU+JSAKICBmaWx0ZXIoSVYxMl8yID09IDEgfCBJVjEyXzMgPT0gMSkgJT4lIAogIGdyb3VwX2J5KElWMTJfMiwgSVYxMl8zKSAlPiUgCiAgc3VtbWFyaXNlKENhbnRpZGFkID0gc3VtKFBPTkRFUkEpKSAlPiUgCiAgZXhwc3M6OnZhbHVlczJsYWJlbHMoLikKCmVqZXJjaWNpbzEKCiMgQ2FsY3VsYXIgZWwgaW5ncmVzbyBkZSBsYSBvY3VwLiBwcmluY2lwYWwgcHJvbWVkaW8sIHBhcmEgbGFzL29zIG9jdXBhZGFzL29zIHBvciBhZ2xvbWVyYWRvcyB5IHNleG8KZWplcmNpY2lvMiA8LSBpbmRpdmlkdWFsICU+JSAKICBmaWx0ZXIoRVNUQURPID09IDEpICU+JSAKICBncm91cF9ieShBR0xPTUVSQURPLCBDSDA0KSAlPiUgCiAgc3VtbWFyaXNlKHByb21lZGlvX2lvcCA9IHdlaWdodGVkLm1lYW4oUDIxLCBQT05ESUlPKSkgJT4lICMgcG9uZGVyYWRvcgogIHNwcmVhZCguLCBDSDA0LCBwcm9tZWRpb19pb3ApICU+JSAKICBleHBzczo6dmFsdWVzMmxhYmVscyguKSAlPiUgCiAgbXV0YXRlKEJyZWNoYSA9ICgoVmFyb24gLSBNdWplcikvVmFyb24pKSAlPiUgCiAgYXJyYW5nZSgtQnJlY2hhKSAlPiUgCiAgbXV0YXRlKEJyZWNoYSA9IHNjYWxlczo6cGVyY2VudChCcmVjaGEpKQoKZWplcmNpY2lvMgoKIyBDYWxjdWxhciBlbCBpbmdyZXNvIHRvdGFsIGluZGl2aWR1YWwgcHJvbWVkaW8sIHBhcmEgcXVpZW5lcyBwZXJjaWJlbiBpbmdyZXNvcywgcG9yIGFnbG9tZXJhZG9zIHkgc2V4bwoKZWplcmNpY2lvMyA8LSBpbmRpdmlkdWFsICU+JSAKICBmaWx0ZXIoUDQ3VCA+IDApICU+JSAKICBncm91cF9ieShBR0xPTUVSQURPLCBDSDA0KSAlPiUgCiAgc3VtbWFyaXNlKHByb21lZGlvX2l0aSA9IHdlaWdodGVkLm1lYW4oUDQ3VCwgUE9ORElJKSkgJT4lICMgcG9uZGVyYWRvcgogIHNwcmVhZCguLCBDSDA0LCBwcm9tZWRpb19pdGkpICU+JSAKICBleHBzczo6dmFsdWVzMmxhYmVscyguKSAlPiUgCiAgbXV0YXRlKEJyZWNoYSA9ICgoVmFyb24gLSBNdWplcikvVmFyb24pKSAlPiUgCiAgYXJyYW5nZSgtQnJlY2hhKSAlPiUgCiAgbXV0YXRlKEJyZWNoYSA9IHNjYWxlczo6cGVyY2VudChCcmVjaGEpKQpgYGAKCgoKCiMjIEVOR0hPPwooYmFzZXMgZW4gZnVlbnRlcykKRWplcmNpY2lvczogZ2FzdG8gZW4gdHJhbnNwb3J0ZS9nYXN0byBlbiB0b3RhbC4gUmVncmVzacOzbiBlbnRyZSBuaXZlbCBkZSBpbmdyZXNvcyB5IHByb3BvcmNpw7NuIGRlIGdhc3RvcyBlbiB0cmFuc3BvcnRlLgpMYXMgYmFzZXMgdGllbmVuIHVuIHwgYWwgZmluYWwgZGUgY2FkYSBmaWxhIHkgZXNvIG5vcyB0cmFlIGFkdmVydGVuY2lhcyBhbCBsZXZhbnRhci4KaHR0cHM6Ly93d3cuaW5kZWMuZ29iLmFyL2luZGVjL3dlYi9JbnN0aXR1Y2lvbmFsLUluZGVjLUJhc2VzRGVEYXRvcy00CgojIyBFQUggQ2l1ZGFkIDIwMTcgKEFtcGxpYWRhKQooRGF0b3MgZW4gZnVlbnRlcykKaW5ncmVzb3MgaW1wdXRhZG9zCgpFamVyY2ljaW86IERlamFyIHBhcmEgbGEgcHLDoWN0aWNhIGluZGVwZW5kaWVudGUgbGEgY29uc2lnbmEgZGUgaGFjZXIgZWwgbWlzbW8gZWplcmNpY2lvIHF1ZSBoYWNlbW9zIGNvbiBFUEggcG9yIGFnbG9tZXJhZG9zLCBwZXJvIHBvciBjb211bmFzOgoKKyBvY3VwYWRlcyBzZWd1biByYW1hIGRlIGFjdGl2aWRhZCBhZ3JlZ2FkYSwgdGFzYSBkZSBmZW1pbml6YWNpw7NuLCBpbmdyZXNvcyBwcm9tZWRpb3MsIHRhc2EgZGUgbm8gbGVzIGRlc2N1ZW50YW4gbmkgYXBvcnRhbgorIGlvcGhfMiBpbmdyZXNvIGRlIGxhIG9jdXAgcHJpbmNpcGFsIChvY3VwYWRvcykgcG9yIGNvbXVuYXMgeSBzZXhvIChQUkFDVElDQSBJTkRFUEVORElFTlRFKQorIGluZ3RvdF8yIGluZ3Jlc28gdG90YWwgaW5kaXZpZHVhbCwgcG9yIGNvbXVuYXMgeSBzZXhvIChQUkFDVElDQSBJTkRFUEVORElFTlRFKQoKIyMgRW5jdWVzdGEgVXNvIGRlbCBUaWVtcG8gMjAxNiBDaXVkYWQgZGUgQnVlbm9zIEFpcmVzCihEYXRvcyBlbiBmdWVudGVzKQoKYGBge3J9CmxpYnJhcnkocmVhZHIpCkVOR0gwNDA1X2dhc3RvcyA8LSByZWFkX2RlbGltKCJmdWVudGVzL0VOR0gwNDA1X2dhc3Rvcy50eHQiLCAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgInwiLCBlc2NhcGVfZG91YmxlID0gRkFMU0UsIHRyaW1fd3MgPSBUUlVFKQoKRU5HSDA0MDVfY29kaWdvc19iaWVuZXNfc2VydmljaW9zIDwtIHJlYWRfZGVsaW0oIi4uL2Z1ZW50ZXMvRU5HSDA0MDVfY29kaWdvc19iaWVuZXNfc2VydmljaW9zLnR4dCIsIAogICAgICAifCIsIGVzY2FwZV9kb3VibGUgPSBGQUxTRSwgY29sX3R5cGVzID0gY29scyhBUlRJQ1VMTyA9IGNvbF9jaGFyYWN0ZXIoKSwgCiAgICAgICAgICBDTEFTRSA9IGNvbF9jaGFyYWN0ZXIoKSwgQ0xBVkVBR1JQID0gY29sX2NoYXJhY3RlcigpLCAKICAgICAgICAgIERJVklTSU9OID0gY29sX2NoYXJhY3RlcigpLCBHUlVQTyA9IGNvbF9jaGFyYWN0ZXIoKSwgCiAgICAgICAgICBTVUJDTEFTRSA9IGNvbF9jaGFyYWN0ZXIoKSksIGxvY2FsZSA9IGxvY2FsZShlbmNvZGluZyA9ICJJU08tODg1OS0xIiksIAogICAgICB0cmltX3dzID0gVFJVRSkKCgpgYGAKCkNpdWRhZCBFQUggMjAxNwpgYGB7cn0KCmBgYAoKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiBBbsOhbGlzaXMgZGUgZW5jdWVzdGFzCm91dHB1dDoKICBodG1sX25vdGVib29rOgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCmRhdGU6ICIiCnN1YnRpdGxlOiBQcsOhY3RpY2EgR3VpYWRhCi0tLQoKRW4gZXN0YSBzZWNjacOzbiB0cmFiYWphcmVtb3MgY29uIGxhcyBiYXNlcyBkZSBsYSBFbmN1ZXN0YSBQZXJtYW5lbnRlIGRlIEhvZ2FyZXMgZGVsIElOREVDLCBwYXJhIGVqZW1wbGlmaWNhciBsYSBmb3JtYSBkZSB0cmFiYWphciBjb24gZW5jdWVzdGFzIGVuIGdlbmVyYWwuIFJlYWxpemFyZW1vcyB0cmVzIGVqZXJjaWNpb3MgcXVlIGx1ZWdvIHNlcsOhbiByZXBsaWNhZG9zLCBlbiBsYSBzZWNjacOzbiBkZSBfcHLDoWN0aWNhIGluZGVwZW5kaWVudGVfLCBwZXJvIGNvbiBsYSBFbmN1ZXN0YSBBbnVhbCBkZSBIb2dhcmVzIGRlIENBQkEuCgo+IFJlaW5pY2lhciBSCgojIyMgRW5jdWVzdGEgUGVybWFuZW50ZSBkZSBIb2dhcmVzCgpSZWNvbWVuZGFjaW9uZXMgcGFyYSB0cmFiYWphciBjb24gZXN0YSBlbmN1ZXN0YToKCiogVGVuZXIgYSBtYW5vIGVsIGRpc2XDsW8gZGUgcmVnaXN0cm8KKiBVdGlsaXphciBlbCBwYXF1ZXRlIGBlcGhgCiogU2kgcXVlcmVtb3MgZXN0YXIgc2VndXJvcyBzb2JyZSBsYSBkZWZpbmljacOzbiBkZSB1bmEgY2F0ZWdvcsOtYSwgYXBlbGFyIGEgbG9zIGRvY3VtZW50b3MgbWV0b2RvbMOzZ2ljb3MgKHBvciBlamVtcGxvOiBlbCBjYXNvIGRlIGxvcyBhc2FsYXJpYWRvcyBlbmN1YmllcnRvcykKKiB0aXJhciBmcmVjdWVuY2lhcyBvIHBsb3RzIGRlIGxhcyB2YXJpYWJsZXMgYW50ZXMgZGUgdXNhcmxhcyAoLTksIDAsIE5BcywgZXRjLi4uKQoKQ2FyZ2Ftb3MgbGFzIGxpYnJlcsOtYXMKCmBgYHtyIG1lc3NhZ2U9RkFMU0UsIHdhcm5pbmc9RkFMU0V9CiMgaW5zdGFsbC5wYWNrYWdlcygiZXBoIikKbGlicmFyeShlcGgpICAgICAgICAgIyBwYXJhIHRyYWJhamFyIGNvbiBFUEgKbGlicmFyeSh0aWR5dmVyc2UpICAgCmxpYnJhcnkoZXhwc3MpICAgICAgICMgcGFyYSB0cmFiYWphciBjb24gbGEgZXRpcXVldGEgZGUgbG9zIGRhdG9zCmBgYAoKQ2FyZ2Ftb3MgbGFzIGJhc2VzIGNvbiB1bmEgZnVuY2nDs24gZGVsIHBhcXVldGUgYGVwaGAsIHF1ZSBubyB2YSBhIGRlc2NhcmdhciBlbiBkaXNjbyBsYSBpbmZvcm1hY2nDs24gcGVybyBzw60gbGEgdmEgYSBjYXJnYXIgZW4gZWwgZW50b3JubyBkZSB0cmFiYWpvIGRlIFIuCgpgYGB7ciBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFfQo/ZXBoOjpnZXRfbWljcm9kYXRhCgppbmRpdmlkdWFsIDwtIGdldF9taWNyb2RhdGEoeWVhciA9IDIwMTksIHRyaW1lc3RlciA9IDEsIHR5cGUgPSAnaW5kaXZpZHVhbCcpCmhvZ2FyIDwtIGdldF9taWNyb2RhdGEoeWVhciA9IDIwMTksIHRyaW1lc3RlciA9IDEsIHR5cGUgPSAnaG9nYXInKQpgYGAKClNvYnJlIGxhcyBiYXNlczoKCiogUXXDqSB0aWVuZW4gZW4gY29tw7puIChDT0RVU1UsIE5ST19IT0dBUikKKiBQYXJhIHF1w6kgbm9zIHB1ZWRlbiBzZXJ2aXIgZXNhcyB2YXJpYWJsZXMgZW4gY29tw7puCgpgYGB7cn0KZ2xpbXBzZShob2dhcikKZ2xpbXBzZShpbmRpdmlkdWFsKQpgYGAKCiogTGEgZnVuY2nDs24gYG9yZ2FuaXplX2xhYmVscygpYCBwZXJtaXRlIGV0aXF1ZXRhciBsb3MgZGF0b3MKKiBTZWxlY2Npb25hbW9zIHZhcmlhYmxlcyByZWxldmFudGVzIHBhcmEgZWwgZWplcmNpY2lvOiBpbmZvcm1hY2nDs24gY29udGVuaWRhIGVuIGNhZGEgdW5hCgpgYGB7cn0KaW5kaXZpZHVhbCA8LSBvcmdhbml6ZV9sYWJlbHMoaW5kaXZpZHVhbCwgdHlwZSA9ICdpbmRpdmlkdWFsJykgJT4lIAogIHNlbGVjdChDT0RVU1UsIE5ST19IT0dBUiwgQUdMT01FUkFETywgQ09NUE9ORU5URSwgQ0gwNCwgRVNUQURPLCBDQVRfT0NVUCwgUDIxLCBQNDdULCBQT05ERVJBLCBQT05ESUksIFBPTkRJSU8pCiAgCmhvZ2FyIDwtIG9yZ2FuaXplX2xhYmVscyhob2dhciwgdHlwZSA9ICdob2dhcicpICU+JSAKICBzZWxlY3QoQ09EVVNVLCBOUk9fSE9HQVIsIElWMTJfMiwgSVYxMl8zKQoKIyMgSVYxMl8yOiB6b25hIGludW5kYWJsZQojIyBJVjEyXzM6IHZpbGxhIGRlIGVtZXJnZW5jaWEKYGBgCgotLS0KCiMjIyMgRWplcmNpY2lvIDEKCj4gQ3XDoW50YXMgcGVyc29uYXMgdml2ZW4gZW4gdml2aWVuZGFzIHViaWNhZGFzIGVuIHZpbGxhcyBkZSBlbWVyZ2VuY2lhcyB5IGVuIHpvbmFzIGludW5kYWJsZXM/CgpOb3RlbW9zIHF1ZSBsYSBwcmVndW50YSByZWZpZXJlIGEgbGFzIHBlcnNvbmFzLCBwZXJvIGxhIGluZm9ybWFjacOzbiBzb2JyZSBsYSB1YmljYWNpw7NuIGRlIGxhIHZpdmllbmRhIGZpZ3VyYSBlbiBsYSBiYXNlIGRlIGhvZ2FyZXMuCgoqIEpvaW4gZGUgYmFzZXMgaW5kaXZpZHVhbCB5IGhvZ2FyICh5IGFsIHJldsOpcz8pCiogTGFzIHZhcmlhYmxlcyBkZSBmaWx0cm8geSBhZ3J1cGFtaWVudG8KKiBFbCByb2wgZGUgbG9zIHBvbmRlcmFkb3JlcwoqIEZ1bmNpw7NuIHBhcmEgbW9zdHJhciBsb3MgcmVzdWx0YWRvcyBldGlxdWV0YWRvcwoKYGBge3IgbWVzc2FnZT1GQUxTRSwgd2FybmluZz1GQUxTRX0KZWplcmNpY2lvMSA8LSBsZWZ0X2pvaW4oaW5kaXZpZHVhbCwgaG9nYXIsIGJ5ID0gYygiQ09EVVNVIiwgIk5ST19IT0dBUiIpKSAlPiUgCiAgZmlsdGVyKElWMTJfMiA9PSAxIHwgSVYxMl8zID09IDEpICU+JSAKICBncm91cF9ieShJVjEyXzIsIElWMTJfMykgJT4lIAogIHN1bW1hcmlzZShDYW50aWRhZCA9IHN1bShQT05ERVJBKSkgJT4lIAogIGV4cHNzOjp2YWx1ZXMybGFiZWxzKC4pCgplamVyY2ljaW8xCmBgYAoKLS0tCgojIyMjIEVqZXJjaWNpbyAyCgo+IENhbGN1bGFyIGVsIGluZ3Jlc28gZGUgbGEgb2N1cGFjacOzbiBwcmluY2lwYWwgcHJvbWVkaW8sIHBhcmEgbGFzL29zIG9jdXBhZGFzL29zIHBvciBhZ2xvbWVyYWRvcyB5IHNleG8KCiogTGEgdmFyaWFibGUgZGUgZmlsdHJvCiogTGFzIHZhcmlhYmxlcyBkZSBhZ3J1cGFtaWVudG8KKiBMYSBtZWRpYSBwb25kZXJhZGEgeSB1biBudWV2byBwb25kZXJhZG9yCiogQ8OhbGN1bG8gZGUgbGEgYnJlY2hhCiogRnVuY2nDs24gcGFyYSBwcmVzZW50YXIgZW4gZm9ybWF0byBwb3JjZW50dWFsCgpgYGB7cn0KZWplcmNpY2lvMiA8LSBpbmRpdmlkdWFsICU+JSAKICBmaWx0ZXIoRVNUQURPID09IDEpICU+JSAKICBncm91cF9ieShBR0xPTUVSQURPLCBDSDA0KSAlPiUgCiAgc3VtbWFyaXNlKHByb21lZGlvX2lvcCA9IHdlaWdodGVkLm1lYW4oUDIxLCBQT05ESUlPKSkgJT4lICMgcG9uZGVyYWRvcgogIHNwcmVhZCguLCBDSDA0LCBwcm9tZWRpb19pb3ApICU+JSAKICBleHBzczo6dmFsdWVzMmxhYmVscyguKSAlPiUgCiAgbXV0YXRlKEJyZWNoYSA9ICgoVmFyb24gLSBNdWplcikvVmFyb24pKSAlPiUgCiAgYXJyYW5nZSgtQnJlY2hhKSAlPiUgCiAgbXV0YXRlKEJyZWNoYSA9IHNjYWxlczo6cGVyY2VudChCcmVjaGEpKQoKZWplcmNpY2lvMgpgYGAKCi0tLQoKIyMjIyBFamVyY2ljaW8gMwoKPiBDYWxjdWxhciBlbCBpbmdyZXNvIHRvdGFsIGluZGl2aWR1YWwgcHJvbWVkaW8sIHBhcmEgcXVpZW5lcyBwZXJjaWJlbiBpbmdyZXNvcywgcG9yIGFnbG9tZXJhZG9zIHkgc2V4bwoKKiBMYSB2YXJpYWJsZSBkZSBmaWx0cm86IEluZ3Jlc28gdG90YWwgaW5kaXZpZHVhbCBwb3NpdGl2bwoqIExhcyB2YXJpYWJsZXMgZGUgYWdydXBhbWllbnRvOiBFbCBhZ2xvbWVyYWRvIHkgZWwgc2V4bwoqIFVuIG51ZXZvIHBvbmRlcmFkb3IKCmBgYHtyfQplamVyY2ljaW8zIDwtIGluZGl2aWR1YWwgJT4lIAogIGZpbHRlcihQNDdUID4gMCkgJT4lIAogIGdyb3VwX2J5KEFHTE9NRVJBRE8sIENIMDQpICU+JSAKICBzdW1tYXJpc2UocHJvbWVkaW9faXRpID0gd2VpZ2h0ZWQubWVhbihQNDdULCBQT05ESUkpKSAlPiUgIyBwb25kZXJhZG9yCiAgc3ByZWFkKC4sIENIMDQsIHByb21lZGlvX2l0aSkgJT4lIAogIGV4cHNzOjp2YWx1ZXMybGFiZWxzKC4pICU+JSAKICBtdXRhdGUoQnJlY2hhID0gKChWYXJvbiAtIE11amVyKS9WYXJvbikpICU+JSAKICBhcnJhbmdlKC1CcmVjaGEpICU+JSAKICBtdXRhdGUoQnJlY2hhID0gc2NhbGVzOjpwZXJjZW50KEJyZWNoYSkpCgplamVyY2ljaW8zCmBgYAoKLS0tCgojIyMgRWplbXBsbyBkZSB1dGlsaXphY2nDs24gZGUgbGEgZW5jdWVzdGEKCltMYSBkZXNpZ3VhbGRhZCBkZSBnw6luZXJvIHNlIHB1ZWRlIG1lZGlyXShodHRwOi8vd3d3LnJwdWJzLmNvbS9uYXRzdW1pX3Nob2tpZGEvKQo=</div>
 
 
 </div>

@@ -126,7 +126,9 @@ Estos ponderadores se obtienen como el __inverso de la probabilidad__ de que la 
 
 En la sección de práctica guiada veremos cómo operar con ponderadores en R.
 
-### Un ejemplo: La Encuesta Permanente de Hogares
+### Ejemplos
+
+#### Encuesta Permanente de Hogares
 
 ![](img/EPH.png){width=1000}
 
@@ -147,4 +149,45 @@ __Comentamos__:
   
 Para más detalles sobre la Encuesta Permanente de Hogares: 
 
-- https://pablotis.github.io/Presentaciones/clase1_eph.html
+* https://pablotis.github.io/Presentaciones/clase1_eph.html
+
+#### Encuesta Nacional de Gastos de los Hogares (ENGHO)
+
+__Comentamos__:
+
+* Objetivos de la encuesta
+* Cobertura:  
+  + 45.000 hogares, ubicados en centros urbanos de 2000 habitantes y más de todo el país
+* Frecuencia y periodicidad
+  + octubre de 2017 hasta diciembre de 2018
+* Muestra de viviendas
+* 5 cuestionarios
+  + Cuestionario 1. Características de los hogares
+  + Cuestionario 2. Gastos diarios
+  + Cuestionario 3. Gastos varios
+  + Cuestionario 4. Gastos personales
+  + Cuestionario 5. Ingresos
+* Ponderadores
+
+Para más detalles sobre la ENGHO: 
+
+* [Presentación](https://www.indec.gob.ar/engho/)
+* [Bases de datos](https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos-4)
+
+## Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires
+
+__Comentamos__:
+
+* Trabajo para el Mercado (Act. productiva)
+* Trabajo No Remunerado (Act. productiva)
+* Actividades Personales 
+* Medición del Tiempo cuando se hacen varias cosas simultáneamente
+  + hasta 3 Actividades Simultáneas
+
+Para más detalles sobre la Encuesta Uso del Tiempo CABA 2016: 
+
+* [Presentación](https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2017/10/Uso-del-Tiempo-2016.pdf)
+* [Doc. Metodologico](https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2017/10/UT_CABA_2017.pdf)
+* [Bases de datos](https://www.estadisticaciudad.gob.ar/eyc/?cat=6212)
+
+

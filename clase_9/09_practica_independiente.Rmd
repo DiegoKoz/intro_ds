@@ -8,3 +8,12 @@ date: ""
 subtitle: Práctica Independiente
 ---
 
+## EAH Ciudad 2017 (Ampliada)
+(Datos en fuentes)
+ingresos imputados
+
+Ejercicio: Dejar para la práctica independiente la consigna de hacer el mismo ejercicio que hacemos con EPH por aglomerados, pero por comunas:
+
++ ocupades segun rama de actividad agregada, tasa de feminización, ingresos promedios, tasa de no les descuentan ni aportan
++ ioph_2 ingreso de la ocup principal (ocupados) por comunas y sexo (PRACTICA INDEPENDIENTE)
++ ingtot_2 ingreso total individual, por comunas y sexo (PRACTICA INDEPENDIENTE)

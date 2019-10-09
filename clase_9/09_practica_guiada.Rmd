@@ -8,35 +8,75 @@ date: ""
 subtitle: Práctica Guiada
 ---
 
+En esta sección trabajaremos con las bases de la Encuesta Permanente de Hogares del INDEC, para ejemplificar la forma de trabajar con encuestas en general. Realizaremos tres ejercicios que luego serán replicados, en la sección de _práctica independiente_, pero con la Encuesta Anual de Hogares de CABA.
 
+> Reiniciar R
 
+### Encuesta Permanente de Hogares
 
+Recomendaciones para trabajar con esta encuesta:
 
-## Encuesta Permanente de Hogares
-https://pablotis.github.io/Presentaciones/index.html#15
-Leer metodologías, definiciones de las categorías (p ej asalariades no encubiertos/encubiertos)
-paquete eph
-ej. de uso: rpubs.com/natsumi_shokida
+* Tener a mano el diseño de registro
+* Utilizar el paquete `eph`
+* Si queremos estar seguros sobre la definición de una categoría, apelar a los documentos metodológicos (por ejemplo: el caso de los asalariados encubiertos)
+* tirar frecuencias o plots de las variables antes de usarlas (-9, 0, NAs, etc...)
 
-+ ingtot_2 ingreso total individual, por aglomerados y sexo
+Cargamos las librerías
 
-```{r}
-library(eph)
-library(tidyverse)
-library(expss)
+```{r message=FALSE, warning=FALSE}
+# install.packages("eph")
+library(eph)         # para trabajar con EPH
+library(tidyverse)   
+library(expss)       # para trabajar con la etiqueta de los datos
+```
+
+Cargamos las bases con una función del paquete `eph`, que no va a descargar en disco la información pero sí la va a cargar en el entorno de trabajo de R.
+
+```{r message=FALSE, warning=FALSE}
+?eph::get_microdata
 
 individual <- get_microdata(year = 2019, trimester = 1, type = 'individual')
 hogar <- get_microdata(year = 2019, trimester = 1, type = 'hogar')
+```
 
+Sobre las bases:
+
+* Qué tienen en común (CODUSU, NRO_HOGAR)
+* Para qué nos pueden servir esas variables en común
+
+```{r}
+glimpse(hogar)
+glimpse(individual)
+```
+
+* La función `organize_labels()` permite etiquetar los datos
+* Seleccionamos variables relevantes para el ejercicio: información contenida en cada una
+
+```{r}
 individual <- organize_labels(individual, type = 'individual') %>% 
   select(CODUSU, NRO_HOGAR, AGLOMERADO, COMPONENTE, CH04, ESTADO, CAT_OCUP, P21, P47T, PONDERA, PONDII, PONDIIO)
   
 hogar <- organize_labels(hogar, type = 'hogar') %>% 
   select(CODUSU, NRO_HOGAR, IV12_2, IV12_3)
-  
-# Cuántas personas viven en viviendas ubicadas en villas de emergencias y en zonas inundables?
+
 ## IV12_2: zona inundable
 ## IV12_3: villa de emergencia
+```
+
+---
+
+#### Ejercicio 1
+
+> Cuántas personas viven en viviendas ubicadas en villas de emergencias y en zonas inundables?
+
+Notemos que la pregunta refiere a las personas, pero la información sobre la ubicación de la vivienda figura en la base de hogares.
+
+* Join de bases individual y hogar (y al revés?)
+* Las variables de filtro y agrupamiento
+* El rol de los ponderadores
+* Función para mostrar los resultados etiquetados
+
+```{r message=FALSE, warning=FALSE}
 ejercicio1 <- left_join(individual, hogar, by = c("CODUSU", "NRO_HOGAR")) %>% 
   filter(IV12_2 == 1 | IV12_3 == 1) %>% 
   group_by(IV12_2, IV12_3) %>% 
@@ -44,8 +84,21 @@ ejercicio1 <- left_join(individual, hogar, by = c("CODUSU", "NRO_HOGAR")) %>%
   expss::values2labels(.)
 
 ejercicio1
+```
 
-# Calcular el ingreso de la ocup. principal promedio, para las/os ocupadas/os por aglomerados y sexo
+---
+
+#### Ejercicio 2
+
+> Calcular el ingreso de la ocupación principal promedio, para las/os ocupadas/os por aglomerados y sexo
+
+* La variable de filtro
+* Las variables de agrupamiento
+* La media ponderada y un nuevo ponderador
+* Cálculo de la brecha
+* Función para presentar en formato porcentual
+
+```{r}
 ejercicio2 <- individual %>% 
   filter(ESTADO == 1) %>% 
   group_by(AGLOMERADO, CH04) %>% 
@@ -57,9 +110,19 @@ ejercicio2 <- individual %>%
   mutate(Brecha = scales::percent(Brecha))
 
 ejercicio2
+```
 
-# Calcular el ingreso total individual promedio, para quienes perciben ingresos, por aglomerados y sexo
+---
 
+#### Ejercicio 3
+
+> Calcular el ingreso total individual promedio, para quienes perciben ingresos, por aglomerados y sexo
+
+* La variable de filtro: Ingreso total individual positivo
+* Las variables de agrupamiento: El aglomerado y el sexo
+* Un nuevo ponderador
+
+```{r}
 ejercicio3 <- individual %>% 
   filter(P47T > 0) %>% 
   group_by(AGLOMERADO, CH04) %>% 
@@ -69,49 +132,12 @@ ejercicio3 <- individual %>%
   mutate(Brecha = ((Varon - Mujer)/Varon)) %>% 
   arrange(-Brecha) %>% 
   mutate(Brecha = scales::percent(Brecha))
+
+ejercicio3
 ```
 
+---
 
+### Ejemplo de utilización de la encuesta
 
-
-## ENGHO?
-(bases en fuentes)
-Ejercicios: gasto en transporte/gasto en total. Regresión entre nivel de ingresos y proporción de gastos en transporte.
-Las bases tienen un | al final de cada fila y eso nos trae advertencias al levantar.
-https://www.indec.gob.ar/indec/web/Institucional-Indec-BasesDeDatos-4
-
-## EAH Ciudad 2017 (Ampliada)
-(Datos en fuentes)
-ingresos imputados
-
-Ejercicio: Dejar para la práctica independiente la consigna de hacer el mismo ejercicio que hacemos con EPH por aglomerados, pero por comunas:
-
-+ ocupades segun rama de actividad agregada, tasa de feminización, ingresos promedios, tasa de no les descuentan ni aportan
-+ ioph_2 ingreso de la ocup principal (ocupados) por comunas y sexo (PRACTICA INDEPENDIENTE)
-+ ingtot_2 ingreso total individual, por comunas y sexo (PRACTICA INDEPENDIENTE)
-
-## Encuesta Uso del Tiempo 2016 Ciudad de Buenos Aires
-(Datos en fuentes)
-
-```{r}
-library(readr)
-ENGH0405_gastos <- read_delim("fuentes/ENGH0405_gastos.txt", 
-                              "|", escape_double = FALSE, trim_ws = TRUE)
-
-ENGH0405_codigos_bienes_servicios <- read_delim("../fuentes/ENGH0405_codigos_bienes_servicios.txt", 
-      "|", escape_double = FALSE, col_types = cols(ARTICULO = col_character(), 
-          CLASE = col_character(), CLAVEAGRP = col_character(), 
-          DIVISION = col_character(), GRUPO = col_character(), 
-          SUBCLASE = col_character()), locale = locale(encoding = "ISO-8859-1"), 
-      trim_ws = TRUE)
-
-
-```
-
-Ciudad EAH 2017
-```{r}
-
-```
-
-
-
+[La desigualdad de género se puede medir](http://www.rpubs.com/natsumi_shokida/)
