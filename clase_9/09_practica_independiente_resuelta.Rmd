@@ -18,7 +18,11 @@ El objetivo de esta práctica es realizar ejercicios similares a los que hemos r
 Comencemos cargando las librerías `tidyverse` y `readr`, y luego levantando la base de `individuos` que se encuentra en la carpeta de _fuentes_.
 
 ```{r}
+library(tidyverse)
+library(readr)
 
+individuos <- read_delim("../fuentes/eah2017_bu_ampliada/eah2017_bu_ampliada_ind.txt", 
+                                      ";", escape_double = FALSE, trim_ws = TRUE)
 ```
 
 ---
@@ -34,7 +38,9 @@ Variables necesarias:
 Notemos que en este caso no hace falta hacer un join con la base de hogares porque la variable está en la base de individuos también. Pero si quisiéramos, podemos unirlas teniendo en cuenta `id` y `nhogar`.
 
 ```{r}
-
+individuos %>% 
+  group_by(dominio) %>% 
+  summarise(Cantidad = sum(fexp))
 ```
 
 ---
@@ -59,7 +65,18 @@ Ayuda:
 * La media debe ser ponderada
 
 ```{r}
+individuos <- individuos %>% 
+  mutate(sexo = case_when(sexo == 1 ~ "Varon",
+                          sexo == 2 ~ "Mujer"))
 
+individuos %>% 
+  filter(estado == 1, codioph == 1) %>% 
+  group_by(comuna, sexo) %>% 
+  summarise(promedio_iop = weighted.mean(ioph_2, fexp)) %>% 
+  spread(., sexo, promedio_iop) %>% 
+  mutate(Brecha = ((Varon - Mujer)/Varon)) %>% 
+  arrange(-Brecha) %>% 
+  mutate(Brecha = scales::percent(Brecha))
 ```
 
 ---
@@ -78,7 +95,14 @@ Ayuda:
 * Filtro: Tuvo ingresos y declara el monto
 
 ```{r}
-
+individuos %>% 
+  filter(coding == 1) %>% 
+  group_by(comuna, sexo) %>% 
+  summarise(promedio_iti = weighted.mean(ingtot_2, fexp)) %>% 
+  spread(., sexo, promedio_iti) %>% 
+  mutate(Brecha = ((Varon - Mujer)/Varon)) %>% 
+  arrange(-Brecha) %>% 
+  mutate(Brecha = scales::percent(Brecha))
 ```
 
 ---
@@ -112,7 +136,13 @@ Variables necesarias:
 * sexo
 
 ```{r}
-
+individuos %>% 
+  filter(estado == 1, categori == 3, codioph == 1) %>% 
+  group_by(t37_coda_2) %>% 
+  summarise(ingreso_promedio = weighted.mean(ioph_2, fexp),
+            tasa_feminizacion = scales::percent(sum(fexp[sexo == "Mujer"])/sum(fexp)),
+            tasa_no_registro = scales::percent(sum(fexp[t51_bis %in% 2:3])/sum(fexp)))
+  
 ```
 
   

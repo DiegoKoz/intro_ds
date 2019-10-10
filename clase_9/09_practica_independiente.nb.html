@@ -2891,19 +2891,119 @@ div.tocify {
 
 
 <!-- rnb-text-begin -->
-<div id="eah-ciudad-2017-ampliada" class="section level2">
-<h2>EAH Ciudad 2017 (Ampliada)</h2>
-<p>(Datos en fuentes) ingresos imputados</p>
-<p>Ejercicio: Dejar para la práctica independiente la consigna de hacer el mismo ejercicio que hacemos con EPH por aglomerados, pero por comunas:</p>
+<p>En esta instancia trabajaremos con bases de la Encuesta Anual de Hogares de la Ciudad de Buenos Aires, en su versión “ampliada” de 2017. Los datos ya se encuentran descargados en la carpeta <em>fuentes</em>, pero pueden ser obtenidos desde <a href="https://www.estadisticaciudad.gob.ar/eyc/?cat=93">la página de Estadísticas Ciudad</a>.</p>
+<div id="eah-ciudad-2017-ampliada" class="section level3">
+<h3>EAH Ciudad 2017 (Ampliada)</h3>
 <ul>
-<li>ocupades segun rama de actividad agregada, tasa de feminización, ingresos promedios, tasa de no les descuentan ni aportan</li>
-<li>ioph_2 ingreso de la ocup principal (ocupados) por comunas y sexo (PRACTICA INDEPENDIENTE)</li>
-<li>ingtot_2 ingreso total individual, por comunas y sexo (PRACTICA INDEPENDIENTE)</li>
+<li>Aclaración: esta encuesta tiene ingresos imputados</li>
+</ul>
+<p>El objetivo de esta práctica es realizar ejercicios similares a los que hemos realizado con la Encuesta Permanente de Hogares del INDEC, pero realizando agrupamientos por <em>comuna</em> en lugar de <em>aglomerados</em>.<br />
+Comencemos cargando las librerías <code>tidyverse</code> y <code>readr</code>, y luego levantando la base de <code>individuos</code> que se encuentra en la carpeta de <em>fuentes</em>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+<div id="ejercicio-1" class="section level4">
+<h4>Ejercicio 1</h4>
+<blockquote>
+<p>Cuántas personas viven en viviendas ubicadas en villas de emergencias?</p>
+</blockquote>
+<p>Variables necesarias:</p>
+<ul>
+<li>dominio = 3 (Viviendas ubicadas en villas de emergencia)</li>
+</ul>
+<p>Notemos que en este caso no hace falta hacer un join con la base de hogares porque la variable está en la base de individuos también. Pero si quisiéramos, podemos unirlas teniendo en cuenta <code>id</code> y <code>nhogar</code>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="ejercicio-2" class="section level4">
+<h4>Ejercicio 2</h4>
+<blockquote>
+<p>Calcular el ingreso de la ocupación principal promedio, para las/os ocupadas/os por comunas y sexo</p>
+</blockquote>
+<p>Variables necesarias:</p>
+<ul>
+<li>estado = 1 (ocupado)</li>
+<li>codioph = 1 (Con ingresos y declaración del monto de los mismos)</li>
+<li>ioph_2 (Monto del ingreso por la ocupación principal percibido el mes pasado o por cobrar o que arregló que le paguen. Incluye valores imputados)</li>
+<li>sexo: 1 es varon, 2 es mujer (Aprovechemos para modificarla y que tome estas etiquetas!)</li>
+<li>comuna</li>
+<li>fexp: factor de expansión (ponderador)</li>
+</ul>
+<p>Ayuda:</p>
+<ul>
+<li>Filtro: ocupados con ingresos y declaración del monto</li>
+<li>Agrupar por comuna y sexo</li>
+<li>La media debe ser ponderada</li>
 </ul>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="ejercicio-3" class="section level4">
+<h4>Ejercicio 3</h4>
+<blockquote>
+<p>Calcular el ingreso total individual promedio, para quienes perciben ingresos, por comunas y sexo</p>
+</blockquote>
+<p>Variables necesarias:</p>
+<ul>
+<li>coding = 1 (Tuvo ingresos y declara el monto)</li>
+<li>ingtot_2 (Monto del ingreso total individual, incluye valores imputados)</li>
+</ul>
+<p>Ayuda:</p>
+<ul>
+<li>Filtro: Tuvo ingresos y declara el monto</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<hr />
+</div>
+<div id="ejercicio-4" class="section level4">
+<h4>Ejercicio 4</h4>
+<blockquote>
+<p>Calcular: Ocupados asalariados según rama de actividad agregada, y de cada rama estimar los ingresos promedio, la tasa de feminización, y la tasa de “no les descuentan ni aportan” para Descuentos/aportes jubilatorios.</p>
+</blockquote>
+<p>Variables necesarias:</p>
+<ul>
+<li>estado = 1 (ocupado)</li>
+<li>categori = 3 (asalariado)</li>
+<li>t37_coda_2 (Rama de actividad, codificación agregada)</li>
+</ul>
+<p>0 No corresponde<br />
+1 Industria manufacturera<br />
+2 Construcción<br />
+3 Comercio al por mayor y al por menor, reparación de vehículos y motocicletas; alojamiento y servicios de comidas<br />
+4 Transporte y almacenamiento (Incluye correo y servicios de mensajería)<br />
+5 Actividades financieras y de seguros; actividades inmobiliarias; actividades profesionales científicas y técnicas; actividades administrativas y servicios de apoyo; información y comunicación<br />
+6 Administración pública y defensa; planes de seguro social obligatorio<br />
+7 Enseñanza; salud humana y servicios sociales<br />
+8 Artes, entretenimiento y recreación; otras actividades de servicios<br />
+9 Servicio doméstico<br />
+10 Otras ramas<br />
+11 Sin especificar</p>
+<ul>
+<li>codioph = 1 (Con ingresos y declaración del monto de los mismos)</li>
+<li>ioph_2 (Monto del ingreso por la ocupación principal percibido el mes pasado o por cobrar o que arregló que le paguen. Incluye valores imputados)</li>
+<li>t51_bis = 2 o 3 (Aporta por su cuenta o No le descuentan ni aporta)</li>
+<li>sexo</li>
+</ul>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiBBbsOhbGlzaXMgZGUgZW5jdWVzdGFzCm91dHB1dDoKICBodG1sX25vdGVib29rOgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCmRhdGU6ICIiCnN1YnRpdGxlOiBQcsOhY3RpY2EgSW5kZXBlbmRpZW50ZQotLS0KCiMjIEVBSCBDaXVkYWQgMjAxNyAoQW1wbGlhZGEpCihEYXRvcyBlbiBmdWVudGVzKQppbmdyZXNvcyBpbXB1dGFkb3MKCkVqZXJjaWNpbzogRGVqYXIgcGFyYSBsYSBwcsOhY3RpY2EgaW5kZXBlbmRpZW50ZSBsYSBjb25zaWduYSBkZSBoYWNlciBlbCBtaXNtbyBlamVyY2ljaW8gcXVlIGhhY2Vtb3MgY29uIEVQSCBwb3IgYWdsb21lcmFkb3MsIHBlcm8gcG9yIGNvbXVuYXM6CgorIG9jdXBhZGVzIHNlZ3VuIHJhbWEgZGUgYWN0aXZpZGFkIGFncmVnYWRhLCB0YXNhIGRlIGZlbWluaXphY2nDs24sIGluZ3Jlc29zIHByb21lZGlvcywgdGFzYSBkZSBubyBsZXMgZGVzY3VlbnRhbiBuaSBhcG9ydGFuCisgaW9waF8yIGluZ3Jlc28gZGUgbGEgb2N1cCBwcmluY2lwYWwgKG9jdXBhZG9zKSBwb3IgY29tdW5hcyB5IHNleG8gKFBSQUNUSUNBIElOREVQRU5ESUVOVEUpCisgaW5ndG90XzIgaW5ncmVzbyB0b3RhbCBpbmRpdmlkdWFsLCBwb3IgY29tdW5hcyB5IHNleG8gKFBSQUNUSUNBIElOREVQRU5ESUVOVEUp</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiBBbsOhbGlzaXMgZGUgZW5jdWVzdGFzCm91dHB1dDoKICBodG1sX25vdGVib29rOgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCmRhdGU6ICIiCnN1YnRpdGxlOiBQcsOhY3RpY2EgSW5kZXBlbmRpZW50ZQotLS0KCkVuIGVzdGEgaW5zdGFuY2lhIHRyYWJhamFyZW1vcyBjb24gYmFzZXMgZGUgbGEgRW5jdWVzdGEgQW51YWwgZGUgSG9nYXJlcyBkZSBsYSBDaXVkYWQgZGUgQnVlbm9zIEFpcmVzLCBlbiBzdSB2ZXJzacOzbiAiYW1wbGlhZGEiIGRlIDIwMTcuIExvcyBkYXRvcyB5YSBzZSBlbmN1ZW50cmFuIGRlc2NhcmdhZG9zIGVuIGxhIGNhcnBldGEgX2Z1ZW50ZXNfLCBwZXJvIHB1ZWRlbiBzZXIgb2J0ZW5pZG9zIGRlc2RlIFtsYSBww6FnaW5hIGRlIEVzdGFkw61zdGljYXMgQ2l1ZGFkXShodHRwczovL3d3dy5lc3RhZGlzdGljYWNpdWRhZC5nb2IuYXIvZXljLz9jYXQ9OTMpLgoKIyMjIEVBSCBDaXVkYWQgMjAxNyAoQW1wbGlhZGEpCgoqIEFjbGFyYWNpw7NuOiBlc3RhIGVuY3Vlc3RhIHRpZW5lIGluZ3Jlc29zIGltcHV0YWRvcwoKRWwgb2JqZXRpdm8gZGUgZXN0YSBwcsOhY3RpY2EgZXMgcmVhbGl6YXIgZWplcmNpY2lvcyBzaW1pbGFyZXMgYSBsb3MgcXVlIGhlbW9zIHJlYWxpemFkbyBjb24gbGEgRW5jdWVzdGEgUGVybWFuZW50ZSBkZSBIb2dhcmVzIGRlbCBJTkRFQywgcGVybyByZWFsaXphbmRvIGFncnVwYW1pZW50b3MgcG9yIF9jb211bmFfIGVuIGx1Z2FyIGRlIF9hZ2xvbWVyYWRvc18uICAgIApDb21lbmNlbW9zIGNhcmdhbmRvIGxhcyBsaWJyZXLDrWFzIGB0aWR5dmVyc2VgIHkgYHJlYWRyYCwgeSBsdWVnbyBsZXZhbnRhbmRvIGxhIGJhc2UgZGUgYGluZGl2aWR1b3NgIHF1ZSBzZSBlbmN1ZW50cmEgZW4gbGEgY2FycGV0YSBkZSBfZnVlbnRlc18uCgpgYGB7cn0KCmBgYAoKLS0tCgojIyMjIEVqZXJjaWNpbyAxCgo+IEN1w6FudGFzIHBlcnNvbmFzIHZpdmVuIGVuIHZpdmllbmRhcyB1YmljYWRhcyBlbiB2aWxsYXMgZGUgZW1lcmdlbmNpYXM/CgpWYXJpYWJsZXMgbmVjZXNhcmlhczoKCiogZG9taW5pbyA9IDMgKFZpdmllbmRhcyB1YmljYWRhcyBlbiB2aWxsYXMgZGUgZW1lcmdlbmNpYSkKCk5vdGVtb3MgcXVlIGVuIGVzdGUgY2FzbyBubyBoYWNlIGZhbHRhIGhhY2VyIHVuIGpvaW4gY29uIGxhIGJhc2UgZGUgaG9nYXJlcyBwb3JxdWUgbGEgdmFyaWFibGUgZXN0w6EgZW4gbGEgYmFzZSBkZSBpbmRpdmlkdW9zIHRhbWJpw6luLiBQZXJvIHNpIHF1aXNpw6lyYW1vcywgcG9kZW1vcyB1bmlybGFzIHRlbmllbmRvIGVuIGN1ZW50YSBgaWRgIHkgYG5ob2dhcmAuCgpgYGB7cn0KCmBgYAoKLS0tCgojIyMjIEVqZXJjaWNpbyAyCgo+IENhbGN1bGFyIGVsIGluZ3Jlc28gZGUgbGEgb2N1cGFjacOzbiBwcmluY2lwYWwgcHJvbWVkaW8sIHBhcmEgbGFzL29zIG9jdXBhZGFzL29zIHBvciBjb211bmFzIHkgc2V4bwoKVmFyaWFibGVzIG5lY2VzYXJpYXM6CgoqIGVzdGFkbyA9IDEgKG9jdXBhZG8pCiogY29kaW9waCA9IDEgKENvbiBpbmdyZXNvcyB5IGRlY2xhcmFjacOzbiBkZWwgbW9udG8gZGUgbG9zIG1pc21vcykKKiBpb3BoXzIgKE1vbnRvIGRlbCBpbmdyZXNvIHBvciBsYSBvY3VwYWNpw7NuIHByaW5jaXBhbCBwZXJjaWJpZG8gZWwgbWVzIHBhc2FkbyBvIHBvciBjb2JyYXIgbyBxdWUgYXJyZWdsw7MgcXVlIGxlIHBhZ3Vlbi4gSW5jbHV5ZSB2YWxvcmVzIGltcHV0YWRvcykKKiBzZXhvOiAxIGVzIHZhcm9uLCAyIGVzIG11amVyIChBcHJvdmVjaGVtb3MgcGFyYSBtb2RpZmljYXJsYSB5IHF1ZSB0b21lIGVzdGFzIGV0aXF1ZXRhcyEpCiogY29tdW5hCiogZmV4cDogZmFjdG9yIGRlIGV4cGFuc2nDs24gKHBvbmRlcmFkb3IpCgpBeXVkYTogCgoqIEZpbHRybzogb2N1cGFkb3MgY29uIGluZ3Jlc29zIHkgZGVjbGFyYWNpw7NuIGRlbCBtb250bwoqIEFncnVwYXIgcG9yIGNvbXVuYSB5IHNleG8KKiBMYSBtZWRpYSBkZWJlIHNlciBwb25kZXJhZGEKCmBgYHtyfQoKYGBgCgotLS0KCiMjIyMgRWplcmNpY2lvIDMKCj4gQ2FsY3VsYXIgZWwgaW5ncmVzbyB0b3RhbCBpbmRpdmlkdWFsIHByb21lZGlvLCBwYXJhIHF1aWVuZXMgcGVyY2liZW4gaW5ncmVzb3MsIHBvciBjb211bmFzIHkgc2V4bwoKVmFyaWFibGVzIG5lY2VzYXJpYXM6CgoqIGNvZGluZyA9IDEgKFR1dm8gaW5ncmVzb3MgeSBkZWNsYXJhIGVsIG1vbnRvKSAKKiBpbmd0b3RfMiAoTW9udG8gZGVsIGluZ3Jlc28gdG90YWwgaW5kaXZpZHVhbCwgaW5jbHV5ZSB2YWxvcmVzIGltcHV0YWRvcykKCkF5dWRhOiAKCiogRmlsdHJvOiBUdXZvIGluZ3Jlc29zIHkgZGVjbGFyYSBlbCBtb250bwoKYGBge3J9CgpgYGAKCi0tLQoKIyMjIyBFamVyY2ljaW8gNAoKPiBDYWxjdWxhcjogT2N1cGFkb3MgYXNhbGFyaWFkb3Mgc2Vnw7puIHJhbWEgZGUgYWN0aXZpZGFkIGFncmVnYWRhLCB5IGRlIGNhZGEgcmFtYSBlc3RpbWFyIGxvcyBpbmdyZXNvcyBwcm9tZWRpbywgbGEgdGFzYSBkZSBmZW1pbml6YWNpw7NuLCB5IGxhIHRhc2EgZGUgIm5vIGxlcyBkZXNjdWVudGFuIG5pIGFwb3J0YW4iIHBhcmEgRGVzY3VlbnRvcy9hcG9ydGVzIGp1YmlsYXRvcmlvcy4KClZhcmlhYmxlcyBuZWNlc2FyaWFzOgoKKiBlc3RhZG8gPSAxIChvY3VwYWRvKQoqIGNhdGVnb3JpID0gMyAoYXNhbGFyaWFkbykKKiB0MzdfY29kYV8yIChSYW1hIGRlIGFjdGl2aWRhZCwgY29kaWZpY2FjacOzbiBhZ3JlZ2FkYSkKCjAgTm8gY29ycmVzcG9uZGUgICAgCjEgSW5kdXN0cmlhIG1hbnVmYWN0dXJlcmEgICAgCjIgQ29uc3RydWNjacOzbiAgICAKMyBDb21lcmNpbyBhbCBwb3IgbWF5b3IgeSBhbCBwb3IgbWVub3IsIHJlcGFyYWNpw7NuIGRlIHZlaMOtY3Vsb3MgeSBtb3RvY2ljbGV0YXM7IGFsb2phbWllbnRvIHkgc2VydmljaW9zIGRlIGNvbWlkYXMgICAKNCBUcmFuc3BvcnRlIHkgYWxtYWNlbmFtaWVudG8gKEluY2x1eWUgY29ycmVvIHkgc2VydmljaW9zIGRlIG1lbnNhamVyw61hKSAgIAo1IEFjdGl2aWRhZGVzIGZpbmFuY2llcmFzIHkgZGUgc2VndXJvczsgYWN0aXZpZGFkZXMgaW5tb2JpbGlhcmlhczsgYWN0aXZpZGFkZXMgcHJvZmVzaW9uYWxlcyBjaWVudMOtZmljYXMgeSB0w6ljbmljYXM7IGFjdGl2aWRhZGVzIGFkbWluaXN0cmF0aXZhcyB5IHNlcnZpY2lvcyBkZSBhcG95bzsgaW5mb3JtYWNpw7NuIHkgY29tdW5pY2FjacOzbiAgIAo2IEFkbWluaXN0cmFjacOzbiBww7pibGljYSB5IGRlZmVuc2E7IHBsYW5lcyBkZSBzZWd1cm8gc29jaWFsIG9ibGlnYXRvcmlvICAgIAo3IEVuc2XDsWFuemE7IHNhbHVkIGh1bWFuYSB5IHNlcnZpY2lvcyBzb2NpYWxlcyAgICAKOCBBcnRlcywgZW50cmV0ZW5pbWllbnRvIHkgcmVjcmVhY2nDs247IG90cmFzIGFjdGl2aWRhZGVzIGRlIHNlcnZpY2lvcyAgICAgCjkgU2VydmljaW8gZG9tw6lzdGljbyAgICAgCjEwIE90cmFzIHJhbWFzICAgCjExIFNpbiBlc3BlY2lmaWNhciAgCgoqIGNvZGlvcGggPSAxIChDb24gaW5ncmVzb3MgeSBkZWNsYXJhY2nDs24gZGVsIG1vbnRvIGRlIGxvcyBtaXNtb3MpCiogaW9waF8yIChNb250byBkZWwgaW5ncmVzbyBwb3IgbGEgb2N1cGFjacOzbiBwcmluY2lwYWwgcGVyY2liaWRvIGVsIG1lcyBwYXNhZG8gbyBwb3IgY29icmFyIG8gcXVlIGFycmVnbMOzIHF1ZSBsZSBwYWd1ZW4uIEluY2x1eWUgdmFsb3JlcyBpbXB1dGFkb3MpCiogdDUxX2JpcyA9IDIgbyAzIChBcG9ydGEgcG9yIHN1IGN1ZW50YSBvIE5vIGxlIGRlc2N1ZW50YW4gbmkgYXBvcnRhKQoqIHNleG8KCmBgYHtyfQoKYGBgCgogIAoK</div>
 
 
 </div>
