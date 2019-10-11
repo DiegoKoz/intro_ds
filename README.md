@@ -100,11 +100,9 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 ### __clase 9__: Análisis de encuestas
 
-
-- Explicación
-- Práctica Guiada
-- Pŕactica independiente
-
+- [Explicación](clase_9/09_explicacion.nb.html)
+- [Práctica Guiada](clase_9/09_practica_guiada.nb.html)
+- [Práctica independiente](clase_9/09_practica_independiente.nb.html)
 
 ### __clase 10__: Text Mining 
 
@@ -112,12 +110,10 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 - [Práctica Guiada](clase_10/10_practica_guiada.nb.html)
 - [Práctica independiente](clase_10/10_practica_independiente.nb.html)
 
-
-
 ### __clase 11__: Mapas
 
-- Explicación
-- Práctica Guiada
+- [Explicación](clase_11/11_explicacion.nb.html)
+- [Práctica Guiada](clase_11/11_practica_guiada.nb.html)
 - [Mapa de la Ciencia de Datos](clase_11/11_data_sience_map.nb.html)
 
 
@@ -132,7 +128,7 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 #### Librerias a instalar
 
 ```
-install.packages(c("tidyverse","openxlsx","xlsx",'ggplot2','GGally','ggridges','treemapify','esquisse','cowplot','ggthemes', 'ggrepel', 'ggalt', 'kableExtra', 'fs', 'purrr', 'rmarkdown', 'modelr', 'plot3D','viridis','lubridate','gapminder'))
+install.packages(c('tidyverse', 'openxlsx', 'ggplot2', 'glue', 'GGally', 'ggridges', 'treemapify', 'esquisse', 'ggthemes', 'ggrepel', 'ggalt', 'kableExtra', 'fs', 'sf', 'purrr', 'rmarkdown', 'modelr', 'plotly', 'plot3D', 'viridis', 'lubridate', 'gapminder', 'datos', 'eph', 'expss', 'rtweet', 'tm', 'wordcloud2'))
 ```
 
 
