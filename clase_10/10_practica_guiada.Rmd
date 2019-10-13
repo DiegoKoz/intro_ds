@@ -185,15 +185,15 @@ dim(myDTM)
 dim(dtm)
 ```
 
-
 ```{r eval=FALSE}
 lda_fit <- LDA(dtm, k = 10,method = "Gibbs", control = list(delta=0.6,seed = 1234))
 lda_fit
+saveRDS(lda_fit,'resultados/lda_fit.rds')
 ```
 
 
 ```{r}
-saveRDS(lda_fit,'../resultados/lda_fit.rds')
+lda_fit <- readRDS('../resultados/lda_fit.rds')
 ```
 
 
