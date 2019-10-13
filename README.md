@@ -117,12 +117,13 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 - [Mapa de la Ciencia de Datos](clase_11/11_data_sience_map.nb.html)
 
 
-## Bibliografía
+## Bibliografía ampliatoria
 
 
-- GWickham, H., & Grolemund, G. (2016). R for data science: import, tidy, transform, visualize, and model data. " O'Reilly Media, Inc.". https://es.r4ds.hadley.nz/
-- James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An introduction to statistical learning. New York: springer. http://faculty.marshall.usc.edu/gareth-james/ISL/
-- Wickham, Hadley. ggplot2: elegant graphics for data analysis. Springer, 2016. https://ggplot2-book.org/
+- Wickham, H., & Grolemund, G. (2016). R for data science: import, tidy, transform, visualize, and model data. " O'Reilly Media, Inc.". [https://es.r4ds.hadley.nz/](https://es.r4ds.hadley.nz/)
+- James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An introduction to statistical learning. New York: springer. [http://faculty.marshall.usc.edu/gareth-james/ISL/](http://faculty.marshall.usc.edu/gareth-james/ISL/)
+- Wickham, Hadley. ggplot2: elegant graphics for data analysis. Springer, 2016. [https://ggplot2-book.org/](https://ggplot2-book.org/)
+- Wickham, Hadley. Mastering Shiny. 2019 [https://mastering-shiny.org/](https://mastering-shiny.org/)
 
 
 #### Librerias a instalar
