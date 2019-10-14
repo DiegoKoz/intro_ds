@@ -25,6 +25,10 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 
 [![](img/Download.png)](materiales_eje3.zip)
 
+- Materiales eje 4
+
+[![](img/Download.png)](materiales_eje4.zip)
+
 
 ## [Cheatsheet gráficos](fuentes/ggplot2-cheatsheet-2.1-Spanish.pdf)
 
