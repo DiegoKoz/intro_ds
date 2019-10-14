@@ -102,7 +102,8 @@ radios %>%
 Sin embargo, si lo que queremos es reconstruir los polígonos de los barrios, sólo necesitamos hacer un `group_by` y un `summarise`, y automáticamente en la columna `geometry` se crea el polígono combinado. Además, podemos hacer una agregación de las demás variables.
 
 ```{r}
-glimpse(radios)
+radios %>% 
+  sample_n(5)
 ```
 
 ```{r}
@@ -114,7 +115,8 @@ barrios_geo <- radios %>%
               HOGARES_NBI = sum(HOGARES_NBI),
               AREA_KM2 = sum(AREA_KM2))
 
-glimpse(barrios_geo)
+barrios_geo %>% 
+  sample_n(5)
 ```
 
 Si pedimos un `plot()` del objeto, nos devuelve la representación geográfica con los datos de cada una de las variables.
@@ -145,13 +147,15 @@ Ahora utilizaremos la información de líneas y estaciones de subte. Hemos desca
 
 ```{r}
 subte_lineas <- st_read('../fuentes/subte_lineas.geojson')
-glimpse(subte_lineas)
+subte_lineas %>% 
+  sample_n(5)
 ```
 
 ```{r}
 subte_estaciones <- st_read('../fuentes/subte_estaciones.geojson')
 
-glimpse(subte_estaciones)
+subte_estaciones %>% 
+  sample_n(5)
 ```
 
 Con `geom_sf` agregamos diferentes capas de información geográfica: 
@@ -188,7 +192,7 @@ Notemos que en este caso la información está en formato .rds, es un dataframe 
 palos_borrachos <- read_rds('../fuentes/arbolado_palo_borracho.rds')
 
 palos_borrachos %>% 
-  sample_n(10)
+  sample_n(5)
 ```
 
 #### Transformación de datos tabulados a datos sf
@@ -199,7 +203,8 @@ Para transformar los datos a tipo `sf`, tenemos la función `st_as_sf()`, a la c
 palos_borrachos <- st_as_sf(palos_borrachos, coords = c('long','lat')) %>% 
     st_set_crs(4326)
 
-glimpse(palos_borrachos)
+palos_borrachos %>% 
+  sample_n(5)
 ```
 
 Ahora podemos mapear los palos borrachos en los barrios de CABA que ya estuvimos trabajando!
@@ -219,14 +224,14 @@ Ahora probemos la forma de unir la información contenida en `palos_borrachos` c
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 palos_borrachos %>% 
-  st_join(barrios_geo)%>% 
-  glimpse()
+  st_join(barrios_geo) %>% 
+  sample_n(5)
 ```
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 barrios_geo %>% 
   st_join(palos_borrachos) %>% 
-  glimpse()
+  sample_n(5)
 ```
 
 Si queremos visualizar la densidad de borrachos por barrio:
