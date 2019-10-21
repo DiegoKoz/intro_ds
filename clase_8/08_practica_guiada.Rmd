@@ -38,6 +38,11 @@ summary(lm_fit)
 > ¿Son significativos los estimadores? ¿cuales?
 > ¿Cómo se leen los valores de los estimadores?
 
+
+$$
+\Delta y = \beta_1 \Delta x
+$$
+
 ### Feature engineering.
 
 Se denomina ingeniería de features a la construcción de nuevas variables a partir de las originales. 
@@ -73,7 +78,7 @@ Podemos dividr los tres grupos al rededor de los quartiles 1 y 3.
 
 - <2000 bajo
 - 2000-2500 medio
-- >2500 alto
+- \>2500 alto
 
 ```{r}
 df_barrios <- df_barrios %>% 
@@ -154,6 +159,14 @@ summary(lm_fit)
 - El $R^2$ pasó de 0.6977 a 0.7833!!
 
 - Cómo se interpretan ahora los nuevos parámetros?
+
+
+| Modelo      | Variable Dependiente | Variable Independiente | Interpretación $\beta_1$      |
+|-------------|------------------|--------------------|---------------------------------------|
+| Nivel-Nivel | $y$              | $x$                | $\Delta y = \beta_1 \Delta x$         |
+| Nivel-log   | $y$              | $log(x)$           | $\Delta y = (\beta_1/100)\% \Delta x$ |
+| Log-nivel   | $log(y)$         | $x$                | $\% \Delta y = (100 \beta_1) \Delta x$|
+| Log-log     | $log(y)$         | $log(x)$           | $\% \Delta y = \beta_1 \% \Delta x$   |
 
 ### Predicciones
 
