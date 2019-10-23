@@ -65,6 +65,12 @@ La correlación se define como sigue:
 
 $$\rho_{x,y}=\frac{cov(x,y)}{\sigma_x \sigma_y}$$
 
+
+$$
+\sigma_x=\sqrt{\frac{\sum_{i=1}^n(x_i-\bar x)^2}{n}}
+$$
+
+
 Es decir, normalizamos la covarianza por el desvío en $x$ y en $y$. de esta forma, la correlación se define entre -1 y 1. 
 
 #### ggpairs
