@@ -10,31 +10,29 @@ Este programa se destaca, entre otras cosas, por su capacidad de trabajar con gr
 El presente Taller tiene como objetivo principal introducir a los participantes en la ciencia de datos, sobre la base de la utilización del lenguaje R aplicado procesamiento de diferentes bases de datos provistas por el programa de Gobierno Abierto y la Encuesta Permanente de Hogares (EPH) - INDEC.  Se apunta a brindar las herramientas necesarias para la gestión de la información, presentación de resultados y algunas técnicas de modelado de datos, de forma tal que los participantes puedan luego avanzar por su cuenta a técnicas más avanzadas.
 
 
+#### Librerias a instalar
+
+```
+install.packages(c('tidyverse', 'openxlsx', 'ggplot2', 'glue', 'GGally', 'ggridges', 'treemapify', 'esquisse', 'ggthemes', 'ggrepel', 'ggalt', 'kableExtra', 'fs', 'sf', 'purrr', 'rmarkdown', 'modelr', 'plotly', 'plot3D', 'viridis', 'lubridate', 'gapminder', 'datos', 'eph', 'expss', 'rtweet', 'tm', 'wordcloud2'))
+```
+
 
 # Materiales para las clases
 
-- Materiales eje 1
 
-[![](img/Download.png)](materiales_eje1.zip)
+Ejectuar la siguiente linea de código en R
+```r
+usethis::use_course('https://github.com/DiegoKoz/intro_ds/archive/master.zip')
+```
 
-- Materiales eje 2
+O alternativamente descargar el siguiente archivo:
 
-[![](img/Download.png)](materiales_eje2.zip)
-
-- Materiales eje 3
-
-[![](img/Download.png)](materiales_eje3.zip)
-
-- Materiales eje 4
-
-[![](img/Download.png)](materiales_eje4.zip)
+[![](img/Download.png)](materiales.zip)
 
 
 ## [Cheatsheet gráficos](fuentes/ggplot2-cheatsheet-2.1-Spanish.pdf)
 
-# [Notas de clase](https://diegokoz.github.io/intro_ds_bookdown/)
-
-
+## [Notas de clase](https://diegokoz.github.io/intro_ds_bookdown/)
 
 
 # Temario
@@ -128,13 +126,6 @@ El presente Taller tiene como objetivo principal introducir a los participantes 
 - James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). An introduction to statistical learning. New York: springer. [http://faculty.marshall.usc.edu/gareth-james/ISL/](http://faculty.marshall.usc.edu/gareth-james/ISL/)
 - Wickham, Hadley. ggplot2: elegant graphics for data analysis. Springer, 2016. [https://ggplot2-book.org/](https://ggplot2-book.org/)
 - Wickham, Hadley. Mastering Shiny. 2019 [https://mastering-shiny.org/](https://mastering-shiny.org/)
-
-
-#### Librerias a instalar
-
-```
-install.packages(c('tidyverse', 'openxlsx', 'ggplot2', 'glue', 'GGally', 'ggridges', 'treemapify', 'esquisse', 'ggthemes', 'ggrepel', 'ggalt', 'kableExtra', 'fs', 'sf', 'purrr', 'rmarkdown', 'modelr', 'plotly', 'plot3D', 'viridis', 'lubridate', 'gapminder', 'datos', 'eph', 'expss', 'rtweet', 'tm', 'wordcloud2'))
-```
 
 
 
